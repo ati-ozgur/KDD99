@@ -4,6 +4,10 @@ apply plugin:'application'
 mainClassName = "Program"
 
 
+// Examples 
+// gradle -PmainClass=Program execute
+// gradle -PmainClass=weka.core.SystemInfo.main execute
+
 task execute(type:JavaExec) {
    main = mainClass
    classpath = sourceSets.main.runtimeClasspath
@@ -18,4 +22,10 @@ repositories {
     mavenCentral()
 }
 
-//compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+dependencies {
+	compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+}
+
+
+
+//
