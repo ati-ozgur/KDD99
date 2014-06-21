@@ -4,6 +4,12 @@ apply plugin:'application'
 mainClassName = "Program"
 
 
+task execute(type:JavaExec) {
+   main = mainClass
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+
 
 version = '0.0.1'
 
