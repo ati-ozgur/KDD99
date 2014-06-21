@@ -1,12 +1,12 @@
 apply plugin: 'java'
 apply plugin: 'application'
 
-mainClassName = "weka.core.SystemInfo.main"
+mainClassName = "weka.core.SystemInfo"
 
 
 // Examples 
 // gradle -PmainClass=Program execute
-// gradle -PmainClass=weka.core.SystemInfo.main execute
+// gradle -PmainClass=weka.core.SystemInfo execute
 // Bu hali ile aşağıdaki hatayı  veriyor.
 // Could not find property 'mainClass' on task ':execute'.
 // Buna başka bir çözüm bulacağım
