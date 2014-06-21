@@ -1,5 +1,5 @@
 apply plugin: 'java'
-apply plugin:'application'
+apply plugin: 'application'
 
 mainClassName = "Program"
 
@@ -7,11 +7,13 @@ mainClassName = "Program"
 // Examples 
 // gradle -PmainClass=Program execute
 // gradle -PmainClass=weka.core.SystemInfo.main execute
-
-task execute(type:JavaExec) {
-   main = mainClass
-   classpath = sourceSets.main.runtimeClasspath
-}
+// Bu hali ile aşağıdaki hatayı  veriyor.
+// Could not find property 'mainClass' on task ':execute'.
+// Buna başka bir çözüm bulacağım
+//task execute(type:JavaExec) {
+//   main = mainClass
+//   classpath = sourceSets.main.runtimeClasspath
+//}
 
 
 
