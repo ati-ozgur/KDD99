@@ -17,6 +17,24 @@ apply plugin: 'download-task'
 mainClassName = "weka.core.SystemInfo"
 
 
+urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
+
+kddDataSetGzFiles = [
+'kddcup.names',
+'kddcup.data.gz',
+'kddcup.data_10_percent.gz',
+'kddcup.newtestdata_10_percent_unlabeled.gz',
+'kddcup.testdata.unlabeled.gz',
+'kddcup.testdata.unlabeled_10_percent.gz',
+'corrected.gz',
+'training_attack_types',
+'typo-correction.txt',
+'task.html'
+
+]
+
+
+
 // Examples 
 // gradle -PmainClass=Program execute
 // gradle -PmainClass=weka.core.SystemInfo execute
