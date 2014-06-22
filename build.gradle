@@ -70,7 +70,7 @@ task(createChecksumForKddDatasetFiles) << {
      for(filename in kddDataSetFiles)
      {
          println filename
-         ext.fullFileName='Datasets/' + filename
+         String fullFileName='Datasets/' + filename
          ant.checksum(file:fullFileName,todir:'Datasets')
 
      }
@@ -98,8 +98,15 @@ task downloadKddDatasetFiles(type: Download) {
 
 task(unzipKddDatasetFiles) << {
      println "unzipKddDatasetFiles"
-     ant.gunzip(dest:'Datasets/corrected',src:'Datasets/corrected.gz')
-     
+     for(filename in kddDataSetFiles)
+     {
+         if (filename.endsWith("gz"))
+         {
+            String fullFileName='Datasets/' + filename
+            String fullFileNameWithoutGz = fullFileName.replace("gz","")
+            ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
+         }
+     }     
 }
 
 
