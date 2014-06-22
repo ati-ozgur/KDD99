@@ -45,10 +45,23 @@ dependencies {
 import de.undercouch.gradle.tasks.download.Download
 
 
-task downloadFile(type: Download) {
-    src 'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names'
-    dest 'Datasets/kddcup.names'
+task downloadKddDatasetFiles(type: Download) {
+    src([
+        'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names',
+        'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data.gz',
+        'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.data_10_percent.gz',
+        'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.newtestdata_10_percent_unlabeled.gz',
+        'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.testdata.unlabeled.gz',
+        'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.testdata.unlabeled_10_percent.gz',
+        'http://kdd.ics.uci.edu/databases/kddcup99/corrected.gz',
+        'http://kdd.ics.uci.edu/databases/kddcup99/training_attack_types',
+        'http://kdd.ics.uci.edu/databases/kddcup99/typo-correction.txt',
+        'http://kdd.ics.uci.edu/databases/kddcup99/task.html'
+
+    ])
+    dest 'Datasets'
 }
+
 
 
 
