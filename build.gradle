@@ -47,6 +47,7 @@ dependencies {
 
 task(createChecksumForKddDatasetFiles) << {
      println "hello"
+     ant.checksum(file:'Datasets/kddcup.names')
 }
 
 
