@@ -19,7 +19,7 @@ mainClassName = "weka.core.SystemInfo"
 
 urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
 
-kddDataSetGzFiles = [
+kddDataSetFiles = [
 'kddcup.names',
 'kddcup.data.gz',
 'kddcup.data_10_percent.gz',
@@ -65,11 +65,12 @@ dependencies {
 
 task(createChecksumForKddDatasetFiles) << {
      println "createChecksumForKddDatasetFiles"
-     ant.checksum{
-        fileset(dir: 'Datasets') {
-            include(name: '**.gz')
-            exclude(name: '**.MD5')
-        }
+     for(filename in kddDataSetFiles)
+     {
+         println filename
+         fullFileName='Datasets/' + filename
+         ant.checksum(file:fullFileName,todir:'Datasets')
+
      }
 }
 
