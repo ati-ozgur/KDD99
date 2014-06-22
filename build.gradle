@@ -45,6 +45,11 @@ dependencies {
 import de.undercouch.gradle.tasks.download.Download
 
 
+task createChecksumForKddDatasetFiles()
+{
+    ant.checksum forceoverwrite:true file: Datasets/kddcup.names
+}
+
 task downloadKddDatasetFiles(type: Download) {
     src([
         'http://kdd.ics.uci.edu/databases/kddcup99/kddcup.names',
