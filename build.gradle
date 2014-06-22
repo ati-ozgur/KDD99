@@ -6,6 +6,8 @@ buildscript {
         classpath 'de.undercouch:gradle-download-task:1.0'
     }
 }
+import de.undercouch.gradle.tasks.download.Download
+
 
 apply plugin: 'java'
 apply plugin: 'application'
@@ -42,13 +44,11 @@ dependencies {
 }
 
 
-import de.undercouch.gradle.tasks.download.Download
 
-
-task createChecksumForKddDatasetFiles()
-{
-    ant.checksum forceoverwrite:true file: Datasets/kddcup.names
+task(createChecksumForKddDatasetFiles) << {
+     println "hello"
 }
+
 
 task downloadKddDatasetFiles(type: Download) {
     src([
