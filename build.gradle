@@ -46,7 +46,7 @@ dependencies {
 
 
 task(createChecksumForKddDatasetFiles) << {
-     println "hello"
+     println "createChecksumForKddDatasetFiles"
      ant.checksum{
         fileset(dir: 'Datasets') {
             include(name: '**.gz')
@@ -71,6 +71,14 @@ task downloadKddDatasetFiles(type: Download) {
 
     ])
     dest 'Datasets'
+}
+
+
+
+task(unzipKddDatasetFiles) << {
+     println "unzipKddDatasetFiles"
+     ant.gunzip(dest:'Datasets/corrected',src:'Datasets/corrected.gz')
+     
 }
 
 
