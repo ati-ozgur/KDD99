@@ -47,7 +47,12 @@ dependencies {
 
 task(createChecksumForKddDatasetFiles) << {
      println "hello"
-     ant.checksum(file:'Datasets/kddcup.names')
+     ant.checksum{
+        fileset(dir: 'Datasets') {
+            include(name: '**.gz')
+            exclude(name: '**.MD5')
+        }
+     }
 }
 
 
