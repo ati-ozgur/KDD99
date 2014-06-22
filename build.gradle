@@ -16,22 +16,24 @@ apply plugin: 'download-task'
 
 mainClassName = "weka.core.SystemInfo"
 
+ ext {
+    urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
 
-urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
+    kddDataSetFiles = [
+    'kddcup.names',
+    'kddcup.data.gz',
+    'kddcup.data_10_percent.gz',
+    'kddcup.newtestdata_10_percent_unlabeled.gz',
+    'kddcup.testdata.unlabeled.gz',
+    'kddcup.testdata.unlabeled_10_percent.gz',
+    'corrected.gz',
+    'training_attack_types',
+    'typo-correction.txt',
+    'task.html'
 
-kddDataSetFiles = [
-'kddcup.names',
-'kddcup.data.gz',
-'kddcup.data_10_percent.gz',
-'kddcup.newtestdata_10_percent_unlabeled.gz',
-'kddcup.testdata.unlabeled.gz',
-'kddcup.testdata.unlabeled_10_percent.gz',
-'corrected.gz',
-'training_attack_types',
-'typo-correction.txt',
-'task.html'
+    ]
+  }
 
-]
 
 
 
@@ -68,7 +70,7 @@ task(createChecksumForKddDatasetFiles) << {
      for(filename in kddDataSetFiles)
      {
          println filename
-         fullFileName='Datasets/' + filename
+         ext.fullFileName='Datasets/' + filename
          ant.checksum(file:fullFileName,todir:'Datasets')
 
      }
