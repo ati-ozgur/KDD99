@@ -16,7 +16,7 @@ apply plugin: 'java'
 
 
 //mainClassName = "weka.core.SystemInfo"
-mainClassName = "kdd99.ProgramGroovy"
+mainClassName = "kdd99.SQLiteJDBC"
 
  ext {
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
@@ -63,7 +63,12 @@ repositories {
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.0'
     compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+    compile 'org.xerial:sqlite-jdbc:3.7.15-M1'
+
 	runtime 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+
+
+
 }
 
 
