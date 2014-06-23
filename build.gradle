@@ -66,20 +66,18 @@ dependencies {
 
 
 task(createChecksumForKddDatasetFiles) << {
-     println "createChecksumForKddDatasetFiles"
-     for(filename in kddDataSetFiles)
-     {
-         println filename
-         String fullFileName='Datasets/' + filename
-         ant.checksum(file:fullFileName,todir:'Datasets')
+    println "createChecksumForKddDatasetFiles"
+    kddDataSetFiles.each{ filename->
+        println filename
+        String fullFileName='Datasets/' + filename
+        ant.checksum(file:fullFileName,todir:'Datasets')
 
-     }
+    }
 }
 
 task downloadKddDatasetFiles << {
-     for(filename in kddDataSetFiles)
-     {
-         
+
+    kddDataSetFiles.each{ filename->
          String fullUrl=urlKdd99WebSite + filename
          String fullFileName='Datasets/' + filename
          println fullUrl
@@ -89,8 +87,7 @@ task downloadKddDatasetFiles << {
             dest fullFileName
         }
 
-     }
-
+    }
 }
 
 
@@ -98,16 +95,16 @@ task downloadKddDatasetFiles << {
 
 
 task(unzipKddDatasetFiles) << {
-     println "unzipKddDatasetFiles"
-     for(filename in kddDataSetFiles)
-     {
-         if (filename.endsWith("gz"))
-         {
+    kddDataSetFiles.each{ filename->
+        if (filename.endsWith("gz"))
+        {
             String fullFileName='Datasets/' + filename
             String fullFileNameWithoutGz = fullFileName.replace("gz","")
             ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
-         }
-     }     
+        }
+
+    }
+
 }
 
 
