@@ -9,12 +9,14 @@ buildscript {
 import de.undercouch.gradle.tasks.download.Download
 
 
-apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'download-task'
+apply plugin: 'groovy'
+apply plugin: 'java'
 
 
-mainClassName = "weka.core.SystemInfo"
+//mainClassName = "weka.core.SystemInfo"
+mainClassName = "Program"
 
  ext {
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
@@ -59,7 +61,8 @@ repositories {
 }
 
 dependencies {
-
+    compile 'org.codehaus.groovy:groovy-all:2.2.0'
+    compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
 	runtime 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
 }
 
