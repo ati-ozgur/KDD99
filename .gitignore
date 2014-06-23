@@ -3,3 +3,4 @@ build/
 Datasets/
 *.sublime-workspace
 
+*.db
