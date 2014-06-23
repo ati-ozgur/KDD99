@@ -16,7 +16,7 @@ apply plugin: 'java'
 
 
 //mainClassName = "weka.core.SystemInfo"
-mainClassName = "Program"
+mainClassName = "kdd99.ProgramGroovy"
 
  ext {
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
