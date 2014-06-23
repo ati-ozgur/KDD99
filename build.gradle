@@ -16,7 +16,8 @@ apply plugin: 'java'
 
 
 //mainClassName = "weka.core.SystemInfo"
-mainClassName = "kdd99.SQLiteJDBC"
+//mainClassName = "kdd99.SQLiteJDBC"
+mainClassName = "kdd99.JdbcExample"
 
  ext {
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
