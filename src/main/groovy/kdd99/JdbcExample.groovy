@@ -13,14 +13,11 @@ println "Hello from groovy"
 
 
 
-def sql = Sql.newInstance(Constants.JDBC_URL)
+def sqlEngine = Sql.newInstance(Constants.JDBC_URL)
 
-sql.execute '''
- create table PROJECT (
-     id integer not null,
-     name varchar(50),
-     url varchar(100)
- )
-'''
 
+String sqlCreateTable = new File(Resources.SQL_kdd99TableCreation).text
+
+println sqlCreateTable
+//sqlEngine.execute sqlCreateTable
 
