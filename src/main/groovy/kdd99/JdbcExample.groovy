@@ -18,6 +18,13 @@ def sqlEngine = Sql.newInstance(Constants.JDBC_URL)
 
 String sqlCreateTable = new File(Resources.SQL_kdd99TableCreation).text
 
-println sqlCreateTable
+//println sqlCreateTable
 //sqlEngine.execute sqlCreateTable
+
+String sqlImport = new File(Resources.SQL_Import).text
+println sqlImport
+
+sqlEngine.execute sqlImport
+
+
 
