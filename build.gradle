@@ -46,10 +46,10 @@ mainClassName = "kdd99.JdbcExample"
 // Bu hali ile aşağıdaki hatayı  veriyor.
 // Could not find property 'mainClass' on task ':execute'.
 // Buna başka bir çözüm bulacağım
-//task execute(type:JavaExec) {
-//   main = mainClass
-//   classpath = sourceSets.main.runtimeClasspath
-//}
+task execSQLiteConnectionControl(type:JavaExec) {
+   main = "tr.edu.baskent.fbe.Kdd99.SQLiteJDBC"
+   classpath = sourceSets.main.runtimeClasspath
+}
 
 
 
