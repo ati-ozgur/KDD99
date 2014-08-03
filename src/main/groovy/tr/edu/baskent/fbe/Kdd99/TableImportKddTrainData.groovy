@@ -66,6 +66,9 @@ def sqlEngine = Sql.newInstance(Constants.JDBC_URL)
 
 def exampleDataFull = new File(DataSetFiles.KddcupTrainData)
 
+def start = System.currentTimeMillis()
+
+
 int lineNumber = 1;
 exampleDataFull.eachLine
 { line->
@@ -73,6 +76,8 @@ exampleDataFull.eachLine
     if (lineNumber % 1000 == 1)
     {
         println "lineNumber    " + lineNumber
+        def now = System.currentTimeMillis()
+        println "Insertion took ${now-start} ms"
     }
     lineNumber++
     String[] lineData = line.split(",")
