@@ -54,10 +54,17 @@ task execSQLiteConnectionControl(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
 }
 
-task execCreateTable(type:JavaExec) {
+task execSQLCreateTable(type:JavaExec) {
    main = mainPackageName + ".TableCreation"
    classpath = sourceSets.main.runtimeClasspath
 }
+
+task execSQLTableImportKddTrainData(type:JavaExec) {
+   main = mainPackageName + ".TableImportKddTrainData"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+
 
 
 version = '0.0.1'
