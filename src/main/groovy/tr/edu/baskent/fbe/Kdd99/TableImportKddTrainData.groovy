@@ -64,11 +64,15 @@ INSERT INTO KDD_TRAIN_DATA(
 def sqlEngine = Sql.newInstance(Constants.JDBC_URL)
 
 
-String exampleDataFull = new File(DataSetFiles.KddcupExampleData).text
+def exampleDataFull = new File(DataSetFiles.KddcupExampleData)
 
+int lineNumber = 1;
 exampleDataFull.eachLine
-{
-    String[] lineData = it.split(",")
+{ line->
+    //println line
+    println "lineNumber    " + lineNumber
+    lineNumber++
+    String[] lineData = line.split(",")
     sqlEngine.execute ( insertSqlWithParams, lineData)
 }
 
