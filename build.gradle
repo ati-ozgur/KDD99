@@ -51,7 +51,10 @@ task execSQLiteConnectionControl(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
 }
 
-
+task execCreateTable(type:JavaExec) {
+   main = "kdd99.TableCreation"
+   classpath = sourceSets.main.runtimeClasspath
+}
 
 
 version = '0.0.1'
