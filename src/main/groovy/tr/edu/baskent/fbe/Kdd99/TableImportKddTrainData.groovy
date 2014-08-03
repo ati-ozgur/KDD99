@@ -70,7 +70,10 @@ int lineNumber = 1;
 exampleDataFull.eachLine
 { line->
     //println line
-    println "lineNumber    " + lineNumber
+    if (lineNumber % 1000 == 1)
+    {
+        println "lineNumber    " + lineNumber
+    }
     lineNumber++
     String[] lineData = line.split(",")
     sqlEngine.execute ( insertSqlWithParams, lineData)
