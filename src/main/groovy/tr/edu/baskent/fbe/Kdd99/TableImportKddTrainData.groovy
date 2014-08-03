@@ -7,6 +7,7 @@ import groovy.sql.Sql
 
 
 
+
 def insertSql1 = "INSERT INTO KDD_TRAIN_DATA VALUES(0.0,'tcp','http','SF',215.0,45076.0,'0',0.0,0.0,0.0,0.0,'1',0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,'0','0',1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,'normal.');"
 
 
@@ -67,7 +68,8 @@ String exampleDataFull = new File(DataSetFiles.KddcupExampleData).text
 
 exampleDataFull.eachLine
 {
-    println it
+    String[] lineData = it.split(",")
+    sqlEngine.execute ( insertSqlWithParams, lineData)
 }
 
 
