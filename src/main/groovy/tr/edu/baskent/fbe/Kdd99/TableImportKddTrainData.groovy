@@ -64,7 +64,7 @@ INSERT INTO KDD_TRAIN_DATA(
 def sqlEngine = Sql.newInstance(Constants.JDBC_URL)
 
 
-def exampleDataFull = new File(DataSetFiles.KddcupExampleData)
+def exampleDataFull = new File(DataSetFiles.KddcupTrainData)
 
 int lineNumber = 1;
 exampleDataFull.eachLine
