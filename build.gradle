@@ -15,12 +15,15 @@ apply plugin: 'groovy'
 apply plugin: 'java'
 
 
-//mainClassName = "weka.core.SystemInfo"
-//mainClassName = "kdd99.SQLiteJDBC"
-mainClassName = "kdd99.JdbcExample"
+
+
 
  ext {
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
+    mainPackageName = "tr.edu.baskent.fbe.Kdd99"
+    //mainClassName = "weka.core.SystemInfo"
+    //mainClassName = mainPackageName + ".SQLiteJDBC"
+    mainClassName = mainPackageName + '.JdbcExample'
 
     kddDataSetFiles = [
     'kddcup.names',
@@ -47,12 +50,12 @@ mainClassName = "kdd99.JdbcExample"
 // Could not find property 'mainClass' on task ':execute'.
 // Buna başka bir çözüm bulacağım
 task execSQLiteConnectionControl(type:JavaExec) {
-   main = "tr.edu.baskent.fbe.Kdd99.SQLiteJDBC"
+   main = mainPackageName + ".SQLiteJDBC"
    classpath = sourceSets.main.runtimeClasspath
 }
 
 task execCreateTable(type:JavaExec) {
-   main = "kdd99.TableCreation"
+   main = mainPackageName + ".TableCreation"
    classpath = sourceSets.main.runtimeClasspath
 }
 
