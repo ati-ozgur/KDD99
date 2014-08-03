@@ -1,4 +1,4 @@
-package kdd99;
+package tr.edu.baskent.fbe.Kdd99;
 
 import groovy.sql.Sql
 
