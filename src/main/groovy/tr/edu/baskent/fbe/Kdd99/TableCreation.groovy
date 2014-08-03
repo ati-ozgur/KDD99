@@ -21,7 +21,7 @@ String[] sqlCreateTableList = sqlCreateTable.split(";")
 
 for(String sql in sqlCreateTableList) {
     println "---------------------"
-    println sql
+    sqlEngine.execute sql
 
 }
 
