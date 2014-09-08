@@ -14,7 +14,7 @@ apply plugin: 'download-task'
 apply plugin: 'groovy'
 apply plugin: 'java'
 
-
+version = '0.0.1'
 
 
 
@@ -43,6 +43,67 @@ apply plugin: 'java'
 
 
 
+
+
+
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.0'
+    compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+    compile 'org.xerial:sqlite-jdbc:3.7.15-M1'
+
+	runtime 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+
+
+
+}
+
+task downloadKddDatasetFiles << {
+
+    kddDataSetFiles.each{ filename->
+         String fullUrl=urlKdd99WebSite + filename
+         String fullFileName='Datasets/' + filename
+         println fullUrl
+         println fullFileName
+         download {
+            src fullUrl
+            dest fullFileName
+        }
+
+    }
+}
+
+
+task unzipKddDatasetFiles << {
+    kddDataSetFiles.each{ filename->
+        if (filename.endsWith("gz"))
+        {
+            String fullFileName='Datasets/' + filename
+            String fullFileNameWithoutGz = fullFileName.replace("gz","")
+            ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
+        }
+
+    }
+
+}
+
+task createChecksumForKddDatasetFiles << {
+    println "createChecksumForKddDatasetFiles"
+    kddDataSetFiles.each{ filename->
+        println filename
+        String fullFileName='Datasets/' + filename
+        ant.checksum(file:fullFileName,todir:'Datasets')
+
+    }
+}
+
+
 // Examples 
 // gradle -PmainClass=Program execute
 // gradle -PmainClass=weka.core.SystemInfo execute
@@ -67,67 +128,7 @@ task execSQLTableImportKddTrainData(type:JavaExec) {
 
 
 
-version = '0.0.1'
 
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.2.0'
-    compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
-    compile 'org.xerial:sqlite-jdbc:3.7.15-M1'
-
-	runtime 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
-
-
-
-}
-
-
-
-task(createChecksumForKddDatasetFiles) << {
-    println "createChecksumForKddDatasetFiles"
-    kddDataSetFiles.each{ filename->
-        println filename
-        String fullFileName='Datasets/' + filename
-        ant.checksum(file:fullFileName,todir:'Datasets')
-
-    }
-}
-
-task downloadKddDatasetFiles << {
-
-    kddDataSetFiles.each{ filename->
-         String fullUrl=urlKdd99WebSite + filename
-         String fullFileName='Datasets/' + filename
-         println fullUrl
-         println fullFileName
-         download {
-            src fullUrl
-            dest fullFileName
-        }
-
-    }
-}
-
-
-
-
-
-task(unzipKddDatasetFiles) << {
-    kddDataSetFiles.each{ filename->
-        if (filename.endsWith("gz"))
-        {
-            String fullFileName='Datasets/' + filename
-            String fullFileNameWithoutGz = fullFileName.replace("gz","")
-            ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
-        }
-
-    }
-
-}
 
 
 
