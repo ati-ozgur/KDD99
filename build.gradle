@@ -25,6 +25,9 @@ version = '0.0.1'
     //mainClassName = mainPackageName + ".SQLiteJDBC"
     mainClassName = mainPackageName + '.JdbcExample'
 
+
+    DATABASE_NAME = "test1.sqlite"
+
     kddDataSetFiles = [
     'kddcup.names',
     'kddcup.data.gz',
@@ -130,14 +133,18 @@ task tableImportKddTrainDataFromSql(type:JavaExec) {
 tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
 
  ext {
+   IMPORT_FILE_NAME = "import.sql";
+   IMPORT_FILE_NAME_FULL = "Datasets/" + IMPORT_FILE_NAME
+
   CMD_ImportKddTrainData = """
 .separator ","
 .import kddcup.data KDD_TRAIN_DATA
 """
+  CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} << ${IMPORT_FILE_NAME}"
 }
 def createImportFile()
 {
-    def f = file("Datasets/import.sql")
+    def f = file(IMPORT_FILE_NAME_FULL)
     println f.getAbsolutePath()
     f << CMD_ImportKddTrainData
 
