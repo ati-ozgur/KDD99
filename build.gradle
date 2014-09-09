@@ -92,6 +92,7 @@ task unzipKddDatasetFiles << {
     }
 
 }
+unzipKddDatasetFiles.dependsOn downloadKddDatasetFiles
 
 task createChecksumForKddDatasetFiles << {
     println "createChecksumForKddDatasetFiles"
@@ -102,6 +103,8 @@ task createChecksumForKddDatasetFiles << {
 
     }
 }
+
+createChecksumForKddDatasetFiles.dependsOn unzipKddDatasetFiles
 
 
 // Examples 
