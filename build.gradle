@@ -67,6 +67,10 @@ dependencies {
 
 }
 
+clean{
+    delete "Datasets"
+}
+
 task downloadKddDatasetFiles << {
 
     kddDataSetFiles.each{ filename->
