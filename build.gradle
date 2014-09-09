@@ -136,8 +136,7 @@ tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
    IMPORT_FILE_NAME = "import.sql";
    IMPORT_FILE_NAME_FULL = "Datasets/" + IMPORT_FILE_NAME
 
-  CMD_ImportKddTrainData = """
-.separator ","
+  CMD_ImportKddTrainData = """.separator ","
 .import kddcup.data KDD_TRAIN_DATA
 """
   CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} << ${IMPORT_FILE_NAME}"
@@ -145,8 +144,11 @@ tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
 def createImportFile()
 {
     def f = file(IMPORT_FILE_NAME_FULL)
-    println f.getAbsolutePath()
-    f << CMD_ImportKddTrainData
+    //println f.getAbsolutePath()
+    def w = f.newWriter() 
+
+    w << CMD_ImportKddTrainData
+    w.close()
 
 
 }
