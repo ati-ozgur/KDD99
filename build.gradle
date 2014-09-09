@@ -132,7 +132,7 @@ task tableImportKddTrainDataFromSql(type:JavaExec) {
 }
 tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
 
- ext {
+ext {
    IMPORT_FILE_NAME = "import.sql";
    IMPORT_FILE_NAME_FULL = "Datasets/" + IMPORT_FILE_NAME
 
@@ -173,7 +173,7 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
 
 
-// tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
 
 
 
