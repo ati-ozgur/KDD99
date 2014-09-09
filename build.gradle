@@ -67,11 +67,25 @@ dependencies {
 
 }
 
+defaultTasks 'clean','createChecksumForKddDatasetFiles','tableImportKddTrainDataFromCommandLine'
+
 clean{
     delete "Datasets"
+    createDatasetsFolder()
+}
+
+def createDatasetsFolder()
+{
+    def f = file("Datasets")
+
+    if (!f.exists())
+    {
+        f.mkdir() 
+    }
 }
 
 task downloadKddDatasetFiles << {
+    
 
     kddDataSetFiles.each{ filename->
          String fullUrl=urlKdd99WebSite + filename
