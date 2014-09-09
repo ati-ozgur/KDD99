@@ -139,7 +139,7 @@ tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
   CMD_ImportKddTrainData = """.separator ","
 .import kddcup.data KDD_TRAIN_DATA
 """
-  CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} << ${IMPORT_FILE_NAME}"
+  CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
 }
 def createImportFile()
 {
@@ -152,11 +152,25 @@ def createImportFile()
 
 
 }
+task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
-task tableImportKddTrainDataFromCommandLine() {
-    // copy import.sql
-    createImportFile()
+  createImportFile()
+  workingDir file("Datasets").getAbsolutePath()
+
+  //on windows:
+  commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+
+
+
+  //store the output instead of printing to the console:
+  standardOutput = new ByteArrayOutputStream()
+
+  //extension method stopTomcat.output() can be used to obtain the output:
+  ext.output = {
+    return standardOutput.toString()
+  }
 }
+
 
 
 // tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
