@@ -129,7 +129,7 @@ task execSQLTableImportKddTrainData(type:JavaExec) {
 }
 
 
-
+execSQLTableImportKddTrainData.dependsOn execSQLCreateTable
 
 
 
