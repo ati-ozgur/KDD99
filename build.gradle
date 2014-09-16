@@ -14,7 +14,7 @@ apply plugin: 'download-task'
 apply plugin: 'groovy'
 apply plugin: 'java'
 
-
+version = '0.0.1'
 
 
 
@@ -24,6 +24,9 @@ apply plugin: 'java'
     //mainClassName = "weka.core.SystemInfo"
     //mainClassName = mainPackageName + ".SQLiteJDBC"
     mainClassName = mainPackageName + '.JdbcExample'
+
+
+    DATABASE_NAME = "test1.sqlite"
 
     kddDataSetFiles = [
     'kddcup.names',
@@ -43,31 +46,10 @@ apply plugin: 'java'
 
 
 
-// Examples 
-// gradle -PmainClass=Program execute
-// gradle -PmainClass=weka.core.SystemInfo execute
-// Bu hali ile aşağıdaki hatayı  veriyor.
-// Could not find property 'mainClass' on task ':execute'.
-// Buna başka bir çözüm bulacağım
-task execSQLiteConnectionControl(type:JavaExec) {
-   main = mainPackageName + ".SQLiteJDBC"
-   classpath = sourceSets.main.runtimeClasspath
-}
-
-task execSQLCreateTable(type:JavaExec) {
-   main = mainPackageName + ".TableCreation"
-   classpath = sourceSets.main.runtimeClasspath
-}
-
-task execSQLTableImportKddTrainData(type:JavaExec) {
-   main = mainPackageName + ".TableImportKddTrainData"
-   classpath = sourceSets.main.runtimeClasspath
-}
 
 
 
 
-version = '0.0.1'
 
 
 repositories {
@@ -85,19 +67,25 @@ dependencies {
 
 }
 
+defaultTasks 'clean','createChecksumForKddDatasetFiles','tableImportKddTrainDataFromCommandLine'
 
+clean{
+    delete "Datasets"
+    createDatasetsFolder()
+}
 
-task(createChecksumForKddDatasetFiles) << {
-    println "createChecksumForKddDatasetFiles"
-    kddDataSetFiles.each{ filename->
-        println filename
-        String fullFileName='Datasets/' + filename
-        ant.checksum(file:fullFileName,todir:'Datasets')
+def createDatasetsFolder()
+{
+    def f = file("Datasets")
 
+    if (!f.exists())
+    {
+        f.mkdir() 
     }
 }
 
 task downloadKddDatasetFiles << {
+    
 
     kddDataSetFiles.each{ filename->
          String fullUrl=urlKdd99WebSite + filename
@@ -113,10 +101,7 @@ task downloadKddDatasetFiles << {
 }
 
 
-
-
-
-task(unzipKddDatasetFiles) << {
+task unzipKddDatasetFiles << {
     kddDataSetFiles.each{ filename->
         if (filename.endsWith("gz"))
         {
@@ -128,6 +113,85 @@ task(unzipKddDatasetFiles) << {
     }
 
 }
+unzipKddDatasetFiles.dependsOn downloadKddDatasetFiles
+
+task createChecksumForKddDatasetFiles << {
+    println "createChecksumForKddDatasetFiles"
+    kddDataSetFiles.each{ filename->
+        println filename
+        String fullFileName='Datasets/' + filename
+        ant.checksum(file:fullFileName,todir:'Datasets')
+
+    }
+}
+
+createChecksumForKddDatasetFiles.dependsOn unzipKddDatasetFiles
+
+
+// Examples 
+// gradle -PmainClass=Program execute
+// gradle -PmainClass=weka.core.SystemInfo execute
+// Bu hali ile aşağıdaki hatayı  veriyor.
+// Could not find property 'mainClass' on task ':execute'.
+// Buna başka bir çözüm bulacağım
+task execSQLiteConnectionControl(type:JavaExec) {
+   main = mainPackageName + ".SQLiteJDBC"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task execSQLCreateTable(type:JavaExec) {
+   main = mainPackageName + ".TableCreation"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task tableImportKddTrainDataFromSql(type:JavaExec) {
+   main = mainPackageName + ".TableImportKddTrainData"
+   classpath = sourceSets.main.runtimeClasspath
+}
+tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
+
+ext {
+   IMPORT_FILE_NAME = "import.sql";
+   IMPORT_FILE_NAME_FULL = "Datasets/" + IMPORT_FILE_NAME
+
+  CMD_ImportKddTrainData = """.separator ","
+.import kddcup.data KDD_TRAIN_DATA
+"""
+  CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
+}
+def createImportFile()
+{
+    def f = file(IMPORT_FILE_NAME_FULL)
+    //println f.getAbsolutePath()
+    def w = f.newWriter() 
+
+    w << CMD_ImportKddTrainData
+    w.close()
+
+
+}
+task tableImportKddTrainDataFromCommandLine(type:Exec) {
+
+  createImportFile()
+  workingDir file("Datasets").getAbsolutePath()
+
+  //on windows:
+  commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+
+
+
+  //store the output instead of printing to the console:
+  standardOutput = new ByteArrayOutputStream()
+
+  //extension method stopTomcat.output() can be used to obtain the output:
+  ext.output = {
+    return standardOutput.toString()
+  }
+}
+
+
+
+tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
 
 
 
