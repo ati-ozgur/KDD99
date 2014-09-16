@@ -170,20 +170,38 @@ def createImportFile()
 
 
 }
+
+def isWindows()
+{
+    if (System.properties['os.name'].toLowerCase().contains('windows')) {
+      println "it's Windows" + System.properties['os.name']
+      return true;
+   } else {
+      println "it's not Windows, it is " + System.properties['os.name']
+      return false;
+   }
+}
+
 task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
   createImportFile()
   workingDir file("Datasets").getAbsolutePath()
 
   //on windows:
-  commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+  if (isWindows())
+  {
+    commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+  }
+  else
+  {
+     commandLine CMD_Exec_sqlite3_import
+  }
 
 
 
   //store the output instead of printing to the console:
   standardOutput = new ByteArrayOutputStream()
 
-  //extension method stopTomcat.output() can be used to obtain the output:
   ext.output = {
     return standardOutput.toString()
   }
@@ -191,7 +209,7 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
 
 
-tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+//tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
 
 
 
