@@ -200,14 +200,11 @@ def isWindows()
    }
 }
 
+
 task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
   createImportFile()
   workingDir file("Datasets").getAbsolutePath()
-
-  println "workingDir:" 
-  println workingDir
-  //on windows:
 
   if (isWindows())
   {
@@ -220,8 +217,6 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
     createImportBashFile()
     ant.chmod(dir:workingDir, perm:'+x', includes:"*.bash")
     commandLine "./" + IMPORT_BASH_FILE_NAME
-    println "Executing command:"
-    println commandLine
   }
 
 
