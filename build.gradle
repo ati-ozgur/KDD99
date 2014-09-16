@@ -153,11 +153,15 @@ tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
 ext {
    IMPORT_FILE_NAME = "import.sql";
    IMPORT_FILE_NAME_FULL = "Datasets/" + IMPORT_FILE_NAME
+   IMPORT_BASH_FILE_NAME = "import.bash"
+   IMPORT_BASH_FILE_NAME_FULL = "Datasets/" + IMPORT_BASH_FILE_NAME;
 
   CMD_ImportKddTrainData = """.separator ","
 .import kddcup.data KDD_TRAIN_DATA
 """
+
   CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
+
 }
 def createImportFile()
 {
@@ -170,14 +174,28 @@ def createImportFile()
 
 
 }
+def createImportBashFile()
+{
+    def f = file(IMPORT_BASH_FILE_NAME_FULL)
+    //println f.getAbsolutePath()
+    def w = f.newWriter() 
+
+    w << CMD_Exec_sqlite3_import
+    w.close()
+
+
+}
+
+
+
 
 def isWindows()
 {
     if (System.properties['os.name'].toLowerCase().contains('windows')) {
-      println "it's Windows" + System.properties['os.name']
+      //println "it's Windows" + System.properties['os.name']
       return true;
    } else {
-      println "it's not Windows, it is " + System.properties['os.name']
+      //println "it's not Windows, it is " + System.properties['os.name']
       return false;
    }
 }
@@ -187,15 +205,25 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
   createImportFile()
   workingDir file("Datasets").getAbsolutePath()
 
+  println "workingDir:" 
+  println workingDir
   //on windows:
+
   if (isWindows())
   {
+    println "Executing command:"
+    println CMD_Exec_sqlite3_import
     commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
   }
   else
   {
-     commandLine CMD_Exec_sqlite3_import
+    createImportBashFile()
+    commandLine "./" + IMPORT_BASH_FILE_NAME
+    println "Executing command:"
+    println commandLine
   }
+
+
 
 
 
