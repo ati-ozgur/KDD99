@@ -203,25 +203,23 @@ def isWindows()
 
 task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
-  createImportFile()
   workingDir file("Datasets").getAbsolutePath()
+  doLast {
+    createImportFile()
 
-  if (isWindows())
-  {
-    println "Executing command:"
-    println CMD_Exec_sqlite3_import
-    commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+    if (isWindows())
+    {
+      println "Executing command:"
+      println CMD_Exec_sqlite3_import
+      commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+    }
+    else
+    {
+      createImportBashFile()
+      ant.chmod(dir:workingDir, perm:'+x', includes:"*.bash")
+      commandLine "./" + IMPORT_BASH_FILE_NAME
+    }
   }
-  else
-  {
-    createImportBashFile()
-    ant.chmod(dir:workingDir, perm:'+x', includes:"*.bash")
-    commandLine "./" + IMPORT_BASH_FILE_NAME
-  }
-
-
-
-
 
   //store the output instead of printing to the console:
   standardOutput = new ByteArrayOutputStream()
