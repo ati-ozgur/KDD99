@@ -69,7 +69,7 @@ dependencies {
 
 defaultTasks 'clean','createChecksumForKddDatasetFiles','tableImportKddTrainDataFromCommandLine'
 
-clean{
+clean << {
     delete "Datasets"
     createDatasetsFolder()
 }
@@ -201,37 +201,54 @@ def isWindows()
 }
 
 
+String findCommandLine()
+{
+  //createImportFile()
+  if (isWindows())
+  {
+    commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+  }
+  else
+  {
+    //createImportBashFile()
+    //ant.chmod(dir:workingDir, perm:'+x', includes:"*.bash")
+    //commandLine "./" + IMPORT_BASH_FILE_NAME
+  }
+  
+}
+
+
 task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
   workingDir file("Datasets").getAbsolutePath()
-  doLast {
+
+
+  //store the output instead of printing to the console:
+  standardOutput = new ByteArrayOutputStream()
+
+  ext.output = {
+  return standardOutput.toString()
+  }
+}
+
+
+  tableImportKddTrainDataFromCommandLine << {
     createImportFile()
 
-    if (isWindows())
+    if (!isWindows())
     {
-      println "Executing command:"
-      println CMD_Exec_sqlite3_import
       commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
     }
     else
     {
       createImportBashFile()
       ant.chmod(dir:workingDir, perm:'+x', includes:"*.bash")
-      commandLine "./" + IMPORT_BASH_FILE_NAME
     }
   }
 
-  //store the output instead of printing to the console:
-  standardOutput = new ByteArrayOutputStream()
-
-  ext.output = {
-    return standardOutput.toString()
-  }
-}
 
 
-
-//tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
 
 
 
