@@ -67,22 +67,16 @@ dependencies {
 
 }
 
-defaultTasks 'clean','createChecksumForKddDatasetFiles','tableImportKddTrainDataFromCommandLine'
+defaultTasks 'clean','generate','createChecksumForKddDatasetFiles','tableImportKddTrainDataFromCommandLine'
 
 clean << {
     delete "Datasets"
     createDatasetsFolder()
 }
 
-def createDatasetsFolder()
-{
-    def f = file("Datasets")
 
-    if (!f.exists())
-    {
-        f.mkdir() 
-    }
-}
+
+
 
 task downloadKddDatasetFiles << {
     
@@ -162,18 +156,21 @@ ext {
 
   CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
 
-}
-def createImportFile()
-{
-    def f = file(IMPORT_FILE_NAME_FULL)
-    //println f.getAbsolutePath()
-    def w = f.newWriter() 
+  outputDir = file("$buildDir/Datasets")
 
-    w << CMD_ImportKddTrainData
-    w.close()
-
+  outputFile = file(IMPORT_FILE_NAME_FULL)
 
 }
+
+
+
+task generate << {
+  outputDir.mkdirs()
+  outputFile.write CMD_ImportKddTrainData
+}
+
+
+
 def createImportBashFile()
 {
     def f = file(IMPORT_BASH_FILE_NAME_FULL)
