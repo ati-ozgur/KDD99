@@ -71,7 +71,6 @@ defaultTasks 'clean','generate','createChecksumForKddDatasetFiles','tableImportK
 
 clean << {
     delete "Datasets"
-    createDatasetsFolder()
 }
 
 
@@ -156,32 +155,26 @@ ext {
 
   CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
 
-  outputDir = file("$buildDir/Datasets")
+  FOLDER_DATASETS = file("Datasets")
+  FOLDER_DATASETS_FULLPATH = FOLDER_DATASETS.getAbsolutePath()
 
-  outputFile = file(IMPORT_FILE_NAME_FULL)
+  output_SQLITE_IMPORT_FILE = file(IMPORT_FILE_NAME_FULL)
+  output_SQLITE_IMPORT_FILE_BASH_COMMAND = file(IMPORT_BASH_FILE_NAME_FULL)
 
 }
 
 
 
 task generate << {
-  outputDir.mkdirs()
-  outputFile.write CMD_ImportKddTrainData
-}
+  FOLDER_DATASETS.mkdirs()
+  output_SQLITE_IMPORT_FILE.write CMD_ImportKddTrainData
+  output_SQLITE_IMPORT_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_import
 
 
-
-def createImportBashFile()
-{
-    def f = file(IMPORT_BASH_FILE_NAME_FULL)
-    //println f.getAbsolutePath()
-    def w = f.newWriter() 
-
-    w << CMD_Exec_sqlite3_import
-    w.close()
-
+  ant.chmod(dir:FOLDER_DATASETS_FULLPATH, perm:'+x', includes:"*.bash")
 
 }
+
 
 
 
@@ -198,50 +191,24 @@ def isWindows()
 }
 
 
-String findCommandLine()
-{
-  //createImportFile()
-  if (isWindows())
-  {
-    commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
-  }
-  else
-  {
-    //createImportBashFile()
-    //ant.chmod(dir:workingDir, perm:'+x', includes:"*.bash")
-    //commandLine "./" + IMPORT_BASH_FILE_NAME
-  }
-  
-}
-
-
 task tableImportKddTrainDataFromCommandLine(type:Exec) {
-
-  workingDir file("Datasets").getAbsolutePath()
-
-
   //store the output instead of printing to the console:
   standardOutput = new ByteArrayOutputStream()
 
   ext.output = {
   return standardOutput.toString()
   }
-}
 
-
-  tableImportKddTrainDataFromCommandLine << {
-    createImportFile()
-
-    if (!isWindows())
-    {
-      commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
-    }
-    else
-    {
-      createImportBashFile()
-      ant.chmod(dir:workingDir, perm:'+x', includes:"*.bash")
-    }
+  if (isWindows())
+  {
+    commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
   }
+  else
+  {
+    commandLine "./" + IMPORT_BASH_FILE_NAME
+  }
+
+ }
 
 
 
