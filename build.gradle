@@ -193,6 +193,9 @@ def isWindows()
 
 task tableImportKddTrainDataFromCommandLine(type:Exec) {
   //store the output instead of printing to the console:
+
+  workingDir FOLDER_DATASETS_FULLPATH
+
   standardOutput = new ByteArrayOutputStream()
 
   ext.output = {
