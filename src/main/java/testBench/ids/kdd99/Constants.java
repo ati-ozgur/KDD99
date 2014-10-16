@@ -1,4 +1,4 @@
-package tr.edu.baskent.fbe.Kdd99;
+package testBench.ids.kdd99;
 
 public class Constants
 {

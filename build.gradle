@@ -20,7 +20,7 @@ version = '0.0.1'
 
  ext {
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
-    mainPackageName = "tr.edu.baskent.fbe.Kdd99"
+    mainPackageName = "testBench.ids.kdd99"
     //mainClassName = "weka.core.SystemInfo"
     //mainClassName = mainPackageName + ".SQLiteJDBC"
     mainClassName = mainPackageName + '.JdbcExample'

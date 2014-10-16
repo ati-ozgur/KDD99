@@ -1,4 +1,4 @@
-package tr.edu.baskent.fbe.Kdd99;
+package testBench.ids.kdd99;
 
 import java.sql.*;
 //http://www.tutorialspoint.com/sqlite/sqlite_java.htm
