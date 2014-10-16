@@ -3,10 +3,9 @@ package testBench.ids.kdd99.modelHelpers;
 public class ArffFileFromDatabase {
     
     
-    public ArffFileFromDatabase(String pSql,String pFilenameForDatabase,String pFilenameForCombined)
+    public ArffFileFromDatabase(String pSql,String pFilenameForCombined)
     {
         sql = pSql;
-        filenameForDatabase = pFilenameForDatabase;
         filenameForCombined = pFilenameForCombined;
     }
     
@@ -19,13 +18,6 @@ public class ArffFileFromDatabase {
         this.sql = sql;
     }
 
-    public String getFilenameForDatabase() {
-        return filenameForDatabase;
-    }
-
-    public void setFilenameForDatabase(String filenameForDatabase) {
-        this.filenameForDatabase = filenameForDatabase;
-    }
 
     public String getFilenameForCombined() {
         return filenameForCombined;
