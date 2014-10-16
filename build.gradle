@@ -99,7 +99,7 @@ task unzipKddDatasetFiles << {
         if (filename.endsWith("gz"))
         {
             String fullFileName='Datasets/' + filename
-            String fullFileNameWithoutGz = fullFileName.replace("gz","")
+            String fullFileNameWithoutGz = fullFileName.replace(".gz","")
             ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
         }
 
