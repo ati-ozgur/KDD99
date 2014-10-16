@@ -5,9 +5,18 @@ println "Hello from groovy"
 
 //weka.core.SystemInfo.main(null);
 
-String sql = new File(Resources.SQL_MAIN_FOLDER + "createFullKdd99DatasetLimit10.sql").text
+String fileName = "createFullKdd99DatasetLimit10"
+
+String sqlFileName ="${fileName}.sql"
+
+String fileNameCombined = "${fileName}.arff"
+
+println sqlFileName
+println fileNameCombined
 
 
-println sql
+String sql = new File(Resources.SQL_MAIN_FOLDER + sqlFileName).text
+
+
 
 // ArffFileFromDatabase m = new ArffFileFromDatabase();
