@@ -67,7 +67,6 @@ dependencies {
 
 }
 
-defaultTasks 'clean','generate','createChecksumForKddDatasetFiles','tableImportKddTrainDataFromCommandLine'
 
 clean << {
     delete "Datasets"
