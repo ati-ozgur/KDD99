@@ -210,8 +210,8 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
 tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
 
 
-task execWekaDatabaseQuery(type:JavaExec) {
-   main = "weka.experiment.InstanceQuery"
+task execCreateArffFileFromDatabase(type:JavaExec) {
+   main = "testBench.ids.kdd99.CreateArffFileFromDatabaseGRunner"
    classpath = sourceSets.main.runtimeClasspath
 }
 
