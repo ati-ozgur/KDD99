@@ -8,3 +8,7 @@ update KDD_TRAIN_DATA SET binary_class = 'normal' where class_attribute = 'norma
 update KDD_TRAIN_DATA SET binary_class = 'attack' where binary_class IS NULL;
 
 SELECT COUNT(*) FROM KDD_TRAIN_DATA WHERE binary_class = 'normal';
+
+
+
+
