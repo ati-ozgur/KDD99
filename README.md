@@ -17,10 +17,16 @@ We would like to create a reproducible test bench by creating a script that does
 6. 
 
 
-This projects uses following technologies
-
+This projects uses following technologies mainly.
  * Java
  * Gradle
- * Weka
- * 
+
+
+All other necessary components (weka,...) are downloaded from maven repositories.
+
+
+Start with following command
+
+    gradle clean generate createChecksumForKddDatasetFiles tableImportKddTrainDataFromCommandLine
+
 
