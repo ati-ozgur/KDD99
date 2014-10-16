@@ -1,0 +1,2 @@
+jdbcDriver=org.sqlite.JDBC
+jdbcURL=jdbc:idb=jdbc:sqlite:Datasets/test1.sqlite
