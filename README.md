@@ -29,4 +29,7 @@ Start with following command
 
     gradle clean generate createChecksumForKddDatasetFiles tableImportKddTrainDataFromCommandLine
 
+Following command will give you other available commands
+
+    gradle tasks
 
