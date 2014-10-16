@@ -4,3 +4,4 @@ Datasets/
 *.sublime-workspace
 documents/books/*
 *.db
+SavedArff/*
