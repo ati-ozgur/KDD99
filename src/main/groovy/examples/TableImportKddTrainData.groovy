@@ -1,4 +1,4 @@
-package testBench.ids.kdd99;
+package examples;
 
 import groovy.sql.Sql
 
