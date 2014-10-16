@@ -210,6 +210,12 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
 tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
 
 
+task execWekaDatabaseQuery(type:JavaExec) {
+   main = "weka.experiment.InstanceQuery"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+
 
 
 jar {
