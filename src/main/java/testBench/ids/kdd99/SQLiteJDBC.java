@@ -10,7 +10,7 @@ public class SQLiteJDBC
     Connection c = null;
     try {
       Class.forName("org.sqlite.JDBC");
-      c = DriverManager.getConnection(Constants.JDBC_URL);
+      c = DriverManager.getConnection(Finals.JDBC_URL);
     } catch ( Exception e ) {
       System.err.println( e.getClass().getName() + ": " + e.getMessage() );
       System.exit(0);
