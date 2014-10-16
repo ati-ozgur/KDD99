@@ -9,4 +9,4 @@ sqlite3 Datasets/test1.sqlite
 
 -- after that following sql statements can be run
 
-.read src/main/resources/createFullKdd99Dataset.sql
+.read src/main/resources/createFullKdd99DatasetLimit10.sql
