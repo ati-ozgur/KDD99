@@ -134,12 +134,6 @@ task execSQLCreateTable(type:JavaExec) {
    classpath = sourceSets.main.runtimeClasspath
 }
 
-task tableImportKddTrainDataFromSql(type:JavaExec) {
-   main = mainPackageName + ".TableImportKddTrainData"
-   classpath = sourceSets.main.runtimeClasspath
-}
-
-tableImportKddTrainDataFromSql.dependsOn execSQLCreateTable
 
 ext {
    IMPORT_FILE_NAME = "import.sql";
