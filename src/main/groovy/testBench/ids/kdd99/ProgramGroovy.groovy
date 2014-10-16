@@ -1,4 +1,4 @@
-package kdd99
+package testBench.ids.kdd99
 
 
 println "Hello from groovy"
