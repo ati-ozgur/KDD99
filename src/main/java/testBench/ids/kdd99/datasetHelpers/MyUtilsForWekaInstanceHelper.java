@@ -10,6 +10,8 @@ import weka.core.Instances;
 import weka.core.converters.ArffSaver;
 import weka.core.converters.ConverterUtils.DataSource;
 
+import testBench.ids.kdd99.*;
+
 public class MyUtilsForWekaInstanceHelper {
 
     public static Instances getInstanceFromFile(String pFileName)
@@ -32,8 +34,7 @@ public class MyUtilsForWekaInstanceHelper {
     public static Instances getKddCupSampleInstancesBinary() {
         Instances data = null;
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(
-                    "datas\\SampleKddCupBinary.arff"));
+            BufferedReader reader = new BufferedReader(new FileReader(Finals.MODEL_ARFF_BINARY));
             data = new Instances(reader);
             reader.close();
             // setting class attribute

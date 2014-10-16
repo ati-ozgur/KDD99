@@ -16,6 +16,8 @@ public class Finals {
     public static final String DATASET_FILES = "Datasets/";
     
 
+    public static final String MODEL_ARFF_BINARY = Finals.RESOURCES + "ModelKddCupBinary.arff";
+
 }
 
 
