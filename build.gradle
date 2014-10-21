@@ -216,6 +216,8 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
  }
 
 tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+tableImportKddTrainDataFromCommandLine.dependsOn generateImportScripts
+
 
 
 configure(tableImportKddTrainDataFromCommandLine) {   
