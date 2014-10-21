@@ -1,2 +1,2 @@
-gradle clean downloadKddDatasetFiles unzipKddDatasetFiles tableImportKddTrainDataFromCommandLine
+gradle clean downloadKddDatasetFiles unzipKddDatasetFiles tableImportKddTrainDataFromCommandLine execSQLSchemaChangeAfterImport execCreateArffFileFromDatabase
 
