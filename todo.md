@@ -1,13 +1,6 @@
 TODO
 =====
 
-1. Hata import.sql dosyasını Datasets dizini altına kopyalamadığımdan oluyor.
-    :tableImportKddTrainDataFromCommandLine
-    Sistem belirtilen dosyay? bulam?yor.
-    :tableImportKddTrainDataFromCommandLine FAILED
-
-    FAILURE: Build failed with an exception.
-
-    * What went wrong:
-    Execution failed for task ':tableImportKddTrainDataFromCommandLine'.
-    > Process 'command 'cmd'' finished with non-zero exit value 1
+1. SchemaChangeAfterImport.sql script alter KDD_TRAIN_DATA file so that it has binary attribute. Add necessary import files to Look Up Table LT_* so that you can add class_attribute_five to dataset too.
+2. TEST_CORRECTED is not imported right now. It should be imported too.
+3. 
