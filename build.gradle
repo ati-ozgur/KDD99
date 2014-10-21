@@ -112,6 +112,11 @@ task unzipKddDatasetFiles << {
 
 }
 
+configure(unzipKddDatasetFiles) {   
+  group = GROUP_NAME
+  description = 'Unzip .gz KDD99 files which are downloaded from internet, this tasks should run after downloadKddDatasetFiles'
+}
+
 task createChecksumForKddDatasetFiles << {
     println "createChecksumForKddDatasetFiles"
     kddDataSetFiles.each{ filename->
@@ -163,7 +168,7 @@ ext {
 
 
 
-task generate << {
+task generateImportScripts << {
   FOLDER_DATASETS.mkdirs()
   output_SQLITE_IMPORT_FILE.write CMD_ImportKddTrainData
   output_SQLITE_IMPORT_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_import
