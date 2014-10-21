@@ -1,4 +1,2 @@
-gradle clean
-gradle downloadKddDatasetFiles 
-gradle unzipKddDatasetFiles 
-gradle tableImportKddTrainDataFromCommandLine
+gradle clean downloadKddDatasetFiles unzipKddDatasetFiles tableImportKddTrainDataFromCommandLine
+
