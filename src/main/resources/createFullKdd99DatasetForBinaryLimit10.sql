@@ -39,6 +39,6 @@ SELECT D.duration ,
   D.dst_host_srv_serror_rate ,
   D.dst_host_rerror_rate ,
   D.dst_host_srv_rerror_rate ,
-  D.class_attribute
+  D.class_attribute_binary
 FROM KDD_TRAIN_DATA D
 LIMIT 10;
