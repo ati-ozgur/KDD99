@@ -117,7 +117,7 @@ configure(unzipKddDatasetFiles) {
   description = 'Unzip .gz KDD99 files which are downloaded from internet, this tasks should run after downloadKddDatasetFiles'
 }
 
-task createChecksumForKddDatasetFiles << {
+def createChecksumForKddDatasetFiles() {
     println "createChecksumForKddDatasetFiles"
     kddDataSetFiles.each{ filename->
         println filename
@@ -126,7 +126,6 @@ task createChecksumForKddDatasetFiles << {
 
     }
 }
-
 
 
 // Examples 
@@ -216,9 +215,15 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
  }
 
-
-
 tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+
+
+configure(tableImportKddTrainDataFromCommandLine) {   
+  group = GROUP_NAME
+  description = 'import KDD99 files to sqlite database'
+}
+
+
 
 
 task execCreateArffFileFromDatabase(type:JavaExec) {
