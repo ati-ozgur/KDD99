@@ -137,6 +137,8 @@ def createChecksumForKddDatasetFiles() {
 task execSQLiteConnectionControl(type:JavaExec) {
    main = mainPackageName + ".SQLiteJDBC"
    classpath = sourceSets.main.runtimeClasspath
+   group = "Verification"
+   description = "it verifies sqlite connection is correct"
 }
 
 task execSQLCreateTable(type:JavaExec) {
@@ -227,16 +229,21 @@ configure(tableImportKddTrainDataFromCommandLine) {
 
 
 task execSQLSchemaChangeAfterImport(type:JavaExec) {
-   main = mainPackageName + ".TableSchemaUpdatesAfterImport"
-   classpath = sourceSets.main.runtimeClasspath
+  main = mainPackageName + ".TableSchemaUpdatesAfterImport"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME
+  description = 'after import KDD99 files to sqlite database, execute ALTER TABLE sql scripts'
+
 }
 
 
 
 
 task execCreateArffFileFromDatabase(type:JavaExec) {
-   main = "testBench.ids.kdd99.CreateArffFileFromDatabaseGRunner"
-   classpath = sourceSets.main.runtimeClasspath
+  main = "testBench.ids.kdd99.CreateArffFileFromDatabaseGRunner"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME
+  description = 'This is Arff files creation step. '
 }
 
 
