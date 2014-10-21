@@ -8,7 +8,7 @@ buildscript {
 }
 import de.undercouch.gradle.tasks.download.Download
 
-
+apply plugin: 'base'
 apply plugin: 'application'
 apply plugin: 'download-task'
 apply plugin: 'groovy'
@@ -68,11 +68,11 @@ dependencies {
 }
 
 
-clean << {
+
+
+clean{
     delete "Datasets"
 }
-
-
 
 
 
