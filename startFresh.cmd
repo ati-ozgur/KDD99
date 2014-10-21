@@ -1,0 +1,6 @@
+gradle clean
+gradle generate 
+gradle downloadKddDatasetFiles 
+gradle unzipKddDatasetFiles 
+gradle createChecksumForKddDatasetFiles 
+gradle tableImportKddTrainDataFromCommandLine
