@@ -25,9 +25,13 @@ This projects uses following technologies mainly.
 All other necessary components (weka,...) are downloaded from maven repositories.
 
 
-Start with following command
+Start with following command in Windows
 
-    gradle clean generate createChecksumForKddDatasetFiles tableImportKddTrainDataFromCommandLine
+    startFresh.cmd
+
+Start with following command in other Unix/Linux/MacOs
+
+    startFresh.bash
 
 Following command will give you other available commands
 
