@@ -7,7 +7,7 @@ println "Hello from groovy"
 
 //weka.core.SystemInfo.main(null);
 
-String fileName = "createFullKdd99DatasetLimit10"
+String fileName = "createFullKdd99DatasetForBinary"
 
 String sqlFileName ="${fileName}.sql"
 
