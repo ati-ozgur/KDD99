@@ -5,3 +5,4 @@ Datasets/
 documents/books/*
 *.db
 SavedArff/*
+*.docx
