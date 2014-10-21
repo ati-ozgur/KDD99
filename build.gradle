@@ -19,6 +19,7 @@ version = '0.0.1'
 
 
  ext {
+    GROUP_NAME = "KDD99RelatedTasks"
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
     mainPackageName = "testBench.ids.kdd99"
     //mainClassName = "weka.core.SystemInfo"
@@ -90,6 +91,11 @@ task downloadKddDatasetFiles << {
         }
 
     }
+}
+
+configure(downloadKddDatasetFiles) {   
+  group = GROUP_NAME
+  description = 'Download KDD99 files from internet'
 }
 
 
