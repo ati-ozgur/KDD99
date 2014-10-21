@@ -242,6 +242,11 @@ task execSQLSchemaChangeAfterImport(type:JavaExec) {
 task execCreateArffFileFromDatabase(type:JavaExec) {
   main = "testBench.ids.kdd99.CreateArffFileFromDatabaseGRunner"
   classpath = sourceSets.main.runtimeClasspath
+  List<String> listOfJvmArguments = new ArrayList<String>()
+  listOfJvmArguments.add("-Xmx20g")
+  listOfJvmArguments.add("-Xms6g")
+  //allJvmArgs = listOfJvmArguments
+  maxHeapSize = "20g"
   group = GROUP_NAME
   description = 'This is Arff files creation step. '
 }
