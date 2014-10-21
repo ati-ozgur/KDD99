@@ -226,6 +226,12 @@ configure(tableImportKddTrainDataFromCommandLine) {
 }
 
 
+task execSQLSchemaChangeAfterImport(type:JavaExec) {
+   main = mainPackageName + ".TableSchemaUpdatesAfterImport"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+
 
 
 task execCreateArffFileFromDatabase(type:JavaExec) {
