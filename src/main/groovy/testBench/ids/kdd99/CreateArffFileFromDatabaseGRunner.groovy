@@ -3,7 +3,6 @@ package testBench.ids.kdd99
 import testBench.ids.kdd99.modelHelpers.*;
 import testBench.ids.kdd99.datasetHelpers.*;
 
-println "Hello from groovy"
 
 //weka.core.SystemInfo.main(null);
 
