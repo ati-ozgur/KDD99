@@ -23,7 +23,8 @@ public class CreateArffFilesFromDatabase {
 
          String filenameForDatabase = "from" + filenameForCombined;
         Instances data2 = InstancesFromDatabase.getInstanceDataFromDatabase(sql);
-        MyUtilsForWekaInstanceHelper.saveInstancesToFile(data2, Finals.ARFF_SAVE_FOLDER + filenameForDatabase);
+        // No need to save database instances to file.
+        //MyUtilsForWekaInstanceHelper.saveInstancesToFile(data2, Finals.ARFF_SAVE_FOLDER + filenameForDatabase);
 
         
         MyUtilsForWekaInstanceHelper.combineInstances(SampleInstance, Finals.ARFF_SAVE_FOLDER +  filenameForCombined,data2);
