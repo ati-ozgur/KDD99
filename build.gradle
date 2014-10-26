@@ -155,6 +155,7 @@ ext {
 
   CMD_ImportKddTrainData = """.separator ","
 .import kddcup.data KDD_TRAIN_DATA
+.import corrected TEST_CORRECTED
 """
 
   CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
