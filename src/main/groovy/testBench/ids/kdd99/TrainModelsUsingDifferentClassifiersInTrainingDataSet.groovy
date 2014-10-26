@@ -24,7 +24,7 @@ Instances data = null;
 classifierList.each() {
 	classifierAndOption-> 
 
-	String datasetName = "combined_createFullKdd99TrainingDatasetForBinaryLimit10";
+	String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
 
 	String classifierName = classifierAndOption.Classifier
 	String options = classifierAndOption.Options
