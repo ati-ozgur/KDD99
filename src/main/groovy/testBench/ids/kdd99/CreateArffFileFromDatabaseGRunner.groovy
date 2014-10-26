@@ -7,7 +7,7 @@ import testBench.ids.kdd99.datasetHelpers.*;
 //weka.core.SystemInfo.main(null);
 
 
-sqlFileList = ['createFullKdd99TrainingDatasetForBinaryLimit10','createFullKdd99TestDatasetForBinaryLimit10']
+sqlFileList = ['createFullKdd99TrainingDatasetForBinary','createFullKdd99TestDatasetForBinary']
 
 sqlFileList.each() {
 	fileName-> 
