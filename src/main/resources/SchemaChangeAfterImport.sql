@@ -51,3 +51,4 @@ CREATE INDEX idx_TEST_class_attr_binary ON TEST_CORRECTED (
 CREATE INDEX idx_TEST_class_attr_five ON TEST_CORRECTED ( 
     class_attribute_five 
 );
+
