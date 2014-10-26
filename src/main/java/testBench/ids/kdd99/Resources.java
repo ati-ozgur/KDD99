@@ -5,6 +5,7 @@ public class Resources
 
     public static final String SQL_MAIN_FOLDER=Finals.RESOURCES;
     public static final String SQL_kdd99TableCreation = Finals.RESOURCES + "kdd99TableCreation.sql";
+    public static final String SQL_kdd99LtTableInserts = Finals.RESOURCES + "kdd99LtTableInserts.sql";
     public static final String SQL_SchemaChangeAfterImport = Finals.RESOURCES + "SchemaChangeAfterImport.sql";
 
     
