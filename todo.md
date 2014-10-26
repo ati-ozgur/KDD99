@@ -1,6 +1,8 @@
 TODO
 =====
 
-1. SchemaChangeAfterImport.sql script alter KDD_TRAIN_DATA file so that it has binary attribute. Add necessary import files to Look Up Table LT_* so that you can add class_attribute_five to dataset too.
-2. TEST_CORRECTED is not imported right now. It should be imported too.
+1. I would like to skip already run tasks (Like downloadKddDatasetFiles). Investigate following gradle features
+   * Task Output property???
+   * SkipTask OnlyIf (read 15.8. Skipping tasks)
+2. 
 3. 
