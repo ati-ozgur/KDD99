@@ -6,20 +6,38 @@ import testBench.ids.kdd99.datasetHelpers.*;
 
 //weka.core.SystemInfo.main(null);
 
-String fileName = "createFullKdd99DatasetForBinary"
 
-String sqlFileName ="${fileName}.sql"
+sqlFileList = ['createFullKdd99TrainingDatasetForBinaryLimit10','createFullKdd99TestDatasetForBinaryLimit10']
 
-String fileNameCombined = "${fileName}.arff"
-
-println sqlFileName
-println fileNameCombined
-
-
-String sql = new File(Resources.SQL_MAIN_FOLDER + sqlFileName).text
+sqlFileList.each() {
+	fileName-> 
+print " ${fileName}" 
+createArffFileFromSqlFileName(fileName)
+}; 
 
 
 
-ArffFileFromDatabase m = new ArffFileFromDatabase(sql,fileNameCombined);
 
-CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(m)
+
+
+def createArffFileFromSqlFileName(String fileName)
+{
+	String sqlFileName ="${fileName}.sql"
+
+	String fileNameCombined = "${fileName}.arff"
+
+	println sqlFileName
+	println fileNameCombined
+
+
+	String sql = new File(Resources.SQL_MAIN_FOLDER + sqlFileName).text
+
+
+
+	ArffFileFromDatabase m = new ArffFileFromDatabase(sql,fileNameCombined);
+
+	CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(m)
+
+}
+
+
