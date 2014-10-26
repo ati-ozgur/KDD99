@@ -29,6 +29,11 @@ for(String sql in sqlCreateTableList) {
 
 }
 
+
+String sqlInserts = new File(Resources.SQL_kdd99LtTableInserts).text
+sqlEngine.execute sqlInserts
+println "--------------------- Table Insert Sql Executed ---------------------"
+
 //sqlEngine.execute sqlCreateTable
 
 
