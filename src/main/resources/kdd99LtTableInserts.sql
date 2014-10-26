@@ -13,7 +13,7 @@ INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('loadmodule','U2R',3,'attack','False');
 INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('mailbomb','DOS',2,'attack','True');
 INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('mscan','PROBE',1,'attack','True');
 INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('multihop','R2L',4,'attack','False');
-INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('named','R2U',1,'attack','True');
+INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('named','U2R',1,'attack','True');
 INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('neptune','DOS',2,'attack','False');
 INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('nmap','PROBE',1,'attack','False');
 INSERT INTO "LT_CLASS_ATTRIBUTE" VALUES('normal','normal',0,'normal','False');

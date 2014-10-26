@@ -5,10 +5,29 @@ ALTER TABLE KDD_TRAIN_DATA ADD COLUMN class_attribute_binary text default 'attac
 update KDD_TRAIN_DATA SET class_attribute_binary = 'normal' where class_attribute = 'normal';
 
 
-ALTER TABLE KDD_TRAIN_DATA ADD COLUMN class_attribute_five text;
+ALTER TABLE KDD_TRAIN_DATA ADD COLUMN class_attribute_five text default 'DOS';
 
-update KDD_TRAIN_DATA SET class_attribute_five =
-(SELECT L.class_attribute_five FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute = class_attribute);
+
+
+update KDD_TRAIN_DATA SET class_attribute_five = 'U2R'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'U2R');
+
+update KDD_TRAIN_DATA SET class_attribute_five = 'R2L'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'R2L');
+
+update KDD_TRAIN_DATA SET class_attribute_five = 'PROBE'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'PROBE');
+
+
+update KDD_TRAIN_DATA SET class_attribute_five = 'normal'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'normal');
+
+
+
+
+
+
+
 
 
 CREATE INDEX idx_TRAIN_DATA_class_attr ON KDD_TRAIN_DATA ( 
@@ -32,11 +51,23 @@ ALTER TABLE TEST_CORRECTED ADD COLUMN class_attribute_binary text default 'attac
 
 update TEST_CORRECTED SET class_attribute_binary = 'normal' where class_attribute = 'normal';
 
-ALTER TABLE TEST_CORRECTED ADD COLUMN class_attribute_five text;
 
 
-update TEST_CORRECTED SET class_attribute_five =
-(SELECT L.class_attribute_five FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute = class_attribute);
+ALTER TABLE TEST_CORRECTED ADD COLUMN class_attribute_five text default 'DOS';
+
+
+update TEST_CORRECTED SET class_attribute_five = 'U2R'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'U2R');
+
+update TEST_CORRECTED SET class_attribute_five = 'R2L'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'R2L');
+
+update TEST_CORRECTED SET class_attribute_five = 'PROBE'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'PROBE');
+
+
+update TEST_CORRECTED SET class_attribute_five = 'normal'
+	WHERE class_attribute IN (SELECT L.class_attribute FROM LT_CLASS_ATTRIBUTE L WHERE L.class_attribute_five = 'normal');
 
 
 CREATE INDEX idx_TEST_class_attr ON TEST_CORRECTED ( 
