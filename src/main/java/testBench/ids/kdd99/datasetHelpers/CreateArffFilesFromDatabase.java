@@ -18,16 +18,17 @@ public class CreateArffFilesFromDatabase {
     
     
     public static void createArffFileFromDatabaseQuery(String sql,
-            String filenameForCombined) {
+            String fileName) {
+
         Instances SampleInstance = MyUtilsForWekaInstanceHelper.getKddCupSampleInstancesBinary();
 
-         String filenameForDatabase = "from" + filenameForCombined;
+        String filenameForDatabase = "fromDatabase_" + fileName;
+        String filenameForCombined = "combined_" + fileName;
         Instances data2 = InstancesFromDatabase.getInstanceDataFromDatabase(sql);
-        MyUtilsForWekaInstanceHelper.saveInstancesToFile(data2, Finals.ARFF_SAVE_FOLDER + filenameForDatabase);
+        //MyUtilsForWekaInstanceHelper.saveInstancesToFile(data2, Finals.ARFF_SAVE_FOLDER + filenameForDatabase);
 
-        
+
         MyUtilsForWekaInstanceHelper.combineInstances(SampleInstance, Finals.ARFF_SAVE_FOLDER +  filenameForCombined,data2);
-        // TODO: Delete file afterwards
     }
     
 }
