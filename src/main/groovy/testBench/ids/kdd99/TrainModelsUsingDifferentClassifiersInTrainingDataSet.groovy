@@ -54,11 +54,11 @@ IBk  = [ Classifier:"weka.classifiers.lazy.IBk",Options:"-K 1 -W 0 -A \"weka.cor
 
 
 classifierList = [
-j48_1 ,
-j48_2 ,
-j48_3 ,
-SMO_1 ,
-SMO_2 ,
+//j48_1 ,
+//j48_2 ,
+//j48_3 ,
+//SMO_1 ,
+//SMO_2 ,
 bayes1 ,
 naiveBayes1 ,
 Logistic1 ,
@@ -86,7 +86,7 @@ Instances data = null;
 classifierList.each() {
 	classifierAndOption-> 
 
-	String datasetName = "combined_createFullKdd99TrainingDatasetForBinaryLimit10";
+	String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
 
 	String classifierName = classifierAndOption.Classifier
 	String options = classifierAndOption.Options
