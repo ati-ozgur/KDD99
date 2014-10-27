@@ -45,8 +45,8 @@ JRip  = [ Classifier:"weka.classifiers.rules.JRip",Options:" -F 3 -N 2.0 -O 2 -S
 PART  = [ Classifier:"weka.classifiers.rules.PART",Options:"-M 2 -C 0.25 -Q 1"]
 
 RandomForest  = [ Classifier:"weka.classifiers.trees.RandomForest",Options:" -I 10 -K 0 -S 1 -num-slots 1"]
-DecisionStump  = [ Classifier:"weka.classifiers.trees.DecisionStump",Options:"weka.classifiers.trees.LMT" ,"-I -1 -M 15 -W 0.0"]
-LMT  = [ Classifier:"",Options:""]
+DecisionStump  = [ Classifier:"weka.classifiers.trees.DecisionStump",Options:""]
+LMT = [ Classifier: "weka.classifiers.trees.LMT", Options: "-I -1 -M 15 -W 0.0"]
 RandomTree  = [ Classifier:"weka.classifiers.trees.RandomTree",Options:" -K 0 -M 1.0 -S 1"]
 REPTree  = [ Classifier:"weka.classifiers.trees.REPTree",Options:"-M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0"]
 IBk  = [ Classifier:"weka.classifiers.lazy.IBk",Options:"-K 1 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \\\"weka.core.EuclideanDistance -R first-last\\\"\""]
@@ -63,8 +63,8 @@ bayes1 ,
 naiveBayes1 ,
 Logistic1 ,
 MultilayerPerceptron1 ,
-RBFNetwork1 ,
-RBFClassifier1 ,
+//RBFNetwork1 ,
+//RBFClassifier1 ,
 SGD1 ,
 SimpleLogistic1 ,
 AdaBoostM1_1 ,
@@ -86,7 +86,7 @@ Instances data = null;
 classifierList.each() {
 	classifierAndOption-> 
 
-	String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
+	String datasetName = "combined_createFullKdd99TrainingDatasetForBinaryLimit10";
 
 	String classifierName = classifierAndOption.Classifier
 	String options = classifierAndOption.Options
