@@ -54,8 +54,31 @@ IBk  = [ Classifier:"weka.classifiers.lazy.IBk",Options:"-K 1 -W 0 -A \"weka.cor
 
 
 classifierList = [
-		j48_1,SMO_1
-
+j48_1 ,
+j48_2 ,
+j48_3 ,
+SMO_1 ,
+SMO_2 ,
+bayes1 ,
+naiveBayes1 ,
+Logistic1 ,
+MultilayerPerceptron1 ,
+RBFNetwork1 ,
+RBFClassifier1 ,
+SGD1 ,
+SimpleLogistic1 ,
+AdaBoostM1_1 ,
+DecisionTable ,
+OneR ,
+ZeroR ,
+JRip  ,
+PART  ,
+RandomForest  ,
+DecisionStump  ,
+LMT  ,
+RandomTree  ,
+REPTree  ,
+IBk  
 ]
 
 Instances data = null;
