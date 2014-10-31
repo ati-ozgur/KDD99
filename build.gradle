@@ -1,7 +1,10 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter {
+            url "http://jcenter.bintray.com/"
+        }
     }
+
     dependencies {
         classpath 'de.undercouch:gradle-download-task:1.0'
     }
@@ -54,7 +57,9 @@ version = '0.0.1'
 
 
 repositories {
-    mavenCentral()
+    jcenter {
+        url "http://jcenter.bintray.com/"
+    }
 }
 
 dependencies {
