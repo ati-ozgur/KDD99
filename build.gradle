@@ -277,6 +277,20 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   description = 'This is Arff files creation step. '
 }
 
+task execInstallWekaPackages(type:JavaExec) {
+  main = "weka.core.WekaPackageManager"
+  classpath = sourceSets.main.runtimeClasspath
+  //minHeapSize = "5g"
+  //maxHeapSize = "20g"
+  //args = ["-list-packages","all"]
+  args = ["-install-package","RBFNetwork"]
+  group = GROUP_NAME
+  description = 'This is Arff files creation step. '
+}
+
+
+
+
 
 
 
