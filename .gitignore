@@ -6,3 +6,4 @@ documents/books/*
 *.db
 SavedArff/*
 *.docx
+others/*
