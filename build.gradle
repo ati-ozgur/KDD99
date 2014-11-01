@@ -1,7 +1,10 @@
 buildscript {
     repositories {
-        mavenCentral()
+        maven  {
+            url "http://repo1.maven.org/maven2"
+        }
     }
+
     dependencies {
         classpath 'de.undercouch:gradle-download-task:1.0'
     }
@@ -54,7 +57,9 @@ version = '0.0.1'
 
 
 repositories {
-    mavenCentral()
+      maven  {
+          url "http://repo1.maven.org/maven2"
+      }
 }
 
 dependencies {
@@ -250,6 +255,24 @@ task execCreateArffFileFromDatabase(type:JavaExec) {
 }
 
 
+// TODO, this is not correct right now.
+// I am trying to get external sql script name from build
+tasks.addRule("Pattern: execCreateArffFileFromSql<sqlFileName>") { String taskName ->
+    String taskStart = "execCreateArffFileFromSql"
+    String sqlFileName = (taskName - taskStart) + ".sql";
+
+
+    if (taskName.startsWith(taskStart)) {
+        task(taskName) << {
+            println "Deneme: " + (taskName - 'ping')
+            println "sqlFileName" + sqlFileName
+        }
+    }
+}
+
+
+
+
 task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   main = "testBench.ids.kdd99.TrainModelsUsingDifferentClassifiersInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
@@ -258,6 +281,20 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   group = GROUP_NAME
   description = 'This is Arff files creation step. '
 }
+
+task execInstallWekaPackages(type:JavaExec) {
+  main = "weka.core.WekaPackageManager"
+  classpath = sourceSets.main.runtimeClasspath
+  //minHeapSize = "5g"
+  //maxHeapSize = "20g"
+  //args = ["-list-packages","all"]
+  args = ["-install-package","RBFNetwork"]
+  group = GROUP_NAME
+  description = 'This is Arff files creation step. '
+}
+
+
+
 
 
 
