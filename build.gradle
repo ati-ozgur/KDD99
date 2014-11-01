@@ -254,7 +254,7 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   main = "testBench.ids.kdd99.TrainModelsUsingDifferentClassifiersInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
-  maxHeapSize = "20g"
+  maxHeapSize = "32g"
   group = GROUP_NAME
   description = 'This is Arff files creation step. '
 }
