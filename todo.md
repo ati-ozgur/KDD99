@@ -18,6 +18,19 @@ DependsOn does not fix any order. Solution
 * Dependencies between tasks
 * mustRunAfter
 
+4. Training phase output should be written to sqlite table for easy reporting
+5. repeat Training of models to see if memory changes.
+I have used training phase all of them together, may be garbage collector did not kick in.
+
+
+6. testing phase results should be written to database table. 
+Different test results should be written.
+
+Following draft schema
+
+ID ModelName DateOfRun         Accuracy ... F1
+1     MLP        2014-xx-xx 
+
 
 Read following also
   * http://stackoverflow.com/questions/21612729/understanding-gradle-task-dependency-dependson
