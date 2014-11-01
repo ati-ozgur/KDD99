@@ -32,6 +32,27 @@ ID ModelName DateOfRun         Accuracy ... F1
 1     MLP        2014-xx-xx 
 
 
+
+
+7. Using MOA from Scala
+http://moa.cms.waikato.ac.nz/2014/08/09/using-moa-with-scala-and-its-interactive-shell/
+http://moa.cms.waikato.ac.nz/2014/08/16/using-moas-api-with-scala/
+
+8. Using MOA from R
+
+http://bnosac.be/index.php/blog/32-rmoa-massive-online-data-stream-classifications-with-r-a-moa
+https://github.com/jwijffels/RMOA
+
+9. MOA Streams Framework
+http://www.jwall.org/streams/
+
+10. Yahoo SAMOA
+https://github.com/yahoo/samoa/wiki/Getting%20Started
+http://melmeric.files.wordpress.com/2013/04/samoa-a-platform-for-mining-big-data-streams.pdf
+
+
+
+
 Read following also
   * http://stackoverflow.com/questions/21612729/understanding-gradle-task-dependency-dependson
   * 
