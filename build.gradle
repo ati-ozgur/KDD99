@@ -85,7 +85,6 @@ clean{
 task downloadKddDatasetFiles {
     kddDataSetFiles.each{ filename->
          String fullFileName='Datasets/' + filename
-         outputFileList += fullFileName
          outputs.files fullFileName
 
     }
@@ -111,7 +110,9 @@ configure(downloadKddDatasetFiles) {
 }
 
 
-task unzipKddDatasetFiles << {
+task unzipKddDatasetFiles{
+
+  doLast{
     kddDataSetFiles.each{ filename->
         if (filename.endsWith("gz"))
         {
@@ -121,6 +122,8 @@ task unzipKddDatasetFiles << {
         }
 
     }
+
+  }
 
 }
 
