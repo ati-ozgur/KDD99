@@ -83,9 +83,12 @@ clean{
 
 
 task downloadKddDatasetFiles {
-    kddDataSetFiles.each{ filename->
-         String fullFileName='Datasets/' + filename
-         outputs.files fullFileName
+  group = GROUP_NAME
+  description = 'Download KDD99 files from internet'
+
+  kddDataSetFiles.each{ filename->
+       String fullFileName='Datasets/' + filename
+       outputs.files fullFileName
 
     }
 
@@ -104,13 +107,13 @@ task downloadKddDatasetFiles {
   }
 }
 
-configure(downloadKddDatasetFiles) {   
-  group = GROUP_NAME
-  description = 'Download KDD99 files from internet'
-}
+
 
 
 task unzipKddDatasetFiles{
+
+  group = GROUP_NAME
+  description = 'Unzip .gz KDD99 files which are downloaded from internet, this tasks should run after downloadKddDatasetFiles'
 
   doLast{
     kddDataSetFiles.each{ filename->
@@ -127,10 +130,6 @@ task unzipKddDatasetFiles{
 
 }
 
-configure(unzipKddDatasetFiles) {   
-  group = GROUP_NAME
-  description = 'Unzip .gz KDD99 files which are downloaded from internet, this tasks should run after downloadKddDatasetFiles'
-}
 
 def createChecksumForKddDatasetFiles() {
     println "createChecksumForKddDatasetFiles"
