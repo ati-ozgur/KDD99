@@ -37,9 +37,12 @@ ClassifiersAndArguments.classifierList.each() {
 
 	ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
 
-	int freeMemory = Runtime.getRuntime().freeMemory();
-	int totalMemory = Runtime.getRuntime().totalMemory();
-	int maxMemory = Runtime.getRuntime().maxMemory();
+	long freeMemory = Runtime.getRuntime().freeMemory();	
+	long totalMemory = Runtime.getRuntime().totalMemory();
+	long maxMemory = Runtime.getRuntime().maxMemory();
+	long usedMemory = totalMemory - freeMemory;
+
+
 	oneTrainRun.append(String.format("freeMemory %s as bytes \n" , freeMemory));
 	oneTrainRun.append(String.format("freeMemory %s as kilo bytes \n" , freeMemory/kb));
 	oneTrainRun.append(String.format("freeMemory %s as mega bytes \n" , freeMemory/mb));
@@ -54,6 +57,12 @@ ClassifiersAndArguments.classifierList.each() {
 	oneTrainRun.append(String.format("maxMemory %s as kilo bytes \n" , maxMemory/kb));
 	oneTrainRun.append(String.format("maxMemory %s as mega bytes \n" , maxMemory/mb));
 	oneTrainRun.append(String.format("maxMemory %s as giga bytes \n" , maxMemory/gb));
+
+
+	oneTrainRun.append(String.format("usedMemory %s as bytes \n" , usedMemory));
+	oneTrainRun.append(String.format("usedMemory %s as kilo bytes \n" , usedMemory/kb));
+	oneTrainRun.append(String.format("usedMemory %s as mega bytes \n" , usedMemory/mb));
+	oneTrainRun.append(String.format("usedMemory %s as giga bytes \n" , usedMemory/gb));
 	
 	oneTrainRun.append(String.format("Training Finish at %s for dataset %s \n", getNowAsFormatted(), datasetName) );
 	oneTrainRun.append(String.format("Training Finish at %s for Model %s  \n", getNowAsFormatted(), classifierName) );
