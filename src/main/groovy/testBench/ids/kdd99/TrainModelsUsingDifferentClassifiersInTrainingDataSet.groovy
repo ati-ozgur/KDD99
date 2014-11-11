@@ -14,6 +14,8 @@ import testBench.ids.kdd99.modelHelpers.*;
 
 Instances data = null;
 
+new File("Datasets/SavedOutputs").mkdir();
+
 ClassifiersAndArguments.classifierList.each() {
 	classifierAndOption-> 
 
