@@ -19,6 +19,27 @@ DependsOn does not fix any order. Solution
 * mustRunAfter
 
 4. Training phase output should be written to sqlite table for easy reporting
+ModelTrainingInformation
+
+TrainModelsUsingDifferentClassifiersInTrainingDataSet.groovy file output training information to a file right now. 
+It should output to database table.
+
+Following draft schema:
+
+id
+datasetName
+classifierName
+options
+trainingStartTime
+trainingFinishTime
+trainingDuration
+freeMemory
+totalMemory
+maxMemory
+usedMemory
+
+
+
 
 5. testing phase results should be written to database table. 
 Different test results should be written.
