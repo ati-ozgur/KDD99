@@ -86,6 +86,8 @@ task downloadKddDatasetFiles {
   group = GROUP_NAME
   description = 'Download KDD99 files from internet'
 
+  inputs.property("fileNames",kddDataSetFiles)
+
   kddDataSetFiles.each{ filename->
        String fullFileName='Datasets/' + filename
        outputs.files fullFileName
