@@ -107,7 +107,10 @@ task downloadKddDatasetFiles {
   }
 }
 
-
+def kddZipFiles()
+{
+  return kddDataSetFiles.findAll{filename-> filename.endsWith("gz")}
+}
 
 
 task unzipKddDatasetFiles{
@@ -115,14 +118,20 @@ task unzipKddDatasetFiles{
   group = GROUP_NAME
   description = 'Unzip .gz KDD99 files which are downloaded from internet, this tasks should run after downloadKddDatasetFiles'
 
+  kddZipFiles().each{filename->
+    String fullFileName='Datasets/' + filename
+    String fullFileNameWithoutGz = fullFileName.replace(".gz","")
+    println fullFileNameWithoutGz
+    outputs.files fullFileName
+  }
+
+
+
   doLast{
-    kddDataSetFiles.each{ filename->
-        if (filename.endsWith("gz"))
-        {
-            String fullFileName='Datasets/' + filename
-            String fullFileNameWithoutGz = fullFileName.replace(".gz","")
-            ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
-        }
+    kddZipFiles().each{ filename->
+        String fullFileName='Datasets/' + filename
+        String fullFileNameWithoutGz = fullFileName.replace(".gz","")
+        ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
 
     }
 
