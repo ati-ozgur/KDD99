@@ -20,7 +20,7 @@ DependsOn does not fix any order. Solution
 
 4. A lot of sqlite code starts to emerge. Put these code to DAL package
 
-4. Training phase output should be written to sqlite table for easy reporting
+5. Training phase output should be written to sqlite table for easy reporting
 ModelTrainingInformation
 
 TrainModelsUsingDifferentClassifiersInTrainingDataSet.groovy file output training information to a file right now. 
@@ -43,7 +43,7 @@ usedMemory
 
 
 
-5. testing phase results should be written to database table. 
+6. testing phase results should be written to database table. 
 Different test results should be written.
 
 Following draft schema
@@ -52,11 +52,14 @@ ID ModelName DateOfRun         Accuracy ... F1
 1     MLP        2014-xx-xx 
 
 
-6. repeat Training of models to see if memory changes.
+7. repeat Training of models to see if memory changes.
 I have used training phase all of them together, may be garbage collector did not kick in.
 
 
-7. gradle execInstallWekaPackages gives following error.
+
+
+
+8. gradle execInstallWekaPackages gives following error.
 
 java.io.IOException: Unable to create temporary file
     at java.io.File$TempDirectory.generateFile(File.java:1891)
