@@ -11,6 +11,12 @@ import weka.core.SerializationHelper;
 import weka.core.Utils;
 
 public class ModelFilesHelper {
+
+	static{
+		createModelSaveFolder();
+	}
+
+
 	public static List<String>  getModelFileNames() {
 		final File folder = new File(Finals.MODELS_SAVE_FOLDER);
 		return  ModelFilesHelper.getModelFileNames(folder);
@@ -50,17 +56,32 @@ public class ModelFilesHelper {
 		}
 	}
 	
+	private static void createModelSaveFolder()
+	{
+		File modelSaveFolder = new File(Finals.MODELS_SAVE_FOLDER);
+		if (!modelSaveFolder.exists())
+		{
+		modelSaveFolder.mkdirs();
+		}
+
+	}
+
+
 	public static void saveModels(Instances data, String pModelName
 			,AbstractClassifier classifier, String optionString) {
 		try {
-			classifier.setOptions(Utils.splitOptions(optionString));
-		classifier.buildClassifier(data); // build classifier
 
-		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifier.getClass().getName()
-				+ pModelName  + ".model";
-		SerializationHelper.write(modelFullFileName, classifier);
-		System.out.println("Model ( " +modelFullFileName + ")Saved");
-		} catch (Exception e) {
+			classifier.setOptions(Utils.splitOptions(optionString));
+			classifier.buildClassifier(data); // build classifier
+
+			String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifier.getClass().getName()
+					+ pModelName  + ".model";
+			SerializationHelper.write(modelFullFileName, classifier);
+			System.out.println("Model ( " +modelFullFileName + ")Saved");
+
+
+		} 
+		catch (Exception e) {
 			throw new RuntimeException(e);
 			
 		}
