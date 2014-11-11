@@ -83,9 +83,6 @@ clean{
 
 
 task downloadKddDatasetFiles {
-  //outputs.dir "Datasets"
-
-    def outputFileList = []
     kddDataSetFiles.each{ filename->
          String fullFileName='Datasets/' + filename
          outputFileList += fullFileName
