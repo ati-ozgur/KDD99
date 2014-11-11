@@ -18,6 +18,8 @@ DependsOn does not fix any order. Solution
 * Dependencies between tasks
 * mustRunAfter
 
+4. A lot of sqlite code starts to emerge. Put these code to DAL package
+
 4. Training phase output should be written to sqlite table for easy reporting
 ModelTrainingInformation
 
