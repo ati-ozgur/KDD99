@@ -82,9 +82,18 @@ clean{
 
 
 
-task downloadKddDatasetFiles << {
-    
+task downloadKddDatasetFiles {
+  //outputs.dir "Datasets"
 
+    def outputFileList = []
+    kddDataSetFiles.each{ filename->
+         String fullFileName='Datasets/' + filename
+         outputFileList += fullFileName
+         outputs.files fullFileName
+
+    }
+
+  doLast{
     kddDataSetFiles.each{ filename->
          String fullUrl=urlKdd99WebSite + filename
          String fullFileName='Datasets/' + filename
@@ -96,6 +105,7 @@ task downloadKddDatasetFiles << {
         }
 
     }
+  }
 }
 
 configure(downloadKddDatasetFiles) {   
