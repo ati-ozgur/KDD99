@@ -121,7 +121,6 @@ task unzipKddDatasetFiles{
   kddZipFiles().each{filename->
     String fullFileName='Datasets/' + filename
     String fullFileNameWithoutGz = fullFileName.replace(".gz","")
-    println fullFileNameWithoutGz
     outputs.files fullFileName
   }
 
@@ -260,6 +259,7 @@ task execSQLSchemaChangeAfterImport(type:JavaExec) {
 
 }
 
+execSQLSchemaChangeAfterImport.mustRunAfter tableImportKddTrainDataFromCommandLine
 
 
 
