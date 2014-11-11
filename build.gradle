@@ -261,7 +261,6 @@ task execSQLSchemaChangeAfterImport(type:JavaExec) {
 
 }
 
-execSQLSchemaChangeAfterImport.mustRunAfter tableImportKddTrainDataFromCommandLine
 
 
 
@@ -301,6 +300,10 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   group = GROUP_NAME
   description = 'This is Arff files creation step. '
 }
+
+
+
+
 
 task execInstallWekaPackages(type:JavaExec) {
   main = "weka.core.WekaPackageManager"
