@@ -23,15 +23,17 @@ private static final String SQL_INSERT = "INSERT INTO ML_TRAIN_RESULTS (datasetN
         ,Long maxMemory
         ,Long usedMemory)
         {
-            int trainingDuration = 0; //trainingFinishTime - trainingStartTime;
-
-            def sqlEngine = Sql.newInstance(Finals.JDBC_URL);
-
-            def params = [datasetName, classifierName, options,trainingStartTime,trainingFinishTime,trainingDuration,freeMemory,totalMemory,maxMemory,usedMemory];
-
-            sqlEngine.execute(SQL_INSERT, params)
-            sqlEngine.close()
-
+            Date trainingStartTimeAsDate = DateHelper.getDateFromFormattedString(trainingStartTime)
+            Date trainingFinishTimeAsDate = DateHelper.getDateFromFormattedString(trainingFinishTime)
+            Ekle( datasetName
+                , classifierName
+                , options
+                , trainingStartTimeAsDate
+                , trainingFinishTimeAsDate
+                , freeMemory
+                , totalMemory
+                , maxMemory
+                , usedMemory)
         }
 
     public static void Ekle(String datasetName
