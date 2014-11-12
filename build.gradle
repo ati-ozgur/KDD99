@@ -68,8 +68,7 @@ dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.0'
     compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
     compile 'org.xerial:sqlite-jdbc:3.7.15-M1'
-
-	runtime 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+    compile 'nz.ac.waikato.cms.moa:moa:2012.08'
 
 
 
@@ -306,6 +305,13 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
 
 task execProgram(type:JavaExec) {
   main = "testBench.ids.kdd99.ProgramGroovy"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Program class'
+}
+
+task execMoaExample(type:JavaExec) {
+  main = "testBench.ids.kdd99.MoaExample"
   classpath = sourceSets.main.runtimeClasspath
   group = GROUP_NAME_TEST
   description = 'Test Program class'
