@@ -10,7 +10,6 @@ import java.util.Date;
 
 
 
-
 def exampleMlTrainResults()
 {
     Date d1 = DateHelper.getNow();
@@ -28,4 +27,8 @@ def exampleMlTrainResults()
         ,inf
         )
 }
+
+
+exampleMlTrainResults()
+
 
