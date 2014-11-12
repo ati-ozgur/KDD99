@@ -8,6 +8,7 @@ public class RuntimeInformationHelper
         inf.TotalMemory = Runtime.getRuntime().totalMemory();
         inf.MaxMemory = Runtime.getRuntime().maxMemory();
         inf.UsedMemory = inf.TotalMemory - inf.FreeMemory;
+        inf.AvailableProcessors = Runtime.getRuntime().availableProcessors();
 
         inf.JavaVersion= System.getProperty("java.version");
         inf.OsArchitecture= System.getProperty("os.arch");
@@ -39,4 +40,5 @@ public class RuntimeInformation
     String JavaVmName;
     String OsName;
     String OsVersion;
+    int AvailableProcessors;
 }

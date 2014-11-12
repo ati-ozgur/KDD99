@@ -30,8 +30,9 @@ INSERT INTO ML_TRAIN_RESULTS
 ,JavaVmName
 ,OsName
 ,OsVersion
+,AvailableProcessors
     ) 
-VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?);"""
+VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
 
 
 
@@ -91,6 +92,7 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?);"""
             ,runtimeInformation.JavaVmName
             ,runtimeInformation.OsName
             ,runtimeInformation.OsVersion
+            ,runtimeInformation.AvailableProcessors
             ];
 
             sqlEngine.execute(SQL_INSERT, params)
