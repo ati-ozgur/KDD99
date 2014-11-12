@@ -4,7 +4,7 @@ package testBench.ids.kdd99
 import java.util.List;
 
 import weka.core.Instances;
-
+import testBench.ids.kdd99.dal.*;
 import testBench.ids.kdd99.datasetHelpers.*;
 import testBench.ids.kdd99.modelHelpers.*;
 import testBench.ids.kdd99.helpers.*;
@@ -29,6 +29,7 @@ ClassifiersAndArguments.classifierList.each() {
 	StringBuilder oneTrainRun = new StringBuilder();
 	data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
 
+	Date trainingStartTime = DateHelper.getNow();
 	oneTrainRun.append("---------------------------------------------------------------------------------------Start\n");
 	oneTrainRun.append(String.format("Training Start at %s for dataset %s\n", DateHelper.getNowAsFormatted(), datasetName)) ;
 	oneTrainRun.append(String.format("Training Start at %s for model %s\n", DateHelper.getNowAsFormatted(), classifierName)) ;
@@ -66,8 +67,18 @@ ClassifiersAndArguments.classifierList.each() {
 	oneTrainRun.append(String.format("Training Finish at %s for Model %s  \n", DateHelper.getNowAsFormatted(), classifierName) );
 	oneTrainRun.append("---------------------------------------------------------------------------------------Finish\n");
 
+	Date trainingFinishTime = DateHelper.getNow();
 
-
+MlTrainResultsDal.Ekle(
+    datasetName
+    ,classifierName
+    ,options
+    ,trainingStartTime
+    ,trainingFinishTime
+    ,freeMemory
+    ,totalMemory
+    ,maxMemory
+    ,usedMemory)
 
 	String fileName = "Datasets/SavedOutputs/${datasetName}-${classifierName}.txt";
 	String output = oneTrainRun.toString()
