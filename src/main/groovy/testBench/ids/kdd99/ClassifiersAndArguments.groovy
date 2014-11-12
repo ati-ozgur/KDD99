@@ -54,7 +54,7 @@ public class ClassifiersAndArguments
     //SMO_1 ,
     //SMO_2 ,
     //bayes1 ,
-    naiveBayes1 ,
+    //naiveBayes1 ,
     //Logistic1 ,
     //MultilayerPerceptron1 ,
     //RBFNetwork1 ,
@@ -63,7 +63,7 @@ public class ClassifiersAndArguments
     //SimpleLogistic1 ,
     //AdaBoostM1_1 ,
     //DecisionTable ,
-    OneR ,
+    //OneR ,
     ZeroR 
     //JRip  ,
     //PART  ,

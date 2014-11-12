@@ -3,6 +3,7 @@ build/
 Datasets/
 *.sublime-workspace
 documents/books/*
+documents/*.pdf
 *.db
 SavedArff/*
 *.docx

@@ -20,30 +20,7 @@ DependsOn does not fix any order. Solution
 
 4. A lot of sqlite code starts to emerge. Put these code to DAL package
 
-5. Training phase output should be written to sqlite table for easy reporting
-ModelTrainingInformation
-
-TrainModelsUsingDifferentClassifiersInTrainingDataSet.groovy file output training information to a file right now. 
-It should output to database table.
-
-Following draft schema:
-
-id
-datasetName
-classifierName
-options
-trainingStartTime
-trainingFinishTime
-trainingDuration
-freeMemory
-totalMemory
-maxMemory
-usedMemory
-
-
-
-
-6. testing phase results should be written to database table. 
+5. testing phase results should be written to database table. 
 Different test results should be written.
 
 Following draft schema
@@ -52,8 +29,9 @@ ID ModelName DateOfRun         Accuracy ... F1
 1     MLP        2014-xx-xx 
 
 
-7. repeat Training of models to see if memory changes.
-I have used training phase all of them together, may be garbage collector did not kick in.
+6. repeat Training of models to see if memory changes.
+I have used training phase all of them together, may be garbage collector did not kick in. 
+Garbage Collector 
 
 
 
@@ -99,6 +77,14 @@ http://www.jwall.org/streams/
 https://github.com/yahoo/samoa/wiki/Getting%20Started
 http://melmeric.files.wordpress.com/2013/04/samoa-a-platform-for-mining-big-data-streams.pdf
 
+11. MOA videos
+- http://videolectures.net/wapa2010_bifet_maof/
+- http://videolectures.net/wapa2011_bifet_sentiment/
+- http://videolectures.net/wapa2011_bifet_moa/
+
+12. MOA Links
+- http://www.cs.waikato.ac.nz/~abifet/MOA/API/index.html
+- 
 
 
 

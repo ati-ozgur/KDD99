@@ -13,6 +13,9 @@ import moa.streams.generators.*;
 
 int numInstances=10000;
 
+//ArffLoader loader = new ArffLoader();
+
+
 Classifier learner = new HoeffdingTree ( ) ;
 RandomRBFGenerator stream = new RandomRBFGenerator ( ) ;
 stream.prepareForUse();

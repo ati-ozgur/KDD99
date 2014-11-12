@@ -15,6 +15,8 @@ Instances data = null;
 ClassifiersAndArguments.classifierList.each() {
 	classifierAndOption-> 
 
+	System.gc();
+
 	String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
 
 	String classifierName = classifierAndOption.Classifier
