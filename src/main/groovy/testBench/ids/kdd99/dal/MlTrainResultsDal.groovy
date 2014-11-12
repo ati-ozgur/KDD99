@@ -41,10 +41,8 @@ private static final String SQL_INSERT = "INSERT INTO ML_TRAIN_RESULTS (datasetN
         ,String options
         ,Date trainingStartTime
         ,Date trainingFinishTime
-        ,Long freeMemory
-        ,Long totalMemory
-        ,Long maxMemory
-        ,Long usedMemory)
+        ,RuntimeInformation runtimeInformation
+        )
         {
             // insert as seconds
             int trainingDuration = (trainingFinishTime.getTime() - trainingStartTime.getTime())/1000;
@@ -53,7 +51,12 @@ private static final String SQL_INSERT = "INSERT INTO ML_TRAIN_RESULTS (datasetN
             String trainingStartTimeAsString = DateHelper.getFormattedStringFromDate(trainingStartTime);
             String trainingFinishTimeAsString = DateHelper.getFormattedStringFromDate(trainingFinishTime);
 
-            def params = [datasetName, classifierName, options,trainingStartTimeAsString,trainingFinishTimeAsString,trainingDuration,freeMemory,totalMemory,maxMemory,usedMemory];
+            def params = [datasetName, classifierName, options
+            ,trainingStartTimeAsString
+            ,trainingFinishTimeAsString,trainingDuration
+            ,runtimeInformation.FreeMemory,runtimeInformation.TotalMemory
+            ,runtimeInformation.MaxMemory,runtimeInformation.UsedMemory
+            ];
 
             sqlEngine.execute(SQL_INSERT, params)
             sqlEngine.close()

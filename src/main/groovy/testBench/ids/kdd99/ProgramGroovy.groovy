@@ -18,14 +18,14 @@ long t=d1.getTime();
 Date d2=new Date(t + (10 * ONE_MINUTE_IN_MILLIS));
 
 
+RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
+
 MlTrainResultsDal.Ekle(
     "combined_createFullKdd99TrainingDatasetForBinary"
     ,"weka.classifiers.bayes.NaiveBayes"
     ,""
     ,d1
     ,d2
-    ,7831967536
-    ,14239137792
-    ,0
-    ,6407170256)
+    ,inf
+    )
 
