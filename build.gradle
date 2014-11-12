@@ -302,7 +302,12 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
 }
 
 
-
+task execProgram(type:JavaExec) {
+  main = "testBench.ids.kdd99.ProgramGroovy"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME
+  description = 'Test Program class'
+}
 
 
 task execInstallWekaPackages(type:JavaExec) {
