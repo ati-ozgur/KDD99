@@ -63,8 +63,8 @@ public class ClassifiersAndArguments
     //SimpleLogistic1 ,
     //AdaBoostM1_1 ,
     //DecisionTable ,
-    //OneR ,
-    //ZeroR ,
+    OneR ,
+    ZeroR 
     //JRip  ,
     //PART  ,
     //RandomForest  ,
