@@ -15,7 +15,22 @@ public class DateHelper
         return sdf.format(d);
     
     }
-    public static Date getNowAsFormatted() {
+    public static Date getDateFromFormattedString(String dateAsString)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat(STR_DATE_FORMAT);
+        sdf.setLenient(false);
+        Date dt = sdf.parse(dateAsString);
+        return dt;
+    }
+    public static String getFormattedStringFromDate(Date d)
+    {
+        SimpleDateFormat sdf = new SimpleDateFormat(STR_DATE_FORMAT);
+        return sdf.format(d);
+    }
+
+
+
+    public static Date getNow() {
         Calendar c = Calendar.getInstance();
         Date d = c.getTime();
         return d;
