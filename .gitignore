@@ -4,6 +4,7 @@ Datasets/
 *.sublime-workspace
 documents/books/*
 documents/*.pdf
+documents/**/*.pdf
 *.db
 SavedArff/*
 *.docx
