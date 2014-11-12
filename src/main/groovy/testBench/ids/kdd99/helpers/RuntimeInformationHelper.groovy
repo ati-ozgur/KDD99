@@ -7,9 +7,11 @@ public class RuntimeInformationHelper
         inf.FreeMemory = Runtime.getRuntime().freeMemory();    
         inf.TotalMemory = Runtime.getRuntime().totalMemory();
         inf.MaxMemory = Runtime.getRuntime().maxMemory();
-        inf.UsedMemory = totalMemory - freeMemory;
+        inf.UsedMemory = inf.TotalMemory - inf.FreeMemory;
 
         inf.JavaVersion= System.getProperty("java.version");
+
+        return inf;
 
     }
 
