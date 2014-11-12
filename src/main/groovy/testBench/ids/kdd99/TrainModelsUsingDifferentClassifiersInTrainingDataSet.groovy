@@ -1,15 +1,13 @@
 package testBench.ids.kdd99
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
 
 import weka.core.Instances;
 
 import testBench.ids.kdd99.datasetHelpers.*;
 import testBench.ids.kdd99.modelHelpers.*;
-
+import testBench.ids.kdd99.helpers.*;
 
 
 Instances data = null;
@@ -32,8 +30,8 @@ ClassifiersAndArguments.classifierList.each() {
 	data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
 
 	oneTrainRun.append("---------------------------------------------------------------------------------------Start\n");
-	oneTrainRun.append(String.format("Training Start at %s for dataset %s\n", getNowAsFormatted(), datasetName)) ;
-	oneTrainRun.append(String.format("Training Start at %s for model %s\n", getNowAsFormatted(), classifierName)) ;
+	oneTrainRun.append(String.format("Training Start at %s for dataset %s\n", DateHelper.getNowAsFormatted(), datasetName)) ;
+	oneTrainRun.append(String.format("Training Start at %s for model %s\n", DateHelper.getNowAsFormatted(), classifierName)) ;
 
 	ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
 
@@ -64,8 +62,8 @@ ClassifiersAndArguments.classifierList.each() {
 	oneTrainRun.append(String.format("usedMemory %s as mega bytes \n" , usedMemory/mb));
 	oneTrainRun.append(String.format("usedMemory %s as giga bytes \n" , usedMemory/gb));
 	
-	oneTrainRun.append(String.format("Training Finish at %s for dataset %s \n", getNowAsFormatted(), datasetName) );
-	oneTrainRun.append(String.format("Training Finish at %s for Model %s  \n", getNowAsFormatted(), classifierName) );
+	oneTrainRun.append(String.format("Training Finish at %s for dataset %s \n", DateHelper.getNowAsFormatted(), datasetName) );
+	oneTrainRun.append(String.format("Training Finish at %s for Model %s  \n", DateHelper.getNowAsFormatted(), classifierName) );
 	oneTrainRun.append("---------------------------------------------------------------------------------------Finish\n");
 
 
@@ -81,13 +79,6 @@ ClassifiersAndArguments.classifierList.each() {
 
 
 
-private static String getNowAsFormatted() {
-	Calendar c = Calendar.getInstance();
-	Date d = c.getTime();
-	
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
-	return sdf.format(d);
-	
-}
+
 
 
