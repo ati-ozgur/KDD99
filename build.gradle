@@ -23,6 +23,8 @@ version = '0.0.1'
 
  ext {
     GROUP_NAME = "KDD99RelatedTasks"
+    GROUP_NAME_TEST = "Verification"
+
     urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
     mainPackageName = "testBench.ids.kdd99"
     //mainClassName = "weka.core.SystemInfo"
@@ -161,7 +163,7 @@ def createChecksumForKddDatasetFiles() {
 task execSQLiteConnectionControl(type:JavaExec) {
    main = mainPackageName + ".SQLiteJDBC"
    classpath = sourceSets.main.runtimeClasspath
-   group = "Verification"
+   group = GROUP_NAME_TEST
    description = "it verifies sqlite connection is correct"
 }
 
@@ -305,7 +307,7 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
 task execProgram(type:JavaExec) {
   main = "testBench.ids.kdd99.ProgramGroovy"
   classpath = sourceSets.main.runtimeClasspath
-  group = GROUP_NAME
+  group = GROUP_NAME_TEST
   description = 'Test Program class'
 }
 
