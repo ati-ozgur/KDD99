@@ -10,6 +10,15 @@ public class RuntimeInformationHelper
         inf.UsedMemory = inf.TotalMemory - inf.FreeMemory;
 
         inf.JavaVersion= System.getProperty("java.version");
+        inf.OsArchitecture= System.getProperty("os.arch");
+        inf.UserName= System.getProperty("user.name");
+        inf.JavaVmName= System.getProperty("java.vm.name");
+        inf.OsName= System.getProperty("os.name");
+        inf.OsVersion= System.getProperty("os.version");
+
+        java.net.InetAddress localMachine = java.net.InetAddress.getLocalHost();
+        inf.LocalMachineHostName   = localMachine.getHostName();
+
 
         return inf;
 
@@ -23,7 +32,7 @@ public class RuntimeInformation
     long TotalMemory;
     long MaxMemory;
     long UsedMemory;
-    String MachineName;
+    String LocalMachineHostName;
     String JavaVersion;
     String OsArchitecture;
     String UserName;
