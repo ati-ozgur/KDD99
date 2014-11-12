@@ -41,10 +41,8 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
         ,String options
         ,String trainingStartTime
         ,String trainingFinishTime
-        ,Long freeMemory
-        ,Long totalMemory
-        ,Long maxMemory
-        ,Long usedMemory)
+        ,RuntimeInformation runtimeInformation
+        )
         {
             Date trainingStartTimeAsDate = DateHelper.getDateFromFormattedString(trainingStartTime)
             Date trainingFinishTimeAsDate = DateHelper.getDateFromFormattedString(trainingFinishTime)
@@ -53,10 +51,8 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
                 , options
                 , trainingStartTimeAsDate
                 , trainingFinishTimeAsDate
-                , freeMemory
-                , totalMemory
-                , maxMemory
-                , usedMemory)
+                , runtimeInformation
+                )
         }
 
     public static void Ekle(String datasetName

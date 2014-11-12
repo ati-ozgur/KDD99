@@ -26,10 +26,9 @@ ClassifiersAndArguments.classifierList.each() {
 	Date trainingStartTime = DateHelper.getNow();
 	ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
 
-	long freeMemory = Runtime.getRuntime().freeMemory();	
-	long totalMemory = Runtime.getRuntime().totalMemory();
-	long maxMemory = Runtime.getRuntime().maxMemory();
-	long usedMemory = totalMemory - freeMemory;
+
+	RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
+
 
 	Date trainingFinishTime = DateHelper.getNow();
 
@@ -39,10 +38,7 @@ ClassifiersAndArguments.classifierList.each() {
 	    ,options
 	    ,trainingStartTime
 	    ,trainingFinishTime
-	    ,freeMemory
-	    ,totalMemory
-	    ,maxMemory
-	    ,usedMemory)
+	    ,inf)
 
 }; 
 
