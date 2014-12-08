@@ -2,9 +2,21 @@
 	"folders":
 	[
 		{
+			"folder_exclude_patterns":
+			[
+				".gradle",
+				"build"
+			],
 			"follow_symlinks": true,
-            "folder_exclude_patterns": [".gradle","build"],
 			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "P:\\github\\WekaExamples"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "P:\\github\\MoaExamples"
 		}
 	]
 }
