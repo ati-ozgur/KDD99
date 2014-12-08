@@ -91,3 +91,8 @@ http://melmeric.files.wordpress.com/2013/04/samoa-a-platform-for-mining-big-data
 Read following also
   * http://stackoverflow.com/questions/21612729/understanding-gradle-task-dependency-dependson
   * 
+
+
+13. Package classifier installation
+Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
+14. sqlite3.exe does not exist
