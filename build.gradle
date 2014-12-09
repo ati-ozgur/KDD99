@@ -115,6 +115,12 @@ def kddZipFiles()
   return kddDataSetFiles.findAll{filename-> filename.endsWith("gz")}
 }
 
+task unzipSqlite3(type: Copy) {
+  def zipFile = file('tools/sqlite-shell-win32-x86-3080703.zip')
+  def outputDir = file("tools/")
+  from zipTree(zipFile)
+  into outputDir
+}
 
 task unzipKddDatasetFiles{
 
@@ -245,6 +251,8 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
 tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
 tableImportKddTrainDataFromCommandLine.dependsOn generateImportScripts
+tableImportKddTrainDataFromCommandLine.dependsOn unzipSqlite3
+
 
 
 
