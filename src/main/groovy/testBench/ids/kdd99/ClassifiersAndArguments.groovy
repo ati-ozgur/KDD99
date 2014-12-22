@@ -46,8 +46,25 @@ public class ClassifiersAndArguments
     private static final IBk  = [ Classifier:"weka.classifiers.lazy.IBk",Options:"-K 1 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \\\"weka.core.EuclideanDistance -R first-last\\\"\""]
 
 
+    public static classifierListFast = [
+    j48_1 ,
+    naiveBayes1 ,
+    Logistic1 ,
+    AdaBoostM1_1 ,
+    DecisionTable ,
+    OneR ,
+    ZeroR ,
+    RandomForest  ,
+    DecisionStump  ,
+    LMT  ,
+    RandomTree  ,
+    REPTree  ,
+    IBk  
 
-    public static classifierList = [
+    ] 
+
+
+    public static classifierListFull = [
     //j48_1 ,
     //j48_2 ,
     //j48_3 ,
@@ -74,6 +91,8 @@ public class ClassifiersAndArguments
     //REPTree  ,
     //IBk  
     ]
+
+    public static classifierList = classifierListFast
 
 }
 
