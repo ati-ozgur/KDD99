@@ -12,11 +12,11 @@
 		},
 		{
 			"follow_symlinks": true,
-			"path": "P:\\github\\WekaExamples"
+			"path": "..\\WekaExamples"
 		},
 		{
 			"follow_symlinks": true,
-			"path": "P:\\github\\MoaExamples"
+			"path": "..\\MoaExamples"
 		}
 	]
 }
