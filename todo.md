@@ -96,3 +96,7 @@ Read following also
 13. Package classifier installation
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
 14. sqlite3.exe does not exist
+    Windows OK
+    I should test this part in Linux and MacOS.
+
+    
