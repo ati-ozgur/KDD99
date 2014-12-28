@@ -9,3 +9,4 @@ documents/**/*.pdf
 SavedArff/*
 *.docx
 others/*
+tools/*
