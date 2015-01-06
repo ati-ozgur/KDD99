@@ -56,43 +56,71 @@ public class ClassifiersAndArguments
     ZeroR ,
     RandomForest  ,
     DecisionStump  ,
-    LMT  ,
     RandomTree  ,
     REPTree  ,
     IBk  
 
     ] 
 
-
-    public static classifierListFull = [
-    //j48_1 ,
+        public static classifierListMiddle = [
+    j48_1 ,
     //j48_2 ,
     //j48_3 ,
-    //SMO_1 ,
+    SMO_1 ,
     //SMO_2 ,
-    //bayes1 ,
-    //naiveBayes1 ,
-    //Logistic1 ,
-    //MultilayerPerceptron1 ,
+    bayes1 ,
+    naiveBayes1 ,
+    Logistic1 ,
+    MultilayerPerceptron1 ,
     //RBFNetwork1 ,
     //RBFClassifier1 ,
-    //SGD1 ,
-    //SimpleLogistic1 ,
-    //AdaBoostM1_1 ,
-    //DecisionTable ,
-    //OneR ,
-    ZeroR 
+    SGD1 ,
+    SimpleLogistic1 ,
+    AdaBoostM1_1 ,
+    DecisionTable ,
+    OneR ,
+    ZeroR ,
     //JRip  ,
     //PART  ,
-    //RandomForest  ,
-    //DecisionStump  ,
+    RandomForest  ,
+    DecisionStump  ,
     //LMT  ,
-    //RandomTree  ,
-    //REPTree  ,
-    //IBk  
+    RandomTree  ,
+    REPTree  ,
+    IBk   
+
+    ] 
+
+
+    public static classifierListAll = [
+    j48_1 ,
+    //j48_2 ,
+    //j48_3 ,
+    SMO_1 ,
+    //SMO_2 ,
+    bayes1 ,
+    naiveBayes1 ,
+    Logistic1 ,
+    MultilayerPerceptron1 ,
+    RBFNetwork1 ,
+    RBFClassifier1 ,
+    SGD1 ,
+    SimpleLogistic1 ,
+    AdaBoostM1_1 ,
+    DecisionTable ,
+    OneR ,
+    ZeroR ,
+    JRip  ,
+    PART  ,
+    RandomForest  ,
+    DecisionStump  ,
+    LMT  ,
+    RandomTree  ,
+    REPTree  ,
+    IBk  
     ]
 
-    public static classifierList = classifierListFast
+    public static classifierList = classifierListMiddle
 
 }
 
