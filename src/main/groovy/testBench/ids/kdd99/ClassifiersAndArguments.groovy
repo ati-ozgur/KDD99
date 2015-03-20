@@ -47,52 +47,39 @@ public class ClassifiersAndArguments
 
 
     public static classifierListFast = [
-    j48_1 ,
+    OneR ,
+    ZeroR ,
     naiveBayes1 ,
+    j48_1 ,
     Logistic1 ,
     AdaBoostM1_1 ,
     DecisionTable ,
-    OneR ,
-    ZeroR ,
     RandomForest  ,
     DecisionStump  ,
-    LMT  ,
+    //LMT  ,
     RandomTree  ,
     REPTree  ,
     IBk  
 
     ] 
 
-
-    public static classifierListFull = [
-    //j48_1 ,
-    //j48_2 ,
-    //j48_3 ,
-    //SMO_1 ,
-    //SMO_2 ,
-    //bayes1 ,
-    //naiveBayes1 ,
-    //Logistic1 ,
-    //MultilayerPerceptron1 ,
-    //RBFNetwork1 ,
-    //RBFClassifier1 ,
-    //SGD1 ,
-    //SimpleLogistic1 ,
-    //AdaBoostM1_1 ,
-    //DecisionTable ,
-    //OneR ,
-    ZeroR 
-    //JRip  ,
-    //PART  ,
-    //RandomForest  ,
-    //DecisionStump  ,
-    //LMT  ,
-    //RandomTree  ,
-    //REPTree  ,
-    //IBk  
+    public static classifierListSlow = [
+    SMO_1 ,
+    SMO_2 ,
+    bayes1 ,
+    MultilayerPerceptron1 ,
+    RBFNetwork1 ,
+    RBFClassifier1 ,
+    SGD1 ,
+    DecisionTable ,
+    JRip  ,
+    PART  ,
+    LMT  
     ]
 
-    public static classifierList = classifierListFast
+    public static classifierListFull = classifierListSlow + classifierListFast
+
+    public static classifierList = classifierListFull
 
 }
 
