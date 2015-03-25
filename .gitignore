@@ -10,3 +10,4 @@ SavedArff/*
 *.docx
 others/*
 tools/*
+.Rproj.user
