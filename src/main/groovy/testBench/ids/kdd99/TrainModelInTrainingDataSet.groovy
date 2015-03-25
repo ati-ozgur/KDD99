@@ -23,31 +23,26 @@ if (classifierName == null)
 else
 {
 
-System.gc();
-
-String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-
-String options = ""
-
-
-data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
-
-Date trainingStartTime = DateHelper.getNow();
-ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
+    System.gc();
+    String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
+    String options = ""
+    data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
+    Date trainingStartTime = DateHelper.getNow();
+    ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
 
 
-RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
+    RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
 
 
-Date trainingFinishTime = DateHelper.getNow();
+    Date trainingFinishTime = DateHelper.getNow();
 
-MlTrainResultsDal.Ekle(
-    datasetName
-    ,classifierName
-    ,options
-    ,trainingStartTime
-    ,trainingFinishTime
-    ,inf)
+    MlTrainResultsDal.Ekle(
+        datasetName
+        ,classifierName
+        ,options
+        ,trainingStartTime
+        ,trainingFinishTime
+        ,inf)
 
 }
 
