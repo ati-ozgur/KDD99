@@ -16,6 +16,12 @@ shortClassifierName = args[1]
 
 String classifierName =  ClassifierNameHelper.getLongName(shortClassifierName)
 
+if (classifierName == null)
+{
+	println "$shortClassifierName is not found"
+}
+else
+{
 
 System.gc();
 
@@ -42,6 +48,9 @@ MlTrainResultsDal.Ekle(
     ,trainingStartTime
     ,trainingFinishTime
     ,inf)
+
+}
+
 
 
 
