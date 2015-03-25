@@ -316,14 +316,20 @@ task execTrainModelInTrainingDataSet(type:JavaExec) {
   minHeapSize = "5g"
   maxHeapSize = "32g"
 
-  if (hasProperty('classifierName') )
+  
+  if (project.hasProperty('classifierName') )
   {
-    def argsList = ["-classifierName", classifierName ]
+    //print classifierName
+    def argsList = ["classifierName", classifierName ]
     args = argsList
+  }
+  else
+  {
+     print "NO classifierName specified"
   }
 
   group = GROUP_NAME
-  description = 'Using Training dataset, named classifiers are trained. Usage Example:  ./gradlew execTrainModelsInTrainingDataSet -PclassifierName=J48 '
+  description = 'Using Training dataset, named classifiers are trained. Usage Example:  gradlew execTrainModelInTrainingDataSet -PclassifierName=J48 '
 }
 
 
