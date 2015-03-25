@@ -10,40 +10,17 @@ import testBench.ids.kdd99.modelHelpers.*;
 import testBench.ids.kdd99.helpers.*;
 
 
-Instances data = null;
+def map = [ "J48": "weka.classifiers.trees.J48",
+"SMO": "weka.classifiers.functions.SMO",
+"BayesNet":"weka.classifiers.bayes.BayesNet",
+"NaiveBayes":"weka.classifiers.bayes.NaiveBayes",
+"Logistic": "weka.classifiers.functions.Logistic",
+"MultilayerPerceptron":"weka.classifiers.functions.MultilayerPerceptron"
+]
 
-ClassifiersAndArguments.classifierList.each() {
-	classifierAndOption-> 
+classifierName = args[1]
 
-	System.gc();
-
-	String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-
-	String classifierName = classifierAndOption.Classifier
-	String options = classifierAndOption.Options
-
-
-	data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
-
-	Date trainingStartTime = DateHelper.getNow();
-	ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
-
-
-	RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
-
-
-	Date trainingFinishTime = DateHelper.getNow();
-
-	MlTrainResultsDal.Ekle(
-	    datasetName
-	    ,classifierName
-	    ,options
-	    ,trainingStartTime
-	    ,trainingFinishTime
-	    ,inf)
-
-}; 
-
+print map[classifierName]
 
 
 
