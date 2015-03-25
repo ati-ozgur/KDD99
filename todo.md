@@ -1,6 +1,9 @@
 TODO
 =====
 
+
+0. Gradle task which prints out Classifier list
+
 0. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
 
 
