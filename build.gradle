@@ -310,6 +310,24 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   description = 'Using Training dataset different classifiers are trained. '
 }
 
+task execTrainModelInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.TrainModelInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+
+  if (hasProperty('classifierName') )
+  {
+    def argsList = ["-classifierName", classifierName ]
+    args = argsList
+  }
+
+  group = GROUP_NAME
+  description = 'Using Training dataset, named classifiers are trained. Usage Example:  ./gradlew execTrainModelsInTrainingDataSet -PclassifierName=J48 '
+}
+
+
+
 
 
 
