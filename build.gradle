@@ -307,8 +307,10 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   minHeapSize = "5g"
   maxHeapSize = "32g"
   group = GROUP_NAME
-  description = 'This is Arff files creation step. '
+  description = 'Using Training dataset different classifiers are trained. '
 }
+
+
 
 
 task execProgram(type:JavaExec) {
