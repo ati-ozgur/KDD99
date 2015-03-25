@@ -1,3 +1,4 @@
+/src/main/R/.Rhistory
 .gradle
 build/
 Datasets/
@@ -10,3 +11,7 @@ SavedArff/*
 *.docx
 others/*
 __SavedModels1/*
+tools/*
+.Rproj.user
+.RData
+s

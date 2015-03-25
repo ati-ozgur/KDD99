@@ -307,8 +307,34 @@ task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
   minHeapSize = "5g"
   maxHeapSize = "32g"
   group = GROUP_NAME
-  description = 'This is Arff files creation step. '
+  description = 'Using Training dataset different classifiers are trained. '
 }
+
+task execTrainModelInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.TrainModelInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+
+  
+  if (project.hasProperty('classifierName') )
+  {
+    //print classifierName
+    def argsList = ["classifierName", classifierName ]
+    args = argsList
+  }
+  else
+  {
+     print "NO classifierName specified"
+  }
+
+  group = GROUP_NAME
+  description = 'Using Training dataset, named classifiers are trained. Usage Example:  gradlew execTrainModelInTrainingDataSet -PclassifierName=J48 '
+}
+
+
+
+
 
 
 task execProgram(type:JavaExec) {

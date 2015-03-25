@@ -1,2 +1,3 @@
-gradle clean downloadKddDatasetFiles unzipKddDatasetFiles tableImportKddTrainDataFromCommandLine
+export PATH=$PATH:`pwd`/tools
+./gradlew clean downloadKddDatasetFiles unzipKddDatasetFiles tableImportKddTrainDataFromCommandLine execSQLSchemaChangeAfterImport execCreateArffFileFromDatabase execTrainModelsUsingDifferentClassifiersInTrainingDataSet
 
