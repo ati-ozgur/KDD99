@@ -21,4 +21,5 @@ tblSummary1  <- tbl(dbIDS, sql(sqlSummary1))
 
 df <- as.data.frame(tblSummary1, n=-1)
 
-qplot(classifierName,AvgUsedMemoryMb,data = df)
+
+ggplot(df, aes(classifierName, AvgUsedMemoryMb)) + geom_bar(stat="identity")
