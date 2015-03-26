@@ -320,14 +320,14 @@ task execTrainModelInTrainingDataSet(type:JavaExec) {
   if (project.hasProperty('classifierName') )
   {
     //print classifierName
-    def argsList = ["classifierName", classifierName ]
+    def argList = ["classifierName", classifierName ]
 
     if (project.hasProperty('classifierOptions') )
     {
        argList = argList + ["classifierOptions", classifierOptions]
     }
 
-    args = argsList
+    args = argList
   }
   else if (project.hasProperty("classifierFullString"))
   {
