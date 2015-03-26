@@ -344,7 +344,11 @@ task execTrainModelInTrainingDataSet(type:JavaExec) {
   }
 
   group = GROUP_NAME
-  description = 'Using Training dataset, named classifiers are trained. Usage Example:  gradlew execTrainModelInTrainingDataSet -PclassifierName=J48 '
+  description = """Using Training dataset, named classifiers are trained. 
+  Usage Example1:  gradlew execTrainModelInTrainingDataSet -PclassifierName=J48 
+  Usage Example1:  gradlew execTrainModelInTrainingDataSet -PclassifierName=NaiveBayes -PclassifierOptions='-K'
+  Usage Example1:  gradlew execTrainModelInTrainingDataSet -PclassifierFullString='weka.classifiers.rules.OneR -B 20'
+  """
 }
 
 
