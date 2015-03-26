@@ -321,8 +321,23 @@ task execTrainModelInTrainingDataSet(type:JavaExec) {
   {
     //print classifierName
     def argsList = ["classifierName", classifierName ]
+
+    if (project.hasProperty('classifierOptions') )
+    {
+       argList = argList + ["classifierOptions", classifierOptions]
+    }
+
     args = argsList
   }
+  else if (project.hasProperty("classifierFullString"))
+  {
+    print classifierFullString
+    def argList = ["classifierFullString",classifierFullString]
+    args = argList
+
+  }
+
+
   else
   {
      print "NO classifierName specified"

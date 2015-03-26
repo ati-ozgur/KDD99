@@ -11,21 +11,46 @@ import testBench.ids.kdd99.helpers.*;
 
 
 
+String options = ""
+String classifierName = ""
 
-shortClassifierName = args[1]
+println args
 
-String classifierName =  ClassifierNameHelper.getLongName(shortClassifierName)
+firstArg = args[0];
 
-if (classifierName == null)
+if(firstArg == "classifierName")
 {
-	println "$shortClassifierName is not found"
+    shortClassifierName = args[1];
+    if (classifierName == null)
+    {
+        println "$shortClassifierName is not found"
+        return;
+    }
+    classifierName =  ClassifierNameHelper.getLongName(shortClassifierName)
+
+    if(args.length > 2 && args[2] == "classifierOptions")
+    {
+        options = args[3];
+    }
 }
-else
+
+if(firstArg == "classifierFullString")
 {
+    String classifierFullString = args[1]
+    int firstSpace = classifierFullString.indexOf(" ");
+    classifierName = classifierFullString.substring(0,firstSpace);
+    options = classifierFullString.substring(firstSpace,classifierFullString.length())
+
+    println classifierName
+    println options
+}
+
+
+
+
 
     System.gc();
     String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-    String options = ""
     data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
     Date trainingStartTime = DateHelper.getNow();
     ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
@@ -44,7 +69,7 @@ else
         ,trainingFinishTime
         ,inf)
 
-}
+
 
 
 
