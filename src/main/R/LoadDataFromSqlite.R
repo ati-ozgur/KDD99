@@ -5,6 +5,7 @@ dbIDS <- src_sqlite("../../../Datasets/test1.sqlite", create = F)
 
 train_results_summary <- tbl(dbIDS, sql("SELECT * FROM ML_TRAIN_RESULTS_SUMMARY"))
 
+df.train_results_summary <- as.data.frame(train_results_summary, n=-1)
 
 
 
