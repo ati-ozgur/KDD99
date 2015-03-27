@@ -1,7 +1,3 @@
-TODO
-=====
-
-
 0. Gradle task which prints out Classifier list
 
 0. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
@@ -110,5 +106,6 @@ Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundEx
 14. sqlite3.exe does not exist
     Windows OK
     I should test this part in Linux and MacOS.
+
 
     

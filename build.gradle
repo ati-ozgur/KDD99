@@ -1,3 +1,356 @@
+<<<<<<< HEAD
+buildscript {
+    repositories {
+        maven  {
+            url "http://repo1.maven.org/maven2"
+        }
+    }
+
+    dependencies {
+        classpath 'de.undercouch:gradle-download-task:1.0'
+    }
+}
+import de.undercouch.gradle.tasks.download.Download
+
+apply plugin: 'base'
+apply plugin: 'application'
+apply plugin: 'download-task'
+apply plugin: 'groovy'
+apply plugin: 'java'
+
+version = '0.0.1'
+
+
+
+ ext {
+    GROUP_NAME = "KDD99RelatedTasks"
+    GROUP_NAME_TEST = "Verification"
+
+    urlKdd99WebSite = 'http://kdd.ics.uci.edu/databases/kddcup99/'
+    mainPackageName = "testBench.ids.kdd99"
+    //mainClassName = "weka.core.SystemInfo"
+    //mainClassName = mainPackageName + ".SQLiteJDBC"
+    mainClassName = mainPackageName + '.JdbcExample'
+
+
+    DATABASE_NAME = "test1.sqlite"
+
+    kddDataSetFiles = [
+    'kddcup.names',
+    'kddcup.data.gz',
+    'kddcup.data_10_percent.gz',
+    'kddcup.newtestdata_10_percent_unlabeled.gz',
+    'kddcup.testdata.unlabeled.gz',
+    'kddcup.testdata.unlabeled_10_percent.gz',
+    'corrected.gz',
+    'training_attack_types',
+    'typo-correction.txt',
+    'task.html'
+
+    ]
+  }
+
+
+
+
+
+
+
+
+
+
+repositories {
+      maven  {
+          url "http://repo1.maven.org/maven2"
+      }
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.2.0'
+    compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
+    compile 'org.xerial:sqlite-jdbc:3.7.15-M1'
+    compile 'nz.ac.waikato.cms.moa:moa:2012.08'
+
+
+
+}
+
+
+
+
+clean{
+    delete "Datasets"
+}
+
+
+
+task downloadKddDatasetFiles {
+  group = GROUP_NAME
+  description = 'Download KDD99 files from internet'
+
+  inputs.property("fileNames",kddDataSetFiles)
+
+  kddDataSetFiles.each{ filename->
+       String fullFileName='Datasets/' + filename
+       outputs.files fullFileName
+
+    }
+
+  doLast{
+    kddDataSetFiles.each{ filename->
+         String fullUrl=urlKdd99WebSite + filename
+         String fullFileName='Datasets/' + filename
+         println fullUrl
+         println fullFileName
+         download {
+            src fullUrl
+            dest fullFileName
+        }
+
+    }
+  }
+}
+
+def kddZipFiles()
+{
+  return kddDataSetFiles.findAll{filename-> filename.endsWith("gz")}
+}
+
+task unzipSqlite3(type: Copy) {
+  def zipFile = file('tools/sqlite-shell-win32-x86-3080703.zip')
+  def outputDir = file("tools/")
+  from zipTree(zipFile)
+  into outputDir
+}
+
+task unzipKddDatasetFiles{
+
+  group = GROUP_NAME
+  description = 'Unzip .gz KDD99 files which are downloaded from internet, this tasks should run after downloadKddDatasetFiles'
+
+  kddZipFiles().each{filename->
+    String fullFileName='Datasets/' + filename
+    String fullFileNameWithoutGz = fullFileName.replace(".gz","")
+    outputs.files fullFileName
+  }
+
+
+
+  doLast{
+    kddZipFiles().each{ filename->
+        String fullFileName='Datasets/' + filename
+        String fullFileNameWithoutGz = fullFileName.replace(".gz","")
+        ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
+
+    }
+
+  }
+
+}
+
+
+def createChecksumForKddDatasetFiles() {
+    println "createChecksumForKddDatasetFiles"
+    kddDataSetFiles.each{ filename->
+        println filename
+        String fullFileName='Datasets/' + filename
+        ant.checksum(file:fullFileName,todir:'Datasets')
+
+    }
+}
+
+
+// Examples 
+// gradle -PmainClass=Program execute
+// gradle -PmainClass=weka.core.SystemInfo execute
+// Bu hali ile aşağıdaki hatayı  veriyor.
+// Could not find property 'mainClass' on task ':execute'.
+// Buna başka bir çözüm bulacağım
+task execSQLiteConnectionControl(type:JavaExec) {
+   main = mainPackageName + ".SQLiteJDBC"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_TEST
+   description = "it verifies sqlite connection is correct"
+}
+
+task execSQLCreateTable(type:JavaExec) {
+   main = mainPackageName + ".TableCreation"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+
+ext {
+   IMPORT_FILE_NAME = "import.sql";
+   IMPORT_FILE_NAME_FULL = "Datasets/" + IMPORT_FILE_NAME
+   IMPORT_BASH_FILE_NAME = "import.bash"
+   IMPORT_BASH_FILE_NAME_FULL = "Datasets/" + IMPORT_BASH_FILE_NAME;
+
+  CMD_ImportKddTrainData = """.separator ","
+.import kddcup.data KDD_TRAIN_DATA
+.import corrected TEST_CORRECTED
+"""
+
+  CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
+
+  FOLDER_DATASETS = file("Datasets")
+  FOLDER_DATASETS_FULLPATH = FOLDER_DATASETS.getAbsolutePath()
+
+  output_SQLITE_IMPORT_FILE = file(IMPORT_FILE_NAME_FULL)
+  output_SQLITE_IMPORT_FILE_BASH_COMMAND = file(IMPORT_BASH_FILE_NAME_FULL)
+
+}
+
+
+
+task generateImportScripts << {
+  FOLDER_DATASETS.mkdirs()
+  output_SQLITE_IMPORT_FILE.write CMD_ImportKddTrainData
+  output_SQLITE_IMPORT_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_import
+
+
+  ant.chmod(dir:FOLDER_DATASETS_FULLPATH, perm:'+x', includes:"*.bash")
+
+}
+
+
+
+
+
+def isWindows()
+{
+    if (System.properties['os.name'].toLowerCase().contains('windows')) {
+      //println "it's Windows" + System.properties['os.name']
+      return true;
+   } else {
+      //println "it's not Windows, it is " + System.properties['os.name']
+      return false;
+   }
+}
+
+
+task tableImportKddTrainDataFromCommandLine(type:Exec) {
+  //store the output instead of printing to the console:
+
+  workingDir FOLDER_DATASETS_FULLPATH
+
+  standardOutput = new ByteArrayOutputStream()
+
+  ext.output = {
+  return standardOutput.toString()
+  }
+
+  if (isWindows())
+  {
+    commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+  }
+  else
+  {
+    commandLine "./" + IMPORT_BASH_FILE_NAME
+  }
+
+ }
+
+tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+tableImportKddTrainDataFromCommandLine.dependsOn generateImportScripts
+tableImportKddTrainDataFromCommandLine.dependsOn unzipSqlite3
+
+
+
+
+configure(tableImportKddTrainDataFromCommandLine) {   
+  group = GROUP_NAME
+  description = 'import KDD99 files to sqlite database'
+}
+
+
+task execSQLSchemaChangeAfterImport(type:JavaExec) {
+  main = mainPackageName + ".TableSchemaUpdatesAfterImport"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME
+  description = 'after import KDD99 files to sqlite database, execute ALTER TABLE sql scripts'
+
+}
+
+
+
+
+task execCreateArffFileFromDatabase(type:JavaExec) {
+  main = "testBench.ids.kdd99.CreateArffFileFromDatabaseGRunner"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "20g"
+  group = GROUP_NAME
+  description = 'This is Arff files creation step. '
+}
+
+
+// TODO, this is not correct right now.
+// I am trying to get external sql script name from build
+tasks.addRule("Pattern: execCreateArffFileFromSql<sqlFileName>") { String taskName ->
+    String taskStart = "execCreateArffFileFromSql"
+    String sqlFileName = (taskName - taskStart) + ".sql";
+
+
+    if (taskName.startsWith(taskStart)) {
+        task(taskName) << {
+            println "Deneme: " + (taskName - 'ping')
+            println "sqlFileName" + sqlFileName
+        }
+    }
+}
+
+
+
+
+task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.TrainModelsUsingDifferentClassifiersInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+  group = GROUP_NAME
+  description = 'This is Arff files creation step. '
+}
+
+
+task execProgram(type:JavaExec) {
+  main = "testBench.ids.kdd99.ProgramGroovy"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Program class'
+}
+
+task execMoaExample(type:JavaExec) {
+  main = "testBench.ids.kdd99.MoaExample"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Program class'
+}
+
+
+task execInstallWekaPackages(type:JavaExec) {
+  main = "weka.core.WekaPackageManager"
+  classpath = sourceSets.main.runtimeClasspath
+  //minHeapSize = "5g"
+  //maxHeapSize = "20g"
+  //args = ["-list-packages","all"]
+  args = ["-install-package","RBFNetwork"]
+  group = GROUP_NAME
+  description = 'This is Arff files creation step. '
+}
+
+
+
+
+
+
+
+
+jar {
+    manifest.attributes(
+            'Class-Path': configurations.runtime.files.collect { it.name }.join(' ')
+    )
+}
+=======
 buildscript {
     repositories {
         maven  {
@@ -394,3 +747,4 @@ jar {
             'Class-Path': configurations.runtime.files.collect { it.name }.join(' ')
     )
 }
+>>>>>>> b6fc487ba8c819bf2880410b012568ef6a90c3fb
