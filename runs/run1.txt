@@ -1,0 +1,74 @@
+P:\github\KDD99>gradlew execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+:compileJava UP-TO-DATE
+:compileGroovy
+:processResources UP-TO-DATE
+:classes
+:execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+Model ( Datasets/SavedModels/weka.classifiers.trees.J48combined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.bayes.NaiveBayescombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.functions.Logisticcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.meta.AdaBoostM1combined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.DecisionTablecombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.ZeroRcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.RandomForestcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.DecisionStumpcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+
+
+
+BUILD SUCCESSFUL
+
+Total time: 53 hrs 18 mins 55.44 secs
+P:\github\KDD99>explorer .
+
+P:\github\KDD99>gradlew execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+:compileJava UP-TO-DATE
+:compileGroovy
+:processResources UP-TO-DATE
+:classes
+:execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+
+Model ( Datasets/SavedModels/weka.classifiers.trees.J48combined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.bayes.NaiveBayescombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.functions.Logisticcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.meta.AdaBoostM1combined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.DecisionTablecombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.ZeroRcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.RandomForestcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.DecisionStumpcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.RandomTreecombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.REPTreecombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.lazy.IBkcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+
+BUILD SUCCESSFUL
+
+Total time: 2 hrs 6 mins 2.112 secs
+P:\github\KDD99>gradlew execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+:compileJava UP-TO-DATE
+:compileGroovy
+:processResources UP-TO-DATE
+:classes
+:execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+Model ( Datasets/SavedModels/weka.classifiers.trees.J48combined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.functions.SMOcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.bayes.BayesNetcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.bayes.NaiveBayescombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.functions.Logisticcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.functions.MultilayerPerceptroncombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.functions.SGDcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+
+Model ( Datasets/SavedModels/weka.classifiers.functions.SimpleLogisticcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.meta.AdaBoostM1combined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.DecisionTablecombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.rules.ZeroRcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.RandomForestcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.DecisionStumpcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.RandomTreecombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.trees.REPTreecombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+Model ( Datasets/SavedModels/weka.classifiers.lazy.IBkcombined_createFullKdd99TrainingDatasetForBinary.model)Saved
+
+BUILD SUCCESSFUL
+
+Total time: 246 hrs 52 mins 8.482 secs

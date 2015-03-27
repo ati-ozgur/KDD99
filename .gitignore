@@ -1,6 +1,7 @@
 .gradle
 build/
 Datasets/
+/src/main/R/.Rhistory
 *.sublime-workspace
 documents/books/*
 documents/*.pdf
@@ -9,4 +10,7 @@ documents/**/*.pdf
 SavedArff/*
 *.docx
 others/*
+__SavedModels1/*
 tools/*
+.Rproj.user
+.RData
