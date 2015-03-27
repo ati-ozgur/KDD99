@@ -7,6 +7,12 @@ TODO
 0. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
 
 
+
+0. ML_TRAIN_RESULTS should also include following columns.
+  a. ModelSize, Since model is already trained we should be able to include model size easily.
+
+
+
 1. I would like to skip already run tasks (Like downloadKddDatasetFiles). Investigate following gradle features
    * SkipTask OnlyIf (read 15.8. Skipping tasks)
    * Task Output property??? (Read 15.9.1. Declaring a task's inputs and outputs)
