@@ -1,3 +1,9 @@
+0. gradle task which test kdd99 on trained classifer
+1. gradle task which train MOA classifer
+2. gradle task which test MOA classifier
+
+
+
 0. Gradle task which prints out Classifier list
 
 0. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
