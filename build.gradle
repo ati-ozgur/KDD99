@@ -66,9 +66,10 @@ repositories {
 
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.2.0'
-    compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.11'
-    compile 'org.xerial:sqlite-jdbc:3.7.15-M1'
-    compile 'nz.ac.waikato.cms.moa:moa:2012.08'
+    compile 'nz.ac.waikato.cms.weka:weka-dev:3.7.12'
+    compile 'org.xerial:sqlite-jdbc:3.8.7'
+    //compile 'org.xerial:sqlite-jdbc:3.7.15-M1'
+    compile 'nz.ac.waikato.cms.moa:moa:2014.04'
 
 
 
