@@ -13,7 +13,26 @@ import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.core.Instances;
 
-String modelFileName = "weka.classifiers.trees.J48combined_createFullKdd99TrainingDatasetForBinary.model"
+
+
+
+println args
+
+firstArg = args[0];
+String modelFileName
+
+if(firstArg == "modelFileName")
+{
+    modelFileName = args[1];
+    if (modelFileName == null)
+    {
+        println "$modelFileName is not found"
+        return;
+    }
+}
+
+
+
 
 
 Instances trainDataset = DataSetHelper.getTrainDatasetFull();

@@ -357,18 +357,30 @@ task execTestAllModelsInTrainingDataSet(type:JavaExec) {
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
-  group = GROUP_NAME_TEST
+  group = GROUP_NAME
   description = 'Test Program class'
 }
 
 
 task execTestOneModelInTrainingDataSet(type:JavaExec) {
+
+  if (project.hasProperty('modelFileName') )
+  {
+    //print modelFileName
+    def argList = ["modelFileName", modelFileName ]
+    args = argList
+  }
+
   main = "testBench.ids.kdd99.TestOneModelInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
-  group = GROUP_NAME_TEST
+  group = GROUP_NAME
   description = 'Test Program class'
+
+  
+
+
 }
 
 
