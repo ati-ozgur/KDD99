@@ -22,12 +22,10 @@ INSERT INTO ML_TEST_RESULTS
     , datasetName
     , numberOfInstances 
     , classifierModelFileName 
-    , DetectionRate 
-    , TruePositiveRate 
-    , TrueNegativeRate 
-    , FalsePositiveRate 
-    , Precision 
-    , F1Rate 
+    , TruePositive 
+    , FalsePositive 
+    , TrueNegative 
+    , FalseNegative 
     , testStartTime  
     , testFinishTime  
     , testDuration  
@@ -43,8 +41,8 @@ INSERT INTO ML_TEST_RESULTS
     , OsName 
     , OsVersion 
     , AvailableProcessors 
-    );
-VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )"""
+    )
+VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,   ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )"""
 
 
     private static void EklePrivate(
@@ -53,12 +51,10 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , 
     , String datasetName 
     , long numberOfInstances 
     , String classifierModelFileName 
-    , double DetectionRate 
-    , double TruePositiveRate 
-    , double TrueNegativeRate 
-    , double FalsePositiveRate 
-    , double Precision 
-    , double F1Rate 
+    , double TruePositive 
+    , double FalsePositive 
+    , double TrueNegative 
+    , double FalseNegative     
     , Date testStartTime  
     , Date testFinishTime  
     , long freeMemory  
@@ -90,12 +86,10 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , 
         ,  datasetName 
         ,  numberOfInstances 
         ,  classifierModelFileName 
-        ,  DetectionRate 
-        ,  TruePositiveRate 
-        ,  TrueNegativeRate 
-        ,  FalsePositiveRate 
-        ,  Precision 
-        ,  F1Rate 
+        ,  TruePositive 
+        ,  FalsePositive 
+        ,  TrueNegative 
+        ,  FalseNegative  
         ,  testStartTime  
         ,  testFinishTime  
         ,  testDuration  
@@ -125,12 +119,10 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , 
     , String datasetName 
     , long numberOfInstances 
     , String classifierModelFileName 
-    , double DetectionRate 
-    , double TruePositiveRate 
-    , double TrueNegativeRate 
-    , double FalsePositiveRate 
-    , double Precision 
-    , double F1Rate 
+    , double TruePositive 
+    , double FalsePositive 
+    , double TrueNegative 
+    , double FalseNegative 
     , Date testStartTime  
     , Date testFinishTime  
     ,RuntimeInformation runtimeInformation
@@ -143,12 +135,10 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , 
         ,  datasetName 
         ,  numberOfInstances 
         ,  classifierModelFileName 
-        ,  DetectionRate 
-        ,  TruePositiveRate 
-        ,  TrueNegativeRate 
-        ,  FalsePositiveRate 
-        ,  Precision 
-        ,  F1Rate 
+        ,  TruePositive 
+        ,  FalsePositive 
+        ,  TrueNegative 
+        ,  FalseNegative  
         ,  testStartTime  
         ,  testFinishTime  
         ,runtimeInformation.FreeMemory
@@ -180,40 +170,39 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , 
 
         )
     {
-     double DetectionRate = 0;
-     double TruePositiveRate = 0;
-     double TrueNegativeRate = 0;
-     double FalsePositiveRate = 0;
-     double Precision = 0;
-     double F1Rate = 0;
+
+
+    double TruePositive = confusionMatrix[0][0];
+    double FalsePositive  = confusionMatrix[0][1];
+    double TrueNegative  = confusionMatrix[1][0];
+    double FalseNegative = confusionMatrix[1][1];
+
     
 
         EklePrivate(
-      classifierName 
+       classifierName 
     ,  datasetType 
     ,  datasetName 
     ,  numberOfInstances 
     ,  classifierModelFileName 
-    ,  DetectionRate 
-    ,  TruePositiveRate 
-    ,  TrueNegativeRate 
-    ,  FalsePositiveRate 
-    ,  Precision 
-    ,  F1Rate 
+    ,  TruePositive 
+    ,  FalsePositive 
+    ,  TrueNegative 
+    ,  FalseNegative  
     ,  testStartTime  
     ,  testFinishTime  
-    ,runtimeInformation.FreeMemory
-    ,runtimeInformation.TotalMemory
-    ,runtimeInformation.MaxMemory
-    ,runtimeInformation.UsedMemory
-    ,runtimeInformation.LocalMachineHostName
-    ,runtimeInformation.JavaVersion
-    ,runtimeInformation.OsArchitecture
-    ,runtimeInformation.UserName
-    ,runtimeInformation.JavaVmName
-    ,runtimeInformation.OsName
-    ,runtimeInformation.OsVersion
-    ,runtimeInformation.AvailableProcessors
+    ,  runtimeInformation.FreeMemory
+    ,  runtimeInformation.TotalMemory
+    ,  runtimeInformation.MaxMemory
+    ,  runtimeInformation.UsedMemory
+    ,  runtimeInformation.LocalMachineHostName
+    ,  runtimeInformation.JavaVersion
+    ,  runtimeInformation.OsArchitecture
+    ,  runtimeInformation.UserName
+    ,  runtimeInformation.JavaVmName
+    ,  runtimeInformation.OsName
+    ,  runtimeInformation.OsVersion
+    ,  runtimeInformation.AvailableProcessors
 
             )
     }

@@ -25,7 +25,12 @@ evaluation.evaluateModel(cls, trainDataset);
 
 
 
+println(evaluation.toMatrixString());
+println("\n");
+println(evaluation.toSummaryString());
+println("\n");
 
+println(evaluation.confusionMatrix());
 
 
 
@@ -41,7 +46,9 @@ Date testFinishTime = DateHelper.getNow();
 String datasetType = "Train"
 String datasetName = trainDataset.relationName(); 
 
-String classifierName = ClassifierNameHelper.getShortName(cls.getClass().getName());
+String classifierName = cls.getClass().getName();
+
+println classifierName;
 
 MlTestResultsDal.Ekle(
 
