@@ -49,26 +49,26 @@ if(firstArg == "classifierFullString")
 
 
 
-    System.gc();
-    String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-    data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
-    Date trainingStartTime = DateHelper.getNow();
-    long modelSize = ModelFilesHelper.saveModel(data,datasetName,classifierName,options);
+System.gc();
+String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
+data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
+Date trainingStartTime = DateHelper.getNow();
+long modelSize = ModelFilesHelper.saveModel(data,datasetName,classifierName,options);
 
 
-    RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
+RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
 
 
-    Date trainingFinishTime = DateHelper.getNow();
+Date trainingFinishTime = DateHelper.getNow();
 
-    MlTrainResultsDal.Ekle(
-        datasetName
-        ,classifierName
-        ,options
-        ,trainingStartTime
-        ,trainingFinishTime
-        ,runtimeInformation
-        ,modelSize)
+MlTrainResultsDal.Ekle(
+    datasetName
+    ,classifierName
+    ,options
+    ,trainingStartTime
+    ,trainingFinishTime
+    ,runtimeInformation
+    ,modelSize)
 
 
 
