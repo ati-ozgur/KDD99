@@ -380,7 +380,7 @@ task execInstallWekaPackages(type:JavaExec) {
   //args = ["-list-packages","all"]
   args = ["-install-package","RBFNetwork"]
   group = GROUP_NAME
-  description = 'This is Arff files creation step. '
+  description = 'Install RBFNetwork using Weka Package Manager '
 }
 
 
