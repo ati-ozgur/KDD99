@@ -12,8 +12,6 @@
 
 
 
-0. ML_TRAIN_RESULTS should also include following columns.
-  a. ModelSize, Since model is already trained we should be able to include model size easily.
 
 
 
