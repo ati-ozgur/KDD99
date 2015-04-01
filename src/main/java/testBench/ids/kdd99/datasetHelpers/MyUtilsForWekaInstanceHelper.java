@@ -51,6 +51,9 @@ public class MyUtilsForWekaInstanceHelper {
     }
     
     public static void saveInstancesToFile(Instances dataset, String filename) {
+
+        dataset.setRelationName(filename);
+
         ArffSaver saver = new ArffSaver();
             saver.setInstances(dataset);
             try {
