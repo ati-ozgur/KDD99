@@ -35,12 +35,13 @@ Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundEx
 
 2. Interesting query result. A lot of R2L attacks in corrected. Look for this.
 
-    sqlite> select class_attribute_five,count(*) from TEST_CORRECTED GROUP BY class_attribute_five;
-    DOS|231455
-    PROBE|4166
-    R2L|14570
-    U2R|245
-    normal|60593
+      sqlite> select class_attribute_five,count(*) from TEST_CORRECTED GROUP BY class_attribute_five;
+
+      DOS|231455
+      PROBE|4166
+      R2L|14570
+      U2R|245
+      normal|60593
 
 3. Combined Task in Gradle
 
@@ -59,22 +60,22 @@ DependsOn does not fix any order. Solution
 
 It seems to work in linux mint, **but* gives following error in Windows
 
-java.io.IOException: Unable to create temporary file
-    at java.io.File$TempDirectory.generateFile(File.java:1891)
-    at java.io.File.createTempFile(File.java:1979)
-    at java.io.File.createTempFile(File.java:2032)
-    at org.pentaho.packageManagement.DefaultPackageManager.downloadArchive(DefaultPackageManager.java:125)
-    at org.pentaho.packageManagement.DefaultPackageManager.installPackageFromURL(DefaultPackageManager.java:691)
-    at org.pentaho.packageManagement.DefaultPackageManager.installPackageFromRepository(DefaultPackageManager.java:676)
-    at weka.core.WekaPackageManager.installPackageFromRepository(WekaPackageManager.java:1816)
-    at weka.gui.PackageManager$InstallTask.doInBackground(PackageManager.java:1330)
-    at weka.gui.PackageManager$InstallTask.doInBackground(PackageManager.java:1)
-    at javax.swing.SwingWorker$1.call(SwingWorker.java:296)
-    at java.util.concurrent.FutureTask.run(FutureTask.java:262)
-    at javax.swing.SwingWorker.run(SwingWorker.java:335)
-    at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-    at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
-    at java.lang.Thread.run(Thread.java:724)
+  java.io.IOException: Unable to create temporary file
+      at java.io.File$TempDirectory.generateFile(File.java:1891)
+      at java.io.File.createTempFile(File.java:1979)
+      at java.io.File.createTempFile(File.java:2032)
+      at org.pentaho.packageManagement.DefaultPackageManager.downloadArchive(DefaultPackageManager.java:125)
+      at org.pentaho.packageManagement.DefaultPackageManager.installPackageFromURL(DefaultPackageManager.java:691)
+      at org.pentaho.packageManagement.DefaultPackageManager.installPackageFromRepository(DefaultPackageManager.java:676)
+      at weka.core.WekaPackageManager.installPackageFromRepository(WekaPackageManager.java:1816)
+      at weka.gui.PackageManager$InstallTask.doInBackground(PackageManager.java:1330)
+      at weka.gui.PackageManager$InstallTask.doInBackground(PackageManager.java:1)
+      at javax.swing.SwingWorker$1.call(SwingWorker.java:296)
+      at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+      at javax.swing.SwingWorker.run(SwingWorker.java:335)
+      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+      at java.lang.Thread.run(Thread.java:724)
     
 
 
@@ -82,35 +83,37 @@ java.io.IOException: Unable to create temporary file
 
 
 6. Using MOA from Scala
-http://moa.cms.waikato.ac.nz/2014/08/09/using-moa-with-scala-and-its-interactive-shell/
-http://moa.cms.waikato.ac.nz/2014/08/16/using-moas-api-with-scala/
+ - http://moa.cms.waikato.ac.nz/2014/08/09/using-moa-with-scala-and-its-interactive-shell/
+ - http://moa.cms.waikato.ac.nz/2014/08/16/using-moas-api-with-scala/
 
 7. Using MOA from R
 
-http://bnosac.be/index.php/blog/32-rmoa-massive-online-data-stream-classifications-with-r-a-moa
-https://github.com/jwijffels/RMOA
+ - http://bnosac.be/index.php/blog/32-rmoa-massive-online-data-stream-classifications-with-r-a-moa
+ - https://github.com/jwijffels/RMOA
 
 8. MOA Streams Framework
-http://www.jwall.org/streams/
+ - http://www.jwall.org/streams/
 
 9. Yahoo SAMOA
-https://github.com/yahoo/samoa/wiki/Getting%20Started
-http://melmeric.files.wordpress.com/2013/04/samoa-a-platform-for-mining-big-data-streams.pdf
+ - https://github.com/yahoo/samoa/wiki/Getting%20Started
+ - http://melmeric.files.wordpress.com/2013/04/samoa-a-platform-for-mining-big-data-streams.pdf
 
 10. MOA videos
+
 - http://videolectures.net/wapa2010_bifet_maof/
 - http://videolectures.net/wapa2011_bifet_sentiment/
 - http://videolectures.net/wapa2011_bifet_moa/
 
 11. MOA Links
+
 - http://www.cs.waikato.ac.nz/~abifet/MOA/API/index.html
 - 
 
 
 
 Read following also
-  * http://stackoverflow.com/questions/21612729/understanding-gradle-task-dependency-dependson
-  * 
+  - http://stackoverflow.com/questions/21612729/understanding-gradle-task-dependency-dependson
+  - 
 
 
 
