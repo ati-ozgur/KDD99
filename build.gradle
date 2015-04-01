@@ -352,6 +352,14 @@ task execTrainModelInTrainingDataSet(type:JavaExec) {
   """
 }
 
+task execTestAllModelsInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.TestAllModelsInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Program class'
+}
+
+
 
 
 
