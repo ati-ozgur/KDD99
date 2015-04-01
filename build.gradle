@@ -362,7 +362,14 @@ task execTestAllModelsInTrainingDataSet(type:JavaExec) {
 }
 
 
-
+task execTestOneModelInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.TestOneModelInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+  group = GROUP_NAME_TEST
+  description = 'Test Program class'
+}
 
 
 

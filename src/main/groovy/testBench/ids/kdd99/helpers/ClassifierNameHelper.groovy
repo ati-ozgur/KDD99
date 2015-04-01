@@ -33,5 +33,13 @@ public class ClassifierNameHelper
         return map[classifierShortName];
     }
 
+    public static String getShortName(String classifierLongName)
+    {
+    	int lastDot = classifierLongName.lastIndexOf(".");
+    	String shortName = classifierLongName.substring(lastDot + 1, classifierLongName.length());
+        return shortName;
+    }
+
+
 
 }
