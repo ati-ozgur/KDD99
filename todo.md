@@ -88,39 +88,38 @@ It seems to work in linux mint, **but* gives following error in Windows
 
 7. Using MOA from R
 
- - http://bnosac.be/index.php/blog/32-rmoa-massive-online-data-stream-classifications-with-r-a-moa
- - https://github.com/jwijffels/RMOA
+   - http://bnosac.be/index.php/blog/32-rmoa-massive-online-data-stream-classifications-with-r-a-moa
+   - https://github.com/jwijffels/RMOA
 
 8. MOA Streams Framework
- - http://www.jwall.org/streams/
+
+   - http://www.jwall.org/streams/
 
 9. Yahoo SAMOA
- - https://github.com/yahoo/samoa/wiki/Getting%20Started
- - http://melmeric.files.wordpress.com/2013/04/samoa-a-platform-for-mining-big-data-streams.pdf
+   - https://github.com/yahoo/samoa/wiki/Getting%20Started
+   - http://melmeric.files.wordpress.com/2013/04/samoa-a-platform-for-mining-big-data-streams.pdf
 
 10. MOA videos
 
-- http://videolectures.net/wapa2010_bifet_maof/
-- http://videolectures.net/wapa2011_bifet_sentiment/
-- http://videolectures.net/wapa2011_bifet_moa/
+  - http://videolectures.net/wapa2010_bifet_maof/
+  - http://videolectures.net/wapa2011_bifet_sentiment/
+  - http://videolectures.net/wapa2011_bifet_moa/
 
 11. MOA Links
 
-- http://www.cs.waikato.ac.nz/~abifet/MOA/API/index.html
-- 
-
-
-
-Read following also
-  - http://stackoverflow.com/questions/21612729/understanding-gradle-task-dependency-dependson
+  - http://www.cs.waikato.ac.nz/~abifet/MOA/API/index.html
   - 
 
+12. Read following also
+    - http://stackoverflow.com/questions/21612729/understanding-gradle-task-dependency-dependson
+    - 
 
 
 
-12. sqlite3.exe does not exist
-    Windows OK.
-    Default installation of linux does not have sqlite3. I should point out this in help file.
+
+13. sqlite3.exe does not exist
+    - Windows OK.
+    - Default installation of linux does not have sqlite3. I should point out this in help file.
     I should test this part in Linux and MacOS.
 
 
