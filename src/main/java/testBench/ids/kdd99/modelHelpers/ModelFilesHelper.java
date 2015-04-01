@@ -5,10 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import testBench.ids.kdd99.Finals;
-import weka.classifiers.AbstractClassifier;
+import weka.classifiers.*;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
 import weka.core.Utils;
+
+import testBench.ids.kdd99.*;
+
 
 public class ModelFilesHelper {
 
@@ -68,6 +71,20 @@ public class ModelFilesHelper {
 	}
 	
 
+	public static Classifier loadModel(String modelFileName)
+	{
+		try
+		{
+			Classifier cls = (Classifier) weka.core.SerializationHelper
+				.read(Finals.MODELS_SAVE_FOLDER + modelFileName);
+			return cls;
+
+		}
+		catch (Exception ex) {
+			throw new RuntimeException(ex);
+			
+		}
+	}
 
 
 	public static long saveModel(Instances data, String pModelName
@@ -89,8 +106,8 @@ public class ModelFilesHelper {
 
 
 		} 
-		catch (Exception e) {
-			throw new RuntimeException(e);
+		catch (Exception ex) {
+			throw new RuntimeException(ex);
 			
 		}
 	}
