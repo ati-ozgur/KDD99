@@ -1,5 +1,7 @@
 0. gradle task which test kdd99 on trained classifer
+
 1. gradle task which train MOA classifer
+
 2. gradle task which test MOA classifier
 
 
@@ -51,7 +53,13 @@ Garbage Collector
 
 
 
-8. gradle execInstallWekaPackages gives following error.
+8. gradle execInstallWekaPackages 
+
+It seems to work in linux mint.
+
+
+
+gives following error in Windows
 
 java.io.IOException: Unable to create temporary file
     at java.io.File$TempDirectory.generateFile(File.java:1891)
