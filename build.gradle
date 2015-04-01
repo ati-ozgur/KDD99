@@ -366,9 +366,10 @@ task execTestOneModelInTrainingDataSet(type:JavaExec) {
 
   if (project.hasProperty('modelFileName') )
   {
-    //print modelFileName
-    def argList = ["modelFileName", modelFileName ]
+    def argList = ["modelFileName",modelFileName]
     args = argList
+    //print modelFileName
+
   }
 
   main = "testBench.ids.kdd99.TestOneModelInTrainingDataSet"

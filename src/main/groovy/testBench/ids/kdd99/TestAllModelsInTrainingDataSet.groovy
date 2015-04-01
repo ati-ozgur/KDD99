@@ -21,88 +21,14 @@ Instances trainDataset = DataSetHelper.getTrainDatasetFull();
 
 for(String modelFileName: modelFileNames)
 {
-    println(modelFileName)
-    Classifier cls = ModelFilesHelper.loadModel(modelFileName);
-    Evaluation evaluation = new Evaluation(trainDataset);
-    evaluation.evaluateModel(cls, trainDataset);
-    println("evaluation")
-    println(evaluation)
 
-    println("correct");
-    println(evaluation.correct());
+    String[] argList = new String[2];
+    argList[0] = "modelFileName";
+    argList[1] = modelFileName;
 
-    println("incorrect");
-    println(evaluation.incorrect());
-
-    println("kappa");
-    println(evaluation.kappa());
-
-
-    println("errorRate");
-    println(evaluation.errorRate());
-    println(1 - evaluation.errorRate());
-
-
-    println("falseNegativeRate 0 ");
-    println(evaluation.falseNegativeRate(0));
-    println("falseNegativeRate 1 ");
-    println(evaluation.falseNegativeRate(1));
-
-    println("falsePositiveRate 0 ");
-    println(evaluation.falsePositiveRate(0));
-    println("falsePositiveRate 1 ");
-    println(evaluation.falsePositiveRate(1));
-
-    println("fMeasure 0 ");
-    println(evaluation.fMeasure(0));
-    println("fMeasure 1 ");
-    println(evaluation.fMeasure(1));
-
-
-
-    println(evaluation.toSummaryString("\nResults\n======\n", false));
-    println("\n");
-    println(evaluation.toClassDetailsString());
-    println("\n");
-    println(evaluation.toMatrixString());
-    println("\n");
-
-    println(evaluation.toMatrixString());
-    println("\n");
-    println(evaluation.toSummaryString());
-    println("\n");
-
-    println(evaluation.confusionMatrix());
+    TestOneModelInTrainingDataSet.Main(argList)
     break;
 
 }
-
-
-
-
-
-
-
-Date testStartTime = DateHelper.getNow();
-
-
-
-RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
-
-
-Date trainingFinishTime = DateHelper.getNow();
-/*
-MlTrainResultsDal.Ekle(
-    datasetName
-    ,classifierName
-    ,options
-    ,testStartTime
-    ,trainingFinishTime
-    ,runtimeInformation
-    ,modelSize)
-
-*/
-
-
 
 
