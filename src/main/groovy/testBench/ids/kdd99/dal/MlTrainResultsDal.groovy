@@ -31,8 +31,9 @@ INSERT INTO ML_TRAIN_RESULTS
 ,OsName
 ,OsVersion
 ,AvailableProcessors
+,ModelSize
     ) 
-VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
+VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?);"""
 
 
 
@@ -42,6 +43,7 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
         ,String trainingStartTime
         ,String trainingFinishTime
         ,RuntimeInformation runtimeInformation
+        ,long modelSize = 0
         )
         {
             Date trainingStartTimeAsDate = DateHelper.getDateFromFormattedString(trainingStartTime)
@@ -52,6 +54,7 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
                 , trainingStartTimeAsDate
                 , trainingFinishTimeAsDate
                 , runtimeInformation
+                , modelSize
                 )
         }
 
@@ -61,6 +64,7 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
         ,Date trainingStartTime
         ,Date trainingFinishTime
         ,RuntimeInformation runtimeInformation
+        ,long modelSize = 0
         )
         {
             // insert as seconds
@@ -89,6 +93,7 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?);"""
             ,runtimeInformation.OsName
             ,runtimeInformation.OsVersion
             ,runtimeInformation.AvailableProcessors
+            ,modelSize
             ];
 
             sqlEngine.execute(SQL_INSERT, params)

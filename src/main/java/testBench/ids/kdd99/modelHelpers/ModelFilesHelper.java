@@ -17,8 +17,19 @@ public class ModelFilesHelper {
 	}
 
 
+	private static void createModelSaveFolder()
+	{
+		File modelSaveFolder = new File(Finals.MODELS_SAVE_FOLDER);
+		if (!modelSaveFolder.exists())
+		{
+		modelSaveFolder.mkdirs();
+		}
+
+	}
+
+
 	public static List<String>  getModelFileNames() {
-		final File folder = new File(Finals.MODELS_SAVE_FOLDER);
+		final 	File folder = new File(Finals.MODELS_SAVE_FOLDER);
 		return  ModelFilesHelper.getModelFileNames(folder);
 	}
 	
@@ -44,11 +55,11 @@ public class ModelFilesHelper {
 	
 	
 	
-	public static void saveModels(Instances data, String pModelName
+	public static long saveModel(Instances data, String pModelName
 			,String classifierFullName, String optionString) {
 		try {
 			AbstractClassifier classifier = (AbstractClassifier) Class.forName(classifierFullName).newInstance();
-			saveModels(data, pModelName, classifier, optionString);
+			return saveModel(data, pModelName, classifier, optionString);
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
@@ -56,18 +67,10 @@ public class ModelFilesHelper {
 		}
 	}
 	
-	private static void createModelSaveFolder()
-	{
-		File modelSaveFolder = new File(Finals.MODELS_SAVE_FOLDER);
-		if (!modelSaveFolder.exists())
-		{
-		modelSaveFolder.mkdirs();
-		}
-
-	}
 
 
-	public static void saveModels(Instances data, String pModelName
+
+	public static long saveModel(Instances data, String pModelName
 			,AbstractClassifier classifier, String optionString) {
 		try {
 
@@ -77,7 +80,12 @@ public class ModelFilesHelper {
 			String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifier.getClass().getName()
 					+ pModelName  + ".model";
 			SerializationHelper.write(modelFullFileName, classifier);
-			System.out.println("Model ( " +modelFullFileName + ")Saved");
+
+			long fileLength = new File(modelFullFileName).length();
+
+			System.out.println("Model ( " +modelFullFileName + ")Saved, file length is : " + fileLength );
+
+			return fileLength;
 
 
 		} 

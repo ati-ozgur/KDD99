@@ -53,10 +53,10 @@ if(firstArg == "classifierFullString")
     String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
     data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
     Date trainingStartTime = DateHelper.getNow();
-    ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
+    long modelSize = ModelFilesHelper.saveModel(data,datasetName,classifierName,options);
 
 
-    RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
+    RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
 
 
     Date trainingFinishTime = DateHelper.getNow();
@@ -67,7 +67,8 @@ if(firstArg == "classifierFullString")
         ,options
         ,trainingStartTime
         ,trainingFinishTime
-        ,inf)
+        ,runtimeInformation
+        ,modelSize)
 
 
 
