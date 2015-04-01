@@ -27,7 +27,6 @@ for(String modelFileName: modelFileNames)
     argList[1] = modelFileName;
 
     TestOneModelInTrainingDataSet.main(argList)
-    break;
 
 }
 
