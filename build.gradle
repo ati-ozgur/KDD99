@@ -285,7 +285,7 @@ configure(tableImportKddTrainDataFromCommandLine) {
 }
 
 
-task execSQLSchemaChangeAfterImport(type:JavaExec) {
+task schemaChangeAfterImport(type:JavaExec) {
   main = mainPackageName + ".TableSchemaUpdatesAfterImport"
   classpath = sourceSets.main.runtimeClasspath
   group = GROUP_NAME_KDD_DATA_PREPERATION

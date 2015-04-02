@@ -1,3 +1,4 @@
 export PATH=$PATH:`pwd`/tools
-./gradlew clean downloadKddDatasetFiles unzipKddDatasetFiles tableImportKddTrainDataFromCommandLine execSQLSchemaChangeAfterImport execCreateArffFileFromDatabase execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+./gradlew clean 
+./startFreshWithoutClean.bash
 

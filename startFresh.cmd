@@ -1,3 +1,5 @@
 SET PATH=%PATH%;.\tools
-gradlew clean downloadKddDatasetFiles unzipKddDatasetFiles tableImportKddTrainDataFromCommandLine execSQLSchemaChangeAfterImport execCreateArffFileFromDatabase execTrainModelsUsingDifferentClassifiersInTrainingDataSet
+gradlew clean
+startFreshWithoutClean.cmd
+
 
