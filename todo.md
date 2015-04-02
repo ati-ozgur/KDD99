@@ -1,5 +1,7 @@
 ## ASAP
 
+0. Divide KDD99 tasks to DatasetPreperation, Training and Testing tasks.
+
 1. gradle task which test kdd99 on trained classifer
 first version ok, help file should be written and it should work on test dataset too.
 
