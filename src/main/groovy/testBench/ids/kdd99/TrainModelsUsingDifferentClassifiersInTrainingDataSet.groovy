@@ -26,7 +26,7 @@ ClassifiersAndArguments.classifierList.each() {
 	data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
 
 	Date trainingStartTime = DateHelper.getNow();
-	ModelFilesHelper.saveModels(data,datasetName,classifierName,options);
+	ModelFilesHelper.saveModel(data,datasetName,classifierName,options);
 
 
 	RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
