@@ -325,34 +325,7 @@ task execCreateArffFileFromDatabase(type:JavaExec) {
 -----------------------------------------------------------------------------------------------------------------------------
 */
 
-task execTestOneModelInTrainingDataSet(type:JavaExec) {
-
-  if (project.hasProperty('modelFileName') )
-  {
-    def argList = ["modelFileName",modelFileName]
-    args = argList
-  }
-  else
-  {
-    def argList = ["modelFileName","weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model"]
-    args = argList
-  }
-
-  main = "testBench.ids.kdd99.TestOneModelInTrainingDataSet"
-  classpath = sourceSets.main.runtimeClasspath
-  minHeapSize = "5g"
-  maxHeapSize = "32g"
-  group = GROUP_NAME_KDD_ML_TRAIN_TEST
-  description = """Test already trained model on KDD99 full training data set
-  Usage Example1:  ./gradlew execTestOneModelInTrainingDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
-  """
-
-  
-
-
-}
-
-task execTrainModelInTrainingDataSet(type:JavaExec) {
+task trainOneModelInTrainingDataSet(type:JavaExec) {
   main = "testBench.ids.kdd99.TrainModelInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
@@ -387,13 +360,52 @@ task execTrainModelInTrainingDataSet(type:JavaExec) {
 
   group = GROUP_NAME_KDD_ML_TRAIN_TEST
   description = """Using Training dataset, named classifiers are trained. 
-  Usage Example1:  gradlew execTrainModelInTrainingDataSet -PclassifierName=J48 
-  Usage Example1:  gradlew execTrainModelInTrainingDataSet -PclassifierName=NaiveBayes -PclassifierOptions='-K'
-  Usage Example1:  gradlew execTrainModelInTrainingDataSet -PclassifierFullString='weka.classifiers.rules.OneR -B 20'
+  Usage Example1:  gradlew trainOneModelInTrainingDataSet -PclassifierName=J48 
+  Usage Example1:  gradlew trainOneModelInTrainingDataSet -PclassifierName=NaiveBayes -PclassifierOptions='-K'
+  Usage Example1:  gradlew trainOneModelInTrainingDataSet -PclassifierFullString='weka.classifiers.rules.OneR -B 20'
   """
 }
 
-task execTestAllModelsInTrainingDataSet(type:JavaExec) {
+task trainAllModelInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.TrainModelsUsingDifferentClassifiersInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST
+  description = 'Using Training dataset different classifiers are trained. '
+}
+
+
+task testOneModelInTrainingDataSet(type:JavaExec) {
+
+  if (project.hasProperty('modelFileName') )
+  {
+    def argList = ["modelFileName",modelFileName]
+    args = argList
+  }
+  else
+  {
+    def argList = ["modelFileName","weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model"]
+    args = argList
+  }
+
+  main = "testBench.ids.kdd99.TestOneModelInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST
+  description = """Test already trained model on KDD99 full training data set
+  Usage Example1:  ./gradlew testOneModelInTrainingDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
+  """
+
+  
+
+
+}
+
+
+
+task testAllModelsInTrainingDataSet(type:JavaExec) {
   main = "testBench.ids.kdd99.TestAllModelsInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
@@ -404,7 +416,7 @@ task execTestAllModelsInTrainingDataSet(type:JavaExec) {
   """
 }
 
-task execTestAllModelsInTestDataSet(type:JavaExec) {
+task testAllModelsInTestDataSet(type:JavaExec) {
   main = "testBench.ids.kdd99.TestAllModelsInTestDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
@@ -416,17 +428,8 @@ task execTestAllModelsInTestDataSet(type:JavaExec) {
 }
 
 
-task execTrainModelsUsingDifferentClassifiersInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.TrainModelsUsingDifferentClassifiersInTrainingDataSet"
-  classpath = sourceSets.main.runtimeClasspath
-  minHeapSize = "5g"
-  maxHeapSize = "32g"
-  group = GROUP_NAME_KDD_ML_TRAIN_TEST
-  description = 'Using Training dataset different classifiers are trained. '
-}
 
-
-task execTestOneModelInTestDataSet(type:JavaExec) {
+task testOneModelInTestDataSet(type:JavaExec) {
 
   if (project.hasProperty('modelFileName') )
   {
