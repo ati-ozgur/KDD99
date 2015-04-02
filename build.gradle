@@ -370,8 +370,11 @@ task execTestOneModelInTrainingDataSet(type:JavaExec) {
   {
     def argList = ["modelFileName",modelFileName]
     args = argList
-    //print modelFileName
-
+  }
+  else
+  {
+    def argList = ["modelFileName","weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model"]
+    args = argList
   }
 
   main = "testBench.ids.kdd99.TestOneModelInTrainingDataSet"
@@ -381,6 +384,36 @@ task execTestOneModelInTrainingDataSet(type:JavaExec) {
   group = GROUP_NAME
   description = """Test already trained model on KDD99 full training data set
   Usage Example1:  ./gradlew execTestOneModelInTrainingDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
+  """
+
+  
+
+
+}
+
+task execTestOneModelInTestDataSet(type:JavaExec) {
+
+  if (project.hasProperty('modelFileName') )
+  {
+    def argList = ["modelFileName",modelFileName]
+    args = argList
+    //print modelFileName
+
+  }
+  else
+  {
+    def argList = ["modelFileName","weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model"]
+    args = argList
+
+  }
+
+  main = "testBench.ids.kdd99.TestOneModelInTestDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+  group = GROUP_NAME
+  description = """Test already trained model on KDD99 full test data set
+  Usage Example1:  ./gradlew execTestOneModelInTestDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
   """
 
   
