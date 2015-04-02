@@ -26,7 +26,7 @@ for(String modelFileName: modelFileNames)
     argList[0] = "modelFileName";
     argList[1] = modelFileName;
 
-    TestOneModelInTrainingDataSet.main(argList)
+    TestOneModelInTestDataSet.main(argList)
 
 }
 
