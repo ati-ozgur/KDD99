@@ -306,33 +306,6 @@ task execCreateArffFileFromDatabase(type:JavaExec) {
 }
 
 
-// TODO, this is not correct right now.
-// I am trying to get external sql script name from build
-tasks.addRule("Pattern: execCreateArffFileFromSql<sqlFileName>") { String taskName ->
-    String taskStart = "execCreateArffFileFromSql"
-    String sqlFileName = (taskName - taskStart) + ".sql";
-
-
-    if (taskName.startsWith(taskStart)) {
-        task(taskName) << {
-            println "Deneme: " + (taskName - 'ping')
-            println "sqlFileName" + sqlFileName
-        }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
