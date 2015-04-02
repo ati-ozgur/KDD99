@@ -1,13 +1,6 @@
 ## ASAP
 
-
-
-1.  testing phase results should be written to database table. 
-Different test results should be written.
-Following draft schema may be used.
-
-  ID ModelName DateOfRun         Accuracy ... F1
-  1     MLP        2014-xx-xx 
+1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 
 
 2. gradle task which train MOA classifer
