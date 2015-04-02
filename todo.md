@@ -17,7 +17,7 @@
 6. Package classifier installation. Installation is ok in windows but need to run it too.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
 
-7. Create R code to create latex table so that training table is reproducible
+7. Create R code to create latex table so that training hardware metrics table is reproducible
 
   Title: Classifiers training information
   Columns:
@@ -30,7 +30,33 @@ Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundEx
   rows: Classifier names and values
 
 
-7. Create R code to create latex table so that testing table is reproducible
+7. Create R code to create latex table so that training set base metrics table is reproducible
+
+  Title: Training set base metrics
+  Columns:
+    a.  Classifier
+    b.  Detection Rate
+    c.  True Positive Rate
+    d.  True Negative Rate
+    e.  False Positive Rate
+    d.  False Negative Rate
+    d.  F1-Rate
+ 
+  rows: Classifier names and values
+
+8. Create R code to create latex table so that testing set base metrics table is reproducible
+Training 
+  Title: Test set base metrics
+  Columns:
+    a.  Classifier
+    b.  Detection Rate
+    c.  True Positive Rate
+    d.  True Negative Rate
+    e.  False Positive Rate
+    d.  False Negative Rate
+    d.  F1-Rate
+ 
+  rows: Classifier names and values
 
 
 
