@@ -3,6 +3,7 @@
 1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 
 
+
 2. gradle task which train MOA classifer
 
 3. gradle task which test MOA classifier
@@ -16,6 +17,20 @@
 6. Package classifier installation. Installation is ok in windows but need to run it too.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
 
+7. Create R code to create latex table so that training table is reproducible
+
+  Title: Classifiers training information
+  Columns:
+    a.  Classifier
+    b.  Working Memory
+    c. Training Time Minutes
+    d.  Model Sizes Bytes
+    e.  Model Sizes Giga Bytes
+ 
+  rows: Classifier names and values
+
+
+7. Create R code to create latex table so that testing table is reproducible
 
 
 
