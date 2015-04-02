@@ -390,6 +390,8 @@ task listTrainedModelFiles() {
   tree.each {File file ->
       println file.name
   }
+  group = GROUP_NAME
+  description = 'List trained model files, which can be used in other tasks such as execTestOneModelInTrainingDataSet'
 }
 
 
