@@ -326,7 +326,7 @@ task execCreateArffFileFromDatabase(type:JavaExec) {
 */
 
 task trainOneModelInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.TrainModelInTrainingDataSet"
+  main = "testBench.ids.kdd99.TrainOneModelInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -352,12 +352,6 @@ task trainOneModelInTrainingDataSet(type:JavaExec) {
 
   }
 
-
-  else
-  {
-     print "NO classifierName specified"
-  }
-
   group = GROUP_NAME_KDD_ML_TRAIN_TEST
   description = """Using Training dataset, named classifiers are trained. 
   Usage Example1:  gradlew trainOneModelInTrainingDataSet -PclassifierName=J48 
@@ -367,7 +361,7 @@ task trainOneModelInTrainingDataSet(type:JavaExec) {
 }
 
 task trainAllModelInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.TrainModelsUsingDifferentClassifiersInTrainingDataSet"
+  main = "testBench.ids.kdd99.TrainAllModelsInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
