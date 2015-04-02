@@ -422,7 +422,7 @@ task execTestOneModelInTestDataSet(type:JavaExec) {
 }
 
 
-task listTrainedModelFiles() {
+task listTrainedModelFiles() << {
   FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.model')
   tree.each {File file ->
       println file.name
