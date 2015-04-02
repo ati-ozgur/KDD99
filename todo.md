@@ -2,7 +2,7 @@
 
 
 
-2.  testing phase results should be written to database table. 
+1.  testing phase results should be written to database table. 
 Different test results should be written.
 Following draft schema may be used.
 
@@ -10,17 +10,17 @@ Following draft schema may be used.
   1     MLP        2014-xx-xx 
 
 
-3. gradle task which train MOA classifer
+2. gradle task which train MOA classifer
 
-4. gradle task which test MOA classifier
+3. gradle task which test MOA classifier
 
 
 
-5. Gradle task which prints out Classifier list
+4. Gradle task which prints out Classifier list
 
-6. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
+5. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
 
-7. Package classifier installation. Installation is ok in windows but need to run it too.
+6. Package classifier installation. Installation is ok in windows but need to run it too.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
 
 
