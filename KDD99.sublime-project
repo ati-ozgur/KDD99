@@ -7,16 +7,35 @@
 				".gradle",
 				"build"
 			],
+			"file_exclude_patterns":[
+				"*.aux",
+				"*.arff",
+				"*.bbl",
+				"*.blg",
+				"*.bst",
+				"*.clo",
+				"*.cls",
+				"*.docx",
+				"*.dvi",
+				"*.fdb_latexmk",
+				"*.gz",
+				"*.log",
+				"*.orig",
+				"*.ps",
+				"*.pdf",
+				"*.tdo",
+				"*.zip"
+			],
 			"follow_symlinks": true,
 			"path": "."
 		},
 		{
 			"follow_symlinks": true,
-			"path": "..\\WekaExamples"
+			"path": "..//WekaExamples"
 		},
 		{
 			"follow_symlinks": true,
-			"path": "..\\MoaExamples"
+			"path": "..//MoaExamples"
 		}
 	]
 }
