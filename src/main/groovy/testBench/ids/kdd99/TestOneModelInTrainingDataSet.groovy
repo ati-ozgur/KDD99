@@ -24,15 +24,15 @@ String modelFileName
 if(firstArg == "modelFileName")
 {
     modelFileName = args[1];
-    if (modelFileName == null)
-    {
-        println "$modelFileName is not found"
-        return;
-    }
+
 }
 
 
-
+if (modelFileName == null)
+{
+    println "$modelFileName is not found"
+    return;
+}
 
 
 Instances trainDataset = DataSetHelper.getTrainDatasetFull();
