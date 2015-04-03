@@ -38,6 +38,25 @@ task MoaExampleArffFile(type:JavaExec) {
   description = 'Test Moa Classifer using Arff File (KDD99 Training File)'
 }
 
+task MoaExampleCmd(type:JavaExec) {
+  main = "moa.DoTask"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Moa Classifer using Arff File (KDD99 Training File)'
+
+
+  String classifierName = "trees.HoeffdingTree"
+  String modelFileName = "Datasets/SavedModels/" + classifierName + ".moa"
+
+  def argList = ["LearnModel","-l",classifierName, "-s","(ArffFileStream -f Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff)","-m","10000000","-O", modelFileName]
+  args = argList
+
+}
+
+
+
+
+
 
 // Examples 
 // gradle -PmainClass=Program execute
