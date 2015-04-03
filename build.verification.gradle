@@ -1,0 +1,42 @@
+/*
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+ \ \    / /               (_)  / _| (_)                | |   (_)                
+  \ \  / /    ___   _ __   _  | |_   _    ___    __ _  | |_   _    ___    _ __  
+   \ \/ /    / _ \ | '__| | | |  _| | |  / __|  / _` | | __| | |  / _ \  | '_ \ 
+    \  /    |  __/ | |    | | | |   | | | (__  | (_| | | |_  | | | (_) | | | | |
+     \/      \___| |_|    |_| |_|   |_|  \___|  \__,_|  \__| |_|  \___/  |_| |_|
+                                                                                
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+*/
+                                                                                
+task execProgram(type:JavaExec) {
+  main = "testBench.ids.kdd99.ProgramGroovy"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Program class'
+}
+
+
+task execMoaExample(type:JavaExec) {
+  main = "testBench.ids.kdd99.MoaExample"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Program class'
+}
+
+
+// Examples 
+// gradle -PmainClass=Program execute
+// gradle -PmainClass=weka.core.SystemInfo execute
+// Bu hali ile aşağıdaki hatayı  veriyor.
+// Could not find property 'mainClass' on task ':execute'.
+// Buna başka bir çözüm bulacağım
+task execSQLiteConnectionControl(type:JavaExec) {
+   main = mainPackageName + ".SQLiteJDBC"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_TEST
+   description = "it verifies sqlite connection is correct"
+}
+

@@ -1,0 +1,216 @@
+/*
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+  _____            _                          _       _____                                                _     _                 
+ |  __ \          | |                        | |     |  __ \                                              | |   (_)                
+ | |  | |   __ _  | |_    __ _   ___    ___  | |_    | |__) |  _ __    ___   _ __     ___   _ __    __ _  | |_   _    ___    _ __  
+ | |  | |  / _` | | __|  / _` | / __|  / _ \ | __|   |  ___/  | '__|  / _ \ | '_ \   / _ \ | '__|  / _` | | __| | |  / _ \  | '_ \ 
+ | |__| | | (_| | | |_  | (_| | \__ \ |  __/ | |_    | |      | |    |  __/ | |_) | |  __/ | |    | (_| | | |_  | | | (_) | | | | |
+ |_____/   \__,_|  \__|  \__,_| |___/  \___|  \__|   |_|      |_|     \___| | .__/   \___| |_|     \__,_|  \__| |_|  \___/  |_| |_|
+                                                                            | |                                                    
+                                                                            |_|                                                    
+-----------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+
+task downloadKddDatasetFiles {
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'Download KDD99 files from internet'
+
+  inputs.property("fileNames",kddDataSetFiles)
+
+  kddDataSetFiles.each{ filename->
+       String fullFileName='Datasets/' + filename
+       outputs.files fullFileName
+
+    }
+
+  doLast{
+    kddDataSetFiles.each{ filename->
+         String fullUrl=urlKdd99WebSite + filename
+         String fullFileName='Datasets/' + filename
+         println fullUrl
+         println fullFileName
+         download {
+            src fullUrl
+            dest fullFileName
+        }
+
+    }
+  }
+}
+
+def kddZipFiles()
+{
+  return kddDataSetFiles.findAll{filename-> filename.endsWith("gz")}
+}
+
+task unzipSqlite3(type: Copy) {
+  def zipFile = file('tools/sqlite-shell-win32-x86-3080703.zip')
+  def outputDir = file("tools/")
+  from zipTree(zipFile)
+  into outputDir
+}
+
+task unzipKddDatasetFiles{
+
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'Unzip .gz KDD99 files which are downloaded from internet, this tasks should run after downloadKddDatasetFiles'
+
+  kddZipFiles().each{filename->
+    String fullFileName='Datasets/' + filename
+    String fullFileNameWithoutGz = fullFileName.replace(".gz","")
+    outputs.files fullFileName
+  }
+
+
+
+  doLast{
+    kddZipFiles().each{ filename->
+        String fullFileName='Datasets/' + filename
+        String fullFileNameWithoutGz = fullFileName.replace(".gz","")
+        ant.gunzip(dest:fullFileNameWithoutGz,src:fullFileName)
+
+    }
+
+  }
+
+}
+
+
+def createChecksumForKddDatasetFiles() {
+    println "createChecksumForKddDatasetFiles"
+    kddDataSetFiles.each{ filename->
+        println filename
+        String fullFileName='Datasets/' + filename
+        ant.checksum(file:fullFileName,todir:'Datasets')
+
+    }
+}
+
+
+
+task execInstallWekaPackages(type:JavaExec) {
+  main = "weka.core.WekaPackageManager"
+  classpath = sourceSets.main.runtimeClasspath
+  //minHeapSize = "5g"
+  //maxHeapSize = "20g"
+  //args = ["-list-packages","all"]
+  args = ["-install-package","RBFNetwork"]
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'Install RBFNetwork using Weka Package Manager '
+}
+
+
+
+task execSQLCreateTable(type:JavaExec) {
+   main = mainPackageName + ".TableCreation"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+
+ext {
+   IMPORT_FILE_NAME = "import.sql";
+   IMPORT_FILE_NAME_FULL = "Datasets/" + IMPORT_FILE_NAME
+   IMPORT_BASH_FILE_NAME = "import.bash"
+   IMPORT_BASH_FILE_NAME_FULL = "Datasets/" + IMPORT_BASH_FILE_NAME;
+
+  CMD_ImportKddTrainData = """.separator ","
+.import kddcup.data KDD_TRAIN_DATA
+.import corrected TEST_CORRECTED
+"""
+
+  CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
+
+  FOLDER_DATASETS = file("Datasets")
+  FOLDER_DATASETS_FULLPATH = FOLDER_DATASETS.getAbsolutePath()
+
+  output_SQLITE_IMPORT_FILE = file(IMPORT_FILE_NAME_FULL)
+  output_SQLITE_IMPORT_FILE_BASH_COMMAND = file(IMPORT_BASH_FILE_NAME_FULL)
+
+}
+
+
+
+task generateImportScripts << {
+  FOLDER_DATASETS.mkdirs()
+  output_SQLITE_IMPORT_FILE.write CMD_ImportKddTrainData
+  output_SQLITE_IMPORT_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_import
+
+
+  ant.chmod(dir:FOLDER_DATASETS_FULLPATH, perm:'+x', includes:"*.bash")
+
+}
+
+
+
+
+
+def isWindows()
+{
+    if (System.properties['os.name'].toLowerCase().contains('windows')) {
+      //println "it's Windows" + System.properties['os.name']
+      return true;
+   } else {
+      //println "it's not Windows, it is " + System.properties['os.name']
+      return false;
+   }
+}
+
+
+task tableImportKddTrainDataFromCommandLine(type:Exec) {
+  //store the output instead of printing to the console:
+
+  workingDir FOLDER_DATASETS_FULLPATH
+
+  standardOutput = new ByteArrayOutputStream()
+
+  ext.output = {
+  return standardOutput.toString()
+  }
+
+  if (isWindows())
+  {
+    commandLine 'cmd', '/c', CMD_Exec_sqlite3_import
+  }
+  else
+  {
+    commandLine "./" + IMPORT_BASH_FILE_NAME
+  }
+
+ }
+
+tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+tableImportKddTrainDataFromCommandLine.dependsOn generateImportScripts
+tableImportKddTrainDataFromCommandLine.dependsOn unzipSqlite3
+
+
+
+
+configure(tableImportKddTrainDataFromCommandLine) {   
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'import KDD99 files to sqlite database'
+}
+
+
+task schemaChangeAfterImport(type:JavaExec) {
+  main = mainPackageName + ".TableSchemaUpdatesAfterImport"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'after import KDD99 files to sqlite database, execute ALTER TABLE sql scripts'
+
+}
+
+
+
+
+task createArffFileFromDatabase(type:JavaExec) {
+  main = "testBench.ids.kdd99.CreateArffFileFromDatabaseGRunner"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "20g"
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'This is Arff files creation step from Database'
+}
