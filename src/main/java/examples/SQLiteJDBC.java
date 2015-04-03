@@ -1,6 +1,8 @@
-package testBench.ids.kdd99;
+package examples;
 
 import java.sql.*;
+import testBench.ids.kdd99.*;
+
 //http://www.tutorialspoint.com/sqlite/sqlite_java.htm
 
 public class SQLiteJDBC
