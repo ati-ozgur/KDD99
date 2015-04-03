@@ -1,3 +1,8 @@
+ ext {
+    GROUP_NAME_TEST = "Verification"
+    examplesPackageName = "examples"
+
+}
 /*
 -----------------------------------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------
@@ -11,16 +16,16 @@
 -----------------------------------------------------------------------------------------------------------------------------
 */
                                                                                 
-task execProgram(type:JavaExec) {
-  main = "testBench.ids.kdd99.ProgramGroovy"
+task ProgramGroovyExample(type:JavaExec) {
+  main = examplesPackageName + ".ProgramGroovy"
   classpath = sourceSets.main.runtimeClasspath
   group = GROUP_NAME_TEST
   description = 'Test Program class'
 }
 
 
-task execMoaExample(type:JavaExec) {
-  main = "testBench.ids.kdd99.MoaExample"
+task MoaExample(type:JavaExec) {
+  main = examplesPackageName + ".MoaExample"
   classpath = sourceSets.main.runtimeClasspath
   group = GROUP_NAME_TEST
   description = 'Test Program class'
@@ -33,8 +38,8 @@ task execMoaExample(type:JavaExec) {
 // Bu hali ile aşağıdaki hatayı  veriyor.
 // Could not find property 'mainClass' on task ':execute'.
 // Buna başka bir çözüm bulacağım
-task execSQLiteConnectionControl(type:JavaExec) {
-   main = mainPackageName + ".SQLiteJDBC"
+task SQLiteConnectionControl(type:JavaExec) {
+   main = examplesPackageName + ".SQLiteJDBC"
    classpath = sourceSets.main.runtimeClasspath
    group = GROUP_NAME_TEST
    description = "it verifies sqlite connection is correct"

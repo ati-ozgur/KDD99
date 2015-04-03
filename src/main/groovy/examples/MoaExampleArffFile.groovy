@@ -1,4 +1,4 @@
-package testBench.ids.kdd99.moa;
+package examples;
 
 
 
