@@ -1,3 +1,10 @@
+ext {
+  GROUP_NAME_KDD_ML_TRAIN_TEST_MOA = "KDD99 Machine Learning Training and Testing Using MOA"
+}
+
+
+
+
 task trainOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
   main = "testBench.ids.kdd99.moa.TrainOneModelUsingMoaInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
@@ -23,7 +30,7 @@ task trainOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
 
   }
 
-  group = GROUP_NAME_KDD_ML_TRAIN_TEST
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
   description = """Using Training dataset, named moa classifier is trained. 
   Usage Example1:  gradlew trainOneModelUsingMoaInTrainingDataSet -PclassifierName=HoeffdingTree 
   Usage Example1:  gradlew trainOneModelUsingMoaInTrainingDataSet -PclassifierName=HoeffdingTree -PclassifierOptions='-K'
