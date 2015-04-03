@@ -320,8 +320,8 @@ task createArffFileFromDatabase(type:JavaExec) {
 -----------------------------------------------------------------------------------------------------------------------------
 */
 
-task trainOneModelInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.TrainOneModelInTrainingDataSet"
+task trainOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.weka.TrainOneModelInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -349,14 +349,14 @@ task trainOneModelInTrainingDataSet(type:JavaExec) {
 
   group = GROUP_NAME_KDD_ML_TRAIN_TEST
   description = """Using Training dataset, named classifiers are trained. 
-  Usage Example1:  gradlew trainOneModelInTrainingDataSet -PclassifierName=J48 
-  Usage Example1:  gradlew trainOneModelInTrainingDataSet -PclassifierName=NaiveBayes -PclassifierOptions='-K'
-  Usage Example1:  gradlew trainOneModelInTrainingDataSet -PclassifierFullString='weka.classifiers.rules.OneR -B 20'
+  Usage Example1:  gradlew trainOneModelUsingWekaInTrainingDataSet -PclassifierName=J48 
+  Usage Example1:  gradlew trainOneModelUsingWekaInTrainingDataSet -PclassifierName=NaiveBayes -PclassifierOptions='-K'
+  Usage Example1:  gradlew trainOneModelUsingWekaInTrainingDataSet -PclassifierFullString='weka.classifiers.rules.OneR -B 20'
   """
 }
 
-task trainAllModelInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.TrainAllModelsInTrainingDataSet"
+task trainAllModelsUsingWekaInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.weka.TrainAllModelsInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -365,7 +365,7 @@ task trainAllModelInTrainingDataSet(type:JavaExec) {
 }
 
 
-task testOneModelInTrainingDataSet(type:JavaExec) {
+task testOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
 
   if (project.hasProperty('modelFileName') )
   {
@@ -378,13 +378,13 @@ task testOneModelInTrainingDataSet(type:JavaExec) {
     args = argList
   }
 
-  main = "testBench.ids.kdd99.TestOneModelInTrainingDataSet"
+  main = "testBench.ids.kdd99.weka.TestOneModelInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
   group = GROUP_NAME_KDD_ML_TRAIN_TEST
   description = """Test already trained model on KDD99 full training data set
-  Usage Example1:  ./gradlew testOneModelInTrainingDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
+  Usage Example1:  ./gradlew testOneModelUsingWekaInTrainingDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
   """
 
   
@@ -394,8 +394,8 @@ task testOneModelInTrainingDataSet(type:JavaExec) {
 
 
 
-task testAllModelsInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.TestAllModelsInTrainingDataSet"
+task testAllModelsUsingWekaInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.weka.TestAllModelsInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -405,8 +405,8 @@ task testAllModelsInTrainingDataSet(type:JavaExec) {
   """
 }
 
-task testAllModelsInTestDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.TestAllModelsInTestDataSet"
+task testAllModelsUsingWekaInTestDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.weka.TestAllModelsInTestDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -418,7 +418,7 @@ task testAllModelsInTestDataSet(type:JavaExec) {
 
 
 
-task testOneModelInTestDataSet(type:JavaExec) {
+task testOneModelUsingWekaInTestDataSet(type:JavaExec) {
 
   if (project.hasProperty('modelFileName') )
   {
@@ -434,7 +434,7 @@ task testOneModelInTestDataSet(type:JavaExec) {
 
   }
 
-  main = "testBench.ids.kdd99.TestOneModelInTestDataSet"
+  main = "testBench.ids.kdd99.weka.TestOneModelInTestDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -479,6 +479,7 @@ task execProgram(type:JavaExec) {
   group = GROUP_NAME_TEST
   description = 'Test Program class'
 }
+
 
 task execMoaExample(type:JavaExec) {
   main = "testBench.ids.kdd99.MoaExample"
