@@ -1,4 +1,4 @@
-package testBench.ids.kdd99;
+package testBench.ids.kdd99.moa;
 
 
 import moa.classifiers.*;
