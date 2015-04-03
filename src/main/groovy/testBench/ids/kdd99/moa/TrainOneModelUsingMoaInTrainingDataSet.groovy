@@ -22,15 +22,15 @@ println(datasetNameFullFileName);
 
 
 
-Classifier learner = new HoeffdingTree ( ) ;
+Classifier classifer = new HoeffdingTree ( ) ;
 
 int classIndex = 42;
 ArffFileStream stream = new ArffFileStream(datasetNameFullFileName, classIndex)
 
 stream.prepareForUse();
 
- learner.setModelContext(stream.getHeader()) ;
- learner.prepareForUse() ;
+ classifer.setModelContext(stream.getHeader()) ;
+ classifer.prepareForUse() ;
 
  int numberSamplesCorrect=0;
  int numberSamples=0;
@@ -38,12 +38,12 @@ stream.prepareForUse();
  while( stream.hasMoreInstances () && numberSamples < numInstances){
      Instance trainInst = stream.nextInstance() ;
      if ( isTesting ){
-         if ( learner.correctlyClassifies(trainInst )){
+         if ( classifer.correctlyClassifies(trainInst )){
              numberSamplesCorrect++;
          }
      }
      numberSamples++;
-     learner.trainOnInstance(trainInst) ;
+     classifer.trainOnInstance(trainInst) ;
  }
 
 
