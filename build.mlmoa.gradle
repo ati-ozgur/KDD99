@@ -1,0 +1,32 @@
+task trainOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.moa.TrainOneModelUsingMoaInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+
+  
+  if (project.hasProperty('classifierName') )
+  {
+    //print classifierName
+    def argList = ["classifierName", classifierName ]
+
+    if (project.hasProperty('classifierOptions') )
+    {
+       argList = argList + ["classifierOptions", classifierOptions]
+    }
+
+    args = argList
+  }
+  else if (project.hasProperty("classifierFullString"))
+  {
+    print classifierFullString
+    def argList = ["classifierFullString",classifierFullString]
+    args = argList
+
+  }
+
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST
+  description = """Using Training dataset, named moa classifier is trained. 
+  Usage Example1:  gradlew trainOneModelUsingMoaInTrainingDataSet -PclassifierName=HoeffdingTree 
+  Usage Example1:  gradlew trainOneModelUsingMoaInTrainingDataSet -PclassifierName=HoeffdingTree -PclassifierOptions='-K'
+  Usage Example1:  gradlew trainOneModelUsingMoaInTrainingDataSet -PclassifierFullString='moa.classifiers.trees.HoeffdingTree -B 20'
+  """
+}

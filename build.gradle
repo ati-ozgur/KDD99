@@ -90,6 +90,9 @@ clean{
 
 apply from: 'build.datasetPreperation.gradle'
 apply from: 'build.mlweka.gradle'
+apply from: 'build.mlmoa.gradle'
+
 apply from: 'build.verification.gradle'
+
 
 
