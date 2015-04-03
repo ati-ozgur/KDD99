@@ -23,8 +23,8 @@ println(datasetNameFullFileName);
 
 
 Classifier classifer = new HoeffdingTree ( ) ;
+int classIndex = -1;
 
-int classIndex = 42;
 ArffFileStream stream = new ArffFileStream(datasetNameFullFileName, classIndex)
 
 stream.prepareForUse();
