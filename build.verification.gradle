@@ -28,7 +28,14 @@ task MoaExample(type:JavaExec) {
   main = examplesPackageName + ".MoaExample"
   classpath = sourceSets.main.runtimeClasspath
   group = GROUP_NAME_TEST
-  description = 'Test Program class'
+  description = 'Test Moa Classifer using random stream'
+}
+
+task MoaExampleArffFile(type:JavaExec) {
+  main = examplesPackageName + ".MoaExampleArffFile"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Moa Classifer using Arff File (KDD99 Training File)'
 }
 
 
