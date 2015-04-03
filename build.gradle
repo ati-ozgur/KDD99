@@ -96,3 +96,14 @@ apply from: 'build.verification.gradle'
 
 
 
+
+task listTrainedModelFiles() << {
+  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.model')
+  tree.each {File file ->
+      println file.name
+  }
+}
+
+listTrainedModelFiles.group = GROUP_NAME_KDD_ML_TRAIN_TEST
+listTrainedModelFiles.description = """List trained model files, which can be used in other tasks such as 
+testOneModelUsingWekaInTrainingDataSet or testOneModelUsingMoaInTrainingDataSet"""
