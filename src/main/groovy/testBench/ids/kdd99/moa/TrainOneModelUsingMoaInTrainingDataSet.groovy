@@ -1,13 +1,13 @@
 package testBench.ids.kdd99.moa;
 
 
+
+import testBench.ids.kdd99.*;
+
+import weka.core.*;
+
 import moa.classifiers.*;
 import moa.classifiers.trees.HoeffdingTree;
-
-import weka.core.Instance;
-import weka.core.Instances;
-
-
 import moa.streams.generators.*;
 import moa.streams.*;
 
