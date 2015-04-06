@@ -37,3 +37,13 @@ task trainOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
   Usage Example1:  gradlew trainOneModelUsingMoaInTrainingDataSet -PclassifierFullString='moa.classifiers.trees.HoeffdingTree -B 20'
   """
 }
+
+
+task TrainAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
+  main = "testBench.ids.kdd99.moa.TrainAllModelsUsingMoaInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+
+  
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
+  description = """Using Training dataset, all moa classifiers are trained.   """
+}
