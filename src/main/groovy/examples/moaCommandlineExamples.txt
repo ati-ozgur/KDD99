@@ -1,0 +1,6 @@
+moaCommandlineExamples.txt
+
+LearnModel -l trees.HoeffdingTree -s (ArffFileStream -f /home/atilla/projectsLocal/github/KDD99/Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff)
+
+moa.DoTask "EvaluateModel -m file:amodel.moa -s (ArffFileStream -f atest.arff -c -1) "
+
