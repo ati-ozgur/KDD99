@@ -19,7 +19,7 @@ ext {
 */
 
 task trainOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.weka.TrainOneModelInTrainingDataSet"
+  main = "testBench.ids.kdd99.weka.TrainOneModelUsingWekaInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -54,7 +54,7 @@ task trainOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
 }
 
 task trainAllModelsUsingWekaInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.weka.TrainAllModelsInTrainingDataSet"
+  main = "testBench.ids.kdd99.weka.TrainAllModelsUsingWekaInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -76,7 +76,7 @@ task testOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
     args = argList
   }
 
-  main = "testBench.ids.kdd99.weka.TestOneModelInTrainingDataSet"
+  main = "testBench.ids.kdd99.weka.TestOneModelUsingWekaInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -93,7 +93,7 @@ task testOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
 
 
 task testAllModelsUsingWekaInTrainingDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.weka.TestAllModelsInTrainingDataSet"
+  main = "testBench.ids.kdd99.weka.TestAllModelsUsingWekaInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -104,7 +104,7 @@ task testAllModelsUsingWekaInTrainingDataSet(type:JavaExec) {
 }
 
 task testAllModelsUsingWekaInTestDataSet(type:JavaExec) {
-  main = "testBench.ids.kdd99.weka.TestAllModelsInTestDataSet"
+  main = "testBench.ids.kdd99.weka.TestAllModelsUsingWekaInTestDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
@@ -132,13 +132,13 @@ task testOneModelUsingWekaInTestDataSet(type:JavaExec) {
 
   }
 
-  main = "testBench.ids.kdd99.weka.TestOneModelInTestDataSet"
+  main = "testBench.ids.kdd99.weka.TestOneModelUsingWekaInTestDataSet"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "5g"
   maxHeapSize = "32g"
   group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
   description = """Test already trained model on KDD99 full test data set
-  Usage Example1:  ./gradlew execTestOneModelInTestDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
+  Usage Example1:  ./gradlew testOneModelUsingWekaInTestDataSet -PmodelFileName='weka.classifiers.rules.OneRcombined_createFullKdd99TrainingDatasetForBinary.model'
   """
 
   
