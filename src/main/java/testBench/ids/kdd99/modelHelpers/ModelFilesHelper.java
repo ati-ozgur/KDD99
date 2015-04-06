@@ -86,6 +86,20 @@ public class ModelFilesHelper {
 		}
 	}
 
+	public static long getModelFileSize( String pModelFullFileName) {
+		try {
+			String modelFullFileName = pModelFullFileName;
+
+			long fileLength = new File(modelFullFileName).length();
+
+			return fileLength;
+
+		} 
+		catch (Exception ex) {
+			throw new RuntimeException(ex);
+			
+		}
+	}
 
 	public static long saveModel(Instances data, String pModelName
 			,AbstractClassifier classifier, String optionString) {

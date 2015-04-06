@@ -3,6 +3,12 @@ package testBench.ids.kdd99.moa;
 
 
 import testBench.ids.kdd99.*;
+import testBench.ids.kdd99.dal.*;
+import testBench.ids.kdd99.datasetHelpers.*;
+import testBench.ids.kdd99.modelHelpers.*;
+import testBench.ids.kdd99.helpers.*;
+
+
 
 import moa.options.*;
 import weka.core.*;
@@ -75,9 +81,31 @@ String cliString = "LearnModel -l $classifierName $options -s (ArffFileStream -f
 
 println(cliString)
 
+System.gc();
+
 // parse options
+Date trainingStartTime = DateHelper.getNow();
+
 Task task = (Task) ClassOption.cliStringToObject(cliString, Task.class, extraOptions);
 Object result =  task.doTask();;
 
 println(result)
 println(result.getClass())
+
+
+long modelSize = ModelFilesHelper.getModelFileSize(modelFullFileName);
+
+
+RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
+
+
+Date trainingFinishTime = DateHelper.getNow();
+
+MlTrainResultsDal.Ekle(
+    datasetName
+    ,classifierName
+    ,options
+    ,trainingStartTime
+    ,trainingFinishTime
+    ,runtimeInformation
+    ,modelSize)

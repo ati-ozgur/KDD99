@@ -1,6 +1,6 @@
 package testBench.ids.kdd99;
 
-public class ClassifiersAndArguments
+public class ClassifiersAndArgumentsWeka
 {
 
 
