@@ -59,6 +59,17 @@ Training
   rows: Classifier names and values
 
 
+9. MOA Confusion Matrix
+
+https://groups.google.com/forum/#!topic/moa-users/shfp-utCpJ4
+The confusion matrix is not computed in MOA currently. You can easily
+modify the java code in
+moa.evaluation.BasicClassificationPerformanceEvaluator or
+moa.evaluation.WindowRegressionPerformanceEvaluator to compute it. 
+
+According to this post, I need to solve this problem myself.
+
+
 
 
 ## Later Tasks

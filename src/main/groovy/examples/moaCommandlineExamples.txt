@@ -1,6 +1,16 @@
 moaCommandlineExamples.txt
 
-LearnModel -l trees.HoeffdingTree -s (ArffFileStream -f /home/atilla/projectsLocal/github/KDD99/Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff)
 
-moa.DoTask "EvaluateModel -m file:amodel.moa -s (ArffFileStream -f atest.arff -c -1) "
+export MOA_HOME='/home/atilla/Tools/java/moa'
+export WEKA_HOME='/home/atilla/Tools/java/weka'
+export CLASSPATH=$MOA_HOME/moa.jar:$WEKA_HOME/weka.jar
+
+export DATASET_TRAIN='./Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff'
+
+java -cp $CLASSPATH -javaagent:$MOA_HOME/sizeofag.jar moa.DoTask    LearnModel -l trees.HoeffdingTree   -s generators.WaveformGenerator -m 1000000 -O model1.moa
+
+
+LearnModel -l trees.HoeffdingTree -s (ArffFileStream -f ./Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff)
+
+moa.DoTask "EvaluateModel -m file:./Datasets/SavedModels/trees.HoeffdingTree.moa -s (ArffFileStream -f ./Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff -c -1) "
 
