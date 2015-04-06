@@ -9,7 +9,7 @@ export DATASET_TEST='./Datasets/SavedArff/combined_createFullKdd99TestDatasetFor
 export MODEL_FOLDER='./Datasets/SavedModels/'
 export MOA_COMMAND="java -cp $CLASSPATH -javaagent:$MOA_HOME/sizeofag.jar moa.DoTask"
 
-$MOA_COMMAND "LearnModel -l moa.classifiers.trees.DecisionStump  -s (ArffFileStream -f Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff -c -1) -m 5000000  -O Datasets/SavedModels/moa.classifiers.trees.DecisionStump.moa"
+$MOA_COMMAND "LearnModel -l moa.classifiers.trees.DecisionStump  -s (ArffFileStream -f $DATASET_TRAIN -c -1) -m 5000000  -O $MODEL_FOLDER/moa.classifiers.trees.DecisionStump.moa"
 
 $MOA_COMMAND "LearnModel -l trees.HoeffdingTree   -s generators.WaveformGenerator -m 1000000 -O $MODEL_FOLDER/generators.WaveformGenerator.moa"
 

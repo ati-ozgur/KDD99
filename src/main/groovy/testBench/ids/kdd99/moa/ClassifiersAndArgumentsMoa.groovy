@@ -33,7 +33,7 @@ public class ClassifiersAndArgumentsMoa
     OzaBag ,
     RuleClassifier ,
     RuleClassifierNBayes ,
-    DecisionStump  ,
+    //DecisionStump  ,
 	HoeffdingTree      
     
     ] 
