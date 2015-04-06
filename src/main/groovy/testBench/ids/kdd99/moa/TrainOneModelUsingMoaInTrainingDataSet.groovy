@@ -31,7 +31,7 @@ if(firstArg == "classifierName")
         println "$shortClassifierName is not found"
         return;
     }
-    classifierName =  ClassifierNameHelper.getLongName(shortClassifierName)
+    classifierName =  ClassifierNameHelperMoa.getLongName(shortClassifierName)
 
     if(args.length > 2 && args[2] == "classifierOptions")
     {
