@@ -1,14 +1,15 @@
 # moaCommandlineExamples.txt
 
 
-export MOA_HOME='/home/atilla/Tools/java/moa'
-export WEKA_HOME='/home/atilla/Tools/java/weka'
+export MOA_HOME="/$HOME/Tools/java/moa"
+export WEKA_HOME="$HOME/Tools/java/weka"
 export CLASSPATH=$MOA_HOME/moa.jar:$WEKA_HOME/weka.jar
 export DATASET_TRAIN='./Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff'
 export DATASET_TEST='./Datasets/SavedArff/combined_createFullKdd99TestDatasetForBinary.arff'
 export MODEL_FOLDER='./Datasets/SavedModels/'
 export MOA_COMMAND="java -cp $CLASSPATH -javaagent:$MOA_HOME/sizeofag.jar moa.DoTask"
 
+$MOA_COMMAND "LearnModel -l moa.classifiers.trees.DecisionStump  -s (ArffFileStream -f Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff -c -1) -m 5000000  -O Datasets/SavedModels/moa.classifiers.trees.DecisionStump.moa"
 
 $MOA_COMMAND "LearnModel -l trees.HoeffdingTree   -s generators.WaveformGenerator -m 1000000 -O $MODEL_FOLDER/generators.WaveformGenerator.moa"
 
