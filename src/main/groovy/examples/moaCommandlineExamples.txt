@@ -13,7 +13,7 @@ export MOA_COMMAND="java -cp $CLASSPATH -javaagent:$MOA_HOME/sizeofag.jar moa.Do
 
 $MOA_COMMAND LearnModel -l trees.HoeffdingTree   -s generators.WaveformGenerator -m 1000000 -O model1.moa
 
-$MOA_COMMAND "LearnModel -l trees.HoeffdingTree   -s (ArffFileStream -f $DATASET_TRAIN) -m 1000000 -O $MODEL_FOLDER/model1.moa"
+$MOA_COMMAND "LearnModel -l trees.HoeffdingTree   -s (ArffFileStream -f $DATASET_TRAIN) -m 5000000 -O $MODEL_FOLDER/model1.moa"
 
 
 
