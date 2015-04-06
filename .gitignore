@@ -16,3 +16,4 @@ src/main/R/.Rhistory
 *.docx
 .Rproj.user
 .RData
+SeaAnomaliesUnsupervised.txt
