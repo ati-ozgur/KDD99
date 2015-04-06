@@ -70,6 +70,14 @@ moa.evaluation.WindowRegressionPerformanceEvaluator to compute it.
 According to this post, I need to solve this problem myself.
 
 
+10. MOA manual has short descriptions of classifiers.
+Choose batch and stream versions to compare using that descriptions.
+For example.
+
+    OCBoost
+    Online Coordinate Boosting.
+    Pelossof et al. presented Online Coordinate Boosting, a new online boost-
+    ing algorithm for adapting the weights of a boosted classifier, which yields a closer approximation to Freund and Schapire’s AdaBoost algorithm.
 
 
 ## Later Tasks
