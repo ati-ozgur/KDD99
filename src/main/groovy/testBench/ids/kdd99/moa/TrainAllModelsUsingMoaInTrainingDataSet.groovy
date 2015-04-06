@@ -19,6 +19,12 @@ import moa.classifiers.trees.HoeffdingTree;
 import moa.streams.generators.*;
 import moa.streams.*;
 
-ClassifiersAndArgumentsMoa.each{
-	println(it)
+ClassifiersAndArgumentsMoa.classifierList.each{
+	println(it["ClassifierShortName"])
+    String[] argList = new String[2];
+    argList[0] = "classifierName";
+    argList[1] = it["ClassifierShortName"];
+
+
+	TrainOneModelUsingMoaInTrainingDataSet.main(argList)
 }
