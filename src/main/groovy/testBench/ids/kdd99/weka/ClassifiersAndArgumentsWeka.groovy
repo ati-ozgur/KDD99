@@ -1,4 +1,4 @@
-package testBench.ids.kdd99;
+package testBench.ids.kdd99.weka;
 
 public class ClassifiersAndArgumentsWeka
 {
