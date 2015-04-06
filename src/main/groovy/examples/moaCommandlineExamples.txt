@@ -1,23 +1,27 @@
-moaCommandlineExamples.txt
+# moaCommandlineExamples.txt
 
 
 export MOA_HOME='/home/atilla/Tools/java/moa'
 export WEKA_HOME='/home/atilla/Tools/java/weka'
 export CLASSPATH=$MOA_HOME/moa.jar:$WEKA_HOME/weka.jar
 export DATASET_TRAIN='./Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff'
-
+export DATASET_TEST='./Datasets/SavedArff/combined_createFullKdd99TestDatasetForBinary.arff'
 export MODEL_FOLDER='./Datasets/SavedModels/'
-
-
 export MOA_COMMAND="java -cp $CLASSPATH -javaagent:$MOA_HOME/sizeofag.jar moa.DoTask"
 
-$MOA_COMMAND LearnModel -l trees.HoeffdingTree   -s generators.WaveformGenerator -m 1000000 -O model1.moa
+
+$MOA_COMMAND "LearnModel -l trees.HoeffdingTree   -s generators.WaveformGenerator -m 1000000 -O $MODEL_FOLDER/generators.WaveformGenerator.moa"
 
 $MOA_COMMAND "LearnModel -l trees.HoeffdingTree   -s (ArffFileStream -f $DATASET_TRAIN) -m 5000000 -O $MODEL_FOLDER/model1.moa"
 
+$MOA_COMMAND "LearnModel -l trees.HoeffdingTree -s (ArffFileStream -f $DATASET_TRAIN) -O $MODEL_FOLDER/trees.HoeffdingTree2.moa"
 
 
-LearnModel -l trees.HoeffdingTree -s (ArffFileStream -f $DATASET_TRAIN)
 
-moa.DoTask "EvaluateModel -m file:./Datasets/SavedModels/trees.HoeffdingTree.moa -s (ArffFileStream -f $DATASET_TRAIN) -c -1"
+$MOA_COMMAND  "EvaluateModel -m file:$MODEL_FOLDER/trees.HoeffdingTree.moa -s (ArffFileStream -f $DATASET_TRAIN)  -i 5000000"
+$MOA_COMMAND  "EvaluateModel -m file:$MODEL_FOLDER/trees.HoeffdingTree2.moa -s (ArffFileStream -f $DATASET_TRAIN)  -i 5000000"
+
+
+$MOA_COMMAND  "EvaluateModel -m file:$MODEL_FOLDER/trees.HoeffdingTree.moa -s (ArffFileStream -f $DATASET_TEST) "
+$MOA_COMMAND  "EvaluateModel -m file:$MODEL_FOLDER/trees.HoeffdingTree2.moa -s (ArffFileStream -f $DATASET_TEST) "
 
