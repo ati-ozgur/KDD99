@@ -47,3 +47,45 @@ task TrainAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
   group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
   description = """Using Training dataset, all moa classifiers are trained.   """
 }
+
+
+// MOA Examples
+
+task MoaExample(type:JavaExec) {
+  main = examplesPackageName + ".MoaExample"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Moa Classifer using random stream'
+}
+
+task MoaExampleDoTaskLearnModelArffFile(type:JavaExec) {
+  main = examplesPackageName + ".MoaExampleDoTaskLearnModelArffFile"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Moa MoaExampleDoTaskLearnModelArffFile'
+}
+
+
+task MoaExampleArffFile(type:JavaExec) {
+  main = examplesPackageName + ".MoaExampleArffFile"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Moa Classifer using Arff File (KDD99 Training File)'
+}
+
+task MoaExampleCmd(type:JavaExec) {
+  main = "moa.DoTask"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Test Moa Classifer using Arff File (KDD99 Training File)'
+
+
+  String classifierName = "trees.HoeffdingTree"
+  String modelFileName = "Datasets/SavedModels/" + classifierName + ".moa"
+
+  def argList = ["LearnModel","-l",classifierName, "-s","(ArffFileStream -f Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff)","-m","10000000","-O", modelFileName]
+  args = argList
+
+}
+
+
