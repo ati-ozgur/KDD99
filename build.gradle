@@ -93,6 +93,7 @@ apply from: 'build.mlmoa.gradle'
 
 apply from: 'build.verification.gradle'
 
+apply from: 'build.examples.gradle'
 
 task showMeCache << {
   configurations.compile.each { println it }

@@ -5,18 +5,6 @@
 }
 
                                                                                 
-task ProgramGroovyExample(type:JavaExec) {
-  main = examplesPackageName + ".ProgramGroovy"
-  classpath = sourceSets.main.runtimeClasspath
-  group = GROUP_NAME_TEST
-  description = 'Test Program class'
-}
-
-
-
-
-
-
 
 
 
