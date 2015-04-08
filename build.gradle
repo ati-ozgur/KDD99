@@ -94,6 +94,10 @@ apply from: 'build.mlmoa.gradle'
 apply from: 'build.verification.gradle'
 
 
+task showMeCache << {
+  configurations.compile.each { println it }
+}
+
 
 
 task listTrainedModelFiles() << {
