@@ -53,3 +53,19 @@ task MoaExampleCmd(type:JavaExec) {
 
 
 
+task runExample(type:JavaExec) {
+
+  if (project.hasProperty('exampleClassName') )
+  {
+    main = examplesPackageName + "."+ exampleClassName
+  }
+  else
+  {
+    main = examplesPackageName + ".ProgramGroovy"
+  }
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'runExample gradlew runExample -PexampleClassName=MoaExampleLearnModelArffFile'
+}
+
+
