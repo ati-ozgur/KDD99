@@ -17,12 +17,12 @@ import moa.streams.*;
 import moa.tasks.*;
 
 
-String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
+String datasetName = "combined_createFullKdd99TestDatasetForBinary";
 String datasetFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName + ".arff";
 
 println(datasetFullFileName);
 
-String modelName = "trees.HoeffdingTree"
+String modelName = "moa.classifiers.bayes.NaiveBayes"
 String modelFullFileName = Finals.MODELS_SAVE_FOLDER + modelName + ".moa";
 println(modelFullFileName);
 
