@@ -13,8 +13,7 @@ import moa.core.*;
 import moa.streams.*;
 import moa.tasks.*;
 
-//int maxInstances=5 * 1000 * 1000;
-int maxInstances=5 * 10;
+int maxInstances=5 * 1000 * 1000;
 
 
 
@@ -45,17 +44,50 @@ task.maxInstancesOption.setValue(maxInstances);
 
 long instancesProcessed = 0;
 
+
+final int NORMAL = 0;
+final int ATTACK = 1;
+
+long tp = 0;
+int fp = 0;
+long tn = 0;
+int fn= 0;
+
+
 while (stream.hasMoreInstances()
         && ((maxInstances < 0) || (instancesProcessed < maxInstances))) {
     instancesProcessed++;
     Instance testInst = (Instance) stream.nextInstance().copy();
     int trueClass = (int) testInst.classValue();
-    //testInst.setClassMissing();
-    double[] prediction = model.getVotesForInstance(testInst);
-
-    println("prediction : $prediction - trueClass : $trueClass")
+    if(trueClass == NORMAL)
+    {
+        if( model.correctlyClassifies(testInst))
+        {
+            tn++;
+        }
+        else
+        {
+            fp++;            
+        }
+    }
+    if(trueClass == ATTACK)
+    {
+        if( model.correctlyClassifies(testInst))
+        {
+            tp++;
+        }
+        else
+        {
+            fn++;            
+        }
+    }
 }
 
+println("instancesProcessed : $instancesProcessed")
+println("true positive : $tp")
+println("true negative : $tn")
+println("false positive : $fp")
+println("false negative : $fn")
 
 
 
