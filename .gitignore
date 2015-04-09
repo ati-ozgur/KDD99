@@ -11,6 +11,9 @@ documents/*.pdf
 documents/**/*.pdf
 src/main/R/*.tex
 src/main/R/.Rhistory
+src/main/R/*.log
+src/main/R/*.pdf
+src/main/R/*.synctex.gz
 *.sublime-workspace
 *.db
 *.docx
