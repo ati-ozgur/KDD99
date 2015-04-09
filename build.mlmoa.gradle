@@ -39,6 +39,21 @@ task trainOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
 }
 
 
+task testAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
+
+  main = "testBench.ids.kdd99.moa.TestAllModelsUsingMoaInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "1g"
+  maxHeapSize = "2g"
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
+  description = """Test already trained model on KDD99 full training data set
+  Usage Example1:  ./gradlew testOneModelUsingMoaInTrainingDataSet -PmodelFileName='moa.classifiers.meta.OzaBag.moa'
+  """
+
+  
+
+
+}
 
 
 task testOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
@@ -79,3 +94,12 @@ task TrainAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
 }
 
 
+task listTrainedModelFilesMoa() << {
+  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.moa')
+  tree.each {File file ->
+      println file.name
+  }
+}
+
+listTrainedModelFilesMoa.group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
+listTrainedModelFilesMoa.description = 'List trained model files, which can be used in other tasks such as testOneModelUsingMoaInTrainingDataSet'
