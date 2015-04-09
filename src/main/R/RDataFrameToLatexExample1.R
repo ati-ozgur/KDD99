@@ -5,4 +5,4 @@ latex(df.summary.average.memory)
 
 
 library(stargazer)
-stargazer(df.summary.average.memory)
+stargazer(df.summary.average.memory, summary=FALSE)

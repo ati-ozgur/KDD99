@@ -1,7 +1,12 @@
+source("Constants.R")
+
+
 library(dplyr)
 library(ggplot2)
 
-dbIDS <- src_sqlite("../../../Datasets/test1.sqlite", create = F)
+dbIDS <- src_sqlite(DATASET_FILENAME, create = F)
+
+
 
 train_results <- tbl(dbIDS, sql("SELECT * FROM ML_TRAIN_RESULTS"))
 df.train_results <- as.data.frame(train_results, n=-1)
@@ -16,11 +21,6 @@ sqlSummary1 <- "SELECT classifierName,COUNT(*) NumberOfRuns,avg(usedMemoryMb) Av
 
 
 tblSummary1  <- tbl(dbIDS, sql(sqlSummary1))
-
-
-
-
-
 
 
 df.summary.average.memory <- as.data.frame(tblSummary1, n=-1)
