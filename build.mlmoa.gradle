@@ -50,6 +50,29 @@ task testAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
 
 }
 
+task testOneModelUsingMoaInTestDataSet(type:JavaExec) {
+
+  if (project.hasProperty('modelFileName') )
+  {
+    def argList = ["modelFileName",modelFileName]
+    args = argList
+  }
+  else
+  {
+    def argList = ["modelFileName","trees.HoeffdingTree.moa"]
+    args = argList
+  }
+
+  main = "testBench.ids.kdd99.moa.TestOneModelUsingMoaInTestDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "1g"
+  maxHeapSize = "2g"
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
+  description = """Test already trained model on KDD99 full test data set
+  Usage Example1:  ./gradlew testOneModelUsingMoaInTestDataSet -PmodelFileName='moa.classifiers.meta.OzaBag.moa'
+  """
+}
+
 
 task testOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
 
@@ -72,10 +95,6 @@ task testOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
   description = """Test already trained model on KDD99 full training data set
   Usage Example1:  ./gradlew testOneModelUsingMoaInTrainingDataSet -PmodelFileName='moa.classifiers.meta.OzaBag.moa'
   """
-
-  
-
-
 }
 
 
