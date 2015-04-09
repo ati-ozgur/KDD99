@@ -19,8 +19,8 @@ public class EvaluateModelHelperMoa
 
 
     public static EvaluationInformation evaluateModelBinary(
-          String datasetName = "combined_createFullKdd99TestDatasetForBinary"
-        , String modelName = "moa.classifiers.bayes.NaiveBayes.moa"
+         String modelName = "moa.classifiers.bayes.NaiveBayes.moa"
+        ,  String datasetName = "combined_createFullKdd99TestDatasetForBinary"
         , int maxInstances=5 * 1000 * 1000
 
     )
