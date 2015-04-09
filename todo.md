@@ -4,9 +4,6 @@
 
 
 
-2. gradle task which train MOA classifer
-
-3. gradle task which test MOA classifier
 
 
 
