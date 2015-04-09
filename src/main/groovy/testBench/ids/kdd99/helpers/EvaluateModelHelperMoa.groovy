@@ -1,3 +1,18 @@
+package testBench.ids.kdd99.helpers;
+
+
+
+import testBench.ids.kdd99.*;
+import testBench.ids.kdd99.helpers.*;
+
+import weka.core.*;
+
+import moa.classifiers.*;
+import moa.classifiers.trees.HoeffdingTree;
+import moa.streams.generators.*;
+import moa.core.*;
+import moa.streams.*;
+import moa.tasks.*;
 
 public class EvaluateModelHelperMoa
 {

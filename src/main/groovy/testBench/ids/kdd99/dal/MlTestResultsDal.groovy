@@ -5,7 +5,7 @@ import java.util.Date
 
 import testBench.ids.kdd99.*
 
-
+import testBench.ids.kdd99.helpers.*;
 
 
 public class MlTestResultsDal
