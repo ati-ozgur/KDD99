@@ -18,7 +18,7 @@ public class EvaluateModelHelperMoa
 {
 
 
-    public static ConfusionMatrix evaluateModelBinary(
+    public static EvaluationInformation evaluateModelBinary(
           String datasetName = "combined_createFullKdd99TestDatasetForBinary"
         , String modelName = "moa.classifiers.bayes.NaiveBayes.moa"
         , int maxInstances=5 * 1000 * 1000
@@ -80,36 +80,58 @@ public class EvaluateModelHelperMoa
                 }
             }
         }
-        ConfusionMatrix cf = new ConfusionMatrix();
+        EvaluationInformation cf = new EvaluationInformation();
         cf.TruePositive = tp;
         cf.FalsePositive = fp;
         cf.TrueNegative = tn;
         cf.FalseNegative = fn;
         cf.InstancesProcessed = instancesProcessed;
+
+        cf.ClassifierName = model.getClass().getName();
+        cf.DatasetName = datasetName;
+        cf.ModelFileName = modelName;
         return cf;
     }
 
 }
 
-public class ConfusionMatrix
+public class EvaluationInformation
 {
-       public long TruePositive = 0;
-       public long FalsePositive = 0;
-       public long TrueNegative = 0;
-       public long FalseNegative = 0;
-       public long InstancesProcessed;
+        public String DatasetType = "Train"
+        public String DatasetName;
+        public String ModelFileName;
+        public String ClassifierName;
 
+        public long TruePositive = 0;
+        public long FalsePositive = 0;
+        public long TrueNegative = 0;
+        public long FalseNegative = 0;
+        public long InstancesProcessed;
 
+        public double[][] confusionMatrix()
+        {
+            double[][] _confusionMatrix = new double[2][2];
+            _confusionMatrix[0][0] = TruePositive;
+            _confusionMatrix[0][1] = FalsePositive;
+            _confusionMatrix[1][0] = TrueNegative;
+            _confusionMatrix[1][1] = FalseNegative;
+            return _confusionMatrix;
 
-       public String toString()
-       {
+        }
+
+ 
+
+        public String toString()
+        {
             StringBuilder sb = new StringBuilder();
+            sb.append("DatasetType : $DatasetType \n" )
+            sb.append("ClassifierName : $ClassifierName \n" )
             sb.append("instancesProcessed : $InstancesProcessed \n" )
             sb.append("true positive : $TruePositive\n" )
             sb.append("true negative : $TrueNegative\n" )
             sb.append("false positive : $FalsePositive\n" )
             sb.append("false negative : $FalseNegative\n" )
 
-       }
+        }
 
 }

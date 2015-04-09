@@ -45,65 +45,6 @@ if (modelFileName == null)
 
 
 
-int numInstances=5 * 1000 * 1000;
-
-
-
-String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-String datasetNameFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName + ".arff";
-
-println(datasetNameFullFileName);
-
-
-
-Classifier classifer = new HoeffdingTree ( ) ;
-int classIndex = -1;
-
-ArffFileStream stream = new ArffFileStream(datasetNameFullFileName, classIndex)
-
-stream.prepareForUse();
-
- classifer.setModelContext(stream.getHeader()) ;
- classifer.prepareForUse() ;
-
- int numberSamplesCorrect=0;
- int numberSamples=0;
- boolean isTesting = true ;
- while( stream.hasMoreInstances () && numberSamples < numInstances){
-     Instance trainInst = stream.nextInstance() ;
-     if ( isTesting ){
-         if ( classifer.correctlyClassifies(trainInst )){
-             numberSamplesCorrect++;
-         }
-     }
-     numberSamples++;
-     classifer.trainOnInstance(trainInst) ;
- }
-
-
-
- double accuracy = 100.0*(double) numberSamplesCorrect / (double) numberSamples ;
- 
- println (numberSamples+ " instances processed with " + accuracy+ "% accuracy" )
- 
-
-Instances trainDataset = DataSetHelper.getTrainDatasetFull();
-
-
-Classifier cls = ModelFilesHelper.loadModel(modelFileName);
-Evaluation evaluation = new Evaluation(trainDataset);
-evaluation.evaluateModel(cls, trainDataset);
-
-
-
-println(evaluation.toMatrixString());
-println("\n");
-println(evaluation.toSummaryString());
-println("\n");
-
-println(evaluation.confusionMatrix());
-
-
 
 
 
@@ -111,23 +52,24 @@ Date testStartTime = DateHelper.getNow();
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
 
+EvaluationInformation evaluationInformation = EvaluateModelHelperMoa.evaluateModelBinary();
+
+println(evaluationInformation);
+
+
 Date testFinishTime = DateHelper.getNow();
 
 
-String datasetType = "Train"
 
-String classifierName = cls.getClass().getName();
-
-println classifierName;
 
 MlTestResultsDal.Ekle(
 
-      classifierName 
-    ,  datasetType 
-    ,  trainDataset.relationName()
-    ,  (long) evaluation.numInstances() 
-    ,  modelFileName 
-    ,  evaluation.confusionMatrix()
+      evaluationInformation.ClassifierName 
+    ,  evaluationInformation.DatasetType 
+    ,  evaluationInformation.DatasetName
+    ,  evaluationInformation.InstancesProcessed
+    ,  evaluationInformation.ModelFileName 
+    ,  evaluationInformation.confusionMatrix()
     ,  testStartTime  
     ,  testFinishTime  
     , runtimeInformation
