@@ -22,7 +22,7 @@ dir.eachFile (FileType.FILES) { file ->
         argList[0] = "modelFileName";
         argList[1] = file.name;
 
-        TestOneModelUsingMoaInTestDataSet.main(argList)        
+        TestOneModelUsingMoaInTrainingDataSet.main(argList)        
     }
 
 }
