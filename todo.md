@@ -2,9 +2,8 @@
 
 1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 
-
-
-
+2. Train and Test table should have shortClassifierName.
+Since sqlite is not suitable for lastIndexOf, I will put this info while inserting row.
 
 
 4. Gradle task which prints out Classifier list
