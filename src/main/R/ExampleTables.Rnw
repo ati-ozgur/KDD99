@@ -1,0 +1,13 @@
+\documentclass{article}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+<<echo=FALSE,results=tex>>=
+  source("SqliteToLatexClassifierTrainingHardwareMetrics.R")
+@
+
+
+
+\end{document}
