@@ -10,4 +10,4 @@ df.ClassifierTrainingHardwareMetricsFileName  <- as.data.frame(tbl.ClassifierTra
 
 
 library(stargazer)
-stargazer(df.ClassifierTrainingHardwareMetricsFileName, summary=FALSE)
+stargazer(df.ClassifierTrainingHardwareMetricsFileName, summary=FALSE, title="Descriptive statistics", digits=1, out="table-ClassifiersTrainingHardwareMetrics.tex")
