@@ -89,6 +89,9 @@ public class EvaluateModelHelperMoa
 
         cf.ClassifierName = model.getClass().getName();
         cf.DatasetName = datasetName;
+
+
+
         cf.ModelFileName = modelName;
         return cf;
     }
@@ -97,7 +100,18 @@ public class EvaluateModelHelperMoa
 
 public class EvaluationInformation
 {
-        public String DatasetType = "Train"
+        public String getDatasetType()
+        {
+            if (DatasetName.contains("Test") || DatasetName.contains("test") )
+            {
+                return "Test";
+            }
+            else
+            {
+                return "Train";
+            }
+
+        }
         public String DatasetName;
         public String ModelFileName;
         public String ClassifierName;
@@ -124,7 +138,7 @@ public class EvaluationInformation
         public String toString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.append("DatasetType : $DatasetType \n" )
+            sb.append("DatasetType : " + getDatasetType() + "\n" )
             sb.append("ClassifierName : $ClassifierName \n" )
             sb.append("instancesProcessed : $InstancesProcessed \n" )
             sb.append("true positive : $TruePositive\n" )

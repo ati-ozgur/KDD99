@@ -39,6 +39,36 @@ task trainOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
 }
 
 
+
+
+task testOneModelUsingMoaInTrainingDataSet(type:JavaExec) {
+
+  if (project.hasProperty('modelFileName') )
+  {
+    def argList = ["modelFileName",modelFileName]
+    args = argList
+  }
+  else
+  {
+    def argList = ["modelFileName","trees.HoeffdingTree.moa"]
+    args = argList
+  }
+
+  main = "testBench.ids.kdd99.moa.TestOneModelUsingMoaInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "1g"
+  maxHeapSize = "2g"
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
+  description = """Test already trained model on KDD99 full training data set
+  Usage Example1:  ./gradlew testOneModelUsingMoaInTrainingDataSet -PmodelFileName='moa.classifiers.meta.OzaBag.moa'
+  """
+
+  
+
+
+}
+
+
 task TrainAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
   main = "testBench.ids.kdd99.moa.TrainAllModelsUsingMoaInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath

@@ -1,4 +1,4 @@
-package testBench.ids.kdd99.weka
+package testBench.ids.kdd99.moa
 
 
 import java.util.List;
@@ -65,7 +65,7 @@ Date testFinishTime = DateHelper.getNow();
 MlTestResultsDal.Ekle(
 
       evaluationInformation.ClassifierName 
-    ,  evaluationInformation.DatasetType 
+    ,  evaluationInformation.getDatasetType() 
     ,  evaluationInformation.DatasetName
     ,  evaluationInformation.InstancesProcessed
     ,  evaluationInformation.ModelFileName 
