@@ -46,12 +46,7 @@ task testAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
   minHeapSize = "1g"
   maxHeapSize = "2g"
   group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
-  description = """Test already trained model on KDD99 full training data set
-  Usage Example1:  ./gradlew testOneModelUsingMoaInTrainingDataSet -PmodelFileName='moa.classifiers.meta.OzaBag.moa'
-  """
-
-  
-
+  description = """Test already trained model on KDD99 full training data set  """
 
 }
 
