@@ -43,12 +43,24 @@ task testAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
 
   main = "testBench.ids.kdd99.moa.TestAllModelsUsingMoaInTrainingDataSet"
   classpath = sourceSets.main.runtimeClasspath
-  minHeapSize = "1g"
-  maxHeapSize = "2g"
+  minHeapSize = "100m"
+  maxHeapSize = "200m"
   group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
-  description = """Test already trained model on KDD99 full training data set  """
+  description = """Test already trained models on KDD99 full training data set  """
 
 }
+
+task testAllModelsUsingMoaInTestDataSet(type:JavaExec) {
+
+  main = "testBench.ids.kdd99.moa.TestAllModelsUsingMoaInTestDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "100m"
+  maxHeapSize = "200m"
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
+  description = """Test already trained models on KDD99 full test data set  """
+
+}
+
 
 task testOneModelUsingMoaInTestDataSet(type:JavaExec) {
 
