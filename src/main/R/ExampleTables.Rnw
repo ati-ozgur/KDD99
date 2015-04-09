@@ -1,10 +1,11 @@
-\documentclass{article}
+\documentclass[11pt]{article}[11pt]
+\usepackage{dcolumn}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
 
 
-<<echo=FALSE,results=tex>>=
+
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
   source("SqliteToLatexClassifierTrainingHardwareMetrics.R")
 @
 
