@@ -5,15 +5,7 @@
 2. Train and Test table should have shortClassifierName.
 Since sqlite is not suitable for lastIndexOf, I will put this info while inserting row.
 
-
-4. Gradle task which prints out Classifier list
-
-5. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
-
-6. Package classifier installation. Installation is ok in windows but need to run it too.
-Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
-
-7. Create R code to create latex table so that training hardware metrics table is reproducible
+3. Create R code to create latex table so that training hardware metrics table is reproducible
 
   Title: Classifiers training information
   Columns:
@@ -26,7 +18,7 @@ Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundEx
   rows: Classifier names and values
 
 
-7. Create R code to create latex table so that training set base metrics table is reproducible
+4. Create R code to create latex table so that training set base metrics table is reproducible
 
   Title: Training set base metrics
   Columns:
@@ -40,7 +32,7 @@ Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundEx
  
   rows: Classifier names and values
 
-8. Create R code to create latex table so that testing set base metrics table is reproducible
+5. Create R code to create latex table so that testing set base metrics table is reproducible
 Training 
   Title: Test set base metrics
   Columns:
@@ -56,8 +48,15 @@ Training
 
 
 
+6. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
 
-10. MOA manual has short descriptions of classifiers.
+7. Package classifier installation. Installation is ok in windows but need to run it too.
+Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
+
+
+
+
+7. MOA manual has short descriptions of classifiers.
 Choose batch and stream versions to compare using that descriptions.
 For example.
 
@@ -65,6 +64,11 @@ For example.
     Online Coordinate Boosting.
     Pelossof et al. presented Online Coordinate Boosting, a new online boost-
     ing algorithm for adapting the weights of a boosted classifier, which yields a closer approximation to Freund and Schapire’s AdaBoost algorithm.
+
+
+
+9. Gradle task which prints out Classifier list
+
 
 
 ## Later Tasks
