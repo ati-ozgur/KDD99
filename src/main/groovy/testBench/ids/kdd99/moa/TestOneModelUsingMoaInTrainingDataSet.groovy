@@ -52,7 +52,9 @@ Date testStartTime = DateHelper.getNow();
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
 
-EvaluationInformation evaluationInformation = EvaluateModelHelperMoa.evaluateModelBinary();
+String datasetName = "combined_createFullKdd99TrainingDatasetForBinary"
+
+EvaluationInformation evaluationInformation = EvaluateModelHelperMoa.evaluateModelBinary(modelFileName,datasetName);
 
 println(evaluationInformation);
 
