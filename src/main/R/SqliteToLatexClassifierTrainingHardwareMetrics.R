@@ -1,5 +1,7 @@
 source("Constants.R")
-library(dplyr,suppressPackageStartupMessagesß)
+suppressWarnings(suppressMessages(library(dplyr)))
+suppressWarnings(suppressMessages(library(stargazer)))
+
 
 sqlText <- singleString <- paste(readLines(ClassifierTrainingHardwareMetricsFileName), collapse="\n")
 
@@ -10,7 +12,6 @@ tbl.ClassifierTrainingHardwareMetricsFileName <- tbl(dbIDS, sql(sqlText))
 df.ClassifierTrainingHardwareMetricsFileName  <- as.data.frame(tbl.ClassifierTrainingHardwareMetricsFileName , n=-1)
 
 
-library(stargazer)
 stargazer(
           df.ClassifierTrainingHardwareMetricsFileName
           ,suppress.errors=TRUE
