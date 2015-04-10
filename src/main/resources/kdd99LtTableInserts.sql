@@ -141,3 +141,33 @@ INSERT INTO "LT_SERVICE_TYPE" VALUES('vmnet');
 INSERT INTO "LT_SERVICE_TYPE" VALUES('whois');
 INSERT INTO "LT_SERVICE_TYPE" VALUES('X11');
 INSERT INTO "LT_SERVICE_TYPE" VALUES('Z39_50');
+
+
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.trees.J48', 'J48');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.rules.RuleClassifierNBayes', 'RuleClassifierNBayes');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.bayes.NaiveBayes', 'NaiveBayes');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.functions.Logistic', 'Logistic');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.meta.AdaBoostM1', 'AdaBoostM1');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.rules.DecisionTable', 'DecisionTable');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.rules.OneR', 'OneR');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.rules.ZeroR', 'ZeroR');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.trees.RandomForest', 'RandomForest');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.trees.DecisionStump', 'DecisionStump');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.trees.RandomTree', 'RandomTree');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.trees.REPTree', 'REPTree');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.lazy.IBk', 'IBk');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.functions.SMO', 'SMO');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.bayes.BayesNet', 'BayesNet');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.functions.MultilayerPerceptron', 'MLP');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.functions.SGD', 'SGD');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.functions.SimpleLogistic', 'SimpleLogistic');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.trees.HoeffdingTree', 'HoeffdingTree');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.bayes.NaiveBayes', 'NaiveBayes');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.functions.Perceptron', 'Perceptron');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.functions.SGD', 'SGD');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.functions.SPegasos', 'SPegasos');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.lazy.kNN', 'kNN');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.meta.OzaBag', 'OzaBag');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.rules.RuleClassifier', 'RuleClassifier');
+
+

@@ -12,6 +12,10 @@ train_results <- tbl(dbIDS, sql("SELECT * FROM ML_TRAIN_RESULTS"))
 df.train_results <- as.data.frame(train_results, n=-1)
 
 
+tbl.classifier_names <- tbl(dbIDS, sql("SELECT DISTINCT classifierName FROM ML_TRAIN_RESULTS"))
+df.classifier_names<- as.data.frame(tbl.classifier_names, n=-1)
+
+
 train_results_summary <- tbl(dbIDS, sql("SELECT * FROM ML_TRAIN_RESULTS_SUMMARY"))
 df.train_results_summary <- as.data.frame(train_results_summary, n=-1)
 
