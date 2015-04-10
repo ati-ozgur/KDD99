@@ -1,6 +1,6 @@
 SELECT 
 CN.ClassifierShortName
-, ROUND(AVG(S.trainingDurationSecond),3) || 'm' AS trainingDurationSecond
+, ROUND(AVG(S.trainingDurationSeconds),3) || 'm' AS trainingDurationSecond
 , ROUND(AVG(S.trainingDurationMinutes),3) || 'm' AS trainingDurationMinutes
 ,AVG(S.usedMemoryMb) AS usedMemoryMb
 ,AVG(S.usedMemoryGb) AS usedMemoryGb

@@ -11,4 +11,16 @@ df.ClassifierTrainingHardwareMetricsFileName  <- as.data.frame(tbl.ClassifierTra
 
 
 library(stargazer)
-stargazer(df.ClassifierTrainingHardwareMetricsFileName,suppress.errors=TRUE,align = TRUE, summary=FALSE, title="Classifiers Training Hardware Metrics", digits=2,font.size="small",initial.zero=TRUE,rownames=FALSE, out="table-ClassifiersTrainingHardwareMetrics.tex")
+stargazer(
+          df.ClassifierTrainingHardwareMetricsFileName
+          ,suppress.errors=TRUE
+          ,align = TRUE
+          , summary=FALSE
+          , title="Classifiers Training Hardware Metrics"
+          , digits=2
+          ,font.size="small"
+          ,initial.zero=TRUE
+          ,rownames=FALSE
+          , out="table-ClassifiersTrainingHardwareMetrics.tex"
+          , out.header=TRUE
+          )
