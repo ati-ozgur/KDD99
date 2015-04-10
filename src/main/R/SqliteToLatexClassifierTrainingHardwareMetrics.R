@@ -18,7 +18,6 @@ stargazer(
           ,align = TRUE
           , summary=FALSE
           , title="Classifiers Training Hardware Metrics"
-          , digits=2
           ,font.size="small"
           ,initial.zero=TRUE
           ,rownames=FALSE

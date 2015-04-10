@@ -1,12 +1,8 @@
 SELECT 
 CN.ClassifierShortName
-, ROUND(AVG(S.trainingDurationSeconds),3) || 'm' AS trainingDurationSecond
-, ROUND(AVG(S.trainingDurationMinutes),3) || 'm' AS trainingDurationMinutes
-,AVG(S.usedMemoryMb) AS usedMemoryMb
-,AVG(S.usedMemoryGb) AS usedMemoryGb
-,MAX(S.ModelSize) ModelSize
-,MAX(S.modelSizeMb) ModelSizeMb
-
+,ROUND(AVG(S.trainingDurationSeconds)) || 's (' || ROUND(AVG(S.trainingDurationMinutes),3) || 'm)' AS trainingDuration
+,ROUND(AVG(S.usedMemoryMb)) || 'Mb (' || ROUND(AVG(S.usedMemoryGb),3) || 'Gb)' AS usedMemory
+,MAX(S.ModelSize)  || 'Mb (' ||  MAX(S.modelSizeMb) || 'Gb)'AS  ModelSize
 FROM ML_TRAIN_RESULTS_SUMMARY S
 LEFT JOIN LT_CLASSIFIER_NAMES CN
 ON CN.ClassifierFullName = S.classifierName
