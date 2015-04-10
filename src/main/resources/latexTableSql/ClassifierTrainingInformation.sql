@@ -8,3 +8,4 @@ LEFT JOIN LT_CLASSIFIER_NAMES CN
 ON CN.ClassifierFullName = S.classifierName
 WHERE S.classifierName LIKE 'weka%'
 GROUP BY S.classifierName
+ORDER BY CN.ClassifierFullName ASC
