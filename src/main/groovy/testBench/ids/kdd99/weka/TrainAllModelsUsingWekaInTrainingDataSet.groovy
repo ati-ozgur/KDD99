@@ -12,21 +12,38 @@ import testBench.ids.kdd99.datasetHelpers.*;
 import testBench.ids.kdd99.modelHelpers.*;
 import testBench.ids.kdd99.helpers.*;
 
+classifierListName = "fast"
 
-Instances data = null;
+if(args.length > 0)
+{
+	firstArg = args[0];
 
-ClassifiersAndArgumentsWeka.classifierList.each() {
+	if(firstArg == "classifierListName")
+	{
+	    classifierListName = args[1];
+	}
+
+}
+
+println(args)
+
+def classifierList = ClassifiersAndArgumentsWeka.getClassifierList(classifierListName)
+
+println(classifierList)
+
+String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
+Instances data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
+
+classifierList.each() {
 	classifierAndOption-> 
 
 	System.gc();
 
-	String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
 
 	String classifierName = classifierAndOption.Classifier
 	String options = classifierAndOption.Options
 
 
-	data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
 
 	Date trainingStartTime = DateHelper.getNow();
 	ModelFilesHelper.saveModel(data,datasetName,classifierName,options);

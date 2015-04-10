@@ -81,5 +81,28 @@ public class ClassifiersAndArgumentsWeka
 
     public static classifierList = classifierListFull
 
+
+    public static List getClassifierList(String listName)
+    {
+        List list;
+        switch(listName)
+        {
+            case "slow":
+                list = classifierListSlow;
+            break;
+            case "fast":
+                list = classifierListFast;
+            break;
+            case "full":
+            case "all":
+                list = classifierListFull;
+            break;
+            default:
+                list = classifierListFast;
+        }
+        return list;
+    }
+
+
 }
 
