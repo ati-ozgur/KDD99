@@ -84,7 +84,7 @@ IntOption statusUpdateFrequencyOption = new IntOption("statusUpdateFrequency",'F
 
 moa.options.Option[] extraOptions = [ suppressStatusOutputOption, suppressResultOutputOption, statusUpdateFrequencyOption];
 
-String cliString = "LearnModel -l $classifierName $options -s (ArffFileStream -f $datasetFullFileName -c -1) -m 5000000  -O $modelFullFileName"
+String cliString = "LearnModel -l ( $classifierName $options ) -s (ArffFileStream -f $datasetFullFileName -c -1) -m 5000000  -O $modelFullFileName"
 
 println(cliString)
 

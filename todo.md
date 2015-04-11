@@ -2,11 +2,7 @@
 
 1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 
-
-
-
-
-4. Create R code to create latex table so that training set base metrics table is reproducible
+2. Create R code to create latex table so that training set base metrics table is reproducible
 
   Title: Training set base metrics
   Columns:
@@ -20,7 +16,7 @@
  
   rows: Classifier names and values
 
-5. Create R code to create latex table so that testing set base metrics table is reproducible
+3. Create R code to create latex table so that testing set base metrics table is reproducible
 Training 
   Title: Test set base metrics
   Columns:
@@ -36,7 +32,7 @@ Training
 
 
 
-6. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
+5. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
 
 7. Package classifier installation. Installation is ok in windows but need to run it too.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
