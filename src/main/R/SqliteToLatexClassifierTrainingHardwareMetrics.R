@@ -3,24 +3,45 @@ suppressWarnings(suppressMessages(library(dplyr)))
 suppressWarnings(suppressMessages(library(stargazer)))
 
 
-sqlText <- singleString <- paste(readLines(ClassifierTrainingHardwareMetricsFileName), collapse="\n")
+sqlTextWeka <- paste(readLines(ClassifierTrainingHardwareMetricsWekaFileName), collapse="\n")
 
 
 dbIDS <- src_sqlite(DATASET_FILENAME, create = F)
 
-tbl.ClassifierTrainingHardwareMetricsFileName <- tbl(dbIDS, sql(sqlText))
-df.ClassifierTrainingHardwareMetricsFileName  <- as.data.frame(tbl.ClassifierTrainingHardwareMetricsFileName , n=-1)
+tbl.ClassifierTrainingHardwareMetricsWeka <- tbl(dbIDS, sql(sqlTextWeka))
+df.ClassifierTrainingHardwareMetricsWeka  <- as.data.frame(tbl.ClassifierTrainingHardwareMetricsWeka , n=-1)
 
 
 stargazer(
-          df.ClassifierTrainingHardwareMetricsFileName
+          df.ClassifierTrainingHardwareMetricsWeka
           ,suppress.errors=TRUE
           ,align = TRUE
           , summary=FALSE
-          , title="Classifiers Training Hardware Metrics"
+          , title="Classifiers Training Hardware Metrics Weka"
           ,font.size="small"
           ,initial.zero=TRUE
           ,rownames=FALSE
-          , out="table-ClassifiersTrainingHardwareMetrics.tex"
+          , out="table-ClassifiersTrainingHardwareMetricsWeka.tex"
           , out.header=TRUE
           )
+
+sqlTextMoa <- paste(readLines(ClassifierTrainingHardwareMetricsMoaFileName), collapse="\n")
+
+
+tbl.ClassifierTrainingHardwareMetricsMoa <- tbl(dbIDS, sql(sqlTextMoa))
+df.ClassifierTrainingHardwareMetricsMoa  <- as.data.frame(tbl.ClassifierTrainingHardwareMetricsMoa , n=-1)
+
+
+stargazer(
+  df.ClassifierTrainingHardwareMetricsMoa
+  ,suppress.errors=TRUE
+  ,align = TRUE
+  , summary=FALSE
+  , title="Classifiers Training Hardware Metrics Moa"
+  ,font.size="small"
+  ,initial.zero=TRUE
+  ,rownames=FALSE
+  , out="table-ClassifiersTrainingHardwareMetricsMoa.tex"
+  , out.header=TRUE
+)
+
