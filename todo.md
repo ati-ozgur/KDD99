@@ -3,17 +3,7 @@
 1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 
 
-3. Create R code to create latex table so that training hardware metrics table is reproducible
 
-  Title: Classifiers training information
-  Columns:
-    a.  Classifier
-    b.  Working Memory
-    c. Training Time Minutes
-    d.  Model Sizes Bytes
-    e.  Model Sizes Giga Bytes
- 
-  rows: Classifier names and values
 
 
 4. Create R code to create latex table so that training set base metrics table is reproducible
