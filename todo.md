@@ -1,5 +1,6 @@
 ## ASAP
 
+
 1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 
 2. Create R code to create latex table so that training set base metrics table is reproducible
@@ -30,11 +31,12 @@ Training
  
   rows: Classifier names and values
 
-
+4. When you save models , include information about training set and classifier options.
+TrainingSet hash plus options trimmed may be appropriate.
 
 5. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
 
-7. Package classifier installation. Installation is ok in windows but need to run it too.
+7. Package classifier installation. Installation is OK in windows but need to run it too.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
 
 
