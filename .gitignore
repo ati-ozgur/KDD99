@@ -20,3 +20,5 @@ src/main/R/*.synctex.gz
 .Rproj.user
 .RData
 SeaAnomaliesUnsupervised.txt
+*.aux
+
