@@ -167,6 +167,9 @@ INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES
 INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.functions.SGD', 'SGD');
 INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.functions.SPegasos', 'SPegasos');
 INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.lazy.kNN', 'kNN');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.lazy.kNNwithPAW', 'kNNwithPAW');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.lazy.kNNwithPAWandADWIN', 'kNNwithPAWandADWIN');
+
 INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.meta.OzaBag', 'OzaBag');
 INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.rules.RuleClassifier', 'RuleClassifier');
 
