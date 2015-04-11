@@ -46,6 +46,26 @@ public class ClassifiersAndArgumentsWeka
     private static final IBk  = [ Classifier:"weka.classifiers.lazy.IBk",Options:"-K 1 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \\\"weka.core.EuclideanDistance -R first-last\\\"\""]
 
 
+
+    public static classifierListTrees = [
+            DecisionStump
+            ,j48_1
+            ,RandomForest
+            ,RandomTree
+            ,REPTree
+            ,LMT
+    ]
+
+//DecisionStump
+//HoeffdingTree
+//J48
+//LMT
+//M5P
+//RandomForest
+//RandomTree
+//REPTree
+
+
     public static classifierListFast = [
     OneR ,
     ZeroR ,
