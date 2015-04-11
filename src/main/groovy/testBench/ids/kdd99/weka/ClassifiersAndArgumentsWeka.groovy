@@ -6,10 +6,18 @@ public class ClassifiersAndArgumentsWeka
 
     private static final template = [ Classifier:"",Options:""]
 
+    // Trees
+
+    private static final DecisionStump  = [ Classifier:"weka.classifiers.trees.DecisionStump",Options:""]
 
     private static final j48_1 = [ Classifier:"weka.classifiers.trees.J48", Options:" -C 0.25 -M 2"]
     private static final j48_2 = [ Classifier:"weka.classifiers.trees.J48", Options:" -U"]
     private static final j48_3 = [ Classifier:"weka.classifiers.trees.J48", Options:" -S"]
+
+    private static final LMT = [ Classifier: "weka.classifiers.trees.LMT", Options: "-I -1 -M 15 -W 0.0"]
+    private static final RandomForest  = [ Classifier:"weka.classifiers.trees.RandomForest",Options:" -I 10 -K 0 -S 1 -num-slots 1"]
+    private static final RandomTree  = [ Classifier:"weka.classifiers.trees.RandomTree",Options:" -K 0 -M 1.0 -S 1"]
+    private static final REPTree  = [ Classifier:"weka.classifiers.trees.REPTree",Options:"-M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0"]
 
     private static final SMO_1 = [ Classifier:"weka.classifiers.functions.SMO",Options:""]
     private static final SMO_2 = [ Classifier:"weka.classifiers.functions.SMO",Options:"-C 1.0 -L 0.001 -P 1.0E-12 -N 0 -V -1 -W 1 -K \"weka.classifiers.functions.supportVector.PolyKernel -C 250007 -E 1.0\""]
@@ -38,11 +46,6 @@ public class ClassifiersAndArgumentsWeka
     private static final JRip  = [ Classifier:"weka.classifiers.rules.JRip",Options:" -F 3 -N 2.0 -O 2 -S 1"]
     private static final PART  = [ Classifier:"weka.classifiers.rules.PART",Options:"-M 2 -C 0.25 -Q 1"]
 
-    private static final RandomForest  = [ Classifier:"weka.classifiers.trees.RandomForest",Options:" -I 10 -K 0 -S 1 -num-slots 1"]
-    private static final DecisionStump  = [ Classifier:"weka.classifiers.trees.DecisionStump",Options:""]
-    private static final LMT = [ Classifier: "weka.classifiers.trees.LMT", Options: "-I -1 -M 15 -W 0.0"]
-    private static final RandomTree  = [ Classifier:"weka.classifiers.trees.RandomTree",Options:" -K 0 -M 1.0 -S 1"]
-    private static final REPTree  = [ Classifier:"weka.classifiers.trees.REPTree",Options:"-M 2 -V 0.001 -N 3 -S 1 -L -1 -I 0.0"]
     private static final IBk  = [ Classifier:"weka.classifiers.lazy.IBk",Options:"-K 1 -W 0 -A \"weka.core.neighboursearch.LinearNNSearch -A \\\"weka.core.EuclideanDistance -R first-last\\\"\""]
 
 
@@ -50,10 +53,10 @@ public class ClassifiersAndArgumentsWeka
     public static classifierListTrees = [
             DecisionStump
             ,j48_1
+            ,LMT
             ,RandomForest
             ,RandomTree
             ,REPTree
-            ,LMT
     ]
 
 //DecisionStump
@@ -113,6 +116,11 @@ public class ClassifiersAndArgumentsWeka
             case "fast":
                 list = classifierListFast;
             break;
+            case "tree":
+            case "trees":
+                list = classifierListTrees;
+            break;
+
             case "full":
             case "all":
                 list = classifierListFull;
