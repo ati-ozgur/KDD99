@@ -49,8 +49,15 @@ if(firstArg == "classifierFullString")
 {
     String classifierFullString = args[1]
     int firstSpace = classifierFullString.indexOf(" ");
-    classifierName = classifierFullString.substring(0,firstSpace);
-    options = classifierFullString.substring(firstSpace,classifierFullString.length())
+    if (firstSpace > 0)
+    {
+        classifierName = classifierFullString.substring(0,firstSpace);
+        options = classifierFullString.substring(firstSpace,classifierFullString.length())
+    }
+    else
+    {
+        classifierName = classifierFullString;
+    }
 
     println classifierName
     println options
