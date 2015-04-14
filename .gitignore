@@ -1,6 +1,7 @@
 .gradle
 build/
 Datasets/
+Datasets*
 others/*
 tools/*
 SavedArff/*
