@@ -30,7 +30,7 @@ def createArffFileFromSqlFileName(String fileName)
 	println fileNameCombined
 
 
-	String sql = new File(Resources.SQL_MAIN_FOLDER + sqlFileName).text
+	String sql = new File(Resources.SQL_KDD99ETLScripts + sqlFileName).text
 
 
 
