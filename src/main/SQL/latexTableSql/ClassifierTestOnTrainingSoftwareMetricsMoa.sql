@@ -11,9 +11,9 @@ FROM ML_TEST_RESULTS_SUMMARY T
 LEFT JOIN LT_CLASSIFIER_NAMES CN
 ON CN.ClassifierFullName = T.classifierName
 
-WHERE datasetType = 'Test'
+WHERE datasetType = 'Train'
 AND
-T.classifierName LIKE 'weka%'
+T.classifierName LIKE 'moa%'
 GROUP BY T.classifierName
 ;
 

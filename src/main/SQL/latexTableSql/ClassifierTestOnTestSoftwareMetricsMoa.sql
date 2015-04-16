@@ -13,7 +13,7 @@ ON CN.ClassifierFullName = T.classifierName
 
 WHERE datasetType = 'Test'
 AND
-T.classifierName LIKE 'weka%'
+T.classifierName LIKE 'moa%'
 GROUP BY T.classifierName
 ;
 
