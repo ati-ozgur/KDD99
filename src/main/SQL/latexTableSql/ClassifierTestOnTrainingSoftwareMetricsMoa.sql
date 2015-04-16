@@ -15,5 +15,5 @@ WHERE datasetType = 'Train'
 AND
 T.classifierName LIKE 'moa%'
 GROUP BY T.classifierName
-;
+
 

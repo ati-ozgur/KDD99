@@ -15,5 +15,5 @@ WHERE datasetType = 'Test'
 AND
 T.classifierName LIKE 'moa%'
 GROUP BY T.classifierName
-;
+
 

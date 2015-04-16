@@ -7,7 +7,9 @@ suppressWarnings(suppressMessages(library(stargazer)))
 
 
 source("SqliteToLatexClassifierTestOnTrainingSoftwareMetricsWeka.R")
-#source("SqliteToLatexClassifierTrainingHardwareMetricsMoa.R")
+source("SqliteToLatexClassifierTestOnTestSoftwareMetricsWeka.R")
+
+#source("SqliteToLatexClassifierTestOnTrainingSoftwareMetricsMoa.R")
 
 
 

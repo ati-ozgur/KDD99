@@ -2,6 +2,10 @@
 
 
 1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
+There is a error in view sql. 
+Control it with weka output.
+
+
 
 2. Create R code to create latex table so that training set base metrics table is reproducible
 

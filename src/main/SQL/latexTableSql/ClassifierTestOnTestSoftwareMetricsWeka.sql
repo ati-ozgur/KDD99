@@ -15,5 +15,5 @@ WHERE datasetType = 'Train'
 AND
 T.classifierName LIKE 'weka%'
 GROUP BY T.classifierName
-;
+
 
