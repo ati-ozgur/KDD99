@@ -6,12 +6,10 @@
 
 
 <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
-  source("SqliteToLatexClassifierTrainingHardwareMetrics.R")
+  source("SqliteToLatexClassifierTestOnTestSoftwareMetricsWeka.R")
 @
 
-<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
-  source("SqliteToLatexClassifierTestSoftwareMetrics.R")
-@
+
 
 
 

@@ -25,6 +25,7 @@ stargazer(
   ,rownames=FALSE
   , out="table-ClassifiersTestOnTestSoftwareMetricsWeka.tex"
   , out.header=TRUE
-)
+  , single.row = TRUE
+  )
 
 
