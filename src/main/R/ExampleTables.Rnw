@@ -9,6 +9,10 @@
   source("SqliteToLatexClassifierTrainingHardwareMetrics.R")
 @
 
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+  source("SqliteToLatexClassifierTestSoftwareMetrics.R")
+@
+
 
 
 \end{document}
