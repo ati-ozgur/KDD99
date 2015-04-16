@@ -19,7 +19,7 @@ stargazer(
   ,suppress.errors=TRUE
   ,align = TRUE
   , summary=FALSE
-  , title="Classifiers Test on Training Software Metrics"
+  , title="Classifiers Test on Training Software Metrics Weka"
   ,font.size="small"
   ,initial.zero=TRUE
   ,rownames=FALSE
