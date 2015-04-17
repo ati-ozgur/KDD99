@@ -11,7 +11,7 @@ def sqlEngine = Sql.newInstance(Finals.JDBC_URL)
 
 
 
-def sql = "SELECT * FROM ML_TRAIN_RESULTS ORDER BY ID LIMIT 1";
+def sql = "SELECT * FROM ML_TRAIN_RESULTS ORDER BY ID DESC LIMIT 1";
 
 
 
