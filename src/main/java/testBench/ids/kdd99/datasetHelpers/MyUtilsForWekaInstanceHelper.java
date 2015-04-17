@@ -123,7 +123,7 @@ public class MyUtilsForWekaInstanceHelper {
             throw new RuntimeException(ex);
         }
 
-        String newFileName = filename.replace(".arff","-" +totalNumberOfInstances + ".arff");
+        String newFileName = fileName.replace(".arff","-" +totalNumberOfInstances + ".arff");
 
         saveInstancesToFile(sb.toString(),newFileName );
     }
