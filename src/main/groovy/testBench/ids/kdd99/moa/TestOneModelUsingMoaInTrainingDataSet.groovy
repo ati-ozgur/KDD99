@@ -52,7 +52,7 @@ Date testStartTime = DateHelper.getNow();
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
 
-String datasetName = DataSetFiles.KddcupTestDatasetForBinaryFileName;
+String datasetName = DataSetFiles.KddcupTrainingDatasetForBinaryFileName;
 
 
 

@@ -28,7 +28,7 @@ public class EvaluateModelHelperMoa
 
 
 
-        String datasetNameFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName + ".arff";
+        String datasetNameFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName ;
 
         String modelFullFileName = Finals.MODELS_SAVE_FOLDER + modelName;
 

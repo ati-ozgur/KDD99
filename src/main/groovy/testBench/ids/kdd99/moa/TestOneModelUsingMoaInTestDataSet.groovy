@@ -52,7 +52,8 @@ Date testStartTime = DateHelper.getNow();
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
 
-String datasetName = "combined_createFullKdd99TestDatasetForBinary"
+String datasetName = DataSetFiles.KddcupTestDatasetForBinaryFileName;
+
 
 EvaluationInformation evaluationInformation = EvaluateModelHelperMoa.evaluateModelBinary(modelFileName,datasetName);
 
