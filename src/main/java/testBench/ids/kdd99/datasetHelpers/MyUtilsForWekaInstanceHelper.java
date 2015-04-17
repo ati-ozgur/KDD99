@@ -78,7 +78,7 @@ public class MyUtilsForWekaInstanceHelper {
     public static void combineInstances(Instances instancesWhoseHeaderWillBeUsed,
             String fileName,Instances... InstancesToBeCombined) {
         DataSource headerSource = new DataSource(instancesWhoseHeaderWillBeUsed);
-
+        int totalNumberOfInstances = 0;
 
         Instances headerStructure;
         StringBuilder sb = new StringBuilder();
@@ -87,7 +87,7 @@ public class MyUtilsForWekaInstanceHelper {
 
 
 
-        int totalNumberOfInstances = 0;
+
 
         for(Instances instancesToAdd:InstancesToBeCombined)
         {
