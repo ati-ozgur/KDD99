@@ -95,18 +95,6 @@ public class ModelFilesHelper {
 			,String classifierFullName, String optionString) {
 		try {
 			AbstractClassifier classifier = (AbstractClassifier) Class.forName(classifierFullName).newInstance();
-			return saveModel(data, pModelName, classifier, optionString);
-			
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-			
-		}
-	}
-	
-	public static long saveModel(Instances data, String pModelName
-			,AbstractClassifier classifier, String optionString) {
-		try {
-
 			classifier.setOptions(Utils.splitOptions(optionString));
 			classifier.buildClassifier(data); // build classifier
 
@@ -119,14 +107,13 @@ public class ModelFilesHelper {
 			System.out.println("Model ( " +modelFullFileName + ")Saved, file length is : " + fileLength );
 
 			return fileLength;
-
-
-		} 
-		catch (Exception ex) {
-			throw new RuntimeException(ex);
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 			
 		}
 	}
+	
 
 
 	
