@@ -91,15 +91,49 @@ public class ModelFilesHelper {
 		}
 	}
 
-	public static long saveModel(Instances data, String pModelName
-			,String classifierFullName, String optionString) {
-		try {
-			AbstractClassifier classifier = (AbstractClassifier) Class.forName(classifierFullName).newInstance();
-			classifier.setOptions(Utils.splitOptions(optionString));
-			classifier.buildClassifier(data); // build classifier
+	public static AbstractClassifier buildModel(
+			Instances data
+			, String classifierFullName
+			, String optionString)
+	{
+		AbstractClassifier classifier = null;
+	try {
 
-			String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifier.getClass().getName()
-					+ pModelName  + ".model";
+		classifier = (AbstractClassifier) Class.forName(classifierFullName).newInstance();
+		if(optionString != null || !optionString.equals("") )
+		{
+			classifier.setOptions(Utils.splitOptions(optionString));
+		}
+		classifier.buildClassifier(data);
+	} catch (Exception e) {
+		throw new RuntimeException(e);
+	 }
+		return classifier;
+
+	}
+
+
+	private static String getModelFullFileName(
+			  String classifierFullName
+			, String optionString
+		)
+	{
+
+		String optionStringTrim = optionString.trim();
+		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifierFullName
+		+ optionStringTrim  + ".model";
+		return modelFullFileName;
+	}
+
+
+	public static long saveModel(
+			AbstractClassifier classifier
+			,String classifierFullName
+			, String optionString) {
+		try {
+
+			String modelFullFileName = getModelFullFileName(classifierFullName,optionString);
+
 			SerializationHelper.write(modelFullFileName, classifier);
 
 			long fileLength = new File(modelFullFileName).length();
