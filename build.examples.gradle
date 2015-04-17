@@ -46,7 +46,7 @@ task MoaExampleCmd(type:JavaExec) {
   String classifierName = "trees.HoeffdingTree"
   String modelFileName = "Datasets/SavedModels/" + classifierName + ".moa"
 
-  def argList = ["LearnModel","-l",classifierName, "-s","(ArffFileStream -f Datasets/SavedArff/combined_createFullKdd99TrainingDatasetForBinary.arff)","-m","10000000","-O", modelFileName]
+  def argList = ["LearnModel","-l",classifierName, "-s","(ArffFileStream -f Datasets/SavedArff/Kdd99TrainingDatasetForBinary-4898431.arff)","-m","10000000","-O", modelFileName]
   args = argList
 
 }
