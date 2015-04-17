@@ -2,9 +2,7 @@ package testBench.ids.kdd99.datasetHelpers;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 
 import weka.core.Instances;
 import weka.core.converters.ArffSaver;
@@ -87,7 +85,18 @@ public class MyUtilsForWekaInstanceHelper {
         try {
         headerStructure = headerSource.getStructure();
 
-        String headerStructureAsString = headerStructure.toString().replaceFirst("@relation.*","@relation" + fileName);
+
+
+        int totalNumberOfInstances = 0;
+
+        for(Instances instancesToAdd:InstancesToBeCombined)
+        {
+            totalNumberOfInstances += instancesToAdd.numInstances();
+        }
+
+        String relationName = new File(fileName).getName() + "-" + totalNumberOfInstances;
+
+        String headerStructureAsString = headerStructure.toString().replaceFirst("@relation.*","@relation " + relationName);
 
 
         sb.append(headerStructureAsString);
