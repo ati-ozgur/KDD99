@@ -11,12 +11,12 @@ def sqlEngine = Sql.newInstance(Finals.JDBC_URL)
 
 
 
-def sql = "SELECT * FROM ML_TRAIN_RESULTS";
+def sql = "SELECT * FROM ML_TRAIN_RESULTS ORDER BY ID LIMIT 1";
 
 
 
 sqlEngine.eachRow(sql) { row ->
-    println row
+    //println row
     int columnCount = row.getMetaData().columnCount;
     //println columnCount
 
