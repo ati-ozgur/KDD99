@@ -49,6 +49,25 @@ task trainAllModelsUsingWekaInTrainingDataSet(type:JavaExec) {
   description = 'Using Training dataset different classifiers are trained. '
 }
 
+task trainGroupModelsUsingWekaInTrainingDataSet(type:JavaExec) {
+  if (project.hasProperty('classifierGroupName') )
+  {
+    def argList = ["classifierGroupName",classifierGroupName]
+    args = argList
+  }
+  
+  main = "testBench.ids.kdd99.weka.TrainGroupModelsUsingWekaInTrainingDataSet"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
+  description = """Using Training dataset different classifiers are trained. 
+    Usage Example1:  gradlew trainGroupModelsUsingWekaInTrainingDataSet -PclassifierGroupName=fast 
+    Usage Example1:  gradlew trainGroupModelsUsingWekaInTrainingDataSet -PclassifierGroupName=slow 
+    Usage Example1:  gradlew trainGroupModelsUsingWekaInTrainingDataSet -PclassifierGroupName=tree 
+  """
+}
+
 
 task testOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
 
