@@ -1,5 +1,8 @@
 package testBench.ids.kdd99.reports;
 
+
+import testBench.ids.kdd99.*;
+
 import groovy.sql.Sql
 
 
