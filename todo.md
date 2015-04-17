@@ -1,5 +1,6 @@
 ## ASAP
 
+0. Does not work fromn clean. produced arff file names are wrong. Fix it.
 
 0. add following columns to ml_train_results table.
   a. ModelName
