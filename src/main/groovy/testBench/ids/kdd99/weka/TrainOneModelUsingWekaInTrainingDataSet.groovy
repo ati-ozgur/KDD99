@@ -3,7 +3,8 @@ package testBench.ids.kdd99.weka
 
 import java.util.List;
 
-import weka.core.Instances;
+import weka.core.*;
+import weka.classifiers.*;
 
 import testBench.ids.kdd99.*;
 import testBench.ids.kdd99.dal.*;
