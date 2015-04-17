@@ -17,10 +17,7 @@ import moa.streams.*;
 import moa.tasks.*;
 
 
-String datasetName = "combined_createFullKdd99TestDatasetForBinary";
-String datasetFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName + ".arff";
-
-println(datasetFullFileName);
+String datasetFullFileName = DataSetFiles.KddcupTestDatasetForBinaryFullFileName;
 
 String modelName = "moa.classifiers.bayes.NaiveBayes"
 String modelFullFileName = Finals.MODELS_SAVE_FOLDER + modelName + ".moa";

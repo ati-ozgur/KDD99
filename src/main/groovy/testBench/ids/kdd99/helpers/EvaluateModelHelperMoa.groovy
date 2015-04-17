@@ -20,7 +20,7 @@ public class EvaluateModelHelperMoa
 
     public static EvaluationInformation evaluateModelBinary(
          String modelName = "moa.classifiers.bayes.NaiveBayes.moa"
-        ,  String datasetName = "combined_createFullKdd99TestDatasetForBinary"
+        ,  String datasetName = DataSetFiles.KddcupTestDatasetForBinaryFileName
         , int maxInstances=5 * 1000 * 1000
 
     )

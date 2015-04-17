@@ -19,7 +19,7 @@ def exampleMlTrainResults()
 
     RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
     MlTrainResultsDal.Ekle(
-        "combined_createFullKdd99TrainingDatasetForBinary"
+        DataSetFiles.KddcupTestDatasetForBinaryFullFileName
         ,"weka.classifiers.bayes.NaiveBayes"
         ,""
         ,d1

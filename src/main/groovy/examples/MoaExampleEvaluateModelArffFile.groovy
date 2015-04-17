@@ -16,11 +16,8 @@ import moa.tasks.*;
 int maxInstances=5 * 1000 * 1000;
 
 
+String datasetFullFileName = DataSetFiles.KddcupTestDatasetForBinaryFullFileName;
 
-String datasetName = "combined_createFullKdd99TestDatasetForBinary";
-String datasetNameFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName + ".arff";
-
-println(datasetNameFullFileName);
 
 
 String modelName = "moa.classifiers.bayes.NaiveBayes.moa"

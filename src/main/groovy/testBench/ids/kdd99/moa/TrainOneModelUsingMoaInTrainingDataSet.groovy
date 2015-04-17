@@ -64,11 +64,9 @@ if(firstArg == "classifierFullString")
 }
 
 
+String datasetName = DataSetFiles.KddcupTestDatasetForBinaryFileName;
 
-String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-String datasetFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName + ".arff";
-
-println(datasetFullFileName);
+String datasetFullFileName = DataSetFiles.KddcupTestDatasetForBinaryFullFileName;
 
 String modelName = classifierName
 String modelFullFileName = Finals.MODELS_SAVE_FOLDER + modelName + ".moa";
