@@ -58,17 +58,7 @@ public class ModelFilesHelper {
 	
 	
 	
-	public static long saveModel(Instances data, String pModelName
-			,String classifierFullName, String optionString) {
-		try {
-			AbstractClassifier classifier = (AbstractClassifier) Class.forName(classifierFullName).newInstance();
-			return saveModel(data, pModelName, classifier, optionString);
-			
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-			
-		}
-	}
+
 	
 
 	public static Classifier loadModel(String modelFileName)
@@ -101,6 +91,18 @@ public class ModelFilesHelper {
 		}
 	}
 
+	public static long saveModel(Instances data, String pModelName
+			,String classifierFullName, String optionString) {
+		try {
+			AbstractClassifier classifier = (AbstractClassifier) Class.forName(classifierFullName).newInstance();
+			return saveModel(data, pModelName, classifier, optionString);
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+			
+		}
+	}
+	
 	public static long saveModel(Instances data, String pModelName
 			,AbstractClassifier classifier, String optionString) {
 		try {
