@@ -10,6 +10,9 @@ There is a error in view sql.
 Control it with weka output.
 
 
+2. from sqlite to arff file use StringBuilder. This takes too much memory. Use filestream.
+
+3. Can I use R and stargazer in report tasks?
 
 2. Create R code to create latex table so that training set base metrics table is reproducible
 
