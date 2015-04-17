@@ -4,6 +4,14 @@
 
 }
 
+
+task wekaCheck(type:JavaExec) {
+   main = "weka.core.SystemInfo"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_TEST
+   description = "Verifies weka works showing system information of weka"
+}
+
                                                                                 
 
 
