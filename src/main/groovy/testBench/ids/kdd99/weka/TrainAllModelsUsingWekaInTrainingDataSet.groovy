@@ -29,10 +29,6 @@ println(args)
 
 def classifierList = ClassifiersAndArgumentsWeka.getClassifierList(classifierListName)
 
-println(classifierList)
-
-String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-Instances data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
 
 classifierList.each() {
 	classifierAndOption-> 
@@ -42,7 +38,7 @@ classifierList.each() {
 
 	String classifierName = classifierAndOption.Classifier
 	String options = classifierAndOption.Options
-	TrainOneModelUsingWekaInTrainingDataSet.main("classifierName",classifierName,"classifierOptions",options)
+	TrainOneModelUsingWekaInTrainingDataSet.main("classifierFullName",classifierName,"classifierOptions",options)
 
 }; 
 

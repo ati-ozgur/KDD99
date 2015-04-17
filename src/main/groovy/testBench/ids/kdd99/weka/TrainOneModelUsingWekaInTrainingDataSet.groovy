@@ -17,6 +17,8 @@ import testBench.ids.kdd99.helpers.*;
 String options = ""
 String classifierName = ""
 
+
+println "args"
 println args
 
 firstArg = args[0];
@@ -36,7 +38,20 @@ if(firstArg == "classifierName")
         options = args[3];
     }
 }
+if(firstArg == "classifierFullName")
+{
+    classifierName = args[1];
+    if (classifierName == null)
+    {
+        println "$classifierName is not found"
+        return;
+    }
 
+    if(args.length > 2 && args[2] == "classifierOptions")
+    {
+        options = args[3];
+    }
+}
 if(firstArg == "classifierFullString")
 {
     String classifierFullString = args[1]
@@ -44,20 +59,24 @@ if(firstArg == "classifierFullString")
     classifierName = classifierFullString.substring(0,firstSpace);
     options = classifierFullString.substring(firstSpace,classifierFullString.length())
 
-    println classifierName
-    println options
+
 }
 
+
+println classifierName
+println options
 
 
 
 
 System.gc();
-String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
+def data = DataSetHelper.getTrainDatasetFull();
+
+
 Date trainingStartTime = DateHelper.getNow();
 
 Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
+
 
 long modelSize = ModelFilesHelper.saveModelOnly(classifier);
 
@@ -68,7 +87,7 @@ RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInfor
 Date trainingFinishTime = DateHelper.getNow();
 
 MlTrainResultsDal.Ekle(
-    datasetName
+    data.relationName()
     ,classifierName
     ,options
     ,trainingStartTime

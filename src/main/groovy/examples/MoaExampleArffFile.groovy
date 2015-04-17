@@ -15,10 +15,7 @@ int numInstances=5 * 1000 * 1000;
 
 
 
-String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
-String datasetNameFullFileName = Finals.ARFF_SAVE_FOLDER + datasetName + ".arff";
-
-println(datasetNameFullFileName);
+String datasetNameFullFileName = DataSetFiles.KddcupTrainingDatasetForBinaryArff;
 
 
 

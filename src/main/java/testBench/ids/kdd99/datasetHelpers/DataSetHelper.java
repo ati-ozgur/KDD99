@@ -17,14 +17,14 @@ public class DataSetHelper {
 
     public static Instances getTrainDatasetFull()
     {
-    	String filenameDataSet = DataSetFiles.KddcupTrainingDatasetForBinaryArff;
+    	String filenameDataSet = DataSetFiles.KddcupTrainingDatasetForBinaryFullFileName;
     	return MyUtilsForWekaInstanceHelper.getInstanceFromFile(filenameDataSet);
         
     }
 
     public static Instances getTestDatasetFull()
     {
-    	String filenameDataSet = DataSetFiles.KddcupTestDatasetForBinaryArff;
+    	String filenameDataSet = DataSetFiles.KddcupTestDatasetForBinaryFullFileName;
     	return MyUtilsForWekaInstanceHelper.getInstanceFromFile(filenameDataSet);
         
     }
