@@ -1,0 +1,79 @@
+:compileJava UP-TO-DATE
+:compileGroovy UP-TO-DATE
+:processResources UP-TO-DATE
+:classes UP-TO-DATE
+:testAllModelsUsingWekaInTestDataSet
+[modelFileName, weka.classifiers.trees.DecisionStumpcombined_createFullKdd99TrainingDatasetForBinary.model]
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+  59204   1389 |      a = normal
+  27289 223147 |      b = attack
+
+
+
+
+Correctly Classified Instances      282351               90.7796 %
+Incorrectly Classified Instances     28678                9.2204 %
+Kappa statistic                          0.7471
+Mean absolute error                      0.0995
+Root mean squared error                  0.2883
+Relative absolute error                 31.7109 %
+Root relative squared error             72.8007 %
+Coverage of cases (0.95 level)          99.5534 %
+Mean rel. region size (0.95 level)      63.9043 %
+Total Number of Instances           311029     
+
+
+
+[[59204.0, 1389.0], [27289.0, 223147.0]]
+weka.classifiers.trees.DecisionStump
+[modelFileName, weka.classifiers.bayes.NaiveBayescombined_createFullKdd99TrainingDatasetForBinary.model]
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+  59229   1364 |      a = normal
+  25162 225274 |      b = attack
+
+
+
+
+Correctly Classified Instances      284503               91.4715 %
+Incorrectly Classified Instances     26526                8.5285 %
+Kappa statistic                          0.7634
+Mean absolute error                      0.0854
+Root mean squared error                  0.292 
+Relative absolute error                 27.208  %
+Root relative squared error             73.7162 %
+Coverage of cases (0.95 level)          91.4918 %
+Mean rel. region size (0.95 level)      50.0305 %
+Total Number of Instances           311029     
+
+
+
+[[59229.0, 1364.0], [25162.0, 225274.0]]
+weka.classifiers.bayes.NaiveBayes
+[modelFileName, weka.classifiers.meta.AdaBoostM1combined_createFullKdd99TrainingDatasetForBinary.model]
+=== Confusion Matrix ===
+
+      a      b   <-- classified as
+  58894   1699 |      a = normal
+  24772 225664 |      b = attack
+
+
+
+
+Correctly Classified Instances      284558               91.4892 %
+Incorrectly Classified Instances     26471                8.5108 %
+Kappa statistic                          0.7629
+Mean absolute error                      0.085 
+Root mean squared error                  0.2792
+Relative absolute error                 27.1074 %
+Root relative squared error             70.5019 %
+Coverage of cases (0.95 level)          93.48   %
+Mean rel. region size (0.95 level)      52.2488 %
+Total Number of Instances           311029     
+
+
+
+[[58894.0, 1699.0], [24772.0, 225664.0]]
