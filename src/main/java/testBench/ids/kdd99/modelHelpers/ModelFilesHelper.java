@@ -126,7 +126,7 @@ public class ModelFilesHelper {
 	}
 
 
-	public static long saveModel(
+	public static long saveModelOnly(
 			AbstractClassifier classifier
 			,String classifierFullName
 			, String optionString) {

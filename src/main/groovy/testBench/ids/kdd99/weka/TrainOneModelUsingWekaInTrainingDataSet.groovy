@@ -55,7 +55,10 @@ System.gc();
 String datasetName = "combined_createFullKdd99TrainingDatasetForBinary";
 data = MyUtilsForWekaInstanceHelper.getInstanceFromFile(Finals.ARFF_SAVE_FOLDER + datasetName + ".arff");
 Date trainingStartTime = DateHelper.getNow();
-long modelSize = ModelFilesHelper.saveModel(data,datasetName,classifierName,options);
+
+Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
+
+long modelSize = ModelFilesHelper.saveModelOnly(classifier,classifierName,options);
 
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
