@@ -87,9 +87,10 @@ public class MyUtilsForWekaInstanceHelper {
         try {
         headerStructure = headerSource.getStructure();
 
-        String headerStructureAsString = headerStructure.toString().replaceFirst("@relation.*","@relation" + fileName)
+        String headerStructureAsString = headerStructure.toString().replaceFirst("@relation.*","@relation" + fileName);
 
-        sb.append();
+
+        sb.append(headerStructureAsString);
 
         for(Instances instancesToAdd:InstancesToBeCombined)
         {
