@@ -123,7 +123,7 @@ public class MyUtilsForWekaInstanceHelper {
             throw new RuntimeException(ex);
         }
 
-        saveInstancesToFile(sb.toString(),fileName );
+        saveInstancesToFile(sb.toString(),fileName +"-" +totalNumberOfInstances );
     }
 
     public static String arffHeaderPart(Instances dataset)
