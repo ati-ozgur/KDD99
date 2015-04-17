@@ -1,8 +1,7 @@
 package testBench.ids.kdd99.modelHelpers;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import testBench.ids.kdd99.Finals;
 import weka.classifiers.*;
@@ -112,27 +111,36 @@ public class ModelFilesHelper {
 
 	}
 
+	private static String ArrayToString(String[] arr)
+	{
+		StringBuilder sb = new StringBuilder();
+		for(String s: arr)
+		{
+			sb.append(s.trim());
+		}
+		return sb.toString();
 
-	private static String getModelFullFileName(
-			  String classifierFullName
-			, String optionString
+	}
+
+
+	private static String getModelFullFileName(AbstractClassifier classifier
 		)
 	{
+		String classifierFullName = classifier.getClass().getName();
+		String optionString = ArrayToString(classifier.getOptions());
 
-		String optionStringTrim = optionString.trim();
 		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifierFullName
-		+ optionStringTrim  + ".model";
+		+ optionString  + ".model";
 		return modelFullFileName;
 	}
 
 
 	public static long saveModelOnly(
 			AbstractClassifier classifier
-			,String classifierFullName
-			, String optionString) {
+			) {
 		try {
 
-			String modelFullFileName = getModelFullFileName(classifierFullName,optionString);
+			String modelFullFileName = getModelFullFileName(classifier);
 
 			SerializationHelper.write(modelFullFileName, classifier);
 

@@ -59,7 +59,7 @@ Date trainingStartTime = DateHelper.getNow();
 
 Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
 
-long modelSize = ModelFilesHelper.saveModelOnly(classifier,classifierName,options);
+long modelSize = ModelFilesHelper.saveModelOnly(classifier);
 
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
