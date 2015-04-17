@@ -42,25 +42,7 @@ classifierList.each() {
 
 	String classifierName = classifierAndOption.Classifier
 	String options = classifierAndOption.Options
-
-
-
-	Date trainingStartTime = DateHelper.getNow();
-	ModelFilesHelper.saveModel(data,datasetName,classifierName,options);
-
-
-	RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
-
-
-	Date trainingFinishTime = DateHelper.getNow();
-
-	MlTrainResultsDal.Ekle(
-	    datasetName
-	    ,classifierName
-	    ,options
-	    ,trainingStartTime
-	    ,trainingFinishTime
-	    ,inf)
+	TrainOneModelUsingWekaInTrainingDataSet.main("classifierName",classifierName,"classifierOptions",options)
 
 }; 
 
