@@ -95,6 +95,11 @@ apply from: 'build.verification.gradle'
 
 apply from: 'build.examples.gradle'
 
+apply from: 'build.report.gradle'
+
+
+
+
 task showMeCache << {
   configurations.compile.each { println it }
 }

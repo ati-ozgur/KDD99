@@ -1,0 +1,14 @@
+
+ext{
+
+    PACKAGE_NAME_REPORTS = "testBench.ids.kdd99.reports"
+    GROUP_NAME_REPORTS = "Reports"
+}
+
+task reportShowLastTrainedModel(type:JavaExec) {
+   main = PACKAGE_NAME_REPORTS + ".reportLastTrainedModel"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_REPORTS
+   description = "Verifies weka works showing system information of weka"
+}
+
