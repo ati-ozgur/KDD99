@@ -7,8 +7,6 @@
 There is a error in view sql. 
 Control it with weka output.
 
-4. When you save models , include information about training set and classifier options.
-TrainingSet hash plus options trimmed may be appropriate.
 
 
 
