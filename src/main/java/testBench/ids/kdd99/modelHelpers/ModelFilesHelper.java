@@ -124,15 +124,19 @@ public class ModelFilesHelper {
 
 	}
 
+	private static String replaceUnwantedCharacters(String str)
+	{
+		str = str.replace("\"","");
+		str = str.replace(" ","_");
+		return str;
 
-	private static String getModelFullFileNameWeka(AbstractClassifier classifier
-		)
+	}
+
+	private static String getModelFullFileNameWeka(AbstractClassifier classifier)
 	{
 		String classifierFullName = classifier.getClass().getName();
-		String optionString = ArrayToString(classifier.getOptions());
+		String optionString = replaceUnwantedCharacters(ArrayToString(classifier.getOptions()));
 
-		optionString = optionString.replace("\"","");
-		optionString = optionString.replace(" ","_");
 
 		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifierFullName
 		+ optionString  + Finals.EXT_WEKA_MODEL;
