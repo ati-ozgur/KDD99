@@ -32,68 +32,42 @@ INSERT INTO ML_TRAIN_RESULTS
 ,OsVersion
 ,AvailableProcessors
 ,ModelSize
+,ModelName 
+NumberOfInstances
+
     ) 
-VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?);"""
+VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?);"""
 
 
 
-    public static void Ekle(String datasetName
-        ,String classifierName
-        ,String options
-        ,String trainingStartTime
-        ,String trainingFinishTime
-        ,RuntimeInformation runtimeInformation
-        ,long modelSize = 0
-        )
-        {
-            Date trainingStartTimeAsDate = DateHelper.getDateFromFormattedString(trainingStartTime)
-            Date trainingFinishTimeAsDate = DateHelper.getDateFromFormattedString(trainingFinishTime)
-            Ekle( datasetName
-                , classifierName
-                , options
-                , trainingStartTimeAsDate
-                , trainingFinishTimeAsDate
-                , runtimeInformation
-                , modelSize
-                )
-        }
 
-    public static void Ekle(String datasetName
-        ,String classifierName
-        ,String options
-        ,Date trainingStartTime
-        ,Date trainingFinishTime
-        ,RuntimeInformation runtimeInformation
-        ,long modelSize = 0
-        )
+    public static void Ekle(MlTrainResults trainResults)
         {
             // insert as seconds
-            int trainingDuration = (trainingFinishTime.getTime() - trainingStartTime.getTime())/1000;
-
             def sqlEngine = Sql.newInstance(Finals.JDBC_URL);
-            String trainingStartTimeAsString = DateHelper.getFormattedStringFromDate(trainingStartTime);
-            String trainingFinishTimeAsString = DateHelper.getFormattedStringFromDate(trainingFinishTime);
 
             def params = [
-            datasetName
-            ,classifierName
-            ,options
-            ,trainingStartTimeAsString
-            ,trainingFinishTimeAsString
-            ,trainingDuration
-            ,runtimeInformation.FreeMemory
-            ,runtimeInformation.TotalMemory
-            ,runtimeInformation.MaxMemory
-            ,runtimeInformation.UsedMemory
-            ,runtimeInformation.LocalMachineHostName
-            ,runtimeInformation.JavaVersion
-            ,runtimeInformation.OsArchitecture
-            ,runtimeInformation.UserName
-            ,runtimeInformation.JavaVmName
-            ,runtimeInformation.OsName
-            ,runtimeInformation.OsVersion
-            ,runtimeInformation.AvailableProcessors
-            ,modelSize
+            trainResults.datasetName
+            ,trainResults.classifierName
+            ,trainResults.options
+            ,trainResults.getTrainingStartTimeAsString()
+            ,trainResults.getTrainingFinishTimeAsString()
+            ,trainResults.getTrainingDuration()
+            ,trainResults.freeMemory
+            ,trainResults.totalMemory
+            ,trainResults.maxMemory
+            ,trainResults.usedMemory
+            ,trainResults.localMachineHostName
+            ,trainResults.javaVersion
+            ,trainResults.osArchitecture
+            ,trainResults.userName
+            ,trainResults.javaVmName
+            ,trainResults.osName
+            ,trainResults.osVersion
+            ,trainResults.availableProcessors
+            ,trainResults.modelSize
+            ,trainResults.modelName
+            ,trainResults.numberOfInstances
             ];
 
             sqlEngine.execute(SQL_INSERT, params)

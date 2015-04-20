@@ -18,14 +18,22 @@ def exampleMlTrainResults()
     Date d2=new Date(t + (10 * ONE_MINUTE_IN_MILLIS));
 
     RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
-    MlTrainResultsDal.Ekle(
-        DataSetFiles.KddcupTestDatasetForBinaryFullFileName
-        ,"weka.classifiers.bayes.NaiveBayes"
-        ,""
-        ,d1
-        ,d2
-        ,inf
-        )
+    MlTrainResults tr = new MlTrainResults(inf);
+
+    tr.datasetName = DataSetFiles.KddcupTestDatasetForBinaryFullFileName;
+    tr.classifierName = "weka.classifiers.bayes.NaiveBayes";
+    tr.classifierOptions = "";
+    tr.trainingStartTime = d1;
+    tr.trainingFinishTime = d2;
+    tr.modelSize = 9999;
+    tr.ModelName = "deneme.wekaModel";
+    tr.NumberOfInstances = 1234;
+
+
+
+
+
+    MlTrainResultsDal.Ekle(tr);
 }
 
 
