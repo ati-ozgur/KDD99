@@ -132,7 +132,7 @@ public class ModelFilesHelper {
 
 	}
 
-	private static String getModelFullFileNameWeka(AbstractClassifier classifier)
+	public static String getModelFullFileNameWeka(AbstractClassifier classifier)
 	{
 		String classifierFullName = classifier.getClass().getName();
 		String optionString = replaceUnwantedCharacters(ArrayToString(classifier.getOptions()));

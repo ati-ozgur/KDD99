@@ -79,6 +79,7 @@ Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
 
 
 long modelSize = ModelFilesHelper.saveModelOnly(classifier);
+String modelFullFileName = ModelFilesHelper.getModelFullFileNameWeka(classifier);
 
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
@@ -86,14 +87,23 @@ RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInfor
 
 Date trainingFinishTime = DateHelper.getNow();
 
-MlTrainResultsDal.Ekle(
-    data.relationName()
-    ,classifierName
-    ,options
-    ,trainingStartTime
-    ,trainingFinishTime
-    ,runtimeInformation
-    ,modelSize)
+
+
+MlTrainResults trainResults = new MlTrainResults(runtimeInformation);
+
+trainResults.datasetName = data.relationName();
+trainResults.classifierName = classifierName;
+trainResults.classifierOptions = options;
+trainResults.trainingStartTime = trainingStartTime;
+trainResults.trainingFinishTime = trainingFinishTime;
+trainResults.modelSize = modelSize;
+trainResults.ModelName = modelFullFileName;
+trainResults.NumberOfInstances =     data.numInstances();
+
+
+
+MlTrainResultsDal.Ekle(trainResults);
+
 
 
 
