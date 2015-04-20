@@ -123,14 +123,14 @@ public class ModelFilesHelper {
 	}
 
 
-	private static String getModelFullFileName(AbstractClassifier classifier
+	private static String getModelFullFileNameWeka(AbstractClassifier classifier
 		)
 	{
 		String classifierFullName = classifier.getClass().getName();
 		String optionString = ArrayToString(classifier.getOptions());
 
 		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifierFullName
-		+ optionString  + ".model";
+		+ optionString  + ".weka";
 		return modelFullFileName;
 	}
 
@@ -140,7 +140,7 @@ public class ModelFilesHelper {
 			) {
 		try {
 
-			String modelFullFileName = getModelFullFileName(classifier);
+			String modelFullFileName = getModelFullFileNameWeka(classifier);
 
 			SerializationHelper.write(modelFullFileName, classifier);
 
