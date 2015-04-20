@@ -10,7 +10,6 @@ Control it with weka output.
 4. When you save models , include information about training set and classifier options.
 TrainingSet hash plus options trimmed may be appropriate.
 
-5. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
 
 
 2. from sqlite to arff file use StringBuilder. This takes too much memory. Use filestream.
