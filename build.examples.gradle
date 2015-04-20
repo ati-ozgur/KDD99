@@ -4,6 +4,13 @@
 
 }
 
+task ProgramInsertMlTrainResults(type:JavaExec) {
+  main = examplesPackageName + ".ProgramInsertMlTrainResults"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_TEST
+  description = 'Insert an example record to ML_TRAIN_RESULTS table'
+}
+
                                                                                 
 task ProgramGroovyExample(type:JavaExec) {
   main = examplesPackageName + ".ProgramGroovy"
