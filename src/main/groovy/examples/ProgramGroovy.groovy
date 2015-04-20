@@ -5,6 +5,8 @@ import testBench.ids.kdd99.dal.*;
 import testBench.ids.kdd99.helpers.*;
 import java.util.Date;
 
+import testBench.ids.kdd99.*;
+
 
 // weka.core.SystemInfo.main(null);
 
@@ -20,7 +22,7 @@ def exampleMlTrainResults()
     RuntimeInformation inf = RuntimeInformationHelper.getRuntimeInformation();
     MlTrainResults tr = new MlTrainResults(inf);
 
-    tr.datasetName = DataSetFiles.KddcupTestDatasetForBinaryFullFileName;
+    tr.datasetName = DataSetFiles.KddcupTrainingDatasetForBinaryFileName;
     tr.classifierName = "weka.classifiers.bayes.NaiveBayes";
     tr.classifierOptions = "";
     tr.trainingStartTime = d1;

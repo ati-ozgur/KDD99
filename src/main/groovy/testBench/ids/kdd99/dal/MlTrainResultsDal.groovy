@@ -33,10 +33,11 @@ INSERT INTO ML_TRAIN_RESULTS
 ,AvailableProcessors
 ,ModelSize
 ,ModelName 
-NumberOfInstances
+,NumberOfInstances
 
     ) 
-VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?);"""
+VALUES 
+( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?);"""
 
 
 
@@ -49,7 +50,7 @@ VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?,?,?,?,?,?,?,?,?,?);"""
             def params = [
             trainResults.datasetName
             ,trainResults.classifierName
-            ,trainResults.options
+            ,trainResults.classifierOptions
             ,trainResults.getTrainingStartTimeAsString()
             ,trainResults.getTrainingFinishTimeAsString()
             ,trainResults.getTrainingDuration()
