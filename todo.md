@@ -10,6 +10,11 @@
 There is a error in view sql. 
 Control it with weka output.
 
+4. When you save models , include information about training set and classifier options.
+TrainingSet hash plus options trimmed may be appropriate.
+
+5. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
+
 
 2. from sqlite to arff file use StringBuilder. This takes too much memory. Use filestream.
 
@@ -43,10 +48,9 @@ Training
  
   rows: Classifier names and values
 
-4. When you save models , include information about training set and classifier options.
-TrainingSet hash plus options trimmed may be appropriate.
 
-5. execTrainModelsUsingDifferentClassifiersInTrainingDataSet task should get parameter to decide which classifier group will be run, [fast,slow,all,trees,...]
+
+
 
 7. Package classifier installation. Installation is OK in windows but need to run it too.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
