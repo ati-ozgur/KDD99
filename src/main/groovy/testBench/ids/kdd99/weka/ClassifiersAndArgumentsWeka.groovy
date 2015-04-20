@@ -100,6 +100,11 @@ public class ClassifiersAndArgumentsWeka
     LMT  
     ]
 
+    public static classifierListKNN = [
+    IBk  
+    ]
+
+
     public static classifierListFull = classifierListSlow + classifierListFast
 
     public static classifierList = classifierListFull
@@ -120,7 +125,9 @@ public class ClassifiersAndArgumentsWeka
             case "trees":
                 list = classifierListTrees;
             break;
-
+            case "knn":
+                list = classifierListKNN;
+            break;
             case "full":
             case "all":
                 list = classifierListFull;
