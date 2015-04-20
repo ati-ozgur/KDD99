@@ -12,6 +12,7 @@ import testBench.ids.kdd99.helpers.*;
 
 import moa.options.*;
 import weka.core.*;
+import moa.core.*;
 import moa.tasks.*;
 
 import moa.classifiers.*;
@@ -64,9 +65,9 @@ if(firstArg == "classifierFullString")
 }
 
 
-String datasetName = DataSetFiles.KddcupTestDatasetForBinaryFileName;
+String datasetName = DataSetFiles.KddcupTrainingDatasetForBinaryFileName;
 
-String datasetFullFileName = DataSetFiles.KddcupTestDatasetForBinaryFullFileName;
+String datasetFullFileName = DataSetFiles.KddcupTrainingDatasetForBinaryFullFileName;
 
 String modelName = classifierName
 String modelFullFileName = Finals.MODELS_SAVE_FOLDER + modelName + ".moa";
@@ -92,10 +93,25 @@ System.gc();
 Date trainingStartTime = DateHelper.getNow();
 
 Task task = (Task) ClassOption.cliStringToObject(cliString, Task.class, extraOptions);
-Object result =  task.doTask();;
+Classifier result =  task.doTask();;
+
+
+
+
 
 println(result)
 println(result.getClass())
+
+Measurement[] measurements = result.getModelMeasurements();
+
+int trainingInstances = 0;
+
+for(Measurement m: measurements) {
+    if(m.getName().equals("model training instances"))
+    {
+        trainingInstances = m.getValue();
+    }
+}
 
 
 long modelSize = ModelFilesHelper.getModelFileSize(modelFullFileName);
@@ -106,11 +122,18 @@ RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInfor
 
 Date trainingFinishTime = DateHelper.getNow();
 
-MlTrainResultsDal.Ekle(
-    datasetName
-    ,classifierName
-    ,options
-    ,trainingStartTime
-    ,trainingFinishTime
-    ,runtimeInformation
-    ,modelSize)
+
+MlTrainResults trainResults = new MlTrainResults(runtimeInformation);
+
+trainResults.datasetName = datasetName;
+trainResults.classifierName = classifierName;
+trainResults.classifierOptions = options;
+trainResults.trainingStartTime = trainingStartTime;
+trainResults.trainingFinishTime = trainingFinishTime;
+trainResults.modelSize = modelSize;
+trainResults.ModelName = modelFullFileName;
+trainResults.NumberOfInstances = trainingInstances;
+
+
+
+MlTrainResultsDal.Ekle(trainResults);
