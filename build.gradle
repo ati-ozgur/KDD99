@@ -107,7 +107,11 @@ task showMeCache << {
 
 
 task listTrainedModelFiles() << {
-  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.model')
+  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.weka')
+  tree.each {File file ->
+      println file.name
+  }
+  tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.moa')
   tree.each {File file ->
       println file.name
   }

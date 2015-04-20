@@ -130,7 +130,7 @@ public class ModelFilesHelper {
 		String optionString = ArrayToString(classifier.getOptions());
 
 		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifierFullName
-		+ optionString  + ".weka";
+		+ optionString  + Finals.EXT_WEKA_MODEL;
 		return modelFullFileName;
 	}
 

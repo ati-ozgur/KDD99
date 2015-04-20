@@ -78,7 +78,7 @@ task testOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
   }
   else
   {
-    def argList = ["modelFileName","weka.classifiers.rules.OneR.model"]
+    def argList = ["modelFileName","weka.classifiers.rules.OneR.weka"]
     args = argList
   }
 
@@ -88,7 +88,7 @@ task testOneModelUsingWekaInTrainingDataSet(type:JavaExec) {
   maxHeapSize = "32g"
   group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
   description = """Test already trained model on KDD99 full training data set
-  Usage Example1:  ./gradlew testOneModelUsingWekaInTrainingDataSet -PmodelFileName='weka.classifiers.rules.OneR.model'
+  Usage Example1:  ./gradlew testOneModelUsingWekaInTrainingDataSet -PmodelFileName='weka.classifiers.rules.OneR.weka'
   """
 
   
@@ -133,7 +133,7 @@ task testOneModelUsingWekaInTestDataSet(type:JavaExec) {
   }
   else
   {
-    def argList = ["modelFileName","weka.classifiers.rules.OneR.model"]
+    def argList = ["modelFileName","weka.classifiers.rules.OneR.weka"]
     args = argList
 
   }
@@ -144,7 +144,7 @@ task testOneModelUsingWekaInTestDataSet(type:JavaExec) {
   maxHeapSize = "32g"
   group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
   description = """Test already trained model on KDD99 full test data set
-  Usage Example1:  ./gradlew testOneModelUsingWekaInTestDataSet -PmodelFileName='weka.classifiers.rules.OneR.model'
+  Usage Example1:  ./gradlew testOneModelUsingWekaInTestDataSet -PmodelFileName='weka.classifiers.rules.OneR.weka'
   """
 
   
@@ -154,7 +154,7 @@ task testOneModelUsingWekaInTestDataSet(type:JavaExec) {
 
 
 task listTrainedModelFilesWeka() << {
-  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/weka*.model')
+  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/weka*.weka')
   tree.each {File file ->
       println file.name
   }
