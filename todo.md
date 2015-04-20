@@ -1,20 +1,18 @@
 ## ASAP
 
-0. Does not work from clean. produced arff file names are wrong. Fix it.
+1. Does not work from clean. produced arff file names are wrong. Fix it.
 
 
-1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
+2. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 There is a error in view sql. 
 Control it with weka output.
 
 
+3. from sqlite to arff file use StringBuilder. This takes too much memory. Use filestream.
 
+4. Can I use R and stargazer in report tasks?
 
-2. from sqlite to arff file use StringBuilder. This takes too much memory. Use filestream.
-
-3. Can I use R and stargazer in report tasks?
-
-2. Create R code to create latex table so that training set base metrics table is reproducible
+5. Create R code to create latex table so that training set base metrics table is reproducible
 
   Title: Training set base metrics
   Columns:
@@ -28,7 +26,7 @@ Control it with weka output.
  
   rows: Classifier names and values
 
-3. Create R code to create latex table so that testing set base metrics table is reproducible
+6. Create R code to create latex table so that testing set base metrics table is reproducible
 Training 
   Title: Test set base metrics
   Columns:
@@ -52,7 +50,7 @@ Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundEx
 
 
 
-7. MOA manual has short descriptions of classifiers.
+8. MOA manual has short descriptions of classifiers.
 Choose batch and stream versions to compare using that descriptions.
 For example.
 
