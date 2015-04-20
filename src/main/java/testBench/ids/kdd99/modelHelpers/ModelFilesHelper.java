@@ -131,8 +131,12 @@ public class ModelFilesHelper {
 		String classifierFullName = classifier.getClass().getName();
 		String optionString = ArrayToString(classifier.getOptions());
 
+		optionString = optionString.replace("\"","");
+		optionString = optionString.replace(" ","_");
+
 		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifierFullName
 		+ optionString  + Finals.EXT_WEKA_MODEL;
+
 		return modelFullFileName;
 	}
 
