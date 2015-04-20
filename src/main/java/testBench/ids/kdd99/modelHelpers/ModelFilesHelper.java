@@ -3,7 +3,9 @@ package testBench.ids.kdd99.modelHelpers;
 import java.io.File;
 import java.util.*;
 
-import testBench.ids.kdd99.Finals;
+import testBench.ids.kdd99.*;
+
+
 import weka.classifiers.*;
 import weka.core.Instances;
 import weka.core.SerializationHelper;
@@ -30,12 +32,12 @@ public class ModelFilesHelper {
 	}
 
 
-	public static List<String>  getModelFileNames() {
+	public static List<String>  getModelFileNamesWeka() {
 		final 	File folder = new File(Finals.MODELS_SAVE_FOLDER);
-		return  ModelFilesHelper.getModelFileNames(folder);
+		return  ModelFilesHelper.getModelFileNamesWeka(folder);
 	}
 	
-	public static List<String>  getModelFileNames(final File folder) {
+	public static List<String>  getModelFileNamesWeka(final File folder) {
 		
 		List<String> listOfFileNames = new ArrayList<String>();
 		
@@ -45,7 +47,7 @@ public class ModelFilesHelper {
 	        	continue;
 	        } else {
 	        	fileName = fileEntry.getName();
-	        	if (fileName.endsWith(".model"))
+	        	if (fileName.endsWith(".weka"))
 	        	{
 	        		
 		        	listOfFileNames.add(fileName);

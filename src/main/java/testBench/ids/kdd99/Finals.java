@@ -21,6 +21,10 @@ public class Finals {
     public static final int CLASS_ATT_NORMAL = 0;
     public static final int CLASS_ATT_ATTACK = 1;    
  
+    public static final String EXT_WEKA_MODEL = ".weka";
+    public static final String EXT_MOA_MODEL = ".moa";
+
+
 
 }
 
