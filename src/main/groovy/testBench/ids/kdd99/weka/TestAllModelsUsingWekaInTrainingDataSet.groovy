@@ -16,7 +16,7 @@ import weka.core.Instances;
 
 
 
-List<String> modelFileNames = ModelFilesHelper.getModelFileNames()
+List<String> modelFileNames = ModelFilesHelper.getModelFileNamesWeka()
 
 Instances trainDataset = DataSetHelper.getTrainDatasetFull();
 
