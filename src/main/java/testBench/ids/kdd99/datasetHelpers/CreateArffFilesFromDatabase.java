@@ -21,16 +21,8 @@ public class CreateArffFilesFromDatabase {
             String fileName) {
 
         Instances SampleInstance = MyUtilsForWekaInstanceHelper.getKddCupSampleInstancesBinary();
-
-        String filenameForDatabase = "fromDatabase_" + fileName;
-        String filenameForCombined = "combined_" + fileName;
         Instances data2 = InstancesFromDatabase.getInstanceDataFromDatabase(sql);
-        MyUtilsForWekaInstanceHelper.saveInstancesToFile(data2, Finals.ARFF_SAVE_FOLDER + filenameForDatabase);
-
-
-        MyUtilsForWekaInstanceHelper.combineInstances(SampleInstance, Finals.ARFF_SAVE_FOLDER +  filenameForCombined,data2);
-
-        
+        MyUtilsForWekaInstanceHelper.combineInstances(SampleInstance, Finals.ARFF_SAVE_FOLDER +  fileName,data2);
 
     }
     
