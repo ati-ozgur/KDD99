@@ -99,9 +99,15 @@ public class MyUtilsForWekaInstanceHelper {
 
         FileWriter fstream;
         BufferedWriter out = null;
-        String newFileName = fileName.replace(".arff","-" +totalNumberOfInstances + ".arff");
 
         try {
+
+        for(Instances instancesToAdd:InstancesToBeCombined)
+        {
+            totalNumberOfInstances += instancesToAdd.numInstances();
+        }
+        String newFileName = fileName.replace(".arff","-" +totalNumberOfInstances + ".arff");
+        
         fstream = new FileWriter(newFileName);
         out = new BufferedWriter(fstream);
         headerStructure = headerSource.getStructure();
@@ -109,11 +115,6 @@ public class MyUtilsForWekaInstanceHelper {
 
 
 
-
-        for(Instances instancesToAdd:InstancesToBeCombined)
-        {
-            totalNumberOfInstances += instancesToAdd.numInstances();
-        }
 
         String relationName = new File(fileName).getName() + "-" + totalNumberOfInstances;
 
