@@ -8,33 +8,34 @@ import testBench.ids.kdd99.datasetHelpers.*;
 
 
 listSqlFiles = ['createFullKdd99TrainingDatasetForBinary','createFullKdd99TestDatasetForBinary']
-
-listSqlFiles.each() {
-	fileName-> 
-print " ${fileName}" 
-createArffFileFromSqlFileName(fileName)
-}; 
+listArffFileNames = ['Kdd99TrainingDatasetForBinary','Kdd99TestDatasetForBinary']
 
 
-
-
-
-
-def createArffFileFromSqlFileName(String fileName)
+for(int i=0;i<listSqlFiles.size();i++)
 {
-	String sqlFileName ="${fileName}.sql"
 
-	String fileNameCombined = "${fileName}.arff"
+    String sqlFileName = listSqlFiles[i];
+    String arffFileName = listArffFileNames[i];
+    print " ${sqlFileName}" 
+    print " ${arffFileName}" 
+    createArffFileFromSqlFileName(sqlFileName,arffFileName)
+}
 
-	println sqlFileName
-	println fileNameCombined
+
+
+
+
+
+def createArffFileFromSqlFileName(String sqlFileName,String arffFileName)
+{
+	sqlFileName ="${sqlFileName}.sql"
+
+	String sqlFileNameCombined = "${arffFileName}.arff"
 
 
 	String sql = new File(Resources.SQL_KDD99ETLScripts + sqlFileName).text
 
-
-
-	ArffFileFromDatabase m = new ArffFileFromDatabase(sql,fileNameCombined);
+	ArffFileFromDatabase m = new ArffFileFromDatabase(sql,sqlFileNameCombined);
 
 	CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(m)
 
