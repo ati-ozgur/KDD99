@@ -1,7 +1,5 @@
 ## ASAP
 
-1. Does not work from clean. produced arff file names are wrong. Fix it.
-
 
 2. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 There is a error in view sql. 
