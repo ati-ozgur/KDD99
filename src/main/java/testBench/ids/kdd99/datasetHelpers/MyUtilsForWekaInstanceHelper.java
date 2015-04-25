@@ -65,13 +65,28 @@ public class MyUtilsForWekaInstanceHelper {
     public static void saveInstancesToFile(String contents,String filename) {
         
          FileWriter fstream;
+         BufferedWriter out = null;
         try {
             fstream = new FileWriter(filename);
-          BufferedWriter out = new BufferedWriter(fstream);
+          out= new BufferedWriter(fstream);
           out.write(contents);
-          out.close();
+
         } catch (Exception ex) {
             throw new RuntimeException(ex);
+        }
+        finally
+        {
+          if(out!= null)
+          {
+              try
+              {
+                  out.close();            
+              }
+                catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+        
+          }
         }
     }
     
@@ -81,8 +96,14 @@ public class MyUtilsForWekaInstanceHelper {
         int totalNumberOfInstances = 0;
 
         Instances headerStructure;
-        StringBuilder sb = new StringBuilder();
+
+        FileWriter fstream;
+        BufferedWriter out = null;
+        String newFileName = fileName.replace(".arff","-" +totalNumberOfInstances + ".arff");
+
         try {
+        fstream = new FileWriter(newFileName);
+        out = new BufferedWriter(fstream);
         headerStructure = headerSource.getStructure();
 
 
@@ -99,7 +120,7 @@ public class MyUtilsForWekaInstanceHelper {
         String headerStructureAsString = headerStructure.toString().replaceFirst("@relation.*","@relation " + relationName);
 
 
-        sb.append(headerStructureAsString);
+        out.write(headerStructureAsString);
 
         for(Instances instancesToAdd:InstancesToBeCombined)
         {
@@ -110,8 +131,8 @@ public class MyUtilsForWekaInstanceHelper {
                 while (sourceInstanceToAdd.hasMoreElements(structureInstanceToAdd)) {
                     String elementAsString = sourceInstanceToAdd.nextElement(structureInstanceToAdd)
                             .toString();
-                    sb.append(elementAsString);
-                    sb.append("\n");
+                    out.write(elementAsString);
+                    out.write("\n");
                     
                 }
             
@@ -122,10 +143,23 @@ public class MyUtilsForWekaInstanceHelper {
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+        finally
+        {
+          if(out!= null)
+          {
+              try
+              {
+                  out.close();            
+              }
+                catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
 
-        String newFileName = fileName.replace(".arff","-" +totalNumberOfInstances + ".arff");
+          }
+        }
 
-        saveInstancesToFile(sb.toString(),newFileName );
+
+        
     }
 
     public static String arffHeaderPart(Instances dataset)
