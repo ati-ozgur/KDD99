@@ -1,15 +1,15 @@
 ## ASAP
 
 
-2. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
+1. create ML_TEST_RESULTS_SUMMARY view from ML_TEST_RESULTS table. Which creates necessary columns (F1Rate, tprate,...) from confusion matrix.
 There is a error in view sql. 
 Control it with weka output.
 
 
 
-4. Can I use R and stargazer in report tasks?
+2. Can I use R and stargazer in report tasks?
 
-5. Create R code to create latex table so that training set base metrics table is reproducible
+3. Create R code to create latex table so that training set base metrics table is reproducible
 
   Title: Training set base metrics
   Columns:
@@ -23,7 +23,7 @@ Control it with weka output.
  
   rows: Classifier names and values
 
-6. Create R code to create latex table so that testing set base metrics table is reproducible
+4. Create R code to create latex table so that testing set base metrics table is reproducible
 Training 
   Title: Test set base metrics
   Columns:
@@ -41,13 +41,13 @@ Training
 
 
 
-7. Package classifier installation. Installation is OK in windows but need to run it too.
+5. Package classifier installation. Installation is OK in windows but need to run it too.
 Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
 
 
 
 
-8. MOA manual has short descriptions of classifiers.
+6. MOA manual has short descriptions of classifiers.
 Choose batch and stream versions to compare using that descriptions.
 For example.
 
@@ -58,7 +58,7 @@ For example.
 
 
 
-9. Gradle task which prints out Classifier list
+7. Gradle task which prints out Classifier list
 
 
 
