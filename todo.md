@@ -75,11 +75,20 @@ For example.
 
       sqlite> select class_attribute_five,count(*) from TEST_CORRECTED GROUP BY class_attribute_five;
 
-      DOS|231455
-      PROBE|4166
-      R2L|14570
-      U2R|245
-      normal|60593
+      DOS,231455
+      PROBE,4166
+      R2L,14570
+      U2R,245
+      normal,60593
+
+       sqlite> select class_attribute_five,count(*) from KDD_TRAIN_DATA GROUP BY class_attribute_five;
+        DOS,3883390
+        PROBE,41102
+        R2L,1106
+        U2R,52
+        normal,972781
+
+
 
 3. Combined Task in Gradle
 
