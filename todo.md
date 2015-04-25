@@ -8,7 +8,6 @@ There is a error in view sql.
 Control it with weka output.
 
 
-3. from sqlite to arff file use StringBuilder. This takes too much memory. Use filestream.
 
 4. Can I use R and stargazer in report tasks?
 
