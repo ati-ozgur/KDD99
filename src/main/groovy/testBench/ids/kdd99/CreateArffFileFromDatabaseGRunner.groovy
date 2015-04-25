@@ -7,9 +7,9 @@ import testBench.ids.kdd99.datasetHelpers.*;
 //weka.core.SystemInfo.main(null);
 
 
-sqlFileList = ['createFullKdd99TrainingDatasetForBinary','createFullKdd99TestDatasetForBinary']
+listSqlFiles = ['createFullKdd99TrainingDatasetForBinary','createFullKdd99TestDatasetForBinary']
 
-sqlFileList.each() {
+listSqlFiles.each() {
 	fileName-> 
 print " ${fileName}" 
 createArffFileFromSqlFileName(fileName)
