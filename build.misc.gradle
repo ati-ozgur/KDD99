@@ -8,12 +8,14 @@ ext {
    EXPORT_RESULTS_BASH_FILE_NAME = "exportResults.bash"
    EXPORT_RESULTS_BASH_FILE_NAME_FULL = "Datasets/" + EXPORT_RESULTS_BASH_FILE_NAME;
 
+
+  
 CMD_ExportResultsSQLScript = """
 .mode insert ML_TRAIN_RESULTS
-.out ML_TRAIN_RESULTS.sql 
+.out "ML_TRAIN_RESULTS%s.sql"
 select * from ML_TRAIN_RESULTS;
 .mode insert ML_TEST_RESULTS
-.out ML_TEST_RESULTS.sql 
+.out "ML_TEST_RESULTS%s.sql" 
 select * from ML_TEST_RESULTS;
 """
 
@@ -27,9 +29,23 @@ select * from ML_TEST_RESULTS;
 
 
 
+String getNowAsFormatted() {
+    String STR_DATE_FORMAT = "_yyyy-MM-dd_HH-mm";
+    java.util.Calendar c = java.util.Calendar.getInstance();
+    java.util.Date d = c.getTime();
+    
+    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat(STR_DATE_FORMAT);
+    return sdf.format(d);
+
+}
+
+
+
 def generateExportResultsScripts()
 {
-  output_SQLITE_EXPORT_RESULTS_FILE.write CMD_ExportResultsSQLScript
+
+  String script = String.format(CMD_ExportResultsSQLScript,getNowAsFormatted(),getNowAsFormatted())
+  output_SQLITE_EXPORT_RESULTS_FILE.write script
   output_SQLITE_EXPORT_RESULTS_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_exportResults
 
 
