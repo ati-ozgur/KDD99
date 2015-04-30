@@ -5,7 +5,7 @@ ext{
     GROUP_NAME_REPORTS = "Reports"
 }
 
-task reportShowLastTrainedModel(type:JavaExec) {
+task reportTrainingShowLast(type:JavaExec) {
    main = PACKAGE_NAME_REPORTS + ".reportLastTrainedModel"
    classpath = sourceSets.main.runtimeClasspath
    group = GROUP_NAME_REPORTS
