@@ -81,8 +81,7 @@ public class ClassifiersAndArgumentsWeka
     DecisionStump  ,
     //LMT  ,
     RandomTree  ,
-    REPTree  ,
-    IBk  
+    REPTree  
 
     ] 
 
@@ -96,8 +95,8 @@ public class ClassifiersAndArgumentsWeka
     SGD1 ,
     DecisionTable ,
     JRip  ,
-    PART  ,
-    LMT  
+    PART  
+    //LMT  
     ]
 
     public static classifierListKNN = [
