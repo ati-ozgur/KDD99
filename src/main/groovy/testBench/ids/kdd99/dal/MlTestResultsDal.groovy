@@ -90,8 +90,8 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,   ? , ? , ? , ? , ? , ? 
         ,  FalsePositive 
         ,  TrueNegative 
         ,  FalseNegative  
-        ,  testStartTime  
-        ,  testFinishTime  
+        ,  testStartTimeAsString  
+        ,  testFinishTimeAsString  
         ,  testDuration  
         ,  freeMemory  
         ,  totalMemory  
