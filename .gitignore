@@ -6,7 +6,7 @@ others/*
 tools/*
 SavedArff/*
 __SavedModels1/*
-
+.idea
 documents/books/*
 documents/*.pdf
 documents/**/*.pdf
