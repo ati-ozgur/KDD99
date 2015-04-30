@@ -12,10 +12,10 @@ ext {
   
 CMD_ExportResultsSQLScript = """
 .mode insert ML_TRAIN_RESULTS
-.out "ML_TRAIN_RESULTS%s.sql"
+.out "../runs/ML_TRAIN_RESULTS%s.sql"
 select * from ML_TRAIN_RESULTS;
 .mode insert ML_TEST_RESULTS
-.out "ML_TEST_RESULTS%s.sql" 
+.out "../runs/ML_TEST_RESULTS%s.sql" 
 select * from ML_TEST_RESULTS;
 """
 
@@ -30,7 +30,7 @@ select * from ML_TEST_RESULTS;
 
 
 String getNowAsFormatted() {
-    String STR_DATE_FORMAT = "_yyyy-MM-dd_HH-mm";
+    String STR_DATE_FORMAT = "_yyyy-MM-dd";
     java.util.Calendar c = java.util.Calendar.getInstance();
     java.util.Date d = c.getTime();
     
