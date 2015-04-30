@@ -19,3 +19,9 @@ task reportTestShowLast(type:JavaExec) {
    description = "Shows last testing model run information"
 }
 
+task reportTestSummaryShowLast(type:JavaExec) {
+   main = PACKAGE_NAME_REPORTS + ".reportTestSummaryShowLast"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_REPORTS
+   description = "Shows last testing model run information"
+}
