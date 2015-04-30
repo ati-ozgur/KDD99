@@ -9,6 +9,13 @@ task reportTrainingShowLast(type:JavaExec) {
    main = PACKAGE_NAME_REPORTS + ".reportTrainingShowLast"
    classpath = sourceSets.main.runtimeClasspath
    group = GROUP_NAME_REPORTS
-   description = "Verifies weka works showing system information of weka"
+   description = "Shows last training run information"
+}
+
+task reportTestShowLast(type:JavaExec) {
+   main = PACKAGE_NAME_REPORTS + ".reportTestShowLast"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_REPORTS
+   description = "Shows last testing model run information"
 }
 
