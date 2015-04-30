@@ -6,7 +6,7 @@ ext{
 }
 
 task reportTrainingShowLast(type:JavaExec) {
-   main = PACKAGE_NAME_REPORTS + ".reportLastTrainedModel"
+   main = PACKAGE_NAME_REPORTS + ".reportTrainingShowLast"
    classpath = sourceSets.main.runtimeClasspath
    group = GROUP_NAME_REPORTS
    description = "Verifies weka works showing system information of weka"
