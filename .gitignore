@@ -22,4 +22,4 @@ src/main/R/*.synctex.gz
 .RData
 SeaAnomaliesUnsupervised.txt
 *.aux
-
+KDD99.iml
