@@ -97,6 +97,18 @@ apply from: 'build.examples.gradle'
 
 apply from: 'build.report.gradle'
 
+apply from: 'build.misc.gradle'
+
+def isWindows()
+{
+    if (System.properties['os.name'].toLowerCase().contains('windows')) {
+      //println "it's Windows" + System.properties['os.name']
+      return true;
+   } else {
+      //println "it's not Windows, it is " + System.properties['os.name']
+      return false;
+   }
+}
 
 
 

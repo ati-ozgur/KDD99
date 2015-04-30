@@ -158,16 +158,7 @@ task generateImportScripts << {
 
 
 
-def isWindows()
-{
-    if (System.properties['os.name'].toLowerCase().contains('windows')) {
-      //println "it's Windows" + System.properties['os.name']
-      return true;
-   } else {
-      //println "it's not Windows, it is " + System.properties['os.name']
-      return false;
-   }
-}
+
 
 
 task tableImportKddTrainDataFromCommandLine(type:Exec) {

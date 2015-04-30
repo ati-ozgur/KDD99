@@ -1,0 +1,63 @@
+// TODO this is very confusing refactor it later.
+
+ext {
+  GROUP_NAME_MISC = "Miscellaneous tasks such as backup"
+
+   EXPORT_RESULTS_FILE_NAME = "exportResults.sql";
+   EXPORT_RESULTS_FILE_NAME_FULL = "Datasets/" + EXPORT_RESULTS_FILE_NAME
+   EXPORT_RESULTS_BASH_FILE_NAME = "exportResults.bash"
+   EXPORT_RESULTS_BASH_FILE_NAME_FULL = "Datasets/" + EXPORT_RESULTS_BASH_FILE_NAME;
+
+CMD_ExportResultsSQLScript = """
+.mode insert ML_TRAIN_RESULTS
+.out ML_TRAIN_RESULTS.sql 
+select * from ML_TRAIN_RESULTS;
+.mode insert ML_TEST_RESULTS
+.out ML_TEST_RESULTS.sql 
+select * from ML_TEST_RESULTS;
+"""
+
+
+  output_SQLITE_EXPORT_RESULTS_FILE = file(EXPORT_RESULTS_FILE_NAME_FULL)
+  output_SQLITE_EXPORT_RESULTS_FILE_BASH_COMMAND = file(EXPORT_RESULTS_BASH_FILE_NAME_FULL)
+
+  CMD_Exec_sqlite3_exportResults = "sqlite3 ${DATABASE_NAME} < ${EXPORT_RESULTS_FILE_NAME}"  
+}
+
+
+
+
+def generateExportResultsScripts()
+{
+  output_SQLITE_EXPORT_RESULTS_FILE.write CMD_ExportResultsSQLScript
+  output_SQLITE_EXPORT_RESULTS_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_exportResults
+
+
+  ant.chmod(dir:FOLDER_DATASETS_FULLPATH, perm:'+x', includes:"*.bash")
+
+}
+
+
+
+task execBackupResults(type:Exec) {
+  //store the output instead of printing to the console:
+  generateExportResultsScripts();
+
+  workingDir FOLDER_DATASETS_FULLPATH
+
+  standardOutput = new ByteArrayOutputStream()
+
+  ext.output = {
+  return standardOutput.toString()
+  }
+
+  if (isWindows())
+  {
+    commandLine 'cmd', '/c', CMD_Exec_sqlite3_exportResults
+  }
+  else
+  {
+    commandLine "./" + EXPORT_RESULTS_BASH_FILE_NAME
+  }
+
+ }
