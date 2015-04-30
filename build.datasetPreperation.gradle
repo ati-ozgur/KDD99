@@ -105,11 +105,23 @@ task execInstallWekaPackages(type:JavaExec) {
 
 
 
-task execSQLCreateTable(type:JavaExec) {
-   main = mainPackageName + ".TableCreation"
+task execSQLCreateTables(type:JavaExec) {
+   main = mainPackageName + "etl.CreateTables"
    classpath = sourceSets.main.runtimeClasspath
 }
 
+task execSQLCreateViews(type:JavaExec) {
+   main = mainPackageName + ".CreateViews"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+task execSQLInsertLookupTables(type:JavaExec) {
+   main = mainPackageName + "etl.InsertLookupTables"
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+execSQLCreateViews.dependsOn execSQLCreateTables
+execSQLInsertLookupTables.dependsOn execSQLCreateViews
 
 ext {
    IMPORT_FILE_NAME = "import.sql";
@@ -182,7 +194,7 @@ task tableImportKddTrainDataFromCommandLine(type:Exec) {
 
  }
 
-tableImportKddTrainDataFromCommandLine.dependsOn execSQLCreateTable
+tableImportKddTrainDataFromCommandLine.dependsOn execSQLInsertLookupTables
 tableImportKddTrainDataFromCommandLine.dependsOn generateImportScripts
 tableImportKddTrainDataFromCommandLine.dependsOn unzipSqlite3
 

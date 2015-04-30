@@ -30,6 +30,24 @@ for(String sql in sqlCreateTableList) {
 }
 
 
+
+String sqlCreateView = new File(Resources.SQL_kdd99TableCreation).text
+
+// println sqlCreateView
+// sqlEngine.execute.sqlCreateView
+String[] sqlCreateViewList = sqlCreateView.split(";")
+
+for(String sql in sqlCreateViewList) {
+    boolean containsData = sql?.trim()
+    if (containsData)
+    {
+        sqlEngine.execute sql
+        println "--------------------- View Creation Sql Executed ---------------------"
+    }
+
+}
+
+
 String sqlInserts = new File(Resources.SQL_kdd99LtTableInserts).text
 
 String[] sqlInsertsTableList = sqlInserts.split(";")
