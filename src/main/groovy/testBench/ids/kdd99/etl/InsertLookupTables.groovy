@@ -1,11 +1,7 @@
 package testBench.ids.kdd99.etl;
 
 import groovy.sql.Sql
-
-
-
-
-
+import testBench.ids.kdd99.*;
 
 
 

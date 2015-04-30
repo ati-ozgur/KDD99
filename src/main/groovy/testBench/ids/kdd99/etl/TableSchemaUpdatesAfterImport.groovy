@@ -2,6 +2,7 @@ package testBench.ids.kdd99;
 
 import groovy.sql.Sql
 
+import testBench.ids.kdd99.*;
 
 
 def sqlEngine = Sql.newInstance(Finals.JDBC_URL)
