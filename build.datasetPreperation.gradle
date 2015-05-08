@@ -231,3 +231,10 @@ task CreateSubsetDataWithoutReplacementKdd99TrainDataNoDup(type:JavaExec) {
   group = GROUP_NAME_KDD_DATA_PREPERATION
   description = 'This is Subset table without replacement creation step in the Database'
 }
+
+task CreateSubsetDataWithReplacementKdd99TrainDataNoDup(type:JavaExec) {
+  main = "testBench.ids.kdd99.dal.CreateSubsetDataWithReplacementKdd99TrainDataNoDup"
+  classpath = sourceSets.main.runtimeClasspath
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'This is Subset table without replacement creation step in the Database'
+}
