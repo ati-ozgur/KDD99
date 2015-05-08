@@ -17,9 +17,11 @@ public class RandomNumbersHelpers
 
     private static int startSeed = CONSTANT_START_SEED;
 
-    private RandomNumbersHelpers()
-    {
-        reset();  
+
+
+    static {
+     // "static constructor"
+    reset();
     }
 
     public static Random getRandom()
@@ -89,6 +91,11 @@ public class RandomNumbersHelpers
         println(getListOfRandomNumberKddTrainDataNoDuplicate(100));
         reset();
         println(getArrayOfRandomNumberKddTrainDataNoDuplicate(100));
+        reset();
+        println(getArrayOfRandomNumberKddTrainDataNoDuplicate(100));
+        reset();
+        println(getListOfRandomNumberKddTrainDataNoDuplicate(100));
+        reset();
 
     }
 
