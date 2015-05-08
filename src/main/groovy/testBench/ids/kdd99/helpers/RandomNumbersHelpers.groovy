@@ -3,14 +3,13 @@ package testBench.ids.kdd99.helpers;
 import java.util.Random;
 
 
+import testBench.ids.kdd99.*;
+
 public class RandomNumbersHelpers
 {
 
     private static Random rnd = new Random();
 
-    private static final int KDD_TRAIN_DATA_NODUP_COUNT = 1074992;
-    private static final int KDD_TRAIN_DATA_COUNT = 4898431;
-    private static final int TEST_CORRECTED_COUNT = 311029;
 
 
     private static final int CONSTANT_START_SEED = 19112012;
@@ -54,12 +53,12 @@ public class RandomNumbersHelpers
 
     public static int randIntKddTrainData()
     {
-        return randInt(1,KDD_TRAIN_DATA_COUNT);
+        return randInt(1,Finals.KDD_TRAIN_DATA_COUNT);
     }
 
     public static int randIntKddTrainDataNoDuplicate()
     {
-        return randInt(1,KDD_TRAIN_DATA_NODUP_COUNT);
+        return randInt(1,Finals.KDD_TRAIN_DATA_NODUP_COUNT);
     }
 
 

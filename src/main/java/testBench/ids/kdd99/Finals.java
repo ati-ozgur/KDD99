@@ -24,6 +24,11 @@ public class Finals {
     public static final String EXT_WEKA_MODEL = ".weka";
     public static final String EXT_MOA_MODEL = ".moa";
 
+    public static final int KDD_TRAIN_DATA_NODUP_COUNT = 1074992;
+    public static final int KDD_TRAIN_DATA_COUNT = 4898431;
+    public static final int TEST_CORRECTED_COUNT = 311029;
+
+
 
 
 }
