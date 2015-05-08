@@ -184,6 +184,7 @@ INSERT INTO KDD_TRAIN_DATA_NODUP
 
 )
 SELECT 
+DISTINCT
   duration ,
   protocol_type ,
   service ,
