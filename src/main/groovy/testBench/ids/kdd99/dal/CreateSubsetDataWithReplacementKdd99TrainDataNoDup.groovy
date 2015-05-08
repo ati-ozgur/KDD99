@@ -25,6 +25,10 @@ while(true)
     int rndNumber = RandomNumbersHelpers.randIntKddTrainDataNoDuplicate();
     sqlEngine.execute(SQL_INSERT, rndNumber)
     i++;
+    if (i % 100 == 0)
+    {
+        println(i)
+    }
     if(i > MAX_ROW)
     {
 
