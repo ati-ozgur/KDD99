@@ -13,11 +13,13 @@ public class RandomNumbersHelpers
     private static final int TEST_CORRECTED_COUNT = 311029;
 
 
-    private static int seed = 19112012;
+    private static final int CONSTANT_START_SEED = 19112012;
+
+    private static int startSeed = CONSTANT_START_SEED;
 
     private RandomNumbersHelpers()
     {
-        rnd.setSeed(seed);   
+        reset();  
     }
 
     public static Random getRandom()
@@ -28,13 +30,14 @@ public class RandomNumbersHelpers
 
     public static void reset()
     {
-        rnd.setSeed(seed);
+        rnd = new Random();
+        rnd.setSeed(startSeed);
     }
 
 
     public static void setSeed(int seed)
     {
-        this.seed = seed;
+        this.startSeed = seed;
         reset();
     }
 
@@ -58,15 +61,35 @@ public class RandomNumbersHelpers
     }
 
 
-    public static List<int> getListOfRandomNumberKddTrainDataNoDuplicate(int size)
+    public static List<Integer> getListOfRandomNumberKddTrainDataNoDuplicate(int size)
     {
-        List<int> list = new ArrayList<int>(size);
+        List<Integer> list = new ArrayList<Integer>(size);
 
         for(int i=0;i<size;i++)
         {
             list.add(randIntKddTrainDataNoDuplicate());
         }
         return list;
+    }
+
+    public static int[] getArrayOfRandomNumberKddTrainDataNoDuplicate(int size)
+    {
+        int[] list = new int[size];
+
+        for(int i=0;i<size;i++)
+        {
+            list[i] = randIntKddTrainDataNoDuplicate();
+        }
+        return list;
+    }
+
+
+    public static void main(String[] args)
+    {
+        println(getListOfRandomNumberKddTrainDataNoDuplicate(100));
+        reset();
+        println(getArrayOfRandomNumberKddTrainDataNoDuplicate(100));
+
     }
 
 }

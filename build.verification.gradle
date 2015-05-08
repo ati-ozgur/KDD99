@@ -29,3 +29,13 @@ task SQLiteConnectionControl(type:JavaExec) {
    description = "it verifies sqlite connection is correct"
 }
 
+
+task testRandomNumbersHelpers(type:JavaExec) {
+   main =  "testBench.ids.kdd99.helpers.RandomNumbersHelpers"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_TEST
+   description = "test random number generation"
+}
+
+
+
