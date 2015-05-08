@@ -83,3 +83,171 @@ CREATE INDEX idx_TEST_class_attr_five ON TEST_CORRECTED (
     class_attribute_five 
 );
 
+
+
+CREATE TABLE KDD_TRAIN_DATA_NODUP(
+  id integer primary key autoincrement,
+  duration REAL,
+  protocol_type TEXT,
+  service TEXT,
+  flag TEXT,
+  src_bytes REAL,
+  dst_bytes REAL,
+  land TEXT,
+  wrong_fragment REAL,
+  urgent REAL,
+  hot REAL,
+  num_failed_logins REAL,
+  logged_in TEXT,
+  num_compromised REAL,
+  root_shell REAL,
+  su_attempted REAL,
+  num_root REAL,
+  num_file_creations REAL,
+  num_shells REAL,
+  num_access_files REAL,
+  num_outbound_cmds REAL,
+  is_host_login TEXT,
+  is_guest_login TEXT,
+  count REAL,
+  srv_count REAL,
+  serror_rate REAL,
+  srv_serror_rate REAL,
+  rerror_rate REAL,
+  srv_rerror_rate REAL,
+  same_srv_rate REAL,
+  diff_srv_rate REAL,
+  srv_diff_host_rate REAL,
+  dst_host_count REAL,
+  dst_host_srv_count REAL,
+  dst_host_same_srv_rate REAL,
+  dst_host_diff_srv_rate REAL,
+  dst_host_same_src_port_rate REAL,
+  dst_host_srv_diff_host_rate REAL,
+  dst_host_serror_rate REAL,
+  dst_host_srv_serror_rate REAL,
+  dst_host_rerror_rate REAL,
+  dst_host_srv_rerror_rate REAL,
+  class_attribute TEXT,
+  class_attribute_binary TEXT,
+  class_attribute_five TEXT
+);
+
+
+
+INSERT INTO KDD_TRAIN_DATA_NODUP
+(
+  duration ,
+  protocol_type ,
+  service ,
+  flag ,
+  src_bytes ,
+  dst_bytes ,
+  land ,
+  wrong_fragment ,
+  urgent ,
+  hot ,
+  num_failed_logins ,
+  logged_in ,
+  num_compromised ,
+  root_shell ,
+  su_attempted ,
+  num_root ,
+  num_file_creations ,
+  num_shells ,
+  num_access_files ,
+  num_outbound_cmds ,
+  is_host_login ,
+  is_guest_login ,
+  count ,
+  srv_count ,
+  serror_rate ,
+  srv_serror_rate ,
+  rerror_rate ,
+  srv_rerror_rate ,
+  same_srv_rate ,
+  diff_srv_rate ,
+  srv_diff_host_rate ,
+  dst_host_count ,
+  dst_host_srv_count ,
+  dst_host_same_srv_rate ,
+  dst_host_diff_srv_rate ,
+  dst_host_same_src_port_rate ,
+  dst_host_srv_diff_host_rate ,
+  dst_host_serror_rate ,
+  dst_host_srv_serror_rate ,
+  dst_host_rerror_rate ,
+  dst_host_srv_rerror_rate ,
+  class_attribute ,
+  class_attribute_binary ,
+  class_attribute_five 
+
+)
+SELECT 
+  duration ,
+  protocol_type ,
+  service ,
+  flag ,
+  src_bytes ,
+  dst_bytes ,
+  land ,
+  wrong_fragment ,
+  urgent ,
+  hot ,
+  num_failed_logins ,
+  logged_in ,
+  num_compromised ,
+  root_shell ,
+  su_attempted ,
+  num_root ,
+  num_file_creations ,
+  num_shells ,
+  num_access_files ,
+  num_outbound_cmds ,
+  is_host_login ,
+  is_guest_login ,
+  count ,
+  srv_count ,
+  serror_rate ,
+  srv_serror_rate ,
+  rerror_rate ,
+  srv_rerror_rate ,
+  same_srv_rate ,
+  diff_srv_rate ,
+  srv_diff_host_rate ,
+  dst_host_count ,
+  dst_host_srv_count ,
+  dst_host_same_srv_rate ,
+  dst_host_diff_srv_rate ,
+  dst_host_same_src_port_rate ,
+  dst_host_srv_diff_host_rate ,
+  dst_host_serror_rate ,
+  dst_host_srv_serror_rate ,
+  dst_host_rerror_rate ,
+  dst_host_srv_rerror_rate ,
+  class_attribute ,
+  class_attribute_binary ,
+  class_attribute_five 
+FROM KDD_TRAIN_DATA;
+
+CREATE INDEX idx_KDD_TRAIN_DATA_NODUP_class_attr_five ON KDD_TRAIN_DATA_NODUP ( 
+    class_attribute_five,
+    id
+);
+
+CREATE INDEX idx_KDD_TRAIN_DATA_NODUP_class_attr_bin ON KDD_TRAIN_DATA_NODUP ( 
+    class_attribute_binary,
+    id
+
+);
+
+CREATE INDEX idx_KDD_TRAIN_DATA_NODUP_class_attr ON KDD_TRAIN_DATA_NODUP ( 
+    class_attribute,
+    id
+
+);
+
+
+CREATE INDEX idx_KDD_TRAIN_DATA_NODUP_ID ON KDD_TRAIN_DATA_NODUP ( 
+    id
+);
