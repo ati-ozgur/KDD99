@@ -1,5 +1,6 @@
 package testBench.ids.kdd99.dal
 
+import testBench.ids.kdd99.*;
 import testBench.ids.kdd99.modelHelpers.*;
 import testBench.ids.kdd99.datasetHelpers.*;
 
@@ -30,7 +31,7 @@ sqlFileName ="${sqlFileName}.sql"
 String sqlFileNameCombined = "${sqlFileName}.arff"
 
 
-String sql = new File(Resources.SQL_KDD99ETLScripts + sqlFileName).text
+String sql = new File(Resources.SQL_DatasetPreperationsScripts + sqlFileName).text
 
 ArffFileFromDatabase m = new ArffFileFromDatabase(sql,sqlFileNameCombined);
 

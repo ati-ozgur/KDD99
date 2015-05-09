@@ -211,7 +211,7 @@ task createArffFileFromSqlScriptFile(type:JavaExec) {
 
   if (project.hasProperty('sqlFileName') )
   {
-    def argList = ["sqlFileName",classifierGroupName]
+    def argList = ["sqlFileName",sqlFileName]
     args = argList
   }
 
