@@ -1,3 +1,10 @@
+package testBench.ids.kdd99
+
+import testBench.ids.kdd99.modelHelpers.*;
+import testBench.ids.kdd99.datasetHelpers.*;
+
+
+
 firstArg = args[0];
 
 if(firstArg == "sqlFileName")
