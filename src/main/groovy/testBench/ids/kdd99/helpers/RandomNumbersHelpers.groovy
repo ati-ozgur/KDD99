@@ -87,13 +87,19 @@ public class RandomNumbersHelpers
 
     public static void main(String[] args)
     {
-        println(getListOfRandomNumberKddTrainDataNoDuplicate(100));
+
+        int numberOfRandom = 100;
+        println "First batch numbers, First List"
+        println(getListOfRandomNumberKddTrainDataNoDuplicate(numberOfRandom));
         reset();
-        println(getArrayOfRandomNumberKddTrainDataNoDuplicate(100));
+        println "Second batch numbers, First Array, should be equal to first list"
+        println(getArrayOfRandomNumberKddTrainDataNoDuplicate(numberOfRandom));
         reset();
-        println(getArrayOfRandomNumberKddTrainDataNoDuplicate(100));
+        println "Third batch numbers, Second Array, should be equal to others"
+        println(getArrayOfRandomNumberKddTrainDataNoDuplicate(numberOfRandom));
         reset();
-        println(getListOfRandomNumberKddTrainDataNoDuplicate(100));
+        println "Fourth batch numbers, Second List, should be equal to others"
+        println(getListOfRandomNumberKddTrainDataNoDuplicate(numberOfRandom));
         reset();
 
     }
