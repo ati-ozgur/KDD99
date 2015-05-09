@@ -131,4 +131,4 @@ task listTrainedModelFiles() << {
 
 listTrainedModelFiles.group = GROUP_NAME_KDD_ML_TRAIN_TEST
 listTrainedModelFiles.description = """List trained model files, which can be used in other tasks such as 
-testOneModelUsingWekaInTrainingDataSet or testOneModelUsingMoaInTrainingDataSet"""
+                        testOneModelUsingWekaInTrainingDataSet or testOneModelUsingMoaInTrainingDataSet"""
