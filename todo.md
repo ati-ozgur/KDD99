@@ -61,6 +61,9 @@ For example.
 7. Gradle task which prints out Classifier list
 
 
+8. Create a task which import txt file to database
+9. Create a task which creates arff file from sql file script.
+
 
 ## Later Tasks
 
