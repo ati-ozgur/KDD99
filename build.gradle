@@ -87,17 +87,17 @@ clean{
 
 
 
-apply from: 'build.datasetPreperation.gradle'
-apply from: 'build.mlweka.gradle'
-apply from: 'build.mlmoa.gradle'
+apply from: 'buildScripts/build.datasetPreperation.gradle'
+apply from: 'buildScripts/build.mlweka.gradle'
+apply from: 'buildScripts/build.mlmoa.gradle'
 
-apply from: 'build.verification.gradle'
+apply from: 'buildScripts/build.verification.gradle'
 
-apply from: 'build.examples.gradle'
+apply from: 'buildScripts/build.examples.gradle'
 
-apply from: 'build.report.gradle'
+apply from: 'buildScripts/build.report.gradle'
 
-apply from: 'build.misc.gradle'
+apply from: 'buildScripts/build.misc.gradle'
 
 def isWindows()
 {
