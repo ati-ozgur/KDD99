@@ -1,8 +1,15 @@
-package testBench.ids.kdd99
+package testBench.ids.kdd99.dal
 
 import testBench.ids.kdd99.modelHelpers.*;
 import testBench.ids.kdd99.datasetHelpers.*;
 
+
+if (args == null || args.length == 0)
+{
+        println "sqlFileName is not found"
+        return;
+
+}
 
 
 firstArg = args[0];
@@ -12,7 +19,7 @@ if(firstArg == "sqlFileName")
     sqlFileName = args[1];
     if (sqlFileName == null)
     {
-        println "$sqlFileName is not found"
+        println "sqlFileName is not found"
         return;
     }
 }

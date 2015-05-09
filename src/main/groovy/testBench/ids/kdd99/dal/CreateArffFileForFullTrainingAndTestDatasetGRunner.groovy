@@ -1,4 +1,4 @@
-package testBench.ids.kdd99
+package testBench.ids.kdd99.dal
 
 import testBench.ids.kdd99.modelHelpers.*;
 import testBench.ids.kdd99.datasetHelpers.*;
