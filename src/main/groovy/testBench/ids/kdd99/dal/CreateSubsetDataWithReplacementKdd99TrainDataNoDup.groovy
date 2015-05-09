@@ -11,19 +11,20 @@ import testBench.ids.kdd99.helpers.*;
 println "CreateSubsetDataWithReplacementKdd99TrainDataNoDup.groovy"
 
 
-final int MAX_ROW = Finals.KDD_TRAIN_DATA_NODUP_COUNT / 2;
+final int MAX_ROW = Finals.KDD_TRAIN_DATA_NODUP_COUNT;
 
 def sqlEngine = Sql.newInstance(Finals.JDBC_URL);
 
 
 int i=0;
 
-def SQL_INSERT = "INSERT INTO SUBSET_IDS_WITH_REPLACEMENT(val) VALUES(?)"
+
+def fos = new FileOutputStream("Datasets/RandomNumbers_Seed" + RandomNumbersHelpers.getSeed() + ".txt")
 
 while(true)
 {
     int rndNumber = RandomNumbersHelpers.randIntKddTrainDataNoDuplicate();
-    sqlEngine.execute(SQL_INSERT, rndNumber)
+    fos << "" + rndNumber + "\n";
     i++;
     if (i % 100 == 0)
     {
@@ -37,4 +38,3 @@ while(true)
 
 
 }
-sqlEngine.close()

@@ -42,6 +42,11 @@ public class RandomNumbersHelpers
         reset();
     }
 
+    public static int getSeed()
+    {
+        return startSeed;
+    }
+
     public static int randInt(int min, int max) {
 
         // nextInt is normally exclusive of the top value,
