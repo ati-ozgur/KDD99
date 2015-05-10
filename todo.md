@@ -61,9 +61,10 @@ For example.
 7. Gradle task which prints out Classifier list
 
 
-8. Create a task which import txt file to database
-9. Create a task which creates arff file from sql file script.
-
+8. Create a task which import txt file to database. Halfway done.
+9. Create a task which creates arff file from sql file script. DONE
+10. Create a task which creates all necessary arff files.
+10. Create a task which trains from all arff files in folder and test them on KDD Test
 
 ## Later Tasks
 
