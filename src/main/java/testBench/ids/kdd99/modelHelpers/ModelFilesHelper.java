@@ -132,25 +132,25 @@ public class ModelFilesHelper {
 
 	}
 
-	public static String getModelFullFileNameWeka(AbstractClassifier classifier)
+
+	public static String getModelFullFileNameWeka(AbstractClassifier classifier,Instances dataset)
 	{
 		String classifierFullName = classifier.getClass().getName();
 		String optionString = replaceUnwantedCharacters(ArrayToString(classifier.getOptions()));
+		String relationName = dataset.relationName();
 
-
-		String modelFullFileName = Finals.MODELS_SAVE_FOLDER + classifierFullName
-		+ optionString  + Finals.EXT_WEKA_MODEL;
+		String modelFullFileName = Finals.MODELS_SAVE_FOLDER +  classifierFullName+ "_" + optionString + "_" + relationName + "_" + Finals.EXT_WEKA_MODEL;
 
 		return modelFullFileName;
 	}
 
 
 	public static long saveModelOnly(
-			AbstractClassifier classifier
+			AbstractClassifier classifier,Instances dataset
 			) {
 		try {
 
-			String modelFullFileName = getModelFullFileNameWeka(classifier);
+			String modelFullFileName = getModelFullFileNameWeka(classifier,dataset);
 
 			SerializationHelper.write(modelFullFileName, classifier);
 
