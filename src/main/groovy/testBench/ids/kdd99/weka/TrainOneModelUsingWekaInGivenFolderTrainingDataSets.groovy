@@ -71,43 +71,51 @@ println "classifierName:"  + classifierName
 println "options:" + options
 println "folderName:" + folderName
 
+
+new File(folderName).eachFile() { file->  
+    System.gc();
+    
+    String datasetFileName = file.getName() 
+    String datasetFullFileName = file.getAbsolutePath()
+
+    def data = DataSetHelper.getDatasetFromFileName(datasetFullFileName);
+
+
+    Date trainingStartTime = DateHelper.getNow();
+
+    Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
+
+
+    long modelSize = ModelFilesHelper.saveModelOnly(classifier);
+    String modelFullFileName = ModelFilesHelper.getModelFullFileNameWeka(classifier);
+
+
+    RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
+
+
+    Date trainingFinishTime = DateHelper.getNow();
+
+
+
+    MlTrainResults trainResults = new MlTrainResults(runtimeInformation);
+
+    trainResults.datasetName = data.relationName();
+    trainResults.classifierName = classifierName;
+    trainResults.classifierOptions = options;
+    trainResults.trainingStartTime = trainingStartTime;
+    trainResults.trainingFinishTime = trainingFinishTime;
+    trainResults.modelSize = modelSize;
+    trainResults.ModelName = modelFullFileName;
+    trainResults.NumberOfInstances =     data.numInstances();
+
+
+
+    MlTrainResultsDal.Ekle(trainResults);
+
+
+}  
+
 return;
-
-
-System.gc();
-def data = DataSetHelper.getTrainDatasetFull();
-
-
-Date trainingStartTime = DateHelper.getNow();
-
-Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
-
-
-long modelSize = ModelFilesHelper.saveModelOnly(classifier);
-String modelFullFileName = ModelFilesHelper.getModelFullFileNameWeka(classifier);
-
-
-RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
-
-
-Date trainingFinishTime = DateHelper.getNow();
-
-
-
-MlTrainResults trainResults = new MlTrainResults(runtimeInformation);
-
-trainResults.datasetName = data.relationName();
-trainResults.classifierName = classifierName;
-trainResults.classifierOptions = options;
-trainResults.trainingStartTime = trainingStartTime;
-trainResults.trainingFinishTime = trainingFinishTime;
-trainResults.modelSize = modelSize;
-trainResults.ModelName = modelFullFileName;
-trainResults.NumberOfInstances =     data.numInstances();
-
-
-
-MlTrainResultsDal.Ekle(trainResults);
 
 
 

@@ -29,4 +29,9 @@ public class DataSetHelper {
         
     }
 
+    public static Instances getDatasetFromFileName(String filenameDataSet)
+    {
+        return MyUtilsForWekaInstanceHelper.getInstanceFromFile(filenameDataSet);
+        
+    }
 }
