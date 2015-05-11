@@ -41,11 +41,7 @@ if(firstArg == "classifierName")
 if(firstArg == "classifierFullName")
 {
     classifierName = args[1];
-    if (classifierName == null)
-    {
-        println "$classifierName is not found"
-        return;
-    }
+
 
     if(args.length > 2 && args[2] == "classifierOptions")
     {
@@ -56,11 +52,25 @@ if(firstArg == "classifierFullString")
 {
     String classifierFullString = args[1]
     int firstSpace = classifierFullString.indexOf(" ");
-    classifierName = classifierFullString.substring(0,firstSpace);
-    options = classifierFullString.substring(firstSpace,classifierFullString.length())
+    if(firstSpace > 0)
+    {
+        classifierName = classifierFullString.substring(0,firstSpace);
+        options = classifierFullString.substring(firstSpace,classifierFullString.length())
+    }
+    else
+    {
+        classifierName = classifierFullString
+    }
 
 
 }
+
+if (classifierName == null)
+{
+    println "$classifierName is not found"
+    return;
+}
+
 
 
 println classifierName
