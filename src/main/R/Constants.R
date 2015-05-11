@@ -14,4 +14,5 @@ ClassifierTestOnTestSoftwareMetricsWekaFileName <- paste(FOLDER_LATEX_TABLE_SQL,
 ClassifierTestOnTestSoftwareMetricsMoaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsMoa.sql",sep = "")
 
 
+LearningCurvesNoDuplicateSubsetWithReplacementJ48 <- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementJ48.sql",sep = "")
 

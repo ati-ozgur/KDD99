@@ -1,0 +1,25 @@
+\documentclass[11pt]{article}[11pt]
+\usepackage{dcolumn}
+
+\begin{document}
+
+
+
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+  source("SqliteToLatexLearningCurvesj48.R")
+@
+
+
+<<echo=FALSE>>=
+suppressWarnings(suppressMessages(library(ggplot2)))
+# qplot(TrainingDatasetSize, accuracy, data=df.fromSql)
+
+ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
+    geom_line() +
+    geom_point() 
+@
+
+
+
+
+\end{document}
