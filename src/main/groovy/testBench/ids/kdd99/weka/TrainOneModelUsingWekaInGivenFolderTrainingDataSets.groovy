@@ -73,53 +73,58 @@ println "folderName:" + folderName
 
 
 new File(folderName).eachFile() { file->  
+
+
     System.gc();
     
     String datasetFileName = file.getName() 
-    String datasetFullFileName = file.getAbsolutePath()
+    if(datasetFileName.endsWith(".arff"))
+    {
+        String datasetFullFileName = file.getAbsolutePath()
 
 
-    println "Training Arff File: ${datasetFullFileName}"
-    
-
-    def data = DataSetHelper.getDatasetFromFileName(datasetFullFileName);
+        println "Training Arff File: ${datasetFullFileName}"
 
 
-    Date trainingStartTime = DateHelper.getNow();
-
-    Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
+        def data = DataSetHelper.getDatasetFromFileName(datasetFullFileName);
 
 
-    long modelSize = ModelFilesHelper.saveModelOnly(classifier,data);
-    String modelFullFileName = ModelFilesHelper.getModelFullFileNameWeka(classifier,data);
+        Date trainingStartTime = DateHelper.getNow();
+
+        Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
 
 
-    RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
+        long modelSize = ModelFilesHelper.saveModelOnly(classifier,data);
+        String modelFullFileName = ModelFilesHelper.getModelFullFileNameWeka(classifier,data);
 
 
-    Date trainingFinishTime = DateHelper.getNow();
+        RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
 
 
-
-    MlTrainResults trainResults = new MlTrainResults(runtimeInformation);
-
-    trainResults.datasetName = data.relationName();
-    trainResults.classifierName = classifierName;
-    trainResults.classifierOptions = options;
-    trainResults.trainingStartTime = trainingStartTime;
-    trainResults.trainingFinishTime = trainingFinishTime;
-    trainResults.modelSize = modelSize;
-    trainResults.ModelName = modelFullFileName;
-    trainResults.NumberOfInstances =     data.numInstances();
+        Date trainingFinishTime = DateHelper.getNow();
 
 
 
-    MlTrainResultsDal.Ekle(trainResults);
+        MlTrainResults trainResults = new MlTrainResults(runtimeInformation);
+
+        trainResults.datasetName = data.relationName();
+        trainResults.classifierName = classifierName;
+        trainResults.classifierOptions = options;
+        trainResults.trainingStartTime = trainingStartTime;
+        trainResults.trainingFinishTime = trainingFinishTime;
+        trainResults.modelSize = modelSize;
+        trainResults.ModelName = modelFullFileName;
+        trainResults.NumberOfInstances =     data.numInstances();
+
+
+
+        MlTrainResultsDal.Ekle(trainResults);
+
+    }
 
 
 }  
 
-return;
 
 
 
