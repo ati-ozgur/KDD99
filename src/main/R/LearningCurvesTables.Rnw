@@ -3,6 +3,9 @@
 
 \begin{document}
 
+<<echo=FALSE,warning=FALSE,tidy=TRUE>>=
+suppressWarnings(suppressMessages(library(ggplot2)))
+@
 
 
 <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
@@ -11,8 +14,8 @@
 
 
 <<echo=FALSE>>=
-suppressWarnings(suppressMessages(library(ggplot2)))
-# qplot(TrainingDatasetSize, accuracy, data=df.fromSql)
+
+
 
 ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
     geom_line() +
@@ -20,6 +23,45 @@ ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
 @
 
 
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+  source("SqliteToLatexLearningCurvesRandomForests.R")
+@
+
+
+<<echo=FALSE>>=
+
+
+ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
+    geom_line() +
+    geom_point() 
+@
+
+
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+  source("SqliteToLatexLearningCurvesNaiveBayes.R")
+@
+
+
+<<echo=FALSE>>=
+
+
+ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
+    geom_line() +
+    geom_point() 
+@
+
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+  source("SqliteToLatexLearningCurvesOneR.R")
+@
+
+
+<<echo=FALSE>>=
+
+
+ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
+    geom_line() +
+    geom_point() 
+@
 
 
 \end{document}

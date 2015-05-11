@@ -1,6 +1,6 @@
 SELECT 
 TrainingDatasetSize
-,AVG(accuracy)
+,AVG(accuracy) AS accuracy
  FROM
 (
 SELECT 
