@@ -139,7 +139,7 @@ public class ModelFilesHelper {
 		String optionString = replaceUnwantedCharacters(ArrayToString(classifier.getOptions()));
 		String relationName = dataset.relationName();
 
-		String modelFullFileName = Finals.MODELS_SAVE_FOLDER +  classifierFullName+ "_" + optionString + "_" + relationName + "_" + Finals.EXT_WEKA_MODEL;
+		String modelFullFileName = Finals.MODELS_SAVE_FOLDER +  classifierFullName+ "_" + optionString + "_" + relationName  + Finals.EXT_WEKA_MODEL;
 
 		return modelFullFileName;
 	}
