@@ -9,7 +9,7 @@ CAST( replace(substr(classifiermodelFileName,instr(classifiermodelFileName,'arff
 ,accuracy
 
  FROM ML_TEST_RESULTS_SUMMARY
-WHERE classifiermodelFileName LIKE '%j48%Kdd99TrainSubsetWithReplacement%'
+WHERE classifiermodelFileName LIKE '%OneR%Kdd99TrainSubsetWithReplacement%'
 )
 GROUP BY TrainingDatasetSize
 ORDER BY TrainingDatasetSize ASC

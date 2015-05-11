@@ -16,3 +16,8 @@ ClassifierTestOnTestSoftwareMetricsMoaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"
 
 LearningCurvesNoDuplicateSubsetWithReplacementJ48 <- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementJ48.sql",sep = "")
 
+LearningCurvesNoDuplicateSubsetWithReplacementRandomForests<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementRandomForests.sql",sep = "")
+
+LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes.sql",sep = "")
+
+LearningCurvesNoDuplicateSubsetWithReplacementOneR<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementOneR.sql",sep = "")
