@@ -197,6 +197,15 @@ task schemaChangeAfterImport(type:JavaExec) {
 
 
 
+task CreateArffFilesForLearningCurve(type:JavaExec) {
+  main = "testBench.ids.kdd99.dal.CreateArffFilesForLearningCurve"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "20g"
+  group = GROUP_NAME_KDD_DATA_PREPERATION
+  description = 'This is Arff files creation step from Database for Learning curves'
+}
+
 
 task CreateArffFileForFullTrainingAndTestDatasetGRunner(type:JavaExec) {
   main = "testBench.ids.kdd99.dal.CreateArffFileForFullTrainingAndTestDatasetGRunner"
