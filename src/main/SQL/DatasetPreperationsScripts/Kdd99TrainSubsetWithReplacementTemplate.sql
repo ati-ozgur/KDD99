@@ -43,4 +43,4 @@ SELECT D.duration ,
   FROM KDD_TRAIN_DATA_NODUP D
 INNER JOIN SUBSET_IDS_WITH_REPLACEMENT S
 ON S.VAL = D.id
-WHERE S.id <= :rowCount;
+limit :rowCount;
