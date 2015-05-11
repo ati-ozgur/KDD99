@@ -78,6 +78,10 @@ new File(folderName).eachFile() { file->
     String datasetFileName = file.getName() 
     String datasetFullFileName = file.getAbsolutePath()
 
+
+    println "Training Arff File: ${datasetFullFileName}"
+    
+
     def data = DataSetHelper.getDatasetFromFileName(datasetFullFileName);
 
 
