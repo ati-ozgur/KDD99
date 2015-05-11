@@ -21,3 +21,5 @@ LearningCurvesNoDuplicateSubsetWithReplacementRandomForests<- paste(FOLDER_LATEX
 LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes.sql",sep = "")
 
 LearningCurvesNoDuplicateSubsetWithReplacementOneR<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementOneR.sql",sep = "")
+
+LearningCurvesNoDuplicateSubsetWithReplacementAdaboostM1<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementAdaboostM1.sql",sep = "")

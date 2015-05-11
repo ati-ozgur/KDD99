@@ -19,7 +19,7 @@ suppressWarnings(suppressMessages(library(ggplot2)))
 
 ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
     geom_line() +
-    geom_point() 
+    geom_point() +  scale_y_continuous(limit = c(0, 1))
 @
 
 
@@ -33,7 +33,7 @@ ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
 
 ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
     geom_line() +
-    geom_point() 
+    geom_point() +  scale_y_continuous(limit = c(0, 1))
 @
 
 
@@ -47,7 +47,7 @@ ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
 
 ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
     geom_line() +
-    geom_point() 
+    geom_point() +  scale_y_continuous(limit = c(0, 1))
 @
 
 <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
@@ -60,7 +60,21 @@ ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
 
 ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
     geom_line() +
-    geom_point() 
+    geom_point() +  scale_y_continuous(limit = c(0, 1))
+@
+
+
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+  source("SqliteToLatexLearningCurvesAdaboostM1.R")
+@
+
+
+<<echo=FALSE>>=
+
+
+ggplot(data=df.fromSql, aes(x=TrainingDatasetSize, y=accuracy, group=1)) +
+    geom_line() +
+    geom_point() +  scale_y_continuous(limit = c(0, 1))
 @
 
 
