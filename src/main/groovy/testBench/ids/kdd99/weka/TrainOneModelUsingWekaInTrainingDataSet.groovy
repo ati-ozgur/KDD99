@@ -88,8 +88,8 @@ Date trainingStartTime = DateHelper.getNow();
 Classifier classifier = ModelFilesHelper.buildModel(data,classifierName,options)
 
 
-long modelSize = ModelFilesHelper.saveModelOnly(classifier);
-String modelFullFileName = ModelFilesHelper.getModelFullFileNameWeka(classifier);
+long modelSize = ModelFilesHelper.saveModelOnly(classifier,data);
+String modelFullFileName = ModelFilesHelper.getModelFullFileNameWeka(classifier,data);
 
 
 RuntimeInformation runtimeInformation = RuntimeInformationHelper.getRuntimeInformation();
