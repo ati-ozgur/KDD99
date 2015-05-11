@@ -23,3 +23,4 @@ src/main/R/*.synctex.gz
 SeaAnomaliesUnsupervised.txt
 *.aux
 KDD99.iml
+src/main/R/**/*.pdf
