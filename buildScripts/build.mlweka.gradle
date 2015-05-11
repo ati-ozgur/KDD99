@@ -162,3 +162,49 @@ task listTrainedModelFilesWeka() << {
 
 listTrainedModelFilesWeka.group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
 listTrainedModelFilesWeka.description = 'List trained model files, which can be used in other tasks such as testOneModelUsingWekaInTrainingDataSet'
+
+
+
+task trainOneModelUsingWekaInGivenFolderTrainingDataSets(type:JavaExec) {
+  main = "testBench.ids.kdd99.weka.TrainOneModelUsingWekaInGivenFolderTrainingDataSets"
+  classpath = sourceSets.main.runtimeClasspath
+  minHeapSize = "5g"
+  maxHeapSize = "32g"
+
+def argList = []
+  
+  if (project.hasProperty('classifierName') )
+  {
+    //print classifierName
+    argList = ["classifierName", classifierName ]
+
+    if (project.hasProperty('classifierOptions') )
+    {
+       argList = argList + ["classifierOptions", classifierOptions]
+    }
+
+    args = argList
+  }
+  else if (project.hasProperty("classifierFullString"))
+  {
+    print classifierFullString
+    argList = ["classifierFullString",classifierFullString]
+    args = argList
+
+  }
+  if(project.hasProperty("folderName"))
+  {
+    argList =  argList + ["folderName", folderName]
+    args = argList
+
+  }
+
+
+  group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
+  description = """Using Training datasets in a given Folder , named classifiers are trained. 
+  Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierName=J48 -PfolderName='Datasets/SavedArff/LearningCurve'
+  Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierName=NaiveBayes -PclassifierOptions='-K'
+  Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.rules.OneR -B 20'
+  """
+}
+
