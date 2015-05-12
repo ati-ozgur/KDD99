@@ -41,8 +41,6 @@ Training
 
 
 
-5. Package classifier installation. Installation is OK in windows but need to run it too.
-Exception in thread "main" java.lang.RuntimeException: java.lang.ClassNotFoundException: weka.classifiers.functions.RBFNetwork
 
 
 
@@ -101,30 +99,6 @@ DependsOn does not fix any order. Solution
 
 
 
-
-
-
-5. gradle execInstallWekaPackages 
-
-It seems to work in linux mint, **but* gives following error in Windows
-
-  java.io.IOException: Unable to create temporary file
-      at java.io.File$TempDirectory.generateFile(File.java:1891)
-      at java.io.File.createTempFile(File.java:1979)
-      at java.io.File.createTempFile(File.java:2032)
-      at org.pentaho.packageManagement.DefaultPackageManager.downloadArchive(DefaultPackageManager.java:125)
-      at org.pentaho.packageManagement.DefaultPackageManager.installPackageFromURL(DefaultPackageManager.java:691)
-      at org.pentaho.packageManagement.DefaultPackageManager.installPackageFromRepository(DefaultPackageManager.java:676)
-      at weka.core.WekaPackageManager.installPackageFromRepository(WekaPackageManager.java:1816)
-      at weka.gui.PackageManager$InstallTask.doInBackground(PackageManager.java:1330)
-      at weka.gui.PackageManager$InstallTask.doInBackground(PackageManager.java:1)
-      at javax.swing.SwingWorker$1.call(SwingWorker.java:296)
-      at java.util.concurrent.FutureTask.run(FutureTask.java:262)
-      at javax.swing.SwingWorker.run(SwingWorker.java:335)
-      at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-      at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
-      at java.lang.Thread.run(Thread.java:724)
-    
 
 
 
