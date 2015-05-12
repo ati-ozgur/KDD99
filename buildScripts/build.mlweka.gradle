@@ -203,8 +203,8 @@ def argList = []
   group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
   description = """Using Training datasets in a given Folder , named classifiers are trained. 
   Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierName=J48 -PfolderName='Datasets/SavedArff/LearningCurve'
-  Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierName=NaiveBayes -PclassifierOptions='-K'
-  Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.rules.OneR -B 20'
+  Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierName=NaiveBayes -PclassifierOptions='-K' -PfolderName='Datasets/SavedArff/LearningCurve'
+  Usage Example1:  gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.rules.OneR -B 20' -PfolderName='Datasets/SavedArff/LearningCurve'
   """
 }
 
