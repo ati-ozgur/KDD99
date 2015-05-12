@@ -76,21 +76,6 @@ def createChecksumForKddDatasetFiles() {
 
 
 
-task execInstallWekaPackages(type:JavaExec) {
-  main = "weka.core.WekaPackageManager"
-  classpath = sourceSets.main.runtimeClasspath
-  //minHeapSize = "5g"
-  //maxHeapSize = "20g"
-  //args = ["-list-packages","all"]
-  // TODO: Try later, it does not install package.
-  def propertiesMap = [WEKA_HOME: "build/wekaFiles"]
-  //systemProperties propertiesMap
-
-
-  args = ["-install-package","RBFNetwork"]
-  group = GROUP_NAME_KDD_DATA_PREPERATION
-  description = 'Install RBFNetwork using Weka Package Manager '
-}
 
 
 
