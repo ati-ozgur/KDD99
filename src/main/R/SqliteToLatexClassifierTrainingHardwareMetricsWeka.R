@@ -1,25 +1,28 @@
 if(!exists("DATASET_FILENAME", mode="function")) source("Constants.R")
 
+suppressWarnings(suppressMessages(library(ggplot2)))
+suppressWarnings(suppressMessages(library(dplyr)))
+suppressWarnings(suppressMessages(library(stargazer)))
 
 
 if(!exists("dbIDS", mode="function")) dbIDS <- src_sqlite(DATASET_FILENAME, create = F)
 
-sqlTextMoa <- paste(readLines(ClassifierTrainingHardwareMetricsMoaFileName), collapse="\n")
+sqlText <- paste(readLines(ClassifierTrainingHardwareMetricsWekaFileName), collapse="\n")
 
-tbl.ClassifierTrainingHardwareMetricsMoa <- tbl(dbIDS, sql(sqlTextMoa))
-df.ClassifierTrainingHardwareMetricsMoa  <- as.data.frame(tbl.ClassifierTrainingHardwareMetricsMoa , n=-1)
+tbl.ClassifierTrainingHardwareMetricsWeka <- tbl(dbIDS, sql(sqlText))
+df.ClassifierTrainingHardwareMetricsWeka  <- as.data.frame(tbl.ClassifierTrainingHardwareMetricsWeka , n=-1)
 
 
 stargazer(
-  df.ClassifierTrainingHardwareMetricsMoa
+  df.ClassifierTrainingHardwareMetricsWeka
   ,suppress.errors=TRUE
   ,align = TRUE
   , summary=FALSE
-  , title="Classifiers Training Hardware Metrics Moa"
+  , title="Classifiers Training Hardware Metrics Weka"
   ,font.size="small"
   ,initial.zero=TRUE
   ,rownames=FALSE
-  , out="table-ClassifiersTrainingHardwareMetricsMoa.tex"
+  , out="table-ClassifiersTrainingHardwareMetricsWeka.tex"
   , out.header=TRUE
 )
 
