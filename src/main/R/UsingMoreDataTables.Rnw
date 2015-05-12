@@ -1,0 +1,23 @@
+\documentclass[11pt]{article}[11pt]
+\usepackage{dcolumn}
+
+\begin{document}
+
+
+<<echo=FALSE,warning=FALSE,tidy=TRUE>>=
+suppressWarnings(suppressMessages(library(ggplot2)))
+suppressWarnings(suppressMessages(library(dplyr)))
+suppressWarnings(suppressMessages(library(stargazer)))
+
+@
+
+
+<<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+  source("SqliteToLatexClassifierTrainingHardwareMetricsWeka.R")
+@
+
+
+
+
+
+\end{document}
