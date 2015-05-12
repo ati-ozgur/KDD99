@@ -82,6 +82,10 @@ task execInstallWekaPackages(type:JavaExec) {
   //minHeapSize = "5g"
   //maxHeapSize = "20g"
   //args = ["-list-packages","all"]
+  def propertiesMap = [WEKA_HOME: "build/wekaFiles"]
+  //systemProperties propertiesMap
+
+
   args = ["-install-package","RBFNetwork"]
   group = GROUP_NAME_KDD_DATA_PREPERATION
   description = 'Install RBFNetwork using Weka Package Manager '
