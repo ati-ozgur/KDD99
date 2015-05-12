@@ -61,8 +61,12 @@ For example.
 
 8. Create a task which import txt file to database. Halfway done.
 9. Create a task which creates arff file from sql file script. DONE
-10. Create a task which creates all necessary arff files.
-10. Create a task which trains from all arff files in folder and test them on KDD Test
+10. Create a task which creates all necessary arff files for Learning Curve. Halfway done.
+10. Create a task which trains from all arff files in folder and test them on KDD Test Done in 2 parts. using following tasks
+a. trainOneModelUsingWekaInGivenFolderTrainingDataSets
+b. trainOneModelUsingWekaInGivenFolderTrainingDataSets
+
+
 
 ## Later Tasks
 
