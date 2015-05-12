@@ -82,6 +82,7 @@ task execInstallWekaPackages(type:JavaExec) {
   //minHeapSize = "5g"
   //maxHeapSize = "20g"
   //args = ["-list-packages","all"]
+  // TODO: Try later, it does not install package.
   def propertiesMap = [WEKA_HOME: "build/wekaFiles"]
   //systemProperties propertiesMap
 
