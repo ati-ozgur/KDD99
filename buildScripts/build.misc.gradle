@@ -43,6 +43,10 @@ String getNowAsFormatted() {
 
 def generateExportResultsScripts()
 {
+  def folder = new File('Datasets')
+  if( !folder.exists() ) {
+    folder.mkdirs()
+  }
 
   String script = String.format(CMD_ExportResultsSQLScript,getNowAsFormatted(),getNowAsFormatted())
   output_SQLITE_EXPORT_RESULTS_FILE.write script
