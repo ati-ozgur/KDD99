@@ -1,4 +1,4 @@
-package testBench.ids.kdd99.modelHelpers;
+package testBench.ids.kdd99.helpers.modelHelpers;
 
 import java.io.File;
 import java.util.*;

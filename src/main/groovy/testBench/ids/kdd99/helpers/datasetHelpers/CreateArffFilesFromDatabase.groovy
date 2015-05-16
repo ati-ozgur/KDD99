@@ -1,4 +1,4 @@
-package testBench.ids.kdd99.datasetHelpers;
+package testBench.ids.kdd99.helpers.datasetHelpers;
 
 
 import java.util.ArrayList;
