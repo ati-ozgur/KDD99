@@ -96,11 +96,16 @@ task backupModelFiles(type:Zip)  {
  destinationDir file("backup")  // directory that you want your archive to be placed in
 }
 
+backupModelFiles.group = GROUP_NAME_BACKUP
+backupModelFiles.description = "This task take a backup of trained model files"
 
 task backupFull << {
 
 }
+
+backupFull.description = "This task runs other backup tasks"
+
 backupFull.group = GROUP_NAME_BACKUP
 
-backupFull.dependsOn   'backupResultTablesToSqlFile'
+backupFull.dependsOn   'backupResultTablesToSqlFile','backupModelFiles'
 
