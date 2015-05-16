@@ -54,7 +54,6 @@ def generateExportResultsScripts()
 }
 
 
-
 task execBackupResults(type:Exec) << {
   generateExportResultsScripts();
 
@@ -83,4 +82,11 @@ execBackupResults.description = """ This task take a backup of following Results
                                 ML_TRAIN_RESULTS
                                 ML_TEST_RESULTS"""
 
+
+task backupFull << {
+
+}
+backupFull.group = GROUP_NAME_BACKUP
+
+backupFull.dependsOn   'execBackupResults'
 
