@@ -29,7 +29,7 @@ select * from ML_TEST_RESULTS;
 
 
 
-String getNowAsFormatted() {
+String getTodayAsFormatted() {
     String STR_DATE_FORMAT = "_yyyy-MM-dd";
     java.util.Calendar c = java.util.Calendar.getInstance();
     java.util.Date d = c.getTime();
@@ -44,7 +44,7 @@ String getNowAsFormatted() {
 def generateExportResultsScripts()
 {
 
-  String script = String.format(CMD_ExportResultsSQLScript,getNowAsFormatted(),getNowAsFormatted())
+  String script = String.format(CMD_ExportResultsSQLScript,getTodayAsFormatted(),getTodayAsFormatted())
   output_SQLITE_EXPORT_RESULTS_FILE.write script
   output_SQLITE_EXPORT_RESULTS_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_exportResults
 
@@ -81,7 +81,6 @@ backupResultTablesToSqlFile.group = GROUP_NAME_BACKUP
 backupResultTablesToSqlFile.description = """ This task take a backup of following Results Tables:
                                 ML_TRAIN_RESULTS
                                 ML_TEST_RESULTS"""
-
 
 
 
