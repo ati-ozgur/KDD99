@@ -84,6 +84,18 @@ backupResultTablesToSqlFile.description = """ This task take a backup of followi
 
 
 
+task backupModelFiles(type:Zip)  {
+ outputs.upToDateWhen { false }
+ 
+ String strArchiveName = 'savedModelFiles' + getTodayAsFormatted() + '.zip'
+
+ from ('Datasets/SavedModels')
+ archiveName strArchiveName
+ include '*'
+ //into 'resources' // note that this specifies path *in* the archive
+ destinationDir file("backup")  // directory that you want your archive to be placed in
+}
+
 
 task backupFull << {
 
