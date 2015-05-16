@@ -197,8 +197,8 @@ task CreateArffFilesForLearningCurve(type:JavaExec) {
 }
 
 
-task CreateArffFileForFullTrainingAndTestDatasetGRunner(type:JavaExec) {
-  main = "testBench.ids.kdd99.dal.CreateArffFileForFullTrainingAndTestDatasetGRunner"
+task CreateArffFileForFullTrainingAndTestDataset(type:JavaExec) {
+  main = "testBench.ids.kdd99.dal.CreateArffFileForFullTrainingAndTestDataset"
   classpath = sourceSets.main.runtimeClasspath
   minHeapSize = "1g"
   maxHeapSize = "4g"
