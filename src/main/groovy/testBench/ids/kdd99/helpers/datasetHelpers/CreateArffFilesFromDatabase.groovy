@@ -14,6 +14,11 @@ public class CreateArffFilesFromDatabase {
     
     public static void createArffFileFromDatabaseQuery(String sql,
             String fileName) {
+    	def f = new File(Finals.ARFF_SAVE_FOLDER);
+    	if (!f.exists())
+    	{
+    		f.mkdir()
+    	}
 
         Instances SampleInstance = MyUtilsForWekaInstanceHelper.getKddCupSampleInstancesBinary();
         Instances data2 = InstancesFromDatabase.getInstanceDataFromDatabase(sql);

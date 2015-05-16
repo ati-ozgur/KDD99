@@ -5,8 +5,8 @@ import java.util.List;
 
 import testBench.ids.kdd99.*;
 import testBench.ids.kdd99.dal.*;
-import testBench.ids.kdd99.datasetHelpers.*;
-import testBench.ids.kdd99.modelHelpers.*;
+import testBench.ids.kdd99.helpers.datasetHelpers.*;
+import testBench.ids.kdd99.helpers.modelHelpers.*;
 import testBench.ids.kdd99.helpers.*;
 
 
