@@ -54,7 +54,7 @@ def generateExportResultsScripts()
 }
 
 
-task execBackupResults(type:Exec) << {
+task backupResultTablesToSqlFile(type:Exec) << {
   generateExportResultsScripts();
 
   workingDir FOLDER_DATASETS_FULLPATH
@@ -77,10 +77,13 @@ task execBackupResults(type:Exec) << {
  }
 
 
-execBackupResults.group = GROUP_NAME_BACKUP
-execBackupResults.description = """ This task take a backup of following Results Tables:
+backupResultTablesToSqlFile.group = GROUP_NAME_BACKUP
+backupResultTablesToSqlFile.description = """ This task take a backup of following Results Tables:
                                 ML_TRAIN_RESULTS
                                 ML_TEST_RESULTS"""
+
+
+
 
 
 task backupFull << {
@@ -88,5 +91,5 @@ task backupFull << {
 }
 backupFull.group = GROUP_NAME_BACKUP
 
-backupFull.dependsOn   'execBackupResults'
+backupFull.dependsOn   'backupResultTablesToSqlFile'
 
