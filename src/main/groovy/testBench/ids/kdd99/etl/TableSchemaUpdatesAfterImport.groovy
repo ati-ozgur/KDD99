@@ -1,4 +1,4 @@
-package testBench.ids.kdd99;
+package testBench.ids.kdd99.etl;
 
 import groovy.sql.Sql
 
