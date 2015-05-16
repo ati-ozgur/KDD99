@@ -1,7 +1,7 @@
 // TODO this is very confusing refactor it later.
 
 ext {
-  GROUP_NAME_MISC = "Miscellaneous tasks such as backup"
+  GROUP_NAME_BACKUP = "Backup"
 
    EXPORT_RESULTS_FILE_NAME = "exportResults.sql";
    EXPORT_RESULTS_FILE_NAME_FULL = "Datasets/" + EXPORT_RESULTS_FILE_NAME
@@ -43,10 +43,6 @@ String getNowAsFormatted() {
 
 def generateExportResultsScripts()
 {
-  def folder = new File('Datasets')
-  if( !folder.exists() ) {
-    folder.mkdirs()
-  }
 
   String script = String.format(CMD_ExportResultsSQLScript,getNowAsFormatted(),getNowAsFormatted())
   output_SQLITE_EXPORT_RESULTS_FILE.write script
@@ -59,8 +55,7 @@ def generateExportResultsScripts()
 
 
 
-task execBackupResults(type:Exec) {
-  //store the output instead of printing to the console:
+task execBackupResults(type:Exec) << {
   generateExportResultsScripts();
 
   workingDir FOLDER_DATASETS_FULLPATH
@@ -68,7 +63,7 @@ task execBackupResults(type:Exec) {
   standardOutput = new ByteArrayOutputStream()
 
   ext.output = {
-  return standardOutput.toString()
+    return standardOutput.toString()
   }
 
   if (isWindows())
@@ -81,3 +76,11 @@ task execBackupResults(type:Exec) {
   }
 
  }
+
+
+execBackupResults.group = GROUP_NAME_BACKUP
+execBackupResults.description = """ This task take a backup of following Results Tables:
+                                ML_TRAIN_RESULTS
+                                ML_TEST_RESULTS"""
+
+
