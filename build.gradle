@@ -96,7 +96,7 @@ apply from: 'buildScripts/build.examples.gradle'
 
 apply from: 'buildScripts/build.report.gradle'
 
-apply from: 'buildScripts/build.misc.gradle'
+apply from: 'buildScripts/build.backup.gradle'
 
 def isWindows()
 {
