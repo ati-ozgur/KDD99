@@ -12,7 +12,7 @@ ext {
   
 CMD_ExportResultsSQLScript = """
 .mode insert ML_TRAIN_RESULTS
-.out "../runs/ML_TRAIN_RESULTS%s.sql"
+.out "../backup/ML_TRAIN_RESULTS%s.sql"
 select * from ML_TRAIN_RESULTS;
 .mode insert ML_TEST_RESULTS
 .out "../runs/ML_TEST_RESULTS%s.sql" 
