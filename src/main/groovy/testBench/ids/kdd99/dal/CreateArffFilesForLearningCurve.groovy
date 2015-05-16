@@ -20,8 +20,7 @@ for(int i=startSize; i<finishSize; i = i*2 )
     //println(sql);
 
     String fileNameCombined = "${templateName}.arff"
-    ArffFileFromDatabase m = new ArffFileFromDatabase(sql,fileNameCombined);
-    CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(m)
+    CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(sql,fileNameCombined)
 
 }
 

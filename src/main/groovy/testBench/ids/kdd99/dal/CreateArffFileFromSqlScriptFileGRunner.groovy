@@ -33,6 +33,5 @@ String sqlFileNameCombined = "${sqlFileName}.arff"
 
 String sql = new File(Resources.SQL_DatasetPreperationsScripts + sqlFileName).text
 
-ArffFileFromDatabase m = new ArffFileFromDatabase(sql,sqlFileNameCombined);
 
-CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(m)
+CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(sql,sqlFileNameCombined)

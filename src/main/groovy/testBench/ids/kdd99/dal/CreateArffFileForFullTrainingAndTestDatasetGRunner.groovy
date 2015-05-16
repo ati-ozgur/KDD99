@@ -16,9 +16,9 @@ def createArffFileFromSqlFileName(String sqlFileName,String arffFileName)
 
 	String sql = new File(Resources.SQL_KDD99ETLScripts + sqlFileName).text
 
-	ArffFileFromDatabase m = new ArffFileFromDatabase(sql,sqlFileNameCombined);
 
-	CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(m)
+
+	CreateArffFilesFromDatabase.createArffFileFromDatabaseQuery(sql,sqlFileNameCombined)
 
 }
 
