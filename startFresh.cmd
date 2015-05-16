@@ -1,5 +1,6 @@
 SET PATH=%PATH%;.\tools
+gradlew backupFull
 gradlew clean
-startFreshWithoutClean.cmd
+START startFreshWithoutClean.cmd
 
 
