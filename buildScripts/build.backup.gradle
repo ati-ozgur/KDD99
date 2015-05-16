@@ -54,7 +54,7 @@ def generateExportResultsScripts()
 }
 
 
-task backupResultTablesToSqlFile(type:Exec) << {
+task backupResultTablesToSqlFile(type:Exec)  {
   generateExportResultsScripts();
 
   workingDir FOLDER_DATASETS_FULLPATH
