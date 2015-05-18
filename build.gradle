@@ -117,17 +117,3 @@ task showMeCache << {
 
 
 
-task listTrainedModelFiles() << {
-  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.weka')
-  tree.each {File file ->
-      println file.name
-  }
-  tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.moa')
-  tree.each {File file ->
-      println file.name
-  }
-}
-
-listTrainedModelFiles.group = GROUP_NAME_KDD_ML_TRAIN_TEST
-listTrainedModelFiles.description = """List trained model files, which can be used in other tasks such as 
-                        testOneModelUsingWekaInTrainingDataSet or testOneModelUsingMoaInTrainingDataSet"""

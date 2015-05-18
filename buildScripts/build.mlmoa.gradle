@@ -120,12 +120,3 @@ task TrainAllModelsUsingMoaInTrainingDataSet(type:JavaExec) {
 }
 
 
-task listTrainedModelFilesMoa() << {
-  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.moa')
-  tree.each {File file ->
-      println file.name
-  }
-}
-
-listTrainedModelFilesMoa.group = GROUP_NAME_KDD_ML_TRAIN_TEST_MOA
-listTrainedModelFilesMoa.description = 'List trained model files, which can be used in other tasks such as testOneModelUsingMoaInTrainingDataSet'

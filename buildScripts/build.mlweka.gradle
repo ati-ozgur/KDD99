@@ -153,16 +153,6 @@ task testOneModelUsingWekaInTestDataSet(type:JavaExec) {
 }
 
 
-task listTrainedModelFilesWeka() << {
-  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/weka*.weka')
-  tree.each {File file ->
-      println file.name
-  }
-}
-
-listTrainedModelFilesWeka.group = GROUP_NAME_KDD_ML_TRAIN_TEST_WEKA
-listTrainedModelFilesWeka.description = 'List trained model files, which can be used in other tasks such as testOneModelUsingWekaInTrainingDataSet'
-
 
 
 task trainOneModelUsingWekaInGivenFolderTrainingDataSets(type:JavaExec) {

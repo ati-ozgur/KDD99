@@ -25,3 +25,44 @@ task reportTestSummaryShowLast(type:JavaExec) {
    group = GROUP_NAME_REPORTS
    description = "Shows last testing model run information"
 }
+
+
+task listTrainedModelFilesWeka() << {
+  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/weka*.weka')
+  tree.each {File file ->
+      println file.name
+  }
+}
+
+listTrainedModelFilesWeka.group = GROUP_NAME_REPORTS
+listTrainedModelFilesWeka.description = 'List trained model files, which can be used in other tasks such as testOneModelUsingWekaInTrainingDataSet'
+
+
+
+task listTrainedModelFilesMoa() << {
+  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.moa')
+  tree.each {File file ->
+      println file.name
+  }
+}
+
+listTrainedModelFilesMoa.group = GROUP_NAME_REPORTS
+listTrainedModelFilesMoa.description = 'List trained model files, which can be used in other tasks such as testOneModelUsingMoaInTrainingDataSet'
+
+
+
+
+task listTrainedModelFiles() << {
+  FileTree tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.weka')
+  tree.each {File file ->
+      println file.name
+  }
+  tree = fileTree(dir: 'Datasets/SavedModels').include('**/*.moa')
+  tree.each {File file ->
+      println file.name
+  }
+}
+
+listTrainedModelFiles.group = GROUP_NAME_REPORTS
+listTrainedModelFiles.description = """List trained model files, which can be used in other tasks such as 
+                        testOneModelUsingWekaInTrainingDataSet or testOneModelUsingMoaInTrainingDataSet"""
