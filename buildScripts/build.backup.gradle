@@ -107,6 +107,9 @@ task backupModelFiles(type:Zip)  {
 backupModelFiles.group = GROUP_NAME_BACKUP
 backupModelFiles.description = "This task take a backup of trained model files"
 
+
+backupModelFiles.mustRunAfter backupResultTablesToSqlFile
+
 task backupFull << {
 
 }
