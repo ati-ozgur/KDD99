@@ -1,7 +1,6 @@
 package testBench.ids.kdd99.dal;
 
 
-import groovy.sql.Sql
 import testBench.ids.kdd99.*;
 import testBench.ids.kdd99.helpers.*;
 
@@ -13,7 +12,6 @@ println "CreateSubsetDataWithReplacementKdd99TrainDataNoDup.groovy"
 
 final int MAX_ROW = Finals.KDD_TRAIN_DATA_NODUP_COUNT;
 
-def sqlEngine = Sql.newInstance(Finals.JDBC_URL);
 
 
 int i=0;
