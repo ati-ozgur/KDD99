@@ -102,8 +102,8 @@ ext {
    IMPORT_BASH_FILE_NAME_FULL = "Datasets/" + IMPORT_BASH_FILE_NAME;
 
   CMD_ImportKddTrainData = """.separator ","
-.import kddcup.data KDD_TRAIN_DATA
-.import corrected TEST_CORRECTED
+.import kddcup.data tempKDD_TRAIN_DATA
+.import corrected tempTEST_CORRECTED
 """
 
   CMD_Exec_sqlite3_import = "sqlite3 ${DATABASE_NAME} < ${IMPORT_FILE_NAME}"
