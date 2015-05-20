@@ -8,6 +8,7 @@ ext {
    EXPORT_RESULTS_BASH_FILE_NAME = "exportResults.bash"
    EXPORT_RESULTS_BASH_FILE_NAME_FULL = "Datasets/" + EXPORT_RESULTS_BASH_FILE_NAME;
    EXPORT_RESULTS_SQL_FINAL_FOLDER = "backup/tableExports";
+   BACKUP_FILE_NAME = "backupModelAndTables"
 
 
   
@@ -94,7 +95,7 @@ backupResultTablesToSqlFile.description = """ This task take a backup of followi
 task backupModelFiles(type:Zip)  {
  outputs.upToDateWhen { false }
  
- String strArchiveName = 'savedModelFiles' + getTodayAsFormatted() + '.zip'
+ String strArchiveName = BACKUP_FILE_NAME + getTodayAsFormatted() + '.zip'
 
  from ('Datasets/SavedModels')
  from (EXPORT_RESULTS_SQL_FINAL_FOLDER)
@@ -123,3 +124,14 @@ backupFull.group = GROUP_NAME_BACKUP
 
 backupFull.dependsOn   'backupResultTablesToSqlFile','backupModelFiles'
 
+
+task listBackupFiles() << {
+  FileTree tree = fileTree(dir: 'backup').include('*.zip')
+  tree.each {File file ->
+      println file.name
+  }
+}
+
+listBackupFiles.description = "This task list backup files, which can be used in restoreBackup task "
+
+listBackupFiles.group = GROUP_NAME_BACKUP
