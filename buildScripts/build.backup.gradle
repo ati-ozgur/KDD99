@@ -97,9 +97,12 @@ task backupModelFiles(type:Zip)  {
  String strArchiveName = 'savedModelFiles' + getTodayAsFormatted() + '.zip'
 
  from ('Datasets/SavedModels')
-
+ from (EXPORT_RESULTS_SQL_FINAL_FOLDER)
+ include '*.weka'
+ include '*.moa'
+ include '*.sql'
+ 
  archiveName strArchiveName
- include '*'
  //into 'resources' // note that this specifies path *in* the archive
  destinationDir file("backup")  // directory that you want your archive to be placed in
 }
