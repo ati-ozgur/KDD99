@@ -99,12 +99,6 @@ DependsOn does not fix any order. Solution
 * Dependencies between tasks
 * mustRunAfter. It is not enough. This propert does not guarantee that task will run. You need to specify both tasks in command line, after that they are ordered.
 
-4. A lot of sqlite code starts to emerge. Put these code to DAL package
-
-
-
-
-
 
 
 
