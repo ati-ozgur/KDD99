@@ -7,15 +7,16 @@ ext {
    EXPORT_RESULTS_FILE_NAME_FULL = "Datasets/" + EXPORT_RESULTS_FILE_NAME
    EXPORT_RESULTS_BASH_FILE_NAME = "exportResults.bash"
    EXPORT_RESULTS_BASH_FILE_NAME_FULL = "Datasets/" + EXPORT_RESULTS_BASH_FILE_NAME;
+   EXPORT_RESULTS_SQL_FINAL_FOLDER = "backup/tableExports";
 
 
   
 CMD_ExportResultsSQLScript = """
 .mode insert ML_TRAIN_RESULTS
-.out "../backup/ML_TRAIN_RESULTS%s.sql"
+.out "../$EXPORT_RESULTS_SQL_FINAL_FOLDER/ML_TRAIN_RESULTS%s.sql"
 select * from ML_TRAIN_RESULTS;
 .mode insert ML_TEST_RESULTS
-.out "../backup/ML_TEST_RESULTS%s.sql" 
+.out "../$EXPORT_RESULTS_SQL_FINAL_FOLDER/ML_TEST_RESULTS%s.sql" 
 select * from ML_TEST_RESULTS;
 """
 
@@ -43,6 +44,12 @@ String getTodayAsFormatted() {
 
 def generateExportResultsScripts()
 {
+  def dir = new File(EXPORT_RESULTS_SQL_FINAL_FOLDER)
+  if(!dir.exists())
+  {
+    dir.mkdirs();
+  }
+
 
   String script = String.format(CMD_ExportResultsSQLScript,getTodayAsFormatted(),getTodayAsFormatted())
   output_SQLITE_EXPORT_RESULTS_FILE.write script
@@ -90,6 +97,7 @@ task backupModelFiles(type:Zip)  {
  String strArchiveName = 'savedModelFiles' + getTodayAsFormatted() + '.zip'
 
  from ('Datasets/SavedModels')
+
  archiveName strArchiveName
  include '*'
  //into 'resources' // note that this specifies path *in* the archive
