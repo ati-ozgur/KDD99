@@ -40,7 +40,7 @@ SELECT D.duration ,
   D.dst_host_rerror_rate ,
   D.dst_host_srv_rerror_rate ,
   D.class_attribute_binary
-  FROM KDD_TRAIN_DATA_NODUP D
+  FROM KDD_TRAIN_DATA D
 INNER JOIN SUBSET_IDS_WITHOUT_REPLACEMENT S
 ON S.VAL = D.id
 limit :rowCount;
