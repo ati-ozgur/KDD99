@@ -30,7 +30,7 @@ def listOfSize = [1024
 
 ]
 
-String templateName ="Kdd99TrainSubsetWithReplacement"; 
+String templateName ="Kdd99TrainSubsetWithoutReplacement"; 
 
 listOfSize.each{ i -> 
 
