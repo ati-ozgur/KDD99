@@ -45,11 +45,18 @@ String getTodayAsFormatted() {
 
 def generateExportResultsScripts()
 {
-  def dir = new File(EXPORT_RESULTS_SQL_FINAL_FOLDER)
-  if(!dir.exists())
+  def dirBackup = new File(EXPORT_RESULTS_SQL_FINAL_FOLDER)
+  if(!dirBackup.exists())
   {
-    dir.mkdirs();
+    dirBackup.mkdirs();
   }
+  def dirDatasets = new File("Datasets")
+  if(!dirDatasets.exists())
+  {
+    dirDatasets.mkdirs();
+  }
+
+
 
 
   String script = String.format(CMD_ExportResultsSQLScript,getTodayAsFormatted(),getTodayAsFormatted())
@@ -135,3 +142,23 @@ task listBackupFiles() << {
 listBackupFiles.description = "This task list backup files, which can be used in restoreBackup task "
 
 listBackupFiles.group = GROUP_NAME_BACKUP
+
+
+task unzipBackupFile() << 
+{
+    if (project.hasProperty('backupFileName') )
+    {
+      def zipFile = file('backup/' + backupFileName)
+      def outputDir = file("Datasets/SavedModelsFromBackup")
+
+      ant.unzip(src:zipFile,dest:outputDir)
+    }
+    else
+    {
+      println("no backupFileName specified, use as gradlew unzipBackupFile -PbackupFileName=XXX.zip")
+    }
+
+}
+
+
+
