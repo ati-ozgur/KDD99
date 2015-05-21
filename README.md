@@ -9,20 +9,34 @@ We would like to create a reproducible test bench by creating a script that does
 1. Download KDD99 dataset files from internet
 2. Unzip dataset files
 3. Create and sqlite database and import these files
-4. Use this database for creating necessary input files for machine learning algorithms.
+4. Use this database for creating necessary dataset files for machine learning algorithms.
 5. Following tools will be supported.
     a. Weka, the most used toolbox in this domain
     b. R (planned)
     c. Python (planned)
-6. 
 
 
 This projects uses following technologies mainly.
- * Java
+ * JVM
  * Gradle
+ * Groovy
+ * sqlite
+ * weka
+ * moa
 
 
-All other necessary components (weka,...) are downloaded from maven repositories.
+Except for JVM and sqlite, all other necessary components (weka,groovy,moa...) are downloaded from maven repositories.
+
+
+1. Open command line
+2. Control **java* is available
+3. Control **sqlite3** is available
+
+
+
+Following command will give you available commands
+
+    gradlew tasks
 
 
 Start with following command in Windows
@@ -33,7 +47,5 @@ Start with following command in other Unix/Linux/MacOs
 
     startFresh.bash
 
-Following command will give you other available commands
 
-    gradle tasks
 

@@ -1,4 +1,4 @@
-.\gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.rules.ZeroR' -PfolderName=Datasets\SavedArff
+gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.rules.ZeroR' -PfolderName=Datasets\SavedArff
 gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.rules.OneR -B 6' -PfolderName=Datasets\SavedArff
 gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.trees.DecisionStump' -PfolderName=Datasets\SavedArff
 gradlew trainOneModelUsingWekaInGivenFolderTrainingDataSets -PclassifierFullString='weka.classifiers.trees.J48  -C 0.25 -M 2' -PfolderName=Datasets\SavedArff
