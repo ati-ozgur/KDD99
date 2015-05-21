@@ -173,4 +173,7 @@ INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES
 INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.meta.OzaBag', 'OzaBag');
 INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('moa.classifiers.rules.RuleClassifier', 'RuleClassifier');
 
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.functions.RBFClassifier', 'RBFClassifier');
+INSERT INTO LT_CLASSIFIER_NAMES (ClassifierFullName, classifierShortName) VALUES ('weka.classifiers.functions.RBFNetwork', 'RBFNetwork');
+
 
