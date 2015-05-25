@@ -1,25 +1,31 @@
-FOLDER_MAIN <- "../../../"
-FOLDER_DATASET <- paste (FOLDER_MAIN,"Datasets/", sep = "" )
-FOLDER_RESOURCES <- paste (FOLDER_MAIN,"src/main/SQL/", sep = "" )
-FOLDER_LATEX_TABLE_SQL <- paste(FOLDER_RESOURCES,"latexTableSql/",sep = "")
+Constants <- new.env()
 
-DATASET_FILENAME <- paste(FOLDER_DATASET,"test1.sqlite",sep = "")
-
-ClassifierTrainingHardwareMetricsWekaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsWeka.sql",sep = "")
-ClassifierTrainingHardwareMetricsMoaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsMoa.sql",sep = "")
-
-ClassifierTestOnTrainingSoftwareMetricsWekaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsWeka.sql",sep = "")
-ClassifierTestOnTrainingSoftwareMetricsMoaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsMoa.sql",sep = "")
-ClassifierTestOnTestSoftwareMetricsWekaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsWeka.sql",sep = "")
-ClassifierTestOnTestSoftwareMetricsMoaFileName <- paste(FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsMoa.sql",sep = "")
+Constants$FOLDER_MAIN <- "../../../"
 
 
-LearningCurvesNoDuplicateSubsetWithReplacementJ48 <- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementJ48.sql",sep = "")
 
-LearningCurvesNoDuplicateSubsetWithReplacementRandomForests<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementRandomForests.sql",sep = "")
 
-LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes.sql",sep = "")
+Constants$FOLDER_DATASET <- paste (Constants$FOLDER_MAIN,"Datasets/", sep = "" )
+Constants$FOLDER_RESOURCES <- paste (Constants$FOLDER_MAIN,"src/main/SQL/", sep = "" )
+Constants$FOLDER_LATEX_TABLE_SQL <- paste(Constants$FOLDER_RESOURCES,"latexTableSql/",sep = "")
 
-LearningCurvesNoDuplicateSubsetWithReplacementOneR<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementOneR.sql",sep = "")
+Constants$DATASET_FILENAME <- paste(Constants$FOLDER_DATASET,"test1.sqlite",sep = "")
 
-LearningCurvesNoDuplicateSubsetWithReplacementAdaboostM1<- paste(FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementAdaboostM1.sql",sep = "")
+Constants$ClassifierTrainingHardwareMetricsWekaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsWeka.sql",sep = "")
+Constants$ClassifierTrainingHardwareMetricsMoaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsMoa.sql",sep = "")
+
+Constants$ClassifierTestOnTrainingSoftwareMetricsWekaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsWeka.sql",sep = "")
+Constants$ClassifierTestOnTrainingSoftwareMetricsMoaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsMoa.sql",sep = "")
+Constants$ClassifierTestOnTestSoftwareMetricsWekaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsWeka.sql",sep = "")
+Constants$ClassifierTestOnTestSoftwareMetricsMoaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsMoa.sql",sep = "")
+
+
+Constants$LearningCurvesNoDuplicateSubsetWithReplacementJ48 <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementJ48.sql",sep = "")
+
+Constants$LearningCurvesNoDuplicateSubsetWithReplacementRandomForests<- paste(Constants$FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementRandomForests.sql",sep = "")
+
+Constants$LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes<- paste(Constants$FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementNaiveBayes.sql",sep = "")
+
+Constants$LearningCurvesNoDuplicateSubsetWithReplacementOneR<- paste(Constants$FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementOneR.sql",sep = "")
+
+Constants$LearningCurvesNoDuplicateSubsetWithReplacementAdaboostM1<- paste(Constants$FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementAdaboostM1.sql",sep = "")
