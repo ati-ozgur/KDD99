@@ -1,13 +1,13 @@
 SqliteToLatexClassifierTrainingHardwareMetricsWeka
 
-if(!exists("DATASET_FILENAME", mode="function")) source("Constants.R")
+if(!exists("Constants$DATASET_FILENAME", mode="function")) source("Constants.R")
 
 suppressWarnings(suppressMessages(library(ggplot2)))
 suppressWarnings(suppressMessages(library(dplyr)))
 suppressWarnings(suppressMessages(library(stargazer)))
 
 
-if(!exists("dbIDS", mode="function")) dbIDS <- src_sqlite(DATASET_FILENAME, create = F)
+if(!exists("dbIDS", mode="function")) dbIDS <- src_sqlite(Constants$DATASET_FILENAME, create = F)
 
 sqlText <- paste(readLines(ClassifierTrainingHardwareMetricsWekaFileName), collapse="\n")
 

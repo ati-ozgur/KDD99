@@ -6,7 +6,7 @@
 
 
 <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
-  source("SqliteToLatexClassifierTestOnTestSoftwareMetricsWeka.R")
+  source("latexTableScripts/SqliteToLatexClassifierTestOnTestSoftwareMetricsWeka.R")
 @
 
 
