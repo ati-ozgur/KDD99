@@ -11,13 +11,29 @@ Constants$FOLDER_LATEX_TABLE_SQL <- paste(Constants$FOLDER_RESOURCES,"latexTable
 
 Constants$DATASET_FILENAME <- paste(Constants$FOLDER_DATASET,"test1.sqlite",sep = "")
 
-Constants$ClassifierTrainingHardwareMetricsWekaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsWeka.sql",sep = "")
-Constants$ClassifierTrainingHardwareMetricsMoaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsMoa.sql",sep = "")
 
-Constants$ClassifierTestOnTrainingSoftwareMetricsWekaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsWeka.sql",sep = "")
-Constants$ClassifierTestOnTrainingSoftwareMetricsMoaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsMoa.sql",sep = "")
-Constants$ClassifierTestOnTestSoftwareMetricsWekaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsWeka.sql",sep = "")
-Constants$ClassifierTestOnTestSoftwareMetricsMoaFileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsMoa.sql",sep = "")
+# WEKA
+
+fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsWeka.sql",sep = "")
+Constants$ClassifierTrainingInformationHardwareMetricsWeka <- paste(readLines(fileName), collapse="\n")
+
+fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsWeka.sql",sep = "")
+Constants$ClassifierTestOnTrainingSoftwareMetricsWeka <- paste(readLines(fileName), collapse="\n")
+
+fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsWeka.sql",sep = "")
+Constants$ClassifierTestOnTestSoftwareMetricsWeka <-  paste(readLines(fileName), collapse="\n")
+
+
+#MOA
+
+fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsMoa.sql",sep = "")
+Constants$ClassifierTrainingHardwareMetricsMoaFileName <-  paste(readLines(fileName), collapse="\n")
+
+fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsMoa.sql",sep = "")
+Constants$ClassifierTestOnTrainingSoftwareMetricsMoaFileName <-  paste(readLines(fileName), collapse="\n")
+
+fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsMoa.sql",sep = "")
+Constants$ClassifierTestOnTestSoftwareMetricsMoaFileName <- paste(readLines(fileName), collapse="\n")
 
 
 Constants$LearningCurvesNoDuplicateSubsetWithReplacementJ48 <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementJ48.sql",sep = "")
