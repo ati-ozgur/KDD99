@@ -10,11 +10,11 @@ __SavedModels1/*
 documents/books/*
 documents/*.pdf
 documents/**/*.pdf
-src/main/R/*.tex
+src/main/R/**/*.tex
 src/main/R/.Rhistory
-src/main/R/*.log
-src/main/R/*.pdf
-src/main/R/*.synctex.gz
+src/main/R/**/*.log
+src/main/R/**/*.pdf
+src/main/R/**/*.synctex.gz
 src/main/R/outputs/*
 *.sublime-workspace
 *.db
