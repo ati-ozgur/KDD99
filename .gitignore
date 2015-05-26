@@ -15,6 +15,7 @@ src/main/R/.Rhistory
 src/main/R/*.log
 src/main/R/*.pdf
 src/main/R/*.synctex.gz
+src/main/R/outputs/*
 *.sublime-workspace
 *.db
 *.docx
