@@ -6,15 +6,15 @@
 
 
 <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
-  source("latexTableScripts/SqliteToLatexClassifierTestOnTestSoftwareMetricsMoa.R")
+  source("latexTableScripts/ClassifierTestOnTestSoftwareMetricsMoa.R")
 @
 
-% 
-% 
-% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
-%   source("latexTableScripts/SqliteToLatexClassifierTestOnTestSoftwareMetricsWeka.R")
-% @
-% 
+ 
+ 
+ <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+   source("latexTableScripts/ClassifierTestOnTestSoftwareMetricsWeka.R")
+ @
+ 
 % <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
 %   source("latexTableScripts/SqliteToLatexClassifierTestOnTrainingSoftwareMetricsMoa.R")
 % @
