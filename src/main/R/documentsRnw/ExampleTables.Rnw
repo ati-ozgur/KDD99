@@ -6,9 +6,48 @@
 
 
 <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
-  source("latexTableScripts/SqliteToLatexClassifierTestOnTestSoftwareMetricsWeka.R")
+  source("latexTableScripts/SqliteToLatexClassifierTestOnTestSoftwareMetricsMoa.R")
 @
 
+% 
+% 
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexClassifierTestOnTestSoftwareMetricsWeka.R")
+% @
+% 
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexClassifierTestOnTrainingSoftwareMetricsMoa.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexClassifierTestOnTrainingSoftwareMetricsWeka.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexClassifierTestSoftwareMetrics.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexClassifierTrainingHardwareMetricsMoa.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexClassifierTrainingHardwareMetrics.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexClassifierTrainingHardwareMetricsWeka.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexLearningCurvesAdaboostM1.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexLearningCurvesj48.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexLearningCurvesNaiveBayes.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexLearningCurvesOneR.R")
+% @
+% <<echo=FALSE,warning=FALSE,tidy=TRUE,results='asis'>>=
+%   source("latexTableScripts/SqliteToLatexLearningCurvesRandomForests.R")
+% @
 
 
 
