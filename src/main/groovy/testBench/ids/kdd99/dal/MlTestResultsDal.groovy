@@ -157,7 +157,7 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,   ? , ? , ? , ? , ? , ? 
                 )
     }
 
-    public static void Ekle(
+    public static void EkleMoa(
      String classifierName 
     , String datasetType 
     , String datasetName 
