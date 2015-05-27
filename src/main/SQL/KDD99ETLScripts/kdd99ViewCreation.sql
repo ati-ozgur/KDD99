@@ -38,17 +38,41 @@ DROP VIEW IF EXISTS ML_TEST_RESULTS_SUMMARY;
 
 CREATE VIEW ML_TEST_RESULTS_SUMMARY AS
 SELECT 
- T.*
-, T.TruePositive  / ( T.TruePositive  + T.FalseNegative ) AS "tprate"
-, T.TrueNegative  / (T.TrueNegative + T.FalsePositive ) AS "tnrate"
-, T.FalsePositive / ( T.FalsePositive + T.TrueNegative  ) AS "fprate"
-, T.TruePositive  / ( T.TruePositive  + T.FalsePositive ) AS "positive_predictive_value"
-, T.TrueNegative  / ( T.TrueNegative  + T.FalseNegative ) AS "negative_predictive_value"
-, T.FalsePositive / (  T.TruePositive + T.FalsePositive ) AS "false_discovery_rate "
-, (T.TruePositive + T.TrueNegative) / NumberOfInstances   AS "accuracy"
-, 2 * T.TruePositive / ( 2 * T.TruePositive  + T.FalsePositive + T.FalseNegative ) AS "F1_score"
+id
+, classifierName 
+, datasetType 
+, datasetName 
+, numberOfInstances 
+, classifierModelFileName 
+, TruePositive 
+, FalsePositive 
+, TrueNegative 
+, FalseNegative 
+, testStartTime  
+, testFinishTime  
+, testDuration  
+, freeMemory  
+, totalMemory  
+, maxMemory  
+, usedMemory 
+, LocalMachineHostName 
+, JavaVersion 
+, OsArchitecture 
+, UserName 
+, JavaVmName 
+, OsName 
+, OsVersion 
+, AvailableProcessors 
+, TruePositive  / ( TruePositive  + FalseNegative ) AS "tprate"
+, TrueNegative  / (TrueNegative + FalsePositive ) AS "tnrate"
+, FalsePositive / ( FalsePositive + TrueNegative  ) AS "fprate"
+, TruePositive  / ( TruePositive  + FalsePositive ) AS "positive_predictive_value"
+, TrueNegative  / ( TrueNegative  + FalseNegative ) AS "negative_predictive_value"
+, FalsePositive / (  TruePositive + FalsePositive ) AS "false_discovery_rate "
+, (TruePositive + TrueNegative) / NumberOfInstances   AS "accuracy"
+, 2 * TruePositive / ( 2 * TruePositive  + FalsePositive + FalseNegative ) AS "F1_score"
+ FROM ML_TEST_RESULTS;
 
-FROM ML_TEST_RESULTS T;
 
 DROP VIEW IF EXISTS ML_TEST_RESULTS_SUMMARY_FULL_NAMES;
 

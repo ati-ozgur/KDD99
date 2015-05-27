@@ -173,11 +173,18 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,   ? , ? , ? , ? , ? , ? 
 
 
     double TruePositive = confusionMatrix[0][0];
-    double FalsePositive  = confusionMatrix[0][1];
-    double FalseNegative  = confusionMatrix[1][0];
-    double TrueNegative  = confusionMatrix[1][1];
 
-    
+    double FalsePositive  = confusionMatrix[0][1];
+    double TrueNegative  = confusionMatrix[1][0];
+    double FalseNegative   = confusionMatrix[1][1];
+
+    println(confusionMatrix)
+    println("TruePositive: " + TruePositive)
+    println("TrueNegative: " + TrueNegative)
+    println("FalsePositive: " + FalsePositive)
+    println("FalseNegative: " + FalseNegative)
+
+
 
         EklePrivate(
        classifierName 
