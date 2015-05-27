@@ -27,13 +27,15 @@ Constants$ClassifierTestOnTestSoftwareMetricsWeka <-  paste(readLines(fileName),
 #MOA
 
 fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTrainingInformationHardwareMetricsMoa.sql",sep = "")
-Constants$ClassifierTrainingHardwareMetricsMoaFileName <-  paste(readLines(fileName), collapse="\n")
+Constants$ClassifierTrainingHardwareMetricsMoa <-  paste(readLines(fileName), collapse="\n")
 
 fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTrainingSoftwareMetricsMoa.sql",sep = "")
-Constants$ClassifierTestOnTrainingSoftwareMetricsMoaFileName <-  paste(readLines(fileName), collapse="\n")
+Constants$ClassifierTestOnTrainingSoftwareMetricsMoa <-  paste(readLines(fileName), collapse="\n")
 
 fileName <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"ClassifierTestOnTestSoftwareMetricsMoa.sql",sep = "")
-Constants$ClassifierTestOnTestSoftwareMetricsMoaFileName <- paste(readLines(fileName), collapse="\n")
+Constants$ClassifierTestOnTestSoftwareMetricsMoa <- paste(readLines(fileName), collapse="\n")
+
+rm("fileName")
 
 
 Constants$LearningCurvesNoDuplicateSubsetWithReplacementJ48 <- paste(Constants$FOLDER_LATEX_TABLE_SQL,"LearningCurvesNoDuplicateSubsetWithReplacementJ48.sql",sep = "")

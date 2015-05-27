@@ -7,7 +7,7 @@ suppressWarnings(suppressMessages(library(stargazer)))
 
 if(!exists("dbIDS", mode="function")) dbIDS <- src_sqlite(Constants$DATASET_FILENAME, create = F)
 
-sqlText <- 
+sqlText <- Constants$ClassifierTestOnTestSoftwareMetricsMoa
 
 tbl<- tbl(dbIDS, sql(sqlText))
 df  <- as.data.frame(tbl , n=-1)
