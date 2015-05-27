@@ -47,9 +47,11 @@ public class EvaluateModelHelperMoa
 
 
         long tp = 0;
-        int fp = 0;
+        long fp = 0;
         long tn = 0;
-        int fn= 0;
+        long fn= 0;
+        long instancesCorrectlyClassified;
+
 
 
         while (stream.hasMoreInstances()
@@ -62,6 +64,7 @@ public class EvaluateModelHelperMoa
                 if( model.correctlyClassifies(testInst))
                 {
                     tn++;
+                    instancesCorrectlyClassified++;
                 }
                 else
                 {
@@ -73,6 +76,7 @@ public class EvaluateModelHelperMoa
                 if( model.correctlyClassifies(testInst))
                 {
                     tp++;
+                    instancesCorrectlyClassified++;
                 }
                 else
                 {
@@ -86,6 +90,7 @@ public class EvaluateModelHelperMoa
         cf.TrueNegative = tn;
         cf.FalseNegative = fn;
         cf.InstancesProcessed = instancesProcessed;
+        cf.Accuracy = instancesCorrectlyClassified;
 
         cf.ClassifierName = model.getClass().getName();
         cf.DatasetName = datasetName;
@@ -121,17 +126,9 @@ public class EvaluationInformation
         public long TrueNegative = 0;
         public long FalseNegative = 0;
         public long InstancesProcessed;
+        public long Accuracy;
 
-        public double[][] confusionMatrix()
-        {
-            double[][] _confusionMatrix = new double[2][2];
-            _confusionMatrix[0][0] = TruePositive;
-            _confusionMatrix[0][1] = FalsePositive;
-            _confusionMatrix[1][0] = TrueNegative;
-            _confusionMatrix[1][1] = FalseNegative;
-            return _confusionMatrix;
 
-        }
 
  
 
@@ -141,6 +138,7 @@ public class EvaluationInformation
             sb.append("DatasetType : " + getDatasetType() + "\n" )
             sb.append("ClassifierName : $ClassifierName \n" )
             sb.append("instancesProcessed : $InstancesProcessed \n" )
+            sb.append("Accuracy : $Accuracy \n" )
             sb.append("true positive : $TruePositive\n" )
             sb.append("true negative : $TrueNegative\n" )
             sb.append("false positive : $FalsePositive\n" )

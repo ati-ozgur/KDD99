@@ -70,7 +70,7 @@ String classifierName = cls.getClass().getName();
 
 println classifierName;
 
-MlTestResultsDal.Ekle(
+MlTestResultsDal.EkleWeka(
 
       classifierName 
     ,  datasetType 

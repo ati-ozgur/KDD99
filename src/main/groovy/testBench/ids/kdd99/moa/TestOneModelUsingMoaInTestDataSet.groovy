@@ -65,15 +65,18 @@ Date testFinishTime = DateHelper.getNow();
 
 
 
-MlTestResultsDal.Ekle(
+MlTestResultsDal.EkleMoa(
 
       evaluationInformation.ClassifierName 
     ,  evaluationInformation.getDatasetType() 
     ,  evaluationInformation.DatasetName
     ,  evaluationInformation.InstancesProcessed
     ,  evaluationInformation.ModelFileName 
-    ,  evaluationInformation.confusionMatrix()
-    ,  testStartTime  
+        ,evaluationInformation.TruePositive
+        ,evaluationInformation.FalsePositive
+        , evaluationInformation.TrueNegative
+        ,evaluationInformation.FalseNegative
+    ,  testStartTime
     ,  testFinishTime  
     , runtimeInformation
 );

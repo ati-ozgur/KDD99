@@ -66,7 +66,7 @@ Date testFinishTime = DateHelper.getNow();
 
 
 
-MlTestResultsDal.Ekle(
+MlTestResultsDal.EkleMoa(
 
       evaluationInformation.ClassifierName 
     ,  evaluationInformation.getDatasetType() 

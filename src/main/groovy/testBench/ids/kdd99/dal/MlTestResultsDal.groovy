@@ -162,27 +162,18 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,   ? , ? , ? , ? , ? , ? 
     , String datasetType 
     , String datasetName 
     , long numberOfInstances 
-    , String classifierModelFileName 
-    , double[][] confusionMatrix
-    , Date testStartTime  
+    , String classifierModelFileName
+     ,long  TruePositive
+     ,long  FalsePositive
+     , long TrueNegative
+     ,long  FalseNegative
+     , Date testStartTime
     , Date testFinishTime  
     , RuntimeInformation runtimeInformation
 
         )
     {
 
-
-    double TruePositive = confusionMatrix[0][0];
-
-    double FalsePositive  = confusionMatrix[0][1];
-    double TrueNegative  = confusionMatrix[1][0];
-    double FalseNegative   = confusionMatrix[1][1];
-
-    println(confusionMatrix)
-    println("TruePositive: " + TruePositive)
-    println("TrueNegative: " + TrueNegative)
-    println("FalsePositive: " + FalsePositive)
-    println("FalseNegative: " + FalseNegative)
 
 
 
@@ -215,7 +206,60 @@ VALUES   (  ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? ,   ? , ? , ? , ? , ? , ? 
     }
 
 
+    public static void EkleWeka(
+     String classifierName 
+    , String datasetType 
+    , String datasetName 
+    , long numberOfInstances 
+    , String classifierModelFileName 
+    , double[][] confusionMatrix
+    , Date testStartTime  
+    , Date testFinishTime  
+    , RuntimeInformation runtimeInformation
 
+        )
+    {
+
+
+    double TruePositive = confusionMatrix[0][0];
+    double FalsePositive  = confusionMatrix[0][1];
+    double TrueNegative  = confusionMatrix[1][1];
+    double FalseNegative = confusionMatrix[1][0];
+
+    println(confusionMatrix)
+    println("TruePositive: " + TruePositive)
+    println("TrueNegative: " + TrueNegative)
+    println("FalsePositive: " + FalsePositive)
+    println("FalseNegative: " + FalseNegative)
+    
+
+        EklePrivate(
+       classifierName 
+    ,  datasetType 
+    ,  datasetName 
+    ,  numberOfInstances 
+    ,  classifierModelFileName 
+    ,  TruePositive 
+    ,  FalsePositive 
+    ,  TrueNegative 
+    ,  FalseNegative  
+    ,  testStartTime  
+    ,  testFinishTime  
+    ,  runtimeInformation.FreeMemory
+    ,  runtimeInformation.TotalMemory
+    ,  runtimeInformation.MaxMemory
+    ,  runtimeInformation.UsedMemory
+    ,  runtimeInformation.LocalMachineHostName
+    ,  runtimeInformation.JavaVersion
+    ,  runtimeInformation.OsArchitecture
+    ,  runtimeInformation.UserName
+    ,  runtimeInformation.JavaVmName
+    ,  runtimeInformation.OsName
+    ,  runtimeInformation.OsVersion
+    ,  runtimeInformation.AvailableProcessors
+
+            )
+    }
 
 
 }
