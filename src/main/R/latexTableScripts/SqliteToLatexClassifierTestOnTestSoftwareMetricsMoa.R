@@ -19,11 +19,12 @@ stargazer(
   ,align = TRUE
   , summary=FALSE
   , title="Classifiers Test on Test Software Metrics Moa"
-  ,font.size="small"
+  ,font.size=Constants$tableFontSize
   ,initial.zero=TRUE
   ,rownames=FALSE
   , out="table-ClassifiersTestOnTestSoftwareMetricsMoa.tex"
   , out.header=TRUE
+#  , float = FALSE
 )
 
 

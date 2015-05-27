@@ -2,6 +2,9 @@ Constants <- new.env()
 
 Constants$FOLDER_MAIN <- "../../../"
 
+Constants$tableFontSize <- "scriptsize"
+#The font can be one of the following: "tiny", "scriptsize", "footnotesize", "small", 
+# "normalsize", "large", "Large", "LARGE", "huge", "Huge"
 
 
 
