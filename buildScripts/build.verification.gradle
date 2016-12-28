@@ -29,6 +29,13 @@ task SQLiteConnectionControl(type:JavaExec) {
    description = "it verifies sqlite connection is correct"
 }
 
+task SQLiteControlTablesExists(type:JavaExec) {
+   main = examplesPackageName + ".JdbcExampleControlTablesExists"
+   classpath = sourceSets.main.runtimeClasspath
+   group = GROUP_NAME_TEST
+   description = "it verifies that tables in sqlite exists"
+}
+
 
 task testRandomNumbersHelpers(type:JavaExec) {
    main =  "testBench.ids.kdd99.helpers.RandomNumbersHelpers"
