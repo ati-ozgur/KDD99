@@ -8,10 +8,10 @@ goto :endofscript
 
 :next
 echo "Doing Backup"
-gradlew gradlew backupFull
+call gradlew gradlew backupFull
 
 
 :endofscript
-gradlew clean
-START startFreshWithoutClean.cmd
+call gradlew clean
+call startFreshWithoutClean.cmd
 echo "Script complete"
