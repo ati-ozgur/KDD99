@@ -2,7 +2,7 @@ package examples;
 
 
 import groovy.sql.Sql
-
+import testBench.ids.kdd99.*;
 
 
 
