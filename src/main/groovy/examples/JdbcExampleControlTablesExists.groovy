@@ -17,12 +17,22 @@ println "Hello from groovy"
 def sqlEngine = Sql.newInstance(Finals.JDBC_URL)
 
 
-String sqlToExecute = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='ML_TRAIN_RESULTS';"
+String sqlToExecute = "SELECT count(*) AS TABLE_COUNT FROM sqlite_master WHERE type='table' AND name='ML_TRAIN_RESULTS';"
 
 
 
-sqlEngine.execute sqlToExecute
-
+def row = sqlEngine.firstRow(sqlToExecute)
+def cnt = row["TABLE_COUNT"]
+println cnt
 sqlEngine.close()
 
+if(cnt > 0)
+{
+    println("Table exists")
+}
+else
+{
+    println("Table NOT exists")
+}
+return cnt
 
