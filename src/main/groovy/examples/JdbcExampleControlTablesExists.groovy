@@ -33,6 +33,7 @@ if(cnt > 0)
 else
 {
     println("Table NOT exists")
+    throw new RuntimeException("Table Not Exists")
 }
 return cnt
 
