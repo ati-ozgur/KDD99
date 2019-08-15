@@ -17,6 +17,8 @@ public class Finals {
     
 
     public static final String MODEL_ARFF_BINARY = Finals.RESOURCES + "ModelKddCupBinary.arff";
+    public static final String MODEL_ARFF_5CLASSES = Finals.RESOURCES + "ModelKddCup5Classes.arff";
+    public static final String MODEL_ARFF_ALL_CLASSES = Finals.RESOURCES + "ModelKddCupAllClasses.arff";
 
     public static final int CLASS_ATT_NORMAL = 0;
     public static final int CLASS_ATT_ATTACK = 1;    

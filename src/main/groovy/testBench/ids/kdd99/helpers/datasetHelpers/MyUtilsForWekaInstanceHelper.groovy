@@ -28,8 +28,39 @@ public class MyUtilsForWekaInstanceHelper {
         return data;
         
     }
+    public static Instances getKddCupSampleInstancesFor5Classes() {
+        Instances data = null;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(Finals.MODEL_ARFF_5CLASSES));
+            data = new Instances(reader);
+            reader.close();
+            // setting class attribute
+            data.setClassIndex(data.numAttributes() - 1);
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        } 
+        return data;
+    
+    }
 
-    public static Instances getKddCupSampleInstancesBinary() {
+
+    public static Instances getKddCupSampleInstancesForAllClasses() {
+        Instances data = null;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(Finals.MODEL_ARFF_ALL_CLASSES));
+            data = new Instances(reader);
+            reader.close();
+            // setting class attribute
+            data.setClassIndex(data.numAttributes() - 1);
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        } 
+        return data;
+    
+    }
+    public static Instances getKddCupSampleInstancesForBinary() {
         Instances data = null;
         try {
             BufferedReader reader = new BufferedReader(new FileReader(Finals.MODEL_ARFF_BINARY));

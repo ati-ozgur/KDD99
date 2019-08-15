@@ -19,8 +19,19 @@ public class CreateArffFilesFromDatabase {
     	{
     		f.mkdir()
     	}
+        Instances SampleInstance = null;
+        if(fileName.contains("Binary")){
+             SampleInstance = MyUtilsForWekaInstanceHelper.getKddCupSampleInstancesForBinary();
+        }
+        if(fileName.contains("5Classes")){
+             SampleInstance = MyUtilsForWekaInstanceHelper.getKddCupSampleInstancesFor5Classes();
+        }
+        if(fileName.contains("AllClasses")){
+             SampleInstance = MyUtilsForWekaInstanceHelper.getKddCupSampleInstancesForAllClasses();
+        }
 
-        Instances SampleInstance = MyUtilsForWekaInstanceHelper.getKddCupSampleInstancesBinary();
+        
+        
         Instances data2 = InstancesFromDatabase.getInstanceDataFromDatabase(sql);
         MyUtilsForWekaInstanceHelper.combineInstances(SampleInstance, Finals.ARFF_SAVE_FOLDER +  fileName,data2);
 
