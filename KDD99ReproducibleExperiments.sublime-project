@@ -30,14 +30,6 @@
 			],
 			"follow_symlinks": true,
 			"path": "."
-		},
-		{
-			"follow_symlinks": true,
-			"path": "..//WekaExamples"
-		},
-		{
-			"follow_symlinks": true,
-			"path": "..//MoaExamples"
 		}
 	]
 }
