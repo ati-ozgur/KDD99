@@ -41,7 +41,8 @@
 @attribute dst_host_srv_serror_rate numeric
 @attribute dst_host_rerror_rate numeric
 @attribute dst_host_srv_rerror_rate numeric
-@attribute class_attribute_binary {normal,attack}
+@attribute class_attribute_all {apache2 ,back ,buffer_overflow ,ftp_write ,guess_passwd ,httptunnel ,imap ,ipsweep ,land ,loadmodule ,mailbomb ,mscan ,multihop ,named ,neptune ,nmap ,normal ,perl ,phf ,pod ,portsweep ,processtable ,ps ,rootkit ,saint ,satan ,sendmail ,smurf ,snmpgetattack ,snmpguess ,spy ,sqlattack ,teardrop ,udpstorm ,warezclient ,warezmaster ,worm ,xlock ,xsnoop ,xterm}
+
 
 @data
 
