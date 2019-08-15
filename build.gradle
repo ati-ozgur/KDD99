@@ -29,7 +29,7 @@ version = '0.0.1'
 
     mainPackageName = "testBench.ids.kdd99"
     
-    DATABASE_NAME = "test1.sqlite"
+    DATABASE_NAME = "KDD99ReproducibleExperiments.sqlite"
 
     kddDataSetFiles = [
     'kddcup.names',
