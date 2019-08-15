@@ -23,8 +23,17 @@ def createArffFileFromSqlFileName(String sqlFileName,String arffFileName)
 }
 
 
-listSqlFiles = ['createFullKdd99TrainingDatasetForBinary','createFullKdd99TestDatasetForBinary']
-listArffFileNames = ['Kdd99TrainingDatasetForBinary','Kdd99TestDatasetForBinary']
+listSqlFiles = ['createFullKdd99TrainingDatasetForBinary'
+,'createFullKdd99TrainingDatasetFor5Classes'
+,'createFullKdd99TrainingDatasetForAllClasses'
+,'createFullKdd99TestDatasetForBinary']
+listArffFileNames = ['Kdd99TrainingDatasetForBinary'
+	,'Kdd99TrainingDatasetFor5Classes'
+	,'Kdd99TrainingDatasetForAllClasses'
+	,'Kdd99TestDatasetForBinary'
+	,'Kdd99TestDatasetFor5Classes'
+	,'Kdd99TestDatasetForAllClasses'
+	]
 
 
 for(int i=0;i<listSqlFiles.size();i++)
