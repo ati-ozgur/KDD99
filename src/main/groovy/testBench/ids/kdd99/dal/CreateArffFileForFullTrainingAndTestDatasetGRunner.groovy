@@ -26,7 +26,12 @@ def createArffFileFromSqlFileName(String sqlFileName,String arffFileName)
 listSqlFiles = ['createFullKdd99TrainingDatasetForBinary'
 ,'createFullKdd99TrainingDatasetFor5Classes'
 ,'createFullKdd99TrainingDatasetForAllClasses'
-,'createFullKdd99TestDatasetForBinary']
+,'createFullKdd99TestDatasetForBinary'
+,'createFullKdd99TestDatasetFor5Classes'
+,'createFullKdd99TestDatasetForAllClasses'
+
+]
+
 listArffFileNames = ['Kdd99TrainingDatasetForBinary'
 	,'Kdd99TrainingDatasetFor5Classes'
 	,'Kdd99TrainingDatasetForAllClasses'
