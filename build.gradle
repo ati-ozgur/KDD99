@@ -111,8 +111,10 @@ def isWindows()
 
 
 
-task showMeCache << {
-  configurations.compile.each { println it }
+task showMeCache {
+    doLast  {
+      configurations.compile.each { println it }
+  }
 }
 
 

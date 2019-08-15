@@ -118,16 +118,17 @@ ext {
 
 
 
-task generateImportScripts << {
-  FOLDER_DATASETS.mkdirs()
-  output_SQLITE_IMPORT_FILE.write CMD_ImportKddTrainData
-  output_SQLITE_IMPORT_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_import
+task generateImportScripts {
+     doLast  {
+      FOLDER_DATASETS.mkdirs()
+      output_SQLITE_IMPORT_FILE.write CMD_ImportKddTrainData
+      output_SQLITE_IMPORT_FILE_BASH_COMMAND.write CMD_Exec_sqlite3_import
 
 
-  ant.chmod(dir:FOLDER_DATASETS_FULLPATH, perm:'+x', includes:"*.bash")
+      ant.chmod(dir:FOLDER_DATASETS_FULLPATH, perm:'+x', includes:"*.bash")
 
+  }
 }
-
 
 
 
